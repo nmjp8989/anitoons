@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v39</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v40</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -37,7 +37,7 @@
 .camera-options button:focus-visible{outline:3px solid #328ed6;outline-offset:2px}
 @media(max-width:700px){.camera-row{margin:10px 12px 0;padding:8px;gap:6px}.camera-options{flex:1;justify-content:space-between}.camera-options button{flex:1;padding:8px 3px;font-size:10px}}
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v39</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v40</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -382,7 +382,7 @@ function headwearSvg(key,colour=state.headwearColour){
 
 
 // Facial hair is registered to the jaw, independently of the animated mouth.
-const beardNames={none:'None',light:'Light stubble',heavy:'Heavy stubble',short:'Short full',boxed:'Boxed beard',round:'Rounded full',square:'Square full',pointed:'Pointed full',flowing:'Long flowing',wide:'Wide natural',extraLong:'Extra long natural',wavy:'Long wavy',curly:'Full curly',tied:'Tied beard',rolled:'Rolled / tucked',fork:'Forked beard',braid:'Single braid',doubleBraid:'Twin braids',goatee:'Goatee',longGoatee:'Long goatee',circle:'Circle beard',anchor:'Anchor',chinstrap:'Chin strap',chinCurtain:'Chin curtain',mutton:'Mutton chops',sideburns:'Sideburns',soul:'Soul patch'};
+const beardNames={none:'None',light:'Light stubble',heavy:'Heavy stubble',short:'Short full',boxed:'Boxed beard',round:'Rounded full',square:'Square full',pointed:'Pointed full',flowing:'Long flowing',wide:'Wide natural',extraLong:'Extra long natural',wavy:'Long wavy',curly:'Full curly',tied:'Tied beard',rolled:'Rolled / tucked',fork:'Forked beard',goatee:'Goatee',longGoatee:'Long goatee',circle:'Circle beard',anchor:'Anchor',chinstrap:'Chin strap',chinCurtain:'Chin curtain',mutton:'Mutton chops',sideburns:'Sideburns',soul:'Soul patch'};
 const moustacheNames={none:'None',short:'Short trimmed',natural:'Natural',thick:'Thick natural',chevron:'Chevron',pencil:'Pencil',parted:'Centre parted',handlebar:'Handlebar',punjabi:'Full curled',imperial:'Imperial',walrus:'Walrus',horseshoe:'Horseshoe',fu:'Long drooping',english:'English tips',dali:'Fine upturned',petite:'Petite',brush:'Brush'};
 catalogs.beard=beardNames;catalogs.moustache=moustacheNames;
 
@@ -440,13 +440,7 @@ function beardSvg(key,c=state.beardColour){
  if(key==='chinstrap')return P('M443 665 Q456 803 537 857 Q627 919 717 857 Q798 803 833 665 L824 764 Q796 854 725 890 Q627 944 529 890 Q458 854 430 764Z');
  if(key==='sideburns')return P('M440 639 L471 655 L486 762 L457 787 Q430 727 440 639Z')+P('M814 655 L833 639 Q844 727 817 787 L788 762Z');
  if(key==='mutton')return P('M440 647 Q454 696 479 715 Q492 753 530 784 L551 837 Q487 845 456 797 Q425 742 440 647Z')+P('M833 647 Q800 696 775 715 Q762 753 724 784 L703 837 Q767 845 798 797 Q829 742 833 647Z');
- if(key==='braid'||key==='doubleBraid'){
- let a=P(rim+' Q854 846 754 920 Q627 974 500 920 Q400 846 443 651Z');
- for(const cx of key==='braid'?[627]:[548,706]){
- for(let i=0;i<6;i++){const y=924+i*31,w=31-i*3;a+=P(`M${cx} ${y-6} Q${cx-w*2} ${y+8} ${cx} ${y+39} Q${cx+w*2} ${y+8} ${cx} ${y-6}Z`)+D(`M${cx-w} ${y+9} L${cx+w/2} ${y+27}`)}
- a+=facialPath(`M${cx-14} 1103 H${cx+14} L${cx+12} 1114 H${cx-12}Z`,'#aa8955',4)+P(`M${cx-11} 1115 L${cx-19} 1141 L${cx} 1150 L${cx+19} 1141 L${cx+11} 1115Z`);
- }return a;
- }
+
  return '';
 }
 function moustacheSvg(key,c=state.moustacheColour){
@@ -473,68 +467,66 @@ function eyesSvg(key,style=state.eyeStyle){
  return `<g transform="translate(627 607) scale(${scale}) translate(-627 -607)">${baseEyesSvg(key)}</g>`;
 }
 
-/**
- * 2.5D camera compositor for the EXISTING front-view SVG assets.
- *
- * The original vector geometry remains untouched: at 0 degrees it is rendered
- * verbatim. For +/-35 degrees, the left and right halves are clipped in SOURCE
- * coordinates, then projected with unequal widths around one shared centre.
- * That asymmetric projection is substantially different from squeezing one
- * flat SVG. Existing expressions, colour choices and visemes are untouched.
- *
- * Limit: hidden face/turban surfaces cannot be reconstructed from front art.
+/** Shared cylindrical 2.5D rig; original artwork is never rewritten.
+ * Piecewise-affine strips approximate a smooth surface rather than hinging
+ * every feature at the centre. All attached layers use the same projection.
+ * It remains an illustration of a turn, not reconstructed hidden 3D geometry.
  */
 const cameraDirections={left:-1,front:0,right:1};
 let cameraView='front';
-const cameraTurnWidth={near:1.02,far:.52};
 const cameraAnimatedLayerIds=['hairBack','headwearBack','earLeft','earRight','eyebrowGroup','eyeGroup','noseGroup','beardGroup','moustacheGroup','mouthGroup','frontHair','headwearFront'];
 const cameraFace=document.getElementById('face');
 const cameraFaceOriginal=cameraFace.innerHTML;
 const cameraTorso=document.getElementById('torso');
-const cameraTorsoOriginal=cameraTorso.getAttribute('transform');
-const cameraSvgDefs=svg.querySelector('defs');
+const cameraTorsoOriginal=cameraTorso.innerHTML;
+const cameraCuts=[-2500,327,387,447,507,567,627,687,747,807,867,927,3754];
 const cameraClipDefs=document.createElementNS('http://www.w3.org/2000/svg','g');
-cameraClipDefs.innerHTML='<clipPath id="anitoonsCameraLeft" clipPathUnits="userSpaceOnUse"><rect x="-2500" y="-2500" width="3127" height="6200"/></clipPath><clipPath id="anitoonsCameraRight" clipPathUnits="userSpaceOnUse"><rect x="627" y="-2500" width="3127" height="6200"/></clipPath>';
-cameraSvgDefs.append(cameraClipDefs);
-
-/**
- * Rebuild only the presentation wrappers, never an individual shape/path.
- * Adjacent half-projections agree exactly at x=627, so the seam is continuous.
- * The near half retains width while the far half is foreshortened.
- */
+cameraClipDefs.innerHTML=cameraCuts.slice(0,-1).map((x,i)=>`<clipPath id="anitoonsCameraStrip${i}" clipPathUnits="userSpaceOnUse"><rect x="${x-1.5}" y="-2500" width="${cameraCuts[i+1]-x+3}" height="6200"/></clipPath>`).join('');
+svg.querySelector('defs').append(cameraClipDefs);
+function cameraX(x,turn){
+ const u=x-627;
+ // Facing right: screen-left is the broad near cheek; right is the far cheek.
+ return 627+turn*45+.78*u-turn*.23*(Math.sqrt(u*u+10000)-100);
+}
+function cameraMarkup(id,original,view=cameraView){
+ if(view==='front'||!original)return original;
+ const turn=cameraDirections[view];
+ if((id==='earRight'&&turn>0)||(id==='earLeft'&&turn<0))return '';
+ // Nose projects forward from the shared surface. Never split it at the tip.
+ if(id==='noseGroup')return `<g transform="translate(${627+turn*76} 0) scale(.76 1) translate(-627 0)">${original}</g>`;
+ return cameraCuts.slice(0,-1).map((x,i)=>{
+  const end=cameraCuts[i+1],scale=(cameraX(end,turn)-cameraX(x,turn))/(end-x);
+  const shift=cameraX(x,turn)-scale*x;
+  return `<g transform="matrix(${scale} 0 0 1 ${shift} 0)"><g clip-path="url(#anitoonsCameraStrip${i})">${original}</g></g>`;
+ }).join('');
+}
 function cameraProjectLayer(id,original){
- const layer=document.getElementById(id);
- if(cameraView==='front'){layer.innerHTML=original;return;}
- const turn=cameraDirections[cameraView];
- // Angle-dependent screen shift. The nose and mouth travel slightly farther
- // toward the look direction because they sit ahead of the cheek surface.
- const shift=turn*(id==='noseGroup'?79:id==='mouthGroup'?66:id==='moustacheGroup'?64:id==='eyebrowGroup'||id==='eyeGroup'?51:id==='beardGroup'?50:55);
- // Keeps the perspective both obvious and consistent across headwear/eyes/beard.
- const nearScale=(id==='beardGroup'||id==='moustacheGroup')?.97:cameraTurnWidth.near;
- const farScale=(id==='beardGroup'||id==='moustacheGroup')?.57:cameraTurnWidth.far;
- const leftScale=turn<0?nearScale:farScale,rightScale=turn>0?nearScale:farScale;
- const half=(side,scale)=>'<g transform="translate('+(627+shift)+' 0) scale('+scale+' 1) translate(-627 0)"><g clip-path="url(#anitoonsCamera'+side+')">'+original+'</g></g>';
- layer.innerHTML=half('Left',leftScale)+half('Right',rightScale);
+ document.getElementById(id).innerHTML=cameraMarkup(id,original);
 }
 function applyCameraView(){
- // Unchanged torso anchors the bust even when the head rotates.
- cameraTorso.removeAttribute('transform');
  cameraFace.removeAttribute('transform');
- if(cameraView==='front'){
-  cameraFace.innerHTML=cameraFaceOriginal;
-  if(cameraTorsoOriginal!==null)cameraTorso.setAttribute('transform',cameraTorsoOriginal);
-  return;
- }
- const turn=cameraDirections[cameraView];
- cameraTorso.setAttribute('transform','translate('+(turn*11)+' 0)');
+ cameraTorso.removeAttribute('transform');
+ cameraTorso.innerHTML=cameraTorsoOriginal;
  cameraProjectLayer('face',cameraFaceOriginal);
+ if(cameraView!=='front'){
+  const turn=cameraDirections[cameraView];
+  // Only the neck bends into the turned jaw; collar and shoulders stay fixed.
+  const neck=cameraTorso.querySelector('path[fill="url(#skinFill)"]');
+  neck.setAttribute('transform',`matrix(.9 0 ${-.28*turn} 1 ${62.7+271.6*turn} 0)`);
+ }
  for(const id of cameraAnimatedLayerIds){
   const layer=document.getElementById(id);
   cameraProjectLayer(id,layer.innerHTML);
  }
 }
+// Lower jaw movement shares each hard-cut speech cue. Upper attachments stay put.
+function jawBeardSvg(viseme){
+ const opening={closed:0,MBP:0,EE:.15,A:.8,O:.65,U:.2,FV:.1,smile:.2,sad:0,laugh:1}[viseme]||0;
+ const fixed=['none','light','heavy','sideburns','mutton'].includes(state.beard);
+ return `<g transform="translate(0 650) scale(1 ${1+(fixed?0:opening*.04)}) translate(0 -650)">${beardSvg(state.beard)}</g>`;
+}
 
-function render(){document.getElementById('beardGroup').innerHTML=beardSvg(state.beard);document.getElementById('moustacheGroup').innerHTML=moustacheSvg(state.moustache);const covered=state.headwear&&state.headwear!=='none';document.getElementById('headwearBack').innerHTML='';document.getElementById('headwearFront').innerHTML=headwearSvg(state.headwear||'none');document.getElementById('hairBack').innerHTML=covered?'':hairBack[state.hair];document.getElementById('frontHair').innerHTML=covered?'':hairFront[state.hair];document.getElementById('earLeft').innerHTML=ears[state.ears].L;document.getElementById('earRight').innerHTML=ears[state.ears].R;
+function render(){document.getElementById('beardGroup').innerHTML=jawBeardSvg(state.mouth);document.getElementById('moustacheGroup').innerHTML=moustacheSvg(state.moustache);const covered=state.headwear&&state.headwear!=='none';document.getElementById('headwearBack').innerHTML='';document.getElementById('headwearFront').innerHTML=headwearSvg(state.headwear||'none');document.getElementById('hairBack').innerHTML=covered?'':hairBack[state.hair];document.getElementById('frontHair').innerHTML=covered?'':hairFront[state.hair];document.getElementById('earLeft').innerHTML=ears[state.ears].L;document.getElementById('earRight').innerHTML=ears[state.ears].R;
  document.getElementById('eyebrowGroup').innerHTML=browSvg(state.brows);document.getElementById('eyeGroup').innerHTML=eyesSvg(state.eyes);document.getElementById('noseGroup').innerHTML=noseSvg(state.nose);document.getElementById('mouthGroup').innerHTML=`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(state.mouth)}</g>`;
  document.getElementById('status').innerHTML=`Mouth <b>${mouthNames[state.mouth]}</b> · Eyes <b>${catalogs.eyes[state.eyes]}</b> · Hair <b>${catalogs.hair[state.hair]}</b>`;
  for(const e of document.querySelectorAll('.choice'))e.setAttribute('aria-pressed',String(e.dataset.key===state[active]));
@@ -588,6 +580,7 @@ function composeMouth(viseme){
  const center=`translate(627 ${756+state.position}) scale(${state.width/100} 1)`;
  const original=`<g transform="${center}">${mouthSvg(viseme)}</g>`;
  cameraProjectLayer('mouthGroup',original);
+ cameraProjectLayer('beardGroup',jawBeardSvg(viseme));
 }
 function seekSpeech(ms){
  const t=clamp(ms,0,motion.duration);
@@ -681,7 +674,8 @@ function updateFour(){
  // getElementById calls into hidden previews after the mobile stage is moved.
  for(const [index,el] of [...document.querySelectorAll('.mini[data-viseme]')].entries()){
   const clone=svg.cloneNode(true);clone.removeAttribute('id');
-  clone.querySelector('#mouthGroup').innerHTML=`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(el.dataset.viseme)}</g>`;
+  clone.querySelector('#mouthGroup').innerHTML=cameraMarkup('mouthGroup',`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(el.dataset.viseme)}</g>`);
+  clone.querySelector('#beardGroup').innerHTML=cameraMarkup('beardGroup',jawBeardSvg(el.dataset.viseme));
   const ids=new Map();for(const node of clone.querySelectorAll('[id]')){const id=node.id;ids.set(id,`preview-${index}-${id}`);node.id=ids.get(id)}
   for(const node of [clone,...clone.querySelectorAll('*')])for(const attr of [...node.attributes]){
    let value=attr.value;for(const [id,replacement] of ids){value=value.replaceAll(`url(#${id})`,`url(#${replacement})`);if(value===`#${id}`)value=`#${replacement}`}
@@ -696,7 +690,7 @@ stopDemo();
 const oldHeader=document.querySelector('header');oldHeader.remove();
 const legacy=document.querySelector('main');legacy.hidden=true;
 const app=document.createElement('div');app.className='app';
-app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 39</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
+app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 40</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
 <div class="workspace"><section class="portrait"><div id="previewMount"></div><div class="previewbar"><span>YOUR CHARACTER</span><button id="blinkPreview">Blink</button><button id="talkPreview">▶ Try talking</button></div><div class="expressions" aria-label="Expression preview"></div><span class="saveStatus" role="status" id="saveStatus">Choose a feature to make it yours</span></section>
 <section class="customizer"><nav class="features" aria-label="Character features"></nav><div class="pickerHeading"><h2 id="pickerTitle">Mouth style</h2><label class="colorLabel">Colour <input id="partColor" type="color" value="#efa66a" aria-label="Feature colour"></label></div><div id="designs" class="designs"></div><p id="facialHairHint" class="hint" hidden>Choose a complete beard and moustache look. Colour applies to both. Includes full, flowing, tucked, trimmed and moustache-only options.</p><div id="adjustMount"></div><details class="advanced"><summary>Drawing & export tools</summary><div id="exportMount"></div><div id="advancedMount"></div></details></section></div>`;
 document.body.appendChild(app);
@@ -766,7 +760,7 @@ document.getElementById('undoCharacter').onclick=()=>{if(!history.length)return;
 document.getElementById('talkPreview').onclick=()=>{expression='neutral';document.getElementById('demo').click()};
 document.getElementById('blinkPreview').onclick=()=>document.getElementById('blink').click();
 document.getElementById('saveCharacter').onclick=()=>{try{localStorage.setItem('anitoons-character-v21',JSON.stringify(state));document.getElementById('saveStatus').textContent='Character saved on this device'}catch{document.getElementById('saveStatus').textContent='Device storage unavailable — use Save rig JSON below'}};
-try{const saved=JSON.parse(localStorage.getItem('anitoons-character-v21'));if(saved&&typeof saved==='object'){for(const k of Object.keys(state))if(typeof saved[k]===typeof state[k]){if(k==='width'||k==='position'){if(Number.isFinite(saved[k]))state[k]=saved[k]}else if(k==='mouthStyle'?mouthStyles[saved[k]]:k==='eyeStyle'?eyeStyles[saved[k]]:catalogs[k]?.[saved[k]])state[k]=saved[k]}for(const k of ['skinColour','shirtColour','hairColour','backgroundColour','headwearColour','beardColour','moustacheColour','facialHairColour'])if(/^#[0-9a-f]{6}$/i.test(saved[k]))state[k]=saved[k]}}catch{}
+try{const saved=JSON.parse(localStorage.getItem('anitoons-character-v21'));if(saved&&typeof saved==='object'){if(['braid','doubleBraid'].includes(saved.beard)){saved.beard='flowing';saved.facialHair='beard_flowing'}for(const k of Object.keys(state))if(typeof saved[k]===typeof state[k]){if(k==='width'||k==='position'){if(Number.isFinite(saved[k]))state[k]=saved[k]}else if(k==='mouthStyle'?mouthStyles[saved[k]]:k==='eyeStyle'?eyeStyles[saved[k]]:catalogs[k]?.[saved[k]])state[k]=saved[k]}for(const k of ['skinColour','shirtColour','hairColour','backgroundColour','headwearColour','beardColour','moustacheColour','facialHairColour'])if(/^#[0-9a-f]{6}$/i.test(saved[k]))state[k]=saved[k]}}catch{}
 // Migrate existing separately selected facial hair without discarding the saved look.
 if(state.facialHair==='none'&&(state.beard!=='none'||state.moustache!=='none')){const match=Object.entries(facialHairLooks).find(([,v])=>v.beard===state.beard&&v.moustache===state.moustache);if(match)state.facialHair=match[0];else{facialHairLooks.savedCustom={label:'Saved custom look',beard:state.beard,moustache:state.moustache};catalogs.facialHair.savedCustom='Saved custom look';state.facialHair='savedCustom'}state.facialHairColour=state.beard!=='none'?state.beardColour:state.moustacheColour}
 document.getElementById('width').value=state.width;document.getElementById('position').value=state.position;

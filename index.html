@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v43</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v44</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -37,7 +37,7 @@
 .camera-options button:focus-visible{outline:3px solid #328ed6;outline-offset:2px}
 @media(max-width:700px){.camera-row{margin:10px 12px 0;padding:8px;gap:6px}.camera-options{flex:1;justify-content:space-between}.camera-options button{flex:1;padding:8px 3px;font-size:10px}}
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v43</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v44</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -509,7 +509,44 @@ function styledMouthSvg(key,p){
  return `<g transform="matrix(1 ${p.slant} 0 1 0 0)">${art}</g>`;
 }
 const eyeStyles={round:'Round',almond:'Almond',compact:'Compact'};
+// Rounded vowels use an articulated upper lip and relaxed lower jaw rather
+// than a scaled outline ring. Each appearance keeps its own proportions.
+const roundedMouthProfiles={
+ soft:{w:32,h:48,top:-9,bow:1,lip:4,c:'#c8757c'},
+ classic:{w:42,h:29,top:-6,bow:0,lip:0,c:'#c8757c'},
+ petite:{w:24,h:32,top:-7,bow:1,lip:3,c:'#c8757c'},
+ fine:{w:29,h:43,top:-12,bow:-3,lip:0,c:'#c8757c'},
+ full:{w:40,h:35,top:-10,bow:2,lip:7,c:'#d85d65'},
+ bow:{w:32,h:42,top:-9,bow:8,lip:5,c:'#d65465'},
+ wide:{w:50,h:32,top:-5,bow:-3,lip:0,c:'#c8757c',teeth:true},
+ smirk:{w:40,h:35,top:-8,bow:2,lip:0,c:'#c8757c',slant:-.12},
+ gap:{w:43,h:34,top:-8,bow:1,lip:0,c:'#c8757c',gap:true}
+};
+function roundedMouthSvg(key,style){
+ const p=roundedMouthProfiles[style]||roundedMouthProfiles.soft;
+ const puckered=key==='U',w=p.w*(puckered?.72:1),h=p.h*(puckered?.55:1),top=p.top+(puckered?3:0),b=p.bow;
+ // Corners pull inward; the lower aperture broadens with the dropped jaw.
+ const d=`M${-w} 3 C${-w*.95} ${top-3} ${-w*.45} ${top-7} -8 ${top+b} Q0 ${top+b+3} 8 ${top+b} C${w*.45} ${top-7} ${w*.95} ${top-3} ${w} 3 C${w*1.06} ${h*.5} ${w*.62} ${h} 0 ${h} C${-w*.62} ${h} ${-w*1.06} ${h*.5} ${-w} 3Z`;
+ let art='';
+ if(p.lip){
+  art+=`<path d="M${-w-2} 1 C${-w*.8} ${top-p.lip} -15 ${top-p.lip-4} -8 ${top+b-2} Q0 ${top+b+1} 8 ${top+b-2} C15 ${top-p.lip-4} ${w*.8} ${top-p.lip} ${w+2} 1 L${w-2} 3 Q0 ${top} ${-w+2} 3Z" fill="${p.c}"/>`;
+  art+=`<path d="M${-w*.82} ${h-6} Q0 ${h+5+p.lip*2} ${w*.82} ${h-6} Q0 ${h+1} ${-w*.82} ${h-6}Z" fill="${p.c}"/>`;
+ }
+ art+=shape(d,inner,4.7);
+ if(!puckered&&(p.teeth||p.gap)){
+  const t=w*.65,ty=top+5;
+  if(p.gap)art+=shape(`M${-t} ${ty} Q${-t*.5} ${ty+3} -4 ${ty+3} L-4 ${ty+10} L${-t+3} ${ty+8}Z`,white,1.3)+shape(`M4 ${ty+3} Q${t*.5} ${ty+3} ${t} ${ty} L${t-3} ${ty+8} L4 ${ty+10}Z`,white,1.3);
+  else art+=shape(`M${-t} ${ty} Q0 ${ty+5} ${t} ${ty} L${t-4} ${ty+8} Q0 ${ty+12} ${-t+4} ${ty+8}Z`,white,1.3);
+ }
+ if(!puckered){const t=w*.43,y=h-8;art+=`<path d="M${-t} ${y} Q0 ${y-10} ${t} ${y} Q0 ${h-1} ${-t} ${y}Z" fill="${tongue}"/>`;}
+ if(!p.lip)art+=`<path d="M${-w*.4} ${h+7} Q0 ${h+11} ${w*.4} ${h+7}" fill="none" stroke="#a76c53" stroke-width="2" opacity=".5" stroke-linecap="round"/>`;
+ return `<g transform="matrix(1 ${p.slant||0} 0 1 0 0)">${art}</g>`;
+}
+function mouthStyleTile(style){
+ return `<svg viewBox="-125 -45 250 178" aria-hidden="true"><g transform="translate(0 -1) scale(.98)">${mouthSvg('closed',style)}</g><g transform="translate(-61 66) scale(.48)">${mouthSvg('smile',style)}</g><g transform="translate(61 66) scale(.48)">${mouthSvg('A',style)}</g><g fill="#68717d" font-family="sans-serif" font-size="12" text-anchor="middle"><text y="35">REST</text><text x="-61" y="122">SMILE</text><text x="61" y="122">TALK</text></g></svg>`;
+}
 function mouthSvg(key,style=state.mouthStyle){
+ if(key==='O'||key==='U')return roundedMouthSvg(key,style);
  if(mouthProfiles[style])return styledMouthSvg(key,mouthProfiles[style]);
  let art=baseMouthSvg(key);
  if(style==='classic')art=art.replaceAll(lip,state.skinColour||skin);
@@ -767,7 +804,7 @@ stopDemo();
 const oldHeader=document.querySelector('header');oldHeader.remove();
 const legacy=document.querySelector('main');legacy.hidden=true;
 const app=document.createElement('div');app.className='app';
-app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 43</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
+app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 44</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
 <div class="workspace"><section class="portrait"><div id="previewMount"></div><div class="previewbar"><span>YOUR CHARACTER</span><button id="blinkPreview">Blink</button><button id="talkPreview">▶ Try talking</button></div><div class="expressions" aria-label="Expression preview"></div><span class="saveStatus" role="status" id="saveStatus">Choose a feature to make it yours</span></section>
 <section class="customizer"><nav class="features" aria-label="Character features"></nav><div class="pickerHeading"><h2 id="pickerTitle">Mouth style</h2><label class="colorLabel">Colour <input id="partColor" type="color" value="#efa66a" aria-label="Feature colour"></label></div><div id="designs" class="designs"></div><p id="facialHairHint" class="hint" hidden>Choose a complete beard and moustache look. Colour applies to both. Includes full, flowing, tucked, trimmed and moustache-only options.</p><div id="adjustMount"></div><details class="advanced"><summary>Drawing & export tools</summary><div id="exportMount"></div><div id="advancedMount"></div></details></section></div>`;
 document.body.appendChild(app);
@@ -826,7 +863,7 @@ function drawDesigns(){
  const entries=feature==='mouth'?mouthStyles:feature==='eyes'?eyeStyles:catalogs[feature];const root=document.getElementById('designs');root.replaceChildren();
  if(!entries){const colours=feature==='skin'?['#f8d4b4','#efa66a','#ca895a','#925b3c','#593a2c']:feature==='shirt'?['#e56879','#999999','#287fd2','#e8b448','#4e8171']:['#229af0','#ff438a','#c4d8f8','#e8c596','#a9c7af'];for(const c of colours){const b=document.createElement('button');b.className='colourChoice';b.style.background=c;b.setAttribute('aria-label',c);b.onclick=()=>{checkpoint();setColour(c)};root.append(b)}return}
  for(const [key,label] of Object.entries(entries)){const b=document.createElement('button');b.className='design';const selected=feature==='mouth'?state.mouthStyle:feature==='eyes'?state.eyeStyle:state[feature];b.setAttribute('aria-pressed',String(selected===key));
- let art=feature==='mouth'?`<svg viewBox="-120 -70 240 150">${mouthSvg('smile',key)}</svg>`:feature==='eyes'?`<svg viewBox="425 520 405 170">${eyesSvg('open',key)}</svg>`:smallTile(feature,key);
+ let art=feature==='mouth'?mouthStyleTile(key):feature==='eyes'?`<svg viewBox="425 520 405 170">${eyesSvg('open',key)}</svg>`:smallTile(feature,key);
  b.innerHTML=art+`<span>${label}</span>`;b.onclick=()=>{checkpoint();stopDemo();if(feature==='mouth')state.mouthStyle=key;else if(feature==='eyes')state.eyeStyle=key;else if(feature==='facialHair'){state.facialHair=key;const look=facialHairLooks[key];state.beard=look.beard;state.moustache=look.moustache;state.beardColour=state.moustacheColour=state.facialHairColour}else if(feature==='headwear'){state.headwear=key}else{state[feature]=key;if(feature==='hair')state.headwear='none'}updateApp()};root.append(b)}
 }
 function setColour(c){state[feature+'Colour']=c;if(feature==='facialHair')state.beardColour=state.moustacheColour=c;applyColours();document.getElementById('partColor').value=c}

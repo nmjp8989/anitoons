@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v62</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v63</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -46,8 +46,32 @@
 .designs[data-feature="shirt"] .design{border-radius:16px;aspect-ratio:.92;padding:6px}.designs[data-feature="shirt"] .design svg{height:78%}
 .reactionControl{margin:10px 0 0;border:1px solid #ddd;background:white;border-radius:20px;padding:8px 13px;font-size:12px!important}.reactionControl:disabled{opacity:.45;cursor:default}@media(max-width:700px){.reactionControl{margin:2px 15px 10px}}
 #previewMount{position:relative}.featureControls{position:absolute;z-index:2;right:8px;bottom:8px;width:108px;padding:8px;border-radius:14px;background:#ffffffeb;box-shadow:0 2px 10px #0001;color:#25303a}.featureControls strong{display:block;text-align:center;font-size:11px;margin-bottom:4px}.fitArrows{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}.fitArrows button{border:1px solid #d6dde0;border-radius:9px;background:white;min-height:29px;padding:2px;font-size:18px!important}.fitArrows [data-move=up]{grid-column:2}.fitArrows [data-move=left]{grid-column:1;grid-row:2}.fitArrows [data-move=reset]{grid-column:2;grid-row:2}.fitArrows [data-move=right]{grid-column:3;grid-row:2}.fitArrows [data-move=down]{grid-column:2;grid-row:3}.featureControls label{display:block;font-size:10px;margin-top:5px}.featureControls output{float:right;font-size:9px;color:#58616a}.featureControls input{display:block;width:100%;margin:3px 0 0;accent-color:#a78349;height:17px}@media(max-width:700px){.featureControls{width:91px;padding:6px;right:6px;bottom:6px}.fitArrows button{min-height:28px}}
+
+/* Premade characters and personal presets */
+.studio-switch{display:flex;background:#eff1f4;border-radius:12px;padding:4px;gap:4px;margin-bottom:16px}
+.studio-switch button{flex:1;border:0;border-radius:10px;background:transparent;padding:10px;font-size:12px;font-weight:650}
+.studio-switch button[aria-selected=true]{background:white;box-shadow:0 1px 5px #0002;color:#1f2937}
+.library-heading h2{font-size:20px;margin:0}.library-heading p{font-size:11px;color:#78808c;margin:4px 0 13px}
+.library-tabs{display:flex;gap:5px;overflow-x:auto;padding:0 0 10px;scrollbar-width:thin}
+.library-tabs button{background:#f2f4f7;border:0;border-radius:8px;white-space:nowrap;font-size:11px;padding:9px;color:#58636c}
+.library-tabs button[aria-selected=true]{background:#3977e6;color:white}
+.preset-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;max-height:480px;overflow-y:auto;padding:2px;scrollbar-width:thin}
+.preset-wrap{position:relative;min-width:0}
+.preset-card{display:block;width:100%;border:1px solid #e4e8ef;background:#f8f8f9;border-radius:12px;overflow:hidden;padding:0;text-align:center}
+.preset-card[aria-pressed=true]{border-color:#367be9;box-shadow:0 0 0 2px #367be944}
+.preset-card:hover{border-color:#367be9}
+.preset-card:focus-visible,.studio-switch button:focus-visible,.library-tabs button:focus-visible{outline:3px solid #367be9;outline-offset:2px}
+.preset-art{aspect-ratio:.9;background:#e5eef7}.preset-art svg{display:block;width:100%;height:100%}
+.preset-name{display:block;font-weight:600;font-size:10px;padding:6px 3px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.preset-delete{position:absolute;right:5px;top:5px;background:#fffffff0;border:1px solid #dce0e4;border-radius:6px;padding:2px 7px}
+.preset-empty{grid-column:1/-1;text-align:center;padding:26px 10px;color:#687482;font-size:12px;line-height:1.6}
+.library-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;font-size:11px;color:#697683}
+.library-footer button{border:1px solid #d4dae2;border-radius:10px;background:white;padding:9px 10px;font-size:11px}
+@media(max-width:700px){.preset-grid{gap:6px;max-height:390px}.preset-name{font-size:9px}}
+@media(max-width:390px){.preset-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v62</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v63</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -701,7 +725,7 @@ const cameraFace=document.getElementById('face');
 const cameraFaceOriginal=cameraFace.innerHTML;
 const cameraTorso=document.getElementById('torso');
 const cameraTorsoOriginal=cameraTorso.innerHTML;
-const topNames={crew:'Crew-neck sweater',tee:'Short-sleeve tee',vneck:'V-neck top',polo:'Polo shirt',button:'Button-up shirt',hoodie:'Pullover hoodie',tank:'Tank top',stripeTank:'Striped tank',blazer:'Open blazer',tuxedo:'Tuxedo & bow tie'};
+const topNames={crew:'Crew-neck sweater',tee:'Short-sleeve tee',vneck:'V-neck top',polo:'Polo shirt',button:'Button-up shirt',hoodie:'Pullover hoodie',kurti:'Kurti / tunic',dress:'Scoop-neck dress',cardigan:'Buttoned cardigan',tank:'Tank top',stripeTank:'Striped tank',blazer:'Open blazer',tuxedo:'Tuxedo & bow tie'};
 catalogs.shirt=topNames;state.shirt='crew';
 const torsoOutline='M491 970 Q398 972 345 994 Q276 1025 249 1116 L224 1257 H1042 L1012 1121 Q985 1029 909 998 Q856 979 778 970';
 const topNeck='M534 832 L535 915 Q535 954 491 970 Q544 1061 626 1068 Q720 1060 778 970 Q715 956 715 920 L715 828Z';
@@ -751,6 +775,17 @@ function torsoSvg(key=state.shirt){
    for(const y of [1080,1114,1148])art+=`<circle cx="627" cy="${y}" r="4.5" fill="${ink}"/>`;
   }
  }
+
+ if(key==='kurti'){
+  art+=seam('M627 1071 V1227 M606 1103 Q627 1110 648 1103',4);
+  for(const y of [1137,1181])art+=`<circle cx="639" cy="${y}" r="4.5" fill="${ink}"/>`;
+ }
+ if(key==='dress')art+=seam('M523 989 Q627 1114 731 989 M410 1217 Q627 1245 844 1217',4);
+ if(key==='cardigan'){
+  art+=P('M501 975 L546 979 L627 1095 L708 979 L771 975 L858 1257 H396Z','url(#shirtFill)',5);
+  art+=seam('M546 979 L627 1101 L708 979 M627 1101 V1257',4);
+  for(const y of [1148,1201,1244])art+=`<circle cx="640" cy="${y}" r="5" fill="${ink}"/>`;
+ }
  return art;
 }
 const standingPoses={relaxed:'Relaxed standing',straight:'Straight standing',wide:'Wide stance',hip:'Hand on hip'};
@@ -780,7 +815,10 @@ function fittedStandingGarmentSvg(style=state.shirt){
   tank:'L710 1013 Q627 1134 544 1013 L518 1010Z',
   stripeTank:'L710 1013 Q627 1134 544 1013 L518 1010Z',
   blazer:'L714 1010 L627 1128 L540 1010 L518 1010Z',
-  tuxedo:'L714 1010 L627 1128 L540 1010 L518 1010Z'
+  tuxedo:'L714 1010 L627 1128 L540 1010 L518 1010Z',
+  kurti:'L703 1018 Q627 1079 551 1018 L518 1010Z',
+  dress:'L711 1018 Q627 1132 543 1018 L518 1010Z',
+  cardigan:'L711 1018 L627 1110 L543 1018 L518 1010Z'
  }[style]||'L700 1018 Q627 1074 554 1018 L518 1010Z';
  const outer='M518 1010 Q463 983 414 1020 Q400 1080 432 1175 L452 1432 Q627 1461 802 1432 L822 1175 Q854 1080 840 1020 Q791 983 736 1010';
  const body=outer+opening;
@@ -828,6 +866,16 @@ function fittedStandingGarmentSvg(style=state.shirt){
    art+=P('M641 1067 L682 1041 Q686 1071 673 1091 L641 1077Z','#161011',3);
    art+=P('M614 1066 H640 V1084 H614Z','#161011',2);
   }
+ }
+ if(style==='kurti'){
+  art+=L('M627 1082 V1230 M603 1104 Q627 1113 651 1104',4);
+  for(const y of [1142,1191,1224])art+=`<circle cx="639" cy="${y}" r="4" fill="#161011"/>`;
+ }
+ if(style==='dress')art+=L('M546 1030 Q627 1139 708 1030 M465 1230 Q627 1254 789 1230',4);
+ if(style==='cardigan'){
+  art+=P('M528 1010 L558 1016 L627 1118 L696 1016 L728 1010 L788 1395 H466Z',cloth,5);
+  art+=L('M553 1019 L627 1122 L701 1019 M627 1122 V1408',4);
+  for(const y of [1170,1232,1294,1356])art+=`<circle cx="640" cy="${y}" r="4" fill="#161011"/>`;
  }
  // Single hem seam: the shirt covers the trouser top without extra black bands.
  art+=L('M462 1419 Q627 1435 792 1419',3.5);
@@ -1146,11 +1194,11 @@ function startReaction(key,explicit=false){
  if(reaction.button)reaction.button.textContent='■ Pause reaction';
  reaction.raf=requestAnimationFrame(reactionTick);
 }
-function render(){document.getElementById('glassesGroup').innerHTML=glassesSvg();document.getElementById('beardGroup').innerHTML=jawBeardSvg(state.mouth);document.getElementById('moustacheGroup').innerHTML=moustacheSvg(state.moustache);const covered=state.headwear&&state.headwear!=='none';document.getElementById('headwearBack').innerHTML='';document.getElementById('headwearFront').innerHTML=headwearSvg(state.headwear||'none');document.getElementById('hairBack').innerHTML=covered?'':hairBack[state.hair];document.getElementById('frontHair').innerHTML=covered?'':hairFront[state.hair];document.getElementById('earLeft').innerHTML=ears[state.ears].L;document.getElementById('earRight').innerHTML=ears[state.ears].R;
+function render(skipPreviewTiles=false){document.getElementById('glassesGroup').innerHTML=glassesSvg();document.getElementById('beardGroup').innerHTML=jawBeardSvg(state.mouth);document.getElementById('moustacheGroup').innerHTML=moustacheSvg(state.moustache);const covered=state.headwear&&state.headwear!=='none';document.getElementById('headwearBack').innerHTML='';document.getElementById('headwearFront').innerHTML=headwearSvg(state.headwear||'none');document.getElementById('hairBack').innerHTML=covered?'':hairBack[state.hair];document.getElementById('frontHair').innerHTML=covered?'':hairFront[state.hair];document.getElementById('earLeft').innerHTML=ears[state.ears].L;document.getElementById('earRight').innerHTML=ears[state.ears].R;
  document.getElementById('eyebrowGroup').innerHTML=browSvg(state.brows);document.getElementById('eyeGroup').innerHTML=eyesSvg(state.eyes);document.getElementById('noseGroup').innerHTML=noseSvg(state.nose);document.getElementById('mouthGroup').innerHTML=`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(state.mouth)}</g>`;
  document.getElementById('status').innerHTML=`Mouth <b>${mouthNames[state.mouth]}</b> · Eyes <b>${catalogs.eyes[state.eyes]}</b> · Hair <b>${catalogs.hair[state.hair]}</b>`;
  for(const e of document.querySelectorAll('.choice'))e.setAttribute('aria-pressed',String(e.dataset.key===state[active]));
- reaction.last='';applyCameraView();updateFour();updateFocus();
+ reaction.last='';applyCameraView();if(!skipPreviewTiles){updateFour();updateFocus();}
 }
 function smallTile(tab,key){if(tab==='glasses')return `<svg viewBox="440 525 375 170" aria-hidden="true">${key==='none'?line('M590 570 L665 645 M665 570 L590 645',6):glassesSvg(key)}</svg>`;if(tab==='facialHair')return combinedFacialHairTile(key);if(tab==='beard'||tab==='moustache')return facialHairTile(tab,key);if(tab==='headwear')return `<svg viewBox="175 50 950 1190" aria-hidden="true"><path d="M441 550 C426 485 432 414 478 369 C515 330 568 320 627 322 C689 319 747 336 789 376 C834 419 849 483 838 550 C849 611 847 660 834 714 C824 758 799 807 760 838 C720 870 674 890 627 890 C586 887 550 873 523 854 C484 828 455 790 443 722 C429 651 437 582 441 550Z" fill="#fff" stroke="#777" stroke-width="7"/>${headwearSvg(key,'#2b2727')}</svg>`;if(tab==='hair'){return `<svg viewBox="225 70 825 1080" aria-hidden="true"><path d="M441 550 C426 485 432 414 478 369 C515 330 568 320 627 322 C689 319 747 336 789 376 C834 419 849 483 838 550 C849 611 847 660 834 714 C824 758 799 807 760 838 C720 870 674 890 627 890 C586 887 550 873 523 854 C484 828 455 790 443 722 C429 651 437 582 441 550 Z" fill="#fff" stroke="#777" stroke-width="7"/>${hairBack[key]}<path d="M441 550 C426 485 432 414 478 369 C515 330 568 320 627 322 C689 319 747 336 789 376 C834 419 849 483 838 550 C849 611 847 660 834 714 C824 758 799 807 760 838 C720 870 674 890 627 890 C586 887 550 873 523 854 C484 828 455 790 443 722 C429 651 437 582 441 550 Z" fill="#fff" stroke="#777" stroke-width="7"/>${hairFront[key]}</svg>`}
  if(tab==='ears')return `<svg viewBox="300 570 670 200">${ears[key].L}${ears[key].R}</svg>`;
@@ -1315,9 +1363,16 @@ stopDemo();
 const oldHeader=document.querySelector('header');oldHeader.remove();
 const legacy=document.querySelector('main');legacy.hidden=true;
 const app=document.createElement('div');app.className='app';
-app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 62</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="randomCharacter" class="random" type="button" aria-label="Create random character" title="Generate a new character from the existing parts"><span class="randomIcon" aria-hidden="true">🎲</span><span class="randomText"> Random</span></button><button id="saveCharacter" class="save">Save character</button></div></header>
+app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 63</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="randomCharacter" class="random" type="button" aria-label="Create random character" title="Generate a new character from the existing parts"><span class="randomIcon" aria-hidden="true">🎲</span><span class="randomText"> Random</span></button><button id="saveCharacter" class="save">Save character</button></div></header>
 <div class="workspace"><section class="portrait"><div id="previewMount"></div><div class="previewbar"><span>YOUR CHARACTER</span><button id="blinkPreview">Blink</button><button id="talkPreview">▶ Try talking</button></div><div class="expressions" aria-label="Expression preview"></div><span class="saveStatus" role="status" id="saveStatus">Choose a feature to make it yours</span></section>
-<section class="customizer"><nav class="features" aria-label="Character features"></nav><div class="pickerHeading"><h2 id="pickerTitle">Mouth style</h2><label class="colorLabel"><span id="featureColourTitle">Colour</span> <input id="partColor" type="color" value="#efa66a" aria-label="Feature colour"></label></div><div id="glassesSettings" hidden style="padding:0 0 18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap"><label class="colorLabel">Lens colour <input id="lensColor" type="color" aria-label="Lens colour"></label><label style="font-size:12px">Lens opacity <output id="lensOpacityValue"></output><input id="lensOpacity" type="range" min="0" max="100" aria-label="Lens opacity" style="display:block;width:180px"></label><span style="font-size:11px;color:#777">0% clear · 100% opaque</span></div><div id="designs" class="designs"></div><p id="facialHairHint" class="hint" hidden>Choose a complete beard and moustache look. Colour applies to both. Includes full, flowing, tucked, trimmed and moustache-only options.</p><div id="adjustMount"></div><details class="advanced"><summary>Drawing & export tools</summary><div id="exportMount"></div><div id="advancedMount"></div></details></section></div>`;
+<section class="customizer">
+<div class="studio-switch" role="tablist" aria-label="Studio mode"><button id="charactersMode" type="button" role="tab" aria-selected="true">Characters</button><button id="customizeMode" type="button" role="tab" aria-selected="false">Customize</button></div>
+<section id="characterLibrary" aria-label="Premade characters">
+<div class="library-heading"><h2>Characters</h2><p>Choose a starting character, then customize every detail.</p></div>
+<div id="libraryTabs" class="library-tabs" role="tablist" aria-label="Character groups"></div>
+<div id="presetGrid" class="preset-grid" aria-label="Character portraits"></div>
+<div class="library-footer"><span id="libraryCount"></span><button id="saveToMyCharacters" type="button">+ Save current</button></div>
+</section><div id="editorPanel" hidden><nav class="features' aria-label="Character features"></nav><div class="pickerHeading"><h2 id="pickerTitle">Mouth style</h2><label class="colorLabel"><span id="featureColourTitle">Colour</span> <input id="partColor" type="color" value="#efa66a" aria-label="Feature colour"></label></div><div id="glassesSettings" hidden style="padding:0 0 18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap"><label class="colorLabel">Lens colour <input id="lensColor" type="color" aria-label="Lens colour"></label><label style="font-size:12px">Lens opacity <output id="lensOpacityValue"></output><input id="lensOpacity" type="range" min="0" max="100" aria-label="Lens opacity" style="display:block;width:180px"></label><span style="font-size:11px;color:#777">0% clear · 100% opaque</span></div><div id="designs" class="designs"></div><p id="facialHairHint" class="hint" hidden>Choose a complete beard and moustache look. Colour applies to both. Includes full, flowing, tucked, trimmed and moustache-only options.</p><div id="adjustMount"></div><details class="advanced"><summary>Drawing & export tools</summary><div id="exportMount"></div><div id="advancedMount"></div></details></div></section></div>`;
 document.body.appendChild(app);
 document.querySelector('.footer').remove();
 document.getElementById('previewMount').append(document.getElementById('stage'));
@@ -1356,6 +1411,7 @@ hairSheetButton.onclick=async()=>{
 };
 
 let feature='pose',expression='neutral';const history=[];
+const freshCharacterDefaults=JSON.parse(JSON.stringify(state));
 const featureControls=document.createElement('div');featureControls.className='featureControls';featureControls.setAttribute('role','group');featureControls.setAttribute('aria-label','Selected feature position and size');
 featureControls.innerHTML='<strong id="fitFeatureName">Mouth</strong><div class="fitArrows"><button type="button" data-move="up">↑</button><button type="button" data-move="left">←</button><button type="button" data-move="reset" title="Reset position and size">↺</button><button type="button" data-move="right">→</button><button type="button" data-move="down">↓</button></div><label>Width <output id="fitWValue">100%</output><input id="fitW" type="range" min="65" max="140" value="100" aria-label="Selected feature width"></label><label>Height <output id="fitHValue">100%</output><input id="fitH" type="range" min="65" max="140" value="100" aria-label="Selected feature height"></label>';
 document.getElementById('previewMount').append(featureControls);
@@ -1494,7 +1550,115 @@ function randomAppearance(){
 }
 document.getElementById('randomCharacter').onclick=randomAppearance;
 
-document.getElementById('saveCharacter').onclick=()=>{try{localStorage.setItem('anitoons-character-v21',JSON.stringify(state));document.getElementById('saveStatus').textContent='Character saved on this device'}catch{document.getElementById('saveStatus').textContent='Device storage unavailable — use Save rig JSON below'}};
+
+const premadeCharacters=[
+ {id:'kid-ava',category:'kids',name:'Ava',changes:{skinColour:'#e6aa7b',hairColour:'#28242b',hair:'bun',head:'soft',headSize:91,shirt:'hoodie',shirtColour:'#d77a8c',mouth:'smile',eyeStyle:'round',backgroundColour:'#e9f0ff'}},
+ {id:'kid-noah',category:'kids',name:'Noah',changes:{skinColour:'#dc965f',hairColour:'#262329',hair:'crop',head:'round',headSize:88,shirt:'polo',shirtColour:'#3675cb',mouth:'smile',eyeStyle:'toon',backgroundColour:'#eef2ff'}},
+ {id:'kid-rohan',category:'kids',name:'Rohan',changes:{skinColour:'#a86e4c',hairColour:'#282020',hair:'crop',head:'balanced',headSize:93,shirt:'hoodie',shirtColour:'#e3b12e',eyeStyle:'round',mouth:'smile',backgroundColour:'#fff2d5'}},
+ {id:'kid-maya',category:'kids',name:'Maya',changes:{skinColour:'#efbd99',hairColour:'#4c342c',hair:'long',head:'petite',headSize:95,shirt:'dress',shirtColour:'#f1e5d7',eyeStyle:'oval',mouth:'smile',backgroundColour:'#f5e9f1'}},
+ {id:'adult-arjan',category:'adults',name:'Arjan',changes:{skinColour:'#c98b62',hairColour:'#2a241f',headwear:'punjabiTurban',headwearColour:'#de822a',facialHair:'beard_flowing',beard:'flowing',moustache:'thick',beardColour:'#28221f',moustacheColour:'#28221f',shirt:'button',shirtColour:'#52818a',head:'broad',mouth:'smile',backgroundColour:'#eef4ef'}},
+ {id:'adult-anaya',category:'adults',name:'Anaya',changes:{skinColour:'#b47655',hairColour:'#211b1e',hair:'long',shirt:'kurti',shirtColour:'#bc8a6b',eyeStyle:'oval',head:'oval',mouth:'smile',backgroundColour:'#f7eeea'}},
+ {id:'adult-yusuf',category:'adults',name:'Yusuf',changes:{skinColour:'#c28a65',headwear:'kufi',headwearColour:'#eee9da',facialHair:'beard_short',beard:'short',moustache:'natural',beardColour:'#282a2c',moustacheColour:'#282a2c',shirt:'crew',shirtColour:'#455363',head:'balanced',backgroundColour:'#eaf2f5'}},
+ {id:'adult-sara',category:'adults',name:'Sara',changes:{skinColour:'#ce9a78',headwear:'hijab',headwearColour:'#373941',shirt:'dress',shirtColour:'#835f52',head:'oval',eyeStyle:'toon',mouth:'smile',backgroundColour:'#eae7f1'}},
+ {id:'adult-leena',category:'adults',name:'Leena',changes:{skinColour:'#d3a07a',hair:'long',hairColour:'#322928',head:'soft',shirt:'cardigan',shirtColour:'#907ab5',mouth:'smile',backgroundColour:'#e6f3eb'}},
+ {id:'elder-patel',category:'elders',name:'Mr. Patel',changes:{skinColour:'#b7815f',hair:'crop',hairColour:'#777778',head:'slender',shirt:'blazer',shirtColour:'#4d5263',glasses:'round',glassesColour:'#343b40',lensOpacity:5,facialHair:'moustache_short',beard:'none',moustache:'short',moustacheColour:'#777778',backgroundColour:'#e9eef7'}},
+ {id:'elder-kaur',category:'elders',name:'Mrs. Kaur',changes:{skinColour:'#c89975',hairColour:'#98969a',hair:'bun',head:'round',shirt:'cardigan',shirtColour:'#63968f',glasses:'oval',glassesColour:'#5c514b',lensOpacity:5,mouth:'smile',backgroundColour:'#f5f1eb'}},
+ {id:'elder-david',category:'elders',name:'David',changes:{skinColour:'#e2b08e',hair:'crop',hairColour:'#88898c',head:'broad',shirt:'button',shirtColour:'#a09caa',glasses:'browline',glassesColour:'#464045',lensOpacity:5,facialHair:'beard_light',beard:'light',moustache:'natural',beardColour:'#89868a',moustacheColour:'#89868a',mouth:'smile',backgroundColour:'#eef2e8'}}
+];
+const libraryCategories={all:'All',mine:'My Characters',kids:'Kids',adults:'Adults',elders:'Elders',custom:'Custom'};
+const libraryStorageKey='anitoons-library-v1';
+let libraryCategory='all',libraryMode='characters',selectedCharacterId='';
+function readCharacterLibrary(){
+ try{const val=JSON.parse(localStorage.getItem(libraryStorageKey)||'[]');return Array.isArray(val)?val.filter(p=>p&&p.id&&p.changes).slice(0,40):[]}catch{return []}
+}
+function writeCharacterLibrary(list){
+ try{localStorage.setItem(libraryStorageKey,JSON.stringify(list.slice(0,40)));return true}catch{return false}
+}
+function applyPremade(preset){
+ Object.assign(state,JSON.parse(JSON.stringify(freshCharacterDefaults)));
+ for(const [k,v] of Object.entries(preset.changes)){
+  if(Object.hasOwn(freshCharacterDefaults,k)&&typeof v===typeof freshCharacterDefaults[k])state[k]=v;
+ }
+ if(!preset.saved)state.framing='head';
+}
+function switchStudioMode(mode){
+ libraryMode=mode==='customize'?'customize':'characters';
+ document.getElementById('characterLibrary').hidden=libraryMode!=='characters';
+ document.getElementById('editorPanel').hidden=libraryMode!=='customize';
+ document.getElementById('charactersMode').setAttribute('aria-selected',String(libraryMode==='characters'));
+ document.getElementById('customizeMode').setAttribute('aria-selected',String(libraryMode==='customize'));
+ if(libraryMode==='characters')drawLibrary();
+}
+document.getElementById('charactersMode').onclick=()=>switchStudioMode('characters');
+document.getElementById('customizeMode').onclick=()=>switchStudioMode('customize');
+function chooseLibraryCharacter(preset){
+ checkpoint();stopDemo();applyPremade(preset);selectedCharacterId=preset.id;
+ document.getElementById('width').value=state.width;document.getElementById('position').value=state.position;
+ applyColours();updateApp();switchStudioMode('customize');
+ document.getElementById('saveStatus').textContent='Loaded '+preset.name+' · edit any character part';
+}
+function libraryThumbnail(preset,i){
+ const snapshot=JSON.parse(JSON.stringify(state)),previousView=cameraView;
+ try{
+  applyPremade(preset);state.framing='head';cameraView='front';applyColours();render(true);
+  const clone=svg.cloneNode(true);clone.removeAttribute('id');
+  clone.setAttribute('viewBox','130 15 994 1240');clone.setAttribute('role','img');
+  clone.setAttribute('aria-label',preset.name+' portrait');
+  const ids=new Map();
+  for(const el of clone.querySelectorAll('[id]')){const id=el.id;ids.set(id,'preset-'+i+'-'+id);el.id=ids.get(id);}
+  for(const el of [clone,...clone.querySelectorAll('*')])for(const attr of [...el.attributes]){
+   let val=attr.value;
+   for(const [key,value] of ids){val=val.replaceAll('url(#'+key+')','url(#'+value+')');if(val==='#'+key)val='#'+value;}
+   if(val!==attr.value)el.setAttribute(attr.name,val);
+  }
+  return clone;
+ }finally{
+  for(const k of Object.keys(state))delete state[k];
+  Object.assign(state,snapshot);cameraView=previousView;applyColours();
+ }
+}
+function drawLibrary(){
+ const tabs=document.getElementById('libraryTabs'),grid=document.getElementById('presetGrid');
+ if(!tabs.childElementCount)for(const [id,label] of Object.entries(libraryCategories)){
+  const btn=document.createElement('button');btn.type='button';btn.textContent=label;btn.dataset.category=id;btn.setAttribute('role','tab');
+  btn.onclick=()=>{libraryCategory=id;drawLibrary()};tabs.append(btn);
+ }
+ tabs.querySelectorAll('button').forEach(btn=>btn.setAttribute('aria-selected',String(btn.dataset.category===libraryCategory)));
+ const mine=readCharacterLibrary();
+ const current={id:'current',name:'Current character',category:'custom',saved:true,changes:JSON.parse(JSON.stringify(state))};
+ const items=libraryCategory==='all'?[...premadeCharacters,...mine]:
+  libraryCategory==='mine'?mine:libraryCategory==='custom'?[current]:
+  premadeCharacters.filter(p=>p.category===libraryCategory);
+ const fragment=document.createDocumentFragment();
+ for(const [i,preset] of items.entries()){
+  const wrap=document.createElement('div');wrap.className='preset-wrap';
+  const card=document.createElement('button');card.type='button';card.className='preset-card';card.title='Use '+preset.name;
+  card.setAttribute('aria-pressed',String(selectedCharacterId===preset.id));
+  const art=document.createElement('div');art.className='preset-art';
+  try{art.append(libraryThumbnail(preset,i))}catch{art.textContent='Preview unavailable'}
+  const label=document.createElement('span');label.className='preset-name';label.textContent=preset.name;
+  card.append(art,label);card.onclick=()=>chooseLibraryCharacter(preset);wrap.append(card);
+  if(preset.saved&&preset.id!=='current'){
+   const del=document.createElement('button');del.className='preset-delete';del.textContent='×';del.type='button';del.title='Delete saved character';del.setAttribute('aria-label','Delete '+preset.name);
+   del.onclick=()=>{if(writeCharacterLibrary(readCharacterLibrary().filter(item=>item.id!==preset.id)))drawLibrary();};
+   wrap.append(del);
+  }
+  fragment.append(wrap);
+ }
+ if(!items.length){const msg=document.createElement('p');msg.className='preset-empty';msg.textContent='No saved characters yet. Customize a premade character, then click Save character.';fragment.append(msg);}
+ grid.replaceChildren(fragment);
+ document.getElementById('libraryCount').textContent=items.length+' character'+(items.length===1?'':'s');
+}
+function saveCurrentCharacter(){
+ const items=readCharacterLibrary(),now=new Date(),id='saved-'+now.getTime()+'-'+Math.random().toString(36).slice(2,6);
+ const label='My character · '+now.toLocaleDateString();
+ const saved=writeCharacterLibrary([{id,name:label,category:'mine',saved:true,changes:JSON.parse(JSON.stringify(state))},...items]);
+ document.getElementById('saveStatus').textContent=saved?'Saved to My Characters on this device':'Unable to save locally · use Save rig JSON';
+ return saved;
+}
+document.getElementById('saveToMyCharacters').onclick=()=>{if(saveCurrentCharacter()){libraryCategory='mine';drawLibrary();}};
+
+document.getElementById('saveCharacter').onclick=()=>{try{localStorage.setItem('anitoons-character-v21',JSON.stringify(state));saveCurrentCharacter()}catch{document.getElementById('saveStatus').textContent='Device storage unavailable — use Save rig JSON below'}};
 try{const saved=JSON.parse(localStorage.getItem('anitoons-character-v21'));if(saved&&typeof saved==='object'){if(['pointed','hook','angular'].includes(saved.nose))saved.nose='soft';if(['braid','doubleBraid'].includes(saved.beard)){saved.beard='flowing';saved.facialHair='beard_flowing'}for(const k of Object.keys(state))if(typeof saved[k]===typeof state[k]){if(k==='talkGestures'){state[k]=saved[k]}else if(['gazeX','gazeY','headSize'].includes(k)){if(Number.isFinite(saved[k]))state[k]=k==='headSize'?Math.max(75,Math.min(103,saved[k])):Math.max(-100,Math.min(100,saved[k]))}else if(k==='lensOpacity'){if(Number.isFinite(saved[k]))state[k]=Math.max(0,Math.min(100,saved[k]))}else if(k==='width'||k==='position'||/^(mouth|eyes|brows|nose|ears|glasses)[XYWH]$/.test(k)){if(Number.isFinite(saved[k]))state[k]=/^(mouth|eyes|brows|nose|ears|glasses)[XY]$/.test(k)?Math.max(-70,Math.min(70,saved[k])):/^(mouth|eyes|brows|nose|ears|glasses)[WH]$/.test(k)?Math.max(65,Math.min(140,saved[k])):saved[k]}else if(k==='mouthStyle'?mouthStyles[saved[k]]:k==='eyeStyle'?eyeStyles[saved[k]]:catalogs[k]?.[saved[k]])state[k]=saved[k]}for(const k of ['trouserColour','shoeColour','skinColour','shirtColour','hairColour','backgroundColour','headwearColour','beardColour','moustacheColour','facialHairColour','glassesColour','lensColour'])if(/^#[0-9a-f]{6}$/i.test(saved[k]))state[k]=saved[k]}}catch{}
 // Migrate existing separately selected facial hair without discarding the saved look.
 if(state.facialHair==='none'&&(state.beard!=='none'||state.moustache!=='none')){const match=Object.entries(facialHairLooks).find(([,v])=>v.beard===state.beard&&v.moustache===state.moustache);if(match)state.facialHair=match[0];else{facialHairLooks.savedCustom={label:'Saved custom look',beard:state.beard,moustache:state.moustache};catalogs.facialHair.savedCustom='Saved custom look';state.facialHair='savedCustom'}state.facialHairColour=state.beard!=='none'?state.beardColour:state.moustacheColour}
@@ -1502,4 +1666,5 @@ document.getElementById('width').value=state.width;document.getElementById('posi
 for(const id of ['width','position'])document.getElementById(id).addEventListener('pointerdown',checkpoint);
 applyColours();updateApp();
 try{const previousCamera=localStorage.getItem('anitoons-camera-view');if(Object.hasOwn(cameraDirections,previousCamera))selectCameraView(previousCamera)}catch{}
+switchStudioMode('characters');
 </script></body></html>

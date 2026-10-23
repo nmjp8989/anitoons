@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v44</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v45</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -36,8 +36,9 @@
 .camera-options button[aria-pressed=true]{background:#1d252b;color:white;box-shadow:0 1px 4px #0002}
 .camera-options button:focus-visible{outline:3px solid #328ed6;outline-offset:2px}
 @media(max-width:700px){.camera-row{margin:10px 12px 0;padding:8px;gap:6px}.camera-options{flex:1;justify-content:space-between}.camera-options button{flex:1;padding:8px 3px;font-size:10px}}
+.designs[data-feature="shirt"] .design{border-radius:16px;aspect-ratio:.92;padding:6px}.designs[data-feature="shirt"] .design svg{height:78%}
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v44</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v45</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -47,7 +48,8 @@
   <linearGradient id="shirtFill" x1="0" y1="0" x2=".4" y2="1"><stop stop-color="#f0828c"/><stop offset="1" stop-color="#e56879"/></linearGradient>
   <linearGradient id="hairFill" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#2b2727"/><stop offset=".6" stop-color="#2b2727"/><stop offset="1" stop-color="#2b2727"/></linearGradient>
   <filter id="softshadow"><feGaussianBlur stdDeviation="3"/></filter>
-  <style>.ink{stroke:#15100f;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}.hairline{stroke:#140e0f;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;fill:none}.thin{stroke:#170e0f;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}</style>
+  <style>.ink{stroke:#15100f;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}.hairline{stroke:#140e0f;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;fill:none}.thin{stroke:#170e0f;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}.designs[data-feature="shirt"] .design{border-radius:16px;aspect-ratio:.92;padding:6px}.designs[data-feature="shirt"] .design svg{height:78%}
+</style>
 </defs>
 <rect id="background" width="1254" height="1254" fill="#229af0"/>
 <g id="hairBack">
@@ -570,6 +572,59 @@ const cameraFace=document.getElementById('face');
 const cameraFaceOriginal=cameraFace.innerHTML;
 const cameraTorso=document.getElementById('torso');
 const cameraTorsoOriginal=cameraTorso.innerHTML;
+const topNames={crew:'Crew-neck sweater',tee:'Short-sleeve tee',vneck:'V-neck top',polo:'Polo shirt',button:'Button-up shirt',hoodie:'Pullover hoodie',tank:'Tank top',stripeTank:'Striped tank',blazer:'Open blazer',tuxedo:'Tuxedo & bow tie'};
+catalogs.shirt=topNames;state.shirt='crew';
+const torsoOutline='M491 970 Q398 972 345 994 Q276 1025 249 1116 L224 1257 H1042 L1012 1121 Q985 1029 909 998 Q856 979 778 970';
+const topNeck='M534 832 L535 915 Q535 954 491 970 Q544 1061 626 1068 Q720 1060 778 970 Q715 956 715 920 L715 828Z';
+function torsoSvg(key=state.shirt){
+ if(key==='crew')return cameraTorsoOriginal.replace('class="ink" fill="url(#skinFill)"','data-neck="true" class="ink" fill="url(#skinFill)"');
+ const P=(d,fill='url(#shirtFill)',width=7)=>shape(d,fill,width);
+ const seam=d=>line(d,4.5);
+ const isTank=key==='tank'||key==='stripeTank',short=key==='tee'||key==='polo';
+ const scoop='Q725 1067 627 1069 Q530 1063 491 970Z';
+ const vee='L627 1093 L491 970Z';
+ const shallow='Q711 1026 627 1036 Q543 1025 491 970Z';
+ const end=key==='vneck'?vee:['polo','button'].includes(key)?'L627 1045 L491 970Z':key==='hoodie'?shallow:scoop;
+ let art=P(torsoOutline+'Z','url(#skinFill)');
+ art+=`<path data-neck="true" d="${topNeck}" fill="url(#skinFill)" stroke="${ink}" stroke-width="7" stroke-linejoin="round"/>`;
+ const longShape=torsoOutline+end;
+ const shortShape='M491 970 Q398 972 345 994 Q281 1021 249 1116 L366 1154 L375 1257 H880 L889 1154 L1012 1121 Q985 1029 909 998 Q856 979 778 970'+end;
+ const tankShape='M491 970 L444 986 Q459 1079 367 1138 L393 1257 H862 L889 1138 Q797 1079 811 983 L778 970'+scoop;
+ art+=P(isTank?tankShape:short?shortShape:longShape);
+ if(!isTank)art+=seam(short?'M366 1154 L373 1115 M889 1154 L882 1118':'M378 1149 Q368 1208 368 1257 M873 1152 Q884 1208 881 1257');
+ if(key==='tee')art+=seam('M484 980 Q530 1080 627 1082 Q728 1080 785 980');
+ if(key==='vneck')art+=seam('M482 976 L627 1108 L788 976');
+ if(key==='polo'||key==='button'){
+  art+=P('M491 970 L524 950 L627 1045 L555 1020 L521 1051Z');
+  art+=P('M778 970 L730 950 L627 1045 L699 1020 L745 1051Z');
+  art+=seam(`M627 1045 L627 ${key==='polo'?1138:1257}`);
+  for(const y of key==='polo'?[1072,1108]:[1072,1122,1172,1222])art+=`<circle cx="642" cy="${y}" r="4" fill="${ink}"/>`;
+  if(key==='button')art+=seam('M749 1090 H823 V1160 Q786 1184 749 1160Z M749 1104 H823');
+ }
+ if(key==='hoodie'){
+  art+=P('M491 970 Q451 942 455 917 Q505 906 535 935 L627 1036 L715 935 Q754 909 799 920 Q801 947 778 970 L718 1014 Q627 1062 536 1014Z');
+  art+=seam('M486 933 Q522 974 558 994 M768 935 Q733 977 699 994 M543 1021 L533 1140 M712 1021 L723 1140 M468 1204 Q627 1152 786 1204 L798 1257 M456 1257 L468 1204');
+  art+='<path d="M533 1130 V1150 M723 1130 V1150" stroke="#fffdfa" stroke-width="7" stroke-linecap="round"/>';
+ }
+ if(isTank){
+  art+=seam('M452 991 Q469 1085 377 1143 M803 990 Q788 1086 879 1143 M499 984 Q545 1080 627 1082 Q711 1080 770 984');
+  if(key==='stripeTank')for(const y of [1120,1170,1220])art+=`<path d="M405 ${y} H850" stroke="#fffdfa" stroke-width="16" opacity=".65"/>`;
+ }
+ if(key==='blazer'||key==='tuxedo'){
+  art+=P('M524 963 L627 1038 L730 963 L764 1257 H490Z','#fffdfa',5);
+  art+=P('M491 970 L524 953 L599 1110 L553 1257 H390 L378 1149 L345 994Z');
+  art+=P('M778 970 L730 953 L654 1110 L701 1257 H881 L873 1152 L909 998Z');
+  art+=P('M524 953 L627 1160 L511 1080 L544 1045 L489 1022Z');
+  art+=P('M730 953 L627 1160 L743 1080 L710 1045 L765 1022Z');
+  art+=seam('M627 1160 V1257 M764 1140 H840');
+  if(key==='tuxedo'){
+   art+=P('M615 1018 L571 999 Q559 1028 571 1052 L615 1035Z',ink,4)+P('M639 1018 L683 999 Q695 1028 683 1052 L639 1035Z',ink,4)+P('M615 1016 H639 V1039 H615Z',ink,3);
+   for(const y of [1080,1114,1148])art+=`<circle cx="627" cy="${y}" r="4.5" fill="${ink}"/>`;
+  }
+ }
+ return art;
+}
+function topTile(key){return `<svg viewBox="210 885 850 380" aria-hidden="true">${torsoSvg(key)}</svg>`;}
 const cameraCuts=[-2500,327,387,447,507,567,627,687,747,807,867,927,3754];
 const cameraClipDefs=document.createElementNS('http://www.w3.org/2000/svg','g');
 cameraClipDefs.innerHTML=cameraCuts.slice(0,-1).map((x,i)=>`<clipPath id="anitoonsCameraStrip${i}" clipPathUnits="userSpaceOnUse"><rect x="${x-1.5}" y="-2500" width="${cameraCuts[i+1]-x+3}" height="6200"/></clipPath>`).join('');
@@ -609,12 +664,12 @@ function cameraProjectLayer(id,original){
 function applyCameraView(){
  cameraFace.removeAttribute('transform');
  cameraTorso.removeAttribute('transform');
- cameraTorso.innerHTML=cameraTorsoOriginal;
+ cameraTorso.innerHTML=torsoSvg();
  cameraProjectLayer('face',cameraFaceOriginal);
  if(cameraView!=='front'){
   const turn=cameraDirections[cameraView];
   // A smaller neck shear keeps the bust upright beneath the turned jaw.
-  const neck=cameraTorso.querySelector('path[fill="url(#skinFill)"]');
+  const neck=cameraTorso.querySelector('path[data-neck]');
   neck.setAttribute('transform',`matrix(.9 0 ${-.16*turn} 1 ${62.7+155.2*turn} 0)`);
  }
  const sourceHair=document.getElementById('frontHair').innerHTML;
@@ -760,7 +815,8 @@ document.getElementById('width').oninput=e=>{state.width=+e.target.value;render(
 function toSVGString(node){const copy=node.cloneNode(true);copy.setAttribute('xmlns','http://www.w3.org/2000/svg');return new XMLSerializer().serializeToString(copy)}
 function saveFile(data,name,type){let blob=data instanceof Blob?data:new Blob([data],{type});let url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)}
 document.getElementById('exportSvg').onclick=()=>saveFile(toSVGString(svg),'anitoons-v36-character.svg','image/svg+xml');
-document.getElementById('exportPart').onclick=()=>{const s=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${active==='mouth'?'-115 -70 230 160':'0 0 1254 1254'}"><defs><linearGradient id="hairFill"><stop stop-color="#473129"/><stop offset="1" stop-color="#281b1a"/></linearGradient><linearGradient id="skinFill"><stop stop-color="#f5b36f"/><stop offset="1" stop-color="#e79760"/></linearGradient><style>.ink{stroke:#15100f;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}.hairline{stroke:#140e0f;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;fill:none}.thin{stroke:#170e0f;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}</style></defs>${partMarkup(active,state[active])}</svg>`;saveFile(s,'anitoons-'+active+'-'+state[active]+'.svg','image/svg+xml')};
+document.getElementById('exportPart').onclick=()=>{const s=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${active==='mouth'?'-115 -70 230 160':'0 0 1254 1254'}"><defs><linearGradient id="hairFill"><stop stop-color="#473129"/><stop offset="1" stop-color="#281b1a"/></linearGradient><linearGradient id="skinFill"><stop stop-color="#f5b36f"/><stop offset="1" stop-color="#e79760"/></linearGradient><style>.ink{stroke:#15100f;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}.hairline{stroke:#140e0f;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;fill:none}.thin{stroke:#170e0f;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}.designs[data-feature="shirt"] .design{border-radius:16px;aspect-ratio:.92;padding:6px}.designs[data-feature="shirt"] .design svg{height:78%}
+</style></defs>${partMarkup(active,state[active])}</svg>`;saveFile(s,'anitoons-'+active+'-'+state[active]+'.svg','image/svg+xml')};
 document.getElementById('saveJson').onclick=()=>saveFile(JSON.stringify({version:36,rig:state,coordinateSystem:[1254,1254]},null,2),'anitoons-rig-v36.json','application/json');
 document.getElementById('png').onclick=()=>{const str=toSVGString(svg);const url=URL.createObjectURL(new Blob([str],{type:'image/svg+xml'}));const image=new Image();image.onload=()=>{const canvas=document.createElement('canvas');canvas.width=1254;canvas.height=1254;canvas.getContext('2d').drawImage(image,0,0);URL.revokeObjectURL(url);canvas.toBlob(blob=>saveFile(blob,'anitoons-v36-'+state.mouth+'.png','image/png'),'image/png')};image.onerror=()=>{URL.revokeObjectURL(url);alert('PNG export failed')};image.src=url};
 
@@ -804,7 +860,7 @@ stopDemo();
 const oldHeader=document.querySelector('header');oldHeader.remove();
 const legacy=document.querySelector('main');legacy.hidden=true;
 const app=document.createElement('div');app.className='app';
-app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 44</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
+app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 45</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
 <div class="workspace"><section class="portrait"><div id="previewMount"></div><div class="previewbar"><span>YOUR CHARACTER</span><button id="blinkPreview">Blink</button><button id="talkPreview">▶ Try talking</button></div><div class="expressions" aria-label="Expression preview"></div><span class="saveStatus" role="status" id="saveStatus">Choose a feature to make it yours</span></section>
 <section class="customizer"><nav class="features" aria-label="Character features"></nav><div class="pickerHeading"><h2 id="pickerTitle">Mouth style</h2><label class="colorLabel">Colour <input id="partColor" type="color" value="#efa66a" aria-label="Feature colour"></label></div><div id="designs" class="designs"></div><p id="facialHairHint" class="hint" hidden>Choose a complete beard and moustache look. Colour applies to both. Includes full, flowing, tucked, trimmed and moustache-only options.</p><div id="adjustMount"></div><details class="advanced"><summary>Drawing & export tools</summary><div id="exportMount"></div><div id="advancedMount"></div></details></section></div>`;
 document.body.appendChild(app);
@@ -857,13 +913,13 @@ function drawDesigns(){
  document.getElementById('partColor').value=state[feature+'Colour']||({skin:'#efa66a',shirt:'#e56879',hair:'#2b2727',headwear:state.headwearColour,background:'#229af0'})[feature]||'#efa66a';
  document.querySelectorAll('[data-feature]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.feature===feature)));
  document.getElementById('designs').dataset.feature=feature;
- document.getElementById('pickerTitle').textContent=featureNames[feature]+(['skin','shirt','background'].includes(feature)?' colour':' styles');
+ document.getElementById('pickerTitle').textContent=featureNames[feature]+(['skin','background'].includes(feature)?' colour':' styles');
  document.getElementById('adjustMount').hidden=feature!=='mouth';
  document.querySelector('.colorLabel').hidden=!['skin','shirt','background','hair','headwear','facialHair'].includes(feature);
  const entries=feature==='mouth'?mouthStyles:feature==='eyes'?eyeStyles:catalogs[feature];const root=document.getElementById('designs');root.replaceChildren();
  if(!entries){const colours=feature==='skin'?['#f8d4b4','#efa66a','#ca895a','#925b3c','#593a2c']:feature==='shirt'?['#e56879','#999999','#287fd2','#e8b448','#4e8171']:['#229af0','#ff438a','#c4d8f8','#e8c596','#a9c7af'];for(const c of colours){const b=document.createElement('button');b.className='colourChoice';b.style.background=c;b.setAttribute('aria-label',c);b.onclick=()=>{checkpoint();setColour(c)};root.append(b)}return}
  for(const [key,label] of Object.entries(entries)){const b=document.createElement('button');b.className='design';const selected=feature==='mouth'?state.mouthStyle:feature==='eyes'?state.eyeStyle:state[feature];b.setAttribute('aria-pressed',String(selected===key));
- let art=feature==='mouth'?mouthStyleTile(key):feature==='eyes'?`<svg viewBox="425 520 405 170">${eyesSvg('open',key)}</svg>`:smallTile(feature,key);
+ let art=feature==='mouth'?mouthStyleTile(key):feature==='shirt'?topTile(key):feature==='eyes'?`<svg viewBox="425 520 405 170">${eyesSvg('open',key)}</svg>`:smallTile(feature,key);
  b.innerHTML=art+`<span>${label}</span>`;b.onclick=()=>{checkpoint();stopDemo();if(feature==='mouth')state.mouthStyle=key;else if(feature==='eyes')state.eyeStyle=key;else if(feature==='facialHair'){state.facialHair=key;const look=facialHairLooks[key];state.beard=look.beard;state.moustache=look.moustache;state.beardColour=state.moustacheColour=state.facialHairColour}else if(feature==='headwear'){state.headwear=key}else{state[feature]=key;if(feature==='hair')state.headwear='none'}updateApp()};root.append(b)}
 }
 function setColour(c){state[feature+'Colour']=c;if(feature==='facialHair')state.beardColour=state.moustacheColour=c;applyColours();document.getElementById('partColor').value=c}

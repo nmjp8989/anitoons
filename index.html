@@ -749,7 +749,7 @@ function projectTorsoMarkup(original,turn){
  return cameraCuts.slice(0,-1).map((x,i)=>{
   const end=cameraCuts[i+1],scale=(torsoCameraX(end,turn)-torsoCameraX(x,turn))/(end-x);
   const shift=torsoCameraX(x,turn)-scale*x+129.6*turn;
-  return `<g transform="matrix(${scale} ${-.025*turn} ${-.12*turn} 1 ${shift} ${15.675*turn})"><g clip-path="url(#anitoonsCameraStrip${i})">${original}</g></g>`;
+  return `<g transform="matrix(${scale} 0 ${-.12*turn} 1 ${shift} 0)"><g clip-path="url(#anitoonsCameraStrip${i})">${original}</g></g>`;
  }).join('');
 }
 function projectCameraMarkup(id,original,view=cameraView){

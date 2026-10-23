@@ -332,6 +332,8 @@ addHair('asymmetricCurls','Asymmetric curls',longFront.side+frameLocks(130,true)
 // New collection first, keeping saved IDs and the existing collection intact.
 const newHairEntries=Object.entries(catalogs.hair).filter(([key])=>!previousHairCatalog[key]);
 catalogs.hair=Object.fromEntries([...newHairEntries,...Object.entries(previousHairCatalog)]);
+// Join the bun crown to its fringe in front of the filled scalp.
+hairFront.bun='<path fill="url(#hairFill)" d="M500 385 C500 330 550 300 627 300 C700 300 750 330 760 385 L730 405 Q627 365 530 405Z"/>'+hairFront.bun;
 // Every hair set shares the complete scalp outline; hair openings reveal skin.
 
 const svg=document.getElementById('character');let active='mouth',running=null;

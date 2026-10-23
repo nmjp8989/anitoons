@@ -173,7 +173,7 @@ let activeTab='mouth',demo=null;
 function baseEyesSvg(key){
  let out='';
  for(const [cx,side] of [[546,-1],[711,1]]){
-   const cy=607,looking=key==='left'?-18:key==='right'?18:0,closed=key==='closed',happy=key==='happy';
+   const cy=607,looking=eyeGaze(key).x*24,lookY=eyeGaze(key).y*23,closed=key==='closed',happy=key==='happy';
    if(closed||happy){
      const curve=happy?-42:18;
      out+=line(`M${cx-60} ${cy+1} Q${cx} ${cy+curve} ${cx+60} ${cy+1}`,9.5);
@@ -184,7 +184,7 @@ function baseEyesSvg(key){
      const p=`M${cx-w} ${cy-9} Q${cx-w+11} ${cy-h-14} ${cx} ${cy-h-14} Q${cx+w-13} ${cy-h-12} ${cx+w} ${cy-9} Q${cx+w-10} ${cy+h-8} ${cx} ${cy+h-6} Q${cx-w+8} ${cy+h-7} ${cx-w} ${cy-9}Z`;
      out+=shape(p,'#fffefa',9.2);
      // Pupil and catchlight move together, with consistent registration across visemes.
-     out+=`<circle cx="${cx+looking}" cy="${cy+2}" r="13" fill="#241916"/><circle cx="${cx+looking-4}" cy="${cy-2}" r="3.5" fill="#fff"/>`;
+     out+=`<circle cx="${cx+looking}" cy="${cy+2+lookY}" r="13" fill="#241916"/><circle cx="${cx+looking-4}" cy="${cy-2+lookY}" r="3.5" fill="#fff"/>`;
      if(half){
        out+=shape(`M${cx-w} ${cy-8} Q${cx} ${cy-h-23} ${cx+w} ${cy-8} Q${cx+24} ${cy+7} ${cx} ${cy+4} Q${cx-24} ${cy+7} ${cx-w} ${cy-8}Z`,'url(#skinFill)',5.3);
      }else{
@@ -225,7 +225,7 @@ function noseSvg(key){
 const hairBack={"bun": "\n<path class=\"ink\" fill=\"url(#hairFill)\" d=\"M470 290 Q428 265 439 216 Q453 170 502 149 Q504 99 570 88 Q624 56 678 82 Q729 49 776 83 Q820 105 823 142 Q865 165 863 206 Q855 252 814 279 Q875 296 898 358 Q936 426 895 537 Q870 485 841 444 Q815 415 788 390 Q743 393 707 360 Q679 380 626 378 Q592 391 569 407 Q505 410 470 462 Q448 531 418 610 Q388 542 414 451 Q399 359 470 290 Z\"/>\n<path class=\"hairline\" d=\"M499 234 Q493 154 560 114 M549 175 Q536 101 617 88 M608 162 Q618 83 697 88 M695 102 Q754 93 766 146 M770 138 Q799 200 742 225 M557 326 Q539 260 601 232 M615 226 Q681 180 739 227 M728 306 Q783 322 826 390 M459 403 Q484 350 529 340\"/>\n<path class=\"hairline\" d=\"M446 540 Q412 636 422 717 Q405 779 423 833 Q441 867 464 892 M823 476 Q855 564 850 648 Q875 722 837 805 Q796 863 816 915\"/>\n<path class=\"thin\" d=\"M443 738 Q437 822 472 868 M841 718 Q844 807 812 859\"/>\n", "long": "\n<path class=\"ink\" fill=\"url(#hairFill)\" d=\"M353 715 Q321 574 352 425 Q378 277 488 233 Q511 156 605 153 Q720 117 811 197 Q907 253 929 411 Q971 635 957 943 Q930 1012 867 1049 L828 1003 Q885 880 853 731 Q827 590 802 452 Q727 398 623 385 Q504 386 454 506 Q421 611 424 720 Q397 906 430 1014 L380 1030 Q333 921 353 715Z\"/>\n<path class=\"hairline\" d=\"M385 605 Q380 420 452 322 M451 483 Q485 366 605 339 M575 236 Q717 209 824 342 M871 497 Q920 794 903 972 M401 743 Q394 901 410 973\"/>\n", "crop": "\n<path class=\"ink\" fill=\"url(#hairFill)\" d=\"M407 574 Q361 497 392 398 Q385 315 458 264 Q503 186 599 195 Q683 150 766 207 Q873 220 899 344 Q936 432 859 530 Q853 462 822 442 L780 413 Q739 395 698 413 Q657 404 627 412 Q579 378 547 409 Q473 419 444 483 L422 576Z\"/>\n<path class=\"hairline\" d=\"M442 385 Q511 270 611 278 M524 315 Q604 241 701 290 M694 265 Q800 268 847 374 M790 377 Q822 403 836 444\"/>\n"};
 const hairFront={"bun": "<path class=\"ink\" fill=\"url(#hairFill)\" d=\"M405 599 Q382 525 415 445 Q426 381 474 357 Q503 347 543 366 Q583 342 625 359 Q659 320 712 338 Q769 331 818 376 Q875 419 872 567 Q850 552 836 520 Q803 477 785 452 Q748 430 706 384 Q666 400 634 400 Q570 392 518 425 Q455 458 443 551 Q428 603 405 599Z\"/>\n<path class=\"hairline\" d=\"M441 486 Q461 397 532 382 M560 373 Q598 354 630 384 M649 378 Q674 343 718 362 M766 374 Q838 413 850 493\"/>\n<path class=\"hairline\" d=\"M423 517 Q379 641 394 721 Q373 817 455 888 M831 503 Q859 628 856 713 Q874 820 818 919\"/>\n", "long": "<path class=\"ink\" fill=\"url(#hairFill)\" d=\"M423 562 Q393 470 449 382 Q467 324 543 297 Q612 257 693 287 Q785 291 838 373 Q877 428 858 580 Q823 489 777 434 Q718 401 640 398 Q570 403 513 439 Q458 482 423 562Z\"/>\n<path class=\"hairline\" d=\"M458 447 Q491 363 571 325 M615 301 Q698 283 776 350 M821 400 Q849 466 856 535\"/>\n", "crop": "<path class=\"ink\" fill=\"url(#hairFill)\" d=\"M411 540 Q384 471 419 384 Q445 321 505 306 Q548 249 634 264 Q691 240 741 284 Q817 273 856 365 Q882 430 855 565 Q828 471 795 445 Q763 416 724 417 Q704 392 682 393 Q635 399 607 388 Q539 397 505 425 Q453 457 429 579 L411 540Z\"/>\n<path class=\"hairline\" d=\"M473 389 Q518 321 576 316 M570 361 Q634 295 691 334 M690 352 Q750 330 806 403\"/>\n"};
 const ears={"round": {"L": "<path class=\"ink\" fill=\"url(#skinFill)\" d=\"M441 590 C405 584 363 615 355 654 C340 714 384 755 427 728 Q448 709 446 683Z\"/><path class=\"thin\" d=\"M421 627 Q380 626 384 680 Q383 699 403 705\"/>", "R": "<path class=\"ink\" fill=\"url(#skinFill)\" d=\"M825 580 Q878 560 914 602 Q939 634 920 683 Q899 725 846 714 L824 687Z\"/><path class=\"thin\" d=\"M859 617 Q902 601 893 656 Q892 682 870 686\"/>"}, "small": {"L": "<path class=\"ink\" fill=\"url(#skinFill)\" d=\"M443 631 Q405 605 379 642 Q358 682 387 710 Q408 731 436 711Z\"/><path class=\"thin\" d=\"M418 652 Q390 654 399 689\"/>", "R": "<path class=\"ink\" fill=\"url(#skinFill)\" d=\"M828 626 Q871 602 898 638 Q921 669 896 704 Q870 729 836 700Z\"/><path class=\"thin\" d=\"M855 645 Q883 649 876 684\"/>"}, "pointed": {"L": "<path class=\"ink\" fill=\"url(#skinFill)\" d=\"M442 640 Q395 590 371 581 Q355 644 374 702 Q392 737 436 717Z\"/><path class=\"thin\" d=\"M392 651 Q402 634 426 659\"/>", "R": "<path class=\"ink\" fill=\"url(#skinFill)\" d=\"M823 640 Q877 590 906 580 Q920 643 902 702 Q878 735 836 713Z\"/><path class=\"thin\" d=\"M884 650 Q869 639 849 659\"/>"}};
-const state={glasses:'none',glassesColour:'#242424',lensColour:'#6c5040',lensOpacity:20,mouth:'closed',eyes:'open',brows:'neutral',nose:'soft',hair:'bun',ears:'round',width:110,position:5,mouthStyle:'soft',eyeStyle:'round',headwear:'none',headwearColour:'#2b2727',beard:'none',moustache:'none',beardColour:'#2b2727',moustacheColour:'#2b2727',facialHair:'none',facialHairColour:'#2b2727'};
+const state={head:'balanced',headSize:100,gazeX:0,gazeY:0,glasses:'none',glassesColour:'#242424',lensColour:'#6c5040',lensOpacity:20,mouth:'closed',eyes:'open',brows:'neutral',nose:'soft',hair:'bun',ears:'round',width:110,position:5,mouthStyle:'soft',eyeStyle:'round',headwear:'none',headwearColour:'#2b2727',beard:'none',moustache:'none',beardColour:'#2b2727',moustacheColour:'#2b2727',facialHair:'none',facialHairColour:'#2b2727'};
 const catalogs={mouth:mouthNames,eyes:{open:'Open',sleepy:'Sleepy',closed:'Closed',surprised:'Wide',left:'Look left',right:'Look right',happy:'Happy'},brows:{neutral:'Neutral',raised:'Raised',angry:'Angry',worried:'Worried',sad:'Sad',oneRaised:'One raised'},nose:{soft:'Soft',button:'Button',petite:'Petite'},hair:{bun:'High bun',long:'Long waves',crop:'Short crop'},ears:{round:'Round',small:'Small',pointed:'Pointed'},mood:{neutral:'Neutral',smile:'Happy',surprise:'Surprised',anger:'Angry',sleepy:'Sleepy',sad:'Sad'}};
 // v19 illustration refinements: fine hair strands, soft highlight facets, and silhouette details.
 hairFront.bun += `<path d="M458 391 Q479 359 517 351 M514 374 Q539 347 565 358 M678 357 Q707 339 730 352 M790 397 Q812 416 829 447" stroke="#765247" opacity=".72" stroke-width="8" fill="none" stroke-linecap="round"/><path d="M481 174 Q493 131 535 121 M662 99 Q695 81 719 98 M774 178 Q785 209 762 227" stroke="#775146" opacity=".6" stroke-width="9" fill="none" stroke-linecap="round"/>`;
@@ -484,7 +484,23 @@ function adjustedFeatureSvg(id,art,view){
  const cy={glasses:607,mouth:761,eyes:607,brows:495,nose:694,ears:665}[key];
  return `<g data-feature-fit="${key}" transform="translate(${x} ${y}) translate(${cx} ${cy}) scale(${w} ${h}) translate(${-cx} ${-cy})">${art}</g>`;
 }
-function cameraMarkup(id,original,view=cameraView){return adjustedFeatureSvg(id,projectCameraMarkup(id,original,view),view);}
+const headPresets={
+ balanced:{label:'Balanced',w:1,h:1},round:{label:'Round',w:1.12,h:.90},
+ oval:{label:'Oval',w:.94,h:1.02},broad:{label:'Broad',w:1.16,h:.97},
+ slender:{label:'Slender',w:.86,h:1.02},soft:{label:'Soft & short',w:1.04,h:.86},
+ petite:{label:'Petite',w:.87,h:.89},bold:{label:'Large cartoon',w:1.18,h:1}
+};
+catalogs.head=Object.fromEntries(Object.entries(headPresets).map(([k,p])=>[k,p.label]));
+function fittedHeadSvg(id,art,preset=state.head,size=state.headSize){
+ if(id==='torso'||!art)return art;
+ const p=headPresets[preset]||headPresets.balanced,s=Math.max(85,Math.min(103,size||100))/100;
+ if(p.w===1&&p.h===1&&s===1)return art;
+ return `<g data-head-fit="${preset}" transform="translate(627 890) scale(${p.w*s} ${p.h*s}) translate(-627 -890)">${art}</g>`;
+}
+function cameraMarkup(id,original,view=cameraView){return fittedHeadSvg(id,adjustedFeatureSvg(id,projectCameraMarkup(id,original,view),view));}
+function eyeGaze(key){return {x:key==='left'?-1:key==='right'?1:Math.max(-1,Math.min(1,(state.gazeX||0)/100)),y:Math.max(-1,Math.min(1,(state.gazeY||0)/100))};}
+function headTile(key){return `<svg viewBox="310 275 635 670" aria-hidden="true">${fittedHeadSvg('face',cameraFaceOriginal,key,100)}</svg>`;}
+
 const mouthStyles={soft:'Soft lips',classic:'Clean ink',petite:'Petite lips',fine:'Fine line',full:'Full lips',bow:'Cupid bow',wide:'Broad cartoon',smirk:'Slanted smile',gap:'Gap tooth'};
 const mouthProfiles={
  fine:{width:76,lip:0,colour:'#c8757c',slant:0},
@@ -558,15 +574,16 @@ function styledEyesSvg(key,p){
    eye+=line(`M${-w} 3 Q0 ${arch} ${w} 3`,p.dot?5:6.5);
    if(happy&&!p.dot)eye+=`<path d="M${-w*.65} ${-h*.20} Q0 ${-h*.63} ${w*.65} ${-h*.20}" fill="none" stroke="#a76c53" stroke-width="2.3" opacity=".45"/>`;
   }else{
-   const dx=key==='left'?-Math.min(15,w*.23):key==='right'?Math.min(15,w*.23):0;
+   const gaze=eyeGaze(key),dx=gaze.x*Math.min(25,w*.35),dy=gaze.y*Math.min(22,h*.36);
    const r=p.pupil*(wide?.77:1);
    if(!p.dot){
     const d=p.slant?`M${-w} 0 Q${-w*.55} ${-h} 0 ${-h*.82} Q${w*.65} ${-h*.75} ${w} 0 Q${w*.6} ${h} 0 ${h} Q${-w*.5} ${h} ${-w} 0Z`:`M${-w} 0 C${-w} ${-h*.68} ${-w*.5} ${-h} 0 ${-h} C${w*.5} ${-h} ${w} ${-h*.68} ${w} 0 C${w} ${h*.68} ${w*.5} ${h} 0 ${h} C${-w*.5} ${h} ${-w} ${h*.68} ${-w} 0Z`;
-    eye+=shape(d,white,6.5);
-    if(p.iris)eye+=`<circle cx="${dx}" cy="1" r="${Math.min(w*.62,h*.72,r+9)}" fill="#fffdfa" stroke="${ink}" stroke-width="3"/>`;
+    eye+=shape(d,white,6.5)+`<defs><clipPath id="gaze-${cx}-${key}"><path d="${d}"/></clipPath></defs><g clip-path="url(#gaze-${cx}-${key})">`;
+    if(p.iris)eye+=`<circle cx="${dx}" cy="${1+dy}" r="${Math.min(w*.62,h*.72,r+9)}" fill="#fffdfa" stroke="${ink}" stroke-width="3"/>`;
    }
-   eye+=p.vertical?`<ellipse cx="${dx}" cy="1" rx="${r*.72}" ry="${r*1.2}" fill="${ink}"/>`:`<circle cx="${dx}" cy="1" r="${r}" fill="${ink}"/>`;
-   if(p.pupil>20)eye+=`<circle cx="${dx-r*.3}" cy="${-r*.35}" r="${r*.18}" fill="white"/>`;
+   eye+=p.vertical?`<ellipse cx="${dx}" cy="${1+dy}" rx="${r*.72}" ry="${r*1.2}" fill="${ink}"/>`:`<circle cx="${dx}" cy="${1+dy}" r="${r}" fill="${ink}"/>`;
+   if(p.pupil>20)eye+=`<circle cx="${dx-r*.3}" cy="${-r*.35+dy}" r="${r*.18}" fill="white"/>`;
+   if(!p.dot)eye+='</g>';
    if(!p.dot&&(sleepy||p.lid)){
     const lidY=sleepy?h*.12:-h*(1-(p.lid||0));
     // The eyelid follows the original upper eye contour and meets its corners.
@@ -633,7 +650,7 @@ function eyesSvg(key,style=state.eyeStyle){
 
 function referenceEyesSvg(key,style){
  return [546,711].map(cx=>{
-  const dx=key==='left'?-17:key==='right'?17:0,wide=key==='surprised',sleepy=key==='sleepy';
+  const dx=eyeGaze(key).x*25,dy=eyeGaze(key).y*14,wide=key==='surprised',sleepy=key==='sleepy';
   const w=style==='slit'?66:64;
   if(key==='closed'||key==='happy')return `<g transform="translate(${cx} 607)">${line(key==='happy'?`M-${w} 12 Q0 -35 ${w} 12`:`M-${w} 4 Q0 17 ${w} 4`,7)}</g>`;
   let d;
@@ -645,7 +662,7 @@ function referenceEyesSvg(key,style){
    d=`M-${w} 9 Q-5 ${-up} ${w} 9 Q0 ${low} -${w} 9Z`;
   }
   const id=`reference-eye-${style}-${key}-${cx}`,r=style==='slit'?21:30;
-  return `<g transform="translate(${cx} 607)"><defs><clipPath id="${id}"><path d="${d}"/></clipPath></defs><path d="${d}" fill="${white}"/><g clip-path="url(#${id})"><circle cx="${dx}" cy="${style==='halfCircle'?-14:style==='heavyLid'?-2:-4}" r="${r}" fill="${ink}"/></g><path d="${d}" fill="none" stroke="${ink}" stroke-width="7" stroke-linejoin="round"/></g>`;
+  return `<g transform="translate(${cx} 607)"><defs><clipPath id="${id}"><path d="${d}"/></clipPath></defs><path d="${d}" fill="${white}"/><g clip-path="url(#${id})"><circle cx="${dx}" cy="${(style==='halfCircle'?-14:style==='heavyLid'?-2:-4)+dy}" r="${r}" fill="${ink}"/></g><path d="${d}" fill="none" stroke="${ink}" stroke-width="7" stroke-linejoin="round"/></g>`;
  }).join('');
 }
 catalogs.glasses={none:'No glasses',round:'Round wire',rectangle:'Rectangle',browline:'Browline',aviator:'Aviator',oval:'Narrow oval',catEye:'Cat eye',square:'Oversized square',sport:'Sport shades'};
@@ -1018,7 +1035,7 @@ stopDemo();
 const oldHeader=document.querySelector('header');oldHeader.remove();
 const legacy=document.querySelector('main');legacy.hidden=true;
 const app=document.createElement('div');app.className='app';
-app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 52</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
+app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 53</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
 <div class="workspace"><section class="portrait"><div id="previewMount"></div><div class="previewbar"><span>YOUR CHARACTER</span><button id="blinkPreview">Blink</button><button id="talkPreview">▶ Try talking</button></div><div class="expressions" aria-label="Expression preview"></div><span class="saveStatus" role="status" id="saveStatus">Choose a feature to make it yours</span></section>
 <section class="customizer"><nav class="features" aria-label="Character features"></nav><div class="pickerHeading"><h2 id="pickerTitle">Mouth style</h2><label class="colorLabel"><span id="featureColourTitle">Colour</span> <input id="partColor" type="color" value="#efa66a" aria-label="Feature colour"></label></div><div id="glassesSettings" hidden style="padding:0 0 18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap"><label class="colorLabel">Lens colour <input id="lensColor" type="color" aria-label="Lens colour"></label><label style="font-size:12px">Lens opacity <output id="lensOpacityValue"></output><input id="lensOpacity" type="range" min="0" max="100" aria-label="Lens opacity" style="display:block;width:180px"></label><span style="font-size:11px;color:#777">0% clear · 100% opaque</span></div><div id="designs" class="designs"></div><p id="facialHairHint" class="hint" hidden>Choose a complete beard and moustache look. Colour applies to both. Includes full, flowing, tucked, trimmed and moustache-only options.</p><div id="adjustMount"></div><details class="advanced"><summary>Drawing & export tools</summary><div id="exportMount"></div><div id="advancedMount"></div></details></section></div>`;
 document.body.appendChild(app);
@@ -1081,8 +1098,8 @@ for(const axis of ['W','H']){
  input.oninput=()=>{state[feature+axis]=+input.value;render();syncFeatureControls()};
 }
 
-const featureNames={mouth:'Mouth',eyes:'Eyes',glasses:'Glasses',brows:'Eyebrows',nose:'Nose',ears:'Ears',hair:'Hair',facialHair:'Beard & moustache',headwear:'Headwear',skin:'Skin',shirt:'Clothes',background:'Backdrop'};
-const icons={glasses:'M1 12 A5 5 0 1 0 11 12 A5 5 0 1 0 1 12 M13 12 A5 5 0 1 0 23 12 A5 5 0 1 0 13 12 M11 12 Q12 10 13 12',facialHair:'M3 8 Q5 13 8 12 L9 16 Q12 19 15 16 L16 12 Q19 13 21 8 L21 17 Q12 29 3 17Z M7 10 Q10 7 12 10 Q14 7 17 10',beard:'M3 8 Q5 13 8 12 L9 16 Q12 19 15 16 L16 12 Q19 13 21 8 L21 17 Q12 29 3 17Z',moustache:'M12 10 Q8 5 5 10 Q2 13 1 8 Q0 16 7 15 Q10 15 12 12 Q14 15 17 15 Q24 16 23 8 Q22 13 19 10 Q16 5 12 10Z',headwear:'M3 15 Q1 7 7 4 Q12 0 18 5 Q24 9 21 16 L18 19 Q12 13 6 19Z M4 12 Q12 5 20 8 M6 15 Q13 9 22 12',mouth:'M3 10 Q12 3 21 10 Q12 21 3 10Z M3 10 Q12 13 21 10',eyes:'M2 12 Q12 -1 22 12 Q12 25 2 12Z M16 12 A4 4 0 1 0 8 12 A4 4 0 1 0 16 12',brows:'M3 12 Q12 3 21 10 L21 13 Q12 7 3 15Z',nose:'M9 3 Q10 12 6 16 Q12 23 18 16 Q14 12 15 3',ears:'M17 19 Q8 27 5 14 Q3 2 13 2 Q23 4 17 13 Q12 12 12 17',hair:'M3 22 L3 10 Q1 0 11 3 Q21 -2 22 12 L20 22 L17 11 Q10 13 7 7Z',skin:'M12 2 C0 2 0 22 12 22 C24 22 24 2 12 2Z',shirt:'M7 3 L2 6 L4 12 L7 11 L7 22 L17 22 L17 11 L20 12 L22 6 L17 3 Q12 8 7 3Z',background:'M2 3 H22 V22 H2Z M2 20 L9 12 L14 17 L18 10 L22 16'};
+const featureNames={head:'Head',mouth:'Mouth',eyes:'Eyes',glasses:'Glasses',brows:'Eyebrows',nose:'Nose',ears:'Ears',hair:'Hair',facialHair:'Beard & moustache',headwear:'Headwear',skin:'Skin',shirt:'Clothes',background:'Backdrop'};
+const icons={head:'M12 2 C2 2 2 9 3 15 Q4 23 12 25 Q20 23 21 15 C22 9 22 2 12 2Z',glasses:'M1 12 A5 5 0 1 0 11 12 A5 5 0 1 0 1 12 M13 12 A5 5 0 1 0 23 12 A5 5 0 1 0 13 12 M11 12 Q12 10 13 12',facialHair:'M3 8 Q5 13 8 12 L9 16 Q12 19 15 16 L16 12 Q19 13 21 8 L21 17 Q12 29 3 17Z M7 10 Q10 7 12 10 Q14 7 17 10',beard:'M3 8 Q5 13 8 12 L9 16 Q12 19 15 16 L16 12 Q19 13 21 8 L21 17 Q12 29 3 17Z',moustache:'M12 10 Q8 5 5 10 Q2 13 1 8 Q0 16 7 15 Q10 15 12 12 Q14 15 17 15 Q24 16 23 8 Q22 13 19 10 Q16 5 12 10Z',headwear:'M3 15 Q1 7 7 4 Q12 0 18 5 Q24 9 21 16 L18 19 Q12 13 6 19Z M4 12 Q12 5 20 8 M6 15 Q13 9 22 12',mouth:'M3 10 Q12 3 21 10 Q12 21 3 10Z M3 10 Q12 13 21 10',eyes:'M2 12 Q12 -1 22 12 Q12 25 2 12Z M16 12 A4 4 0 1 0 8 12 A4 4 0 1 0 16 12',brows:'M3 12 Q12 3 21 10 L21 13 Q12 7 3 15Z',nose:'M9 3 Q10 12 6 16 Q12 23 18 16 Q14 12 15 3',ears:'M17 19 Q8 27 5 14 Q3 2 13 2 Q23 4 17 13 Q12 12 12 17',hair:'M3 22 L3 10 Q1 0 11 3 Q21 -2 22 12 L20 22 L17 11 Q10 13 7 7Z',skin:'M12 2 C0 2 0 22 12 22 C24 22 24 2 12 2Z',shirt:'M7 3 L2 6 L4 12 L7 11 L7 22 L17 22 L17 11 L20 12 L22 6 L17 3 Q12 8 7 3Z',background:'M2 3 H22 V22 H2Z M2 20 L9 12 L14 17 L18 10 L22 16'};
 function checkpoint(){history.push(JSON.stringify(state));if(history.length>40)history.shift()}
 function updateApp(){expression=({smile:'smile',sad:'sad',laugh:'laugh',O:'surprise',MBP:state.brows==='angry'?'angry':'neutral'})[state.mouth]||'neutral';if(reaction.button)reaction.button.disabled=expression==='neutral';render();drawDesigns();document.querySelectorAll('.expressions button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.expression===expression)))}
 function chooseExpression(key){stopDemo();expression=key;const map={neutral:['closed','open','neutral'],smile:['smile','happy','raised'],sad:['sad','open','sad'],laugh:['laugh','happy','raised'],surprise:['O','surprised','raised'],angry:['MBP','open','angry']};[state.mouth,state.eyes,state.brows]=map[key];updateApp();if(reaction.button)reaction.button.disabled=key==='neutral';startReaction(key)}
@@ -1094,6 +1111,7 @@ document.querySelector('.expressions').after(reaction.button);
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&reaction.playing)stopReaction()});
 for(const [key,label] of Object.entries(featureNames)){const b=document.createElement('button');b.innerHTML=`<svg viewBox="0 0 24 26" aria-hidden="true"><path d="${icons[key]}"/></svg><span>${label}</span>`;b.dataset.feature=key;b.onclick=()=>{feature=key;drawDesigns()};document.querySelector('.features').append(b)}
 function drawDesigns(){
+ document.getElementById('headSettings').hidden=feature!=='head';document.getElementById('gazeSettings').hidden=feature!=='eyes';document.getElementById('headSize').value=state.headSize;document.getElementById('headSizeValue').textContent=state.headSize+'%';syncGaze();
  document.getElementById('glassesSettings').hidden=feature!=='glasses';
  document.getElementById('featureColourTitle').textContent=feature==='glasses'?'Frame colour':'Colour';
  document.getElementById('lensColor').value=state.lensColour;document.getElementById('lensOpacity').value=state.lensOpacity;document.getElementById('lensOpacityValue').value=state.lensOpacity+'%';
@@ -1107,19 +1125,30 @@ function drawDesigns(){
  const entries=feature==='mouth'?mouthStyles:feature==='eyes'?eyeStyles:catalogs[feature];const root=document.getElementById('designs');root.replaceChildren();
  if(!entries){const colours=feature==='skin'?['#f8d4b4','#efa66a','#ca895a','#925b3c','#593a2c']:feature==='shirt'?['#e56879','#999999','#287fd2','#e8b448','#4e8171']:['#229af0','#ff438a','#c4d8f8','#e8c596','#a9c7af'];for(const c of colours){const b=document.createElement('button');b.className='colourChoice';b.style.background=c;b.setAttribute('aria-label',c);b.onclick=()=>{checkpoint();setColour(c)};root.append(b)}return}
  for(const [key,label] of Object.entries(entries)){const b=document.createElement('button');b.className='design';const selected=feature==='mouth'?state.mouthStyle:feature==='eyes'?state.eyeStyle:state[feature];b.setAttribute('aria-pressed',String(selected===key));
- let art=feature==='mouth'?mouthStyleTile(key):feature==='shirt'?topTile(key):feature==='eyes'?`<svg viewBox="425 520 405 170">${eyesSvg('open',key)}</svg>`:smallTile(feature,key);
+ let art=feature==='head'?headTile(key):feature==='mouth'?mouthStyleTile(key):feature==='shirt'?topTile(key):feature==='eyes'?`<svg viewBox="425 520 405 170">${eyesSvg('open',key)}</svg>`:smallTile(feature,key);
  b.innerHTML=art+`<span>${label}</span>`;b.onclick=()=>{checkpoint();stopDemo();if(feature==='mouth')state.mouthStyle=key;else if(feature==='eyes')state.eyeStyle=key;else if(feature==='facialHair'){state.facialHair=key;const look=facialHairLooks[key];state.beard=look.beard;state.moustache=look.moustache;state.beardColour=state.moustacheColour=state.facialHairColour}else if(feature==='headwear'){state.headwear=key}else{state[feature]=key;if(feature==='hair')state.headwear='none'}updateApp()};root.append(b)}
 }
 function setColour(c){state[feature+'Colour']=c;if(feature==='facialHair')state.beardColour=state.moustacheColour=c;applyColours();document.getElementById('partColor').value=c}
 function applyColours(){for(const [key,id] of [['skin','skinFill'],['shirt','shirtFill'],['hair','hairFill']])if(state[key+'Colour'])document.querySelectorAll('#'+id+' stop').forEach(n=>n.setAttribute('stop-color',state[key+'Colour']));const backdrop=state.backgroundColour||'#229af0';document.getElementById('background').setAttribute('fill',backdrop);document.getElementById('stage').style.background=backdrop;render()}
 for(const [id,key] of [['lensColor','lensColour'],['lensOpacity','lensOpacity']]){const input=document.getElementById(id);input.onpointerdown=checkpoint;input.oninput=()=>{state[key]=key==='lensOpacity'?+input.value:input.value;render();drawDesigns()}}
+const headSettings=document.createElement('div');headSettings.id='headSettings';headSettings.hidden=true;
+headSettings.innerHTML='<label>Head size <output id="headSizeValue">100%</output><input id="headSize" aria-label="Head size" type="range" min="85" max="103" value="100" style="width:100%;margin:16px 0"></label><p class="hint">Presets fit your existing hair and facial features. Size stays anchored at the neck.</p>';
+document.getElementById('designs').before(headSettings);
+document.getElementById('headSize').onpointerdown=checkpoint;
+document.getElementById('headSize').onkeydown=e=>{if(e.key.startsWith('Arrow'))checkpoint()};
+document.getElementById('headSize').oninput=e=>{state.headSize=+e.target.value;render();document.getElementById('headSizeValue').textContent=state.headSize+'%'};
+const gazeSettings=document.createElement('div');gazeSettings.id='gazeSettings';gazeSettings.hidden=true;
+gazeSettings.innerHTML='<span>Look direction</span><div role="group" aria-label="Look direction" style="display:grid;grid-template-columns:repeat(3,44px);gap:5px;margin:12px 0"></div><p class="hint">Eyes can look independently of the camera view. Blinks and reactions still work.</p>';
+document.getElementById('designs').before(gazeSettings);
+for(const [x,y,label,symbol] of [[-100,-100,'Up left','↖'],[0,-100,'Up','↑'],[100,-100,'Up right','↗'],[-100,0,'Left','←'],[0,0,'Centre','•'],[100,0,'Right','→'],[-100,100,'Down left','↙'],[0,100,'Down','↓'],[100,100,'Down right','↘']]){const b=document.createElement('button');b.textContent=symbol;b.setAttribute('aria-label','Look '+label.toLowerCase());b.dataset.gaze=x+','+y;b.style.cssText='height:40px;border:1px solid #ccc;border-radius:12px;background:#fff;color:#20272b;font-size:20px';b.onclick=()=>{checkpoint();state.gazeX=x;state.gazeY=y;if(['left','right'].includes(state.eyes))state.eyes='open';render();syncGaze()};gazeSettings.querySelector('[role=group]').append(b)}
+function syncGaze(){document.querySelectorAll('[data-gaze]').forEach(b=>{const selected=b.dataset.gaze===state.gazeX+','+state.gazeY;b.setAttribute('aria-pressed',String(selected));b.style.background=selected?'#eee5d5':'#fff'})}
 document.getElementById('partColor').oninput=e=>setColour(e.target.value);
 document.getElementById('partColor').onpointerdown=checkpoint;
 document.getElementById('undoCharacter').onclick=()=>{if(!history.length)return;for(const k of Object.keys(state))delete state[k];Object.assign(state,JSON.parse(history.pop()));for(const [id,colors] of [['skinFill',['#f6b36e','#eca064','#e79560']],['shirtFill',['#f0828c','#e56879']],['hairFill',['#2b2727','#2b2727','#2b2727']]])document.querySelectorAll('#'+id+' stop').forEach((n,i)=>n.setAttribute('stop-color',colors[i]));document.getElementById('background').setAttribute('fill','#229af0');document.getElementById('width').value=state.width;document.getElementById('position').value=state.position;applyColours();updateApp()};
 document.getElementById('talkPreview').onclick=()=>{expression='neutral';reaction.button.disabled=true;document.getElementById('demo').click()};
 document.getElementById('blinkPreview').onclick=()=>document.getElementById('blink').click();
 document.getElementById('saveCharacter').onclick=()=>{try{localStorage.setItem('anitoons-character-v21',JSON.stringify(state));document.getElementById('saveStatus').textContent='Character saved on this device'}catch{document.getElementById('saveStatus').textContent='Device storage unavailable — use Save rig JSON below'}};
-try{const saved=JSON.parse(localStorage.getItem('anitoons-character-v21'));if(saved&&typeof saved==='object'){if(['pointed','hook','angular'].includes(saved.nose))saved.nose='soft';if(['braid','doubleBraid'].includes(saved.beard)){saved.beard='flowing';saved.facialHair='beard_flowing'}for(const k of Object.keys(state))if(typeof saved[k]===typeof state[k]){if(k==='lensOpacity'){if(Number.isFinite(saved[k]))state[k]=Math.max(0,Math.min(100,saved[k]))}else if(k==='width'||k==='position'||/^(mouth|eyes|brows|nose|ears|glasses)[XYWH]$/.test(k)){if(Number.isFinite(saved[k]))state[k]=/^(mouth|eyes|brows|nose|ears|glasses)[XY]$/.test(k)?Math.max(-70,Math.min(70,saved[k])):/^(mouth|eyes|brows|nose|ears|glasses)[WH]$/.test(k)?Math.max(65,Math.min(140,saved[k])):saved[k]}else if(k==='mouthStyle'?mouthStyles[saved[k]]:k==='eyeStyle'?eyeStyles[saved[k]]:catalogs[k]?.[saved[k]])state[k]=saved[k]}for(const k of ['skinColour','shirtColour','hairColour','backgroundColour','headwearColour','beardColour','moustacheColour','facialHairColour','glassesColour','lensColour'])if(/^#[0-9a-f]{6}$/i.test(saved[k]))state[k]=saved[k]}}catch{}
+try{const saved=JSON.parse(localStorage.getItem('anitoons-character-v21'));if(saved&&typeof saved==='object'){if(['pointed','hook','angular'].includes(saved.nose))saved.nose='soft';if(['braid','doubleBraid'].includes(saved.beard)){saved.beard='flowing';saved.facialHair='beard_flowing'}for(const k of Object.keys(state))if(typeof saved[k]===typeof state[k]){if(['gazeX','gazeY','headSize'].includes(k)){if(Number.isFinite(saved[k]))state[k]=k==='headSize'?Math.max(85,Math.min(103,saved[k])):Math.max(-100,Math.min(100,saved[k]))}else if(k==='lensOpacity'){if(Number.isFinite(saved[k]))state[k]=Math.max(0,Math.min(100,saved[k]))}else if(k==='width'||k==='position'||/^(mouth|eyes|brows|nose|ears|glasses)[XYWH]$/.test(k)){if(Number.isFinite(saved[k]))state[k]=/^(mouth|eyes|brows|nose|ears|glasses)[XY]$/.test(k)?Math.max(-70,Math.min(70,saved[k])):/^(mouth|eyes|brows|nose|ears|glasses)[WH]$/.test(k)?Math.max(65,Math.min(140,saved[k])):saved[k]}else if(k==='mouthStyle'?mouthStyles[saved[k]]:k==='eyeStyle'?eyeStyles[saved[k]]:catalogs[k]?.[saved[k]])state[k]=saved[k]}for(const k of ['skinColour','shirtColour','hairColour','backgroundColour','headwearColour','beardColour','moustacheColour','facialHairColour','glassesColour','lensColour'])if(/^#[0-9a-f]{6}$/i.test(saved[k]))state[k]=saved[k]}}catch{}
 // Migrate existing separately selected facial hair without discarding the saved look.
 if(state.facialHair==='none'&&(state.beard!=='none'||state.moustache!=='none')){const match=Object.entries(facialHairLooks).find(([,v])=>v.beard===state.beard&&v.moustache===state.moustache);if(match)state.facialHair=match[0];else{facialHairLooks.savedCustom={label:'Saved custom look',beard:state.beard,moustache:state.moustache};catalogs.facialHair.savedCustom='Saved custom look';state.facialHair='savedCustom'}state.facialHairColour=state.beard!=='none'?state.beardColour:state.moustacheColour}
 document.getElementById('width').value=state.width;document.getElementById('position').value=state.position;

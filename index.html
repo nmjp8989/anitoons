@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v45</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v46</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -37,8 +37,9 @@
 .camera-options button:focus-visible{outline:3px solid #328ed6;outline-offset:2px}
 @media(max-width:700px){.camera-row{margin:10px 12px 0;padding:8px;gap:6px}.camera-options{flex:1;justify-content:space-between}.camera-options button{flex:1;padding:8px 3px;font-size:10px}}
 .designs[data-feature="shirt"] .design{border-radius:16px;aspect-ratio:.92;padding:6px}.designs[data-feature="shirt"] .design svg{height:78%}
+.reactionControl{margin:10px 0 0;border:1px solid #ddd;background:white;border-radius:20px;padding:8px 13px;font-size:12px!important}.reactionControl:disabled{opacity:.45;cursor:default}@media(max-width:700px){.reactionControl{margin:2px 15px 10px}}
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v45</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v46</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -49,6 +50,7 @@
   <linearGradient id="hairFill" x1="0" y1="0" x2=".7" y2="1"><stop stop-color="#2b2727"/><stop offset=".6" stop-color="#2b2727"/><stop offset="1" stop-color="#2b2727"/></linearGradient>
   <filter id="softshadow"><feGaussianBlur stdDeviation="3"/></filter>
   <style>.ink{stroke:#15100f;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}.hairline{stroke:#140e0f;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;fill:none}.thin{stroke:#170e0f;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}.designs[data-feature="shirt"] .design{border-radius:16px;aspect-ratio:.92;padding:6px}.designs[data-feature="shirt"] .design svg{height:78%}
+.reactionControl{margin:10px 0 0;border:1px solid #ddd;background:white;border-radius:20px;padding:8px 13px;font-size:12px!important}.reactionControl:disabled{opacity:.45;cursor:default}@media(max-width:700px){.reactionControl{margin:2px 15px 10px}}
 </style>
 </defs>
 <rect id="background" width="1254" height="1254" fill="#229af0"/>
@@ -695,11 +697,57 @@ function jawBeardSvg(viseme){
  return `<g transform="translate(0 650) scale(1 ${1+(fixed?0:opening*.04)}) translate(0 -650)">${beardSvg(state.beard)}</g>`;
 }
 
+const reaction={playing:false,raf:0,started:0,key:'neutral',last:'',button:null};
+const reactionHeadIds=[...cameraAnimatedLayerIds,'face'];
+function reactionPose(key,seconds){
+ const t=seconds%3.6,active=Math.min(1,Math.max(0,(3.0-t)/.4)),rise=Math.min(1,t/.32),weight=active*rise;
+ const blink=t>2.82&&t<2.96;
+ const pose={mouth:'closed',eyes:blink?'closed':'open',brows:'neutral',x:0,y:0,angle:0,body:0};
+ if(key==='smile')Object.assign(pose,{mouth:'smile',eyes:blink?'closed':'happy',brows:'raised',angle:Math.sin(t*2.5)*1.4*weight,y:-3*Math.sin(t*2.5)*weight,body:Math.sin(t*2.5)*.6*weight});
+ if(key==='laugh'){
+  const beat=Math.sin(t*15),burst=t<2.6;
+  Object.assign(pose,{mouth:burst&&beat>-.35?'laugh':'smile',eyes:burst&&beat>.25?'closed':'happy',brows:'raised',y:burst?-Math.abs(beat)*9*weight:0,angle:Math.sin(t*5)*1.7*weight,body:burst?-Math.abs(beat)*3*weight:0});
+ }
+ if(key==='sad')Object.assign(pose,{mouth:'sad',eyes:blink?'closed':'sleepy',brows:'sad',angle:-2.5*weight,y:(5+2*Math.sin(t*2.3))*weight,body:2*Math.sin(t*2.3)*weight});
+ if(key==='surprise')Object.assign(pose,{mouth:t<1.7?'O':'U',eyes:blink?'closed':'surprised',brows:'raised',y:-6*weight,angle:Math.sin(t*3)*.7*weight,body:-2*weight});
+ if(key==='angry')Object.assign(pose,{mouth:t<1.8?'MBP':'closed',eyes:blink?'closed':'open',brows:'angry',x:Math.sin(t*17)*2*weight,y:2*weight,angle:Math.sin(t*7)*.65*weight,body:Math.sin(t*3)*.6*weight});
+ return pose;
+}
+function stopReaction(restore=true){
+ reaction.playing=false;if(reaction.raf)cancelAnimationFrame(reaction.raf);reaction.raf=0;reaction.last='';
+ for(const id of [...reactionHeadIds,'torso'])document.getElementById(id).removeAttribute('transform');
+ svg.removeAttribute('data-reaction');
+ if(reaction.button)reaction.button.textContent='▶ Animate reaction';
+ if(restore)render();
+}
+function reactionTick(now){
+ if(!reaction.playing)return;
+ const p=reactionPose(reaction.key,(now-reaction.started)/1000);
+ const faceKey=[p.mouth,p.eyes,p.brows].join(':');
+ if(reaction.last!==faceKey){
+  composeMouth(p.mouth);
+  cameraProjectLayer('eyeGroup',eyesSvg(p.eyes));
+  cameraProjectLayer('eyebrowGroup',browSvg(p.brows));
+  reaction.last=faceKey;
+ }
+ const head=`translate(${p.x.toFixed(3)} ${p.y.toFixed(3)}) rotate(${p.angle.toFixed(3)} 627 900)`;
+ for(const id of reactionHeadIds)document.getElementById(id).setAttribute('transform',head);
+ document.getElementById('torso').setAttribute('transform',`translate(0 ${p.body.toFixed(3)})`);
+ reaction.raf=requestAnimationFrame(reactionTick);
+}
+function startReaction(key,explicit=false){
+ stopReaction(false);
+ if(key==='neutral'||(!explicit&&window.matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+ reaction.key=key;reaction.started=performance.now();reaction.playing=true;reaction.last='';
+ svg.setAttribute('data-reaction',key);
+ if(reaction.button)reaction.button.textContent='■ Pause reaction';
+ reaction.raf=requestAnimationFrame(reactionTick);
+}
 function render(){document.getElementById('beardGroup').innerHTML=jawBeardSvg(state.mouth);document.getElementById('moustacheGroup').innerHTML=moustacheSvg(state.moustache);const covered=state.headwear&&state.headwear!=='none';document.getElementById('headwearBack').innerHTML='';document.getElementById('headwearFront').innerHTML=headwearSvg(state.headwear||'none');document.getElementById('hairBack').innerHTML=covered?'':hairBack[state.hair];document.getElementById('frontHair').innerHTML=covered?'':hairFront[state.hair];document.getElementById('earLeft').innerHTML=ears[state.ears].L;document.getElementById('earRight').innerHTML=ears[state.ears].R;
  document.getElementById('eyebrowGroup').innerHTML=browSvg(state.brows);document.getElementById('eyeGroup').innerHTML=eyesSvg(state.eyes);document.getElementById('noseGroup').innerHTML=noseSvg(state.nose);document.getElementById('mouthGroup').innerHTML=`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(state.mouth)}</g>`;
  document.getElementById('status').innerHTML=`Mouth <b>${mouthNames[state.mouth]}</b> · Eyes <b>${catalogs.eyes[state.eyes]}</b> · Hair <b>${catalogs.hair[state.hair]}</b>`;
  for(const e of document.querySelectorAll('.choice'))e.setAttribute('aria-pressed',String(e.dataset.key===state[active]));
- applyCameraView();updateFour();updateFocus();
+ reaction.last='';applyCameraView();updateFour();updateFocus();
 }
 function smallTile(tab,key){if(tab==='facialHair')return combinedFacialHairTile(key);if(tab==='beard'||tab==='moustache')return facialHairTile(tab,key);if(tab==='headwear')return `<svg viewBox="175 50 950 1190" aria-hidden="true"><path d="M441 550 C426 485 432 414 478 369 C515 330 568 320 627 322 C689 319 747 336 789 376 C834 419 849 483 838 550 C849 611 847 660 834 714 C824 758 799 807 760 838 C720 870 674 890 627 890 C586 887 550 873 523 854 C484 828 455 790 443 722 C429 651 437 582 441 550Z" fill="#fff" stroke="#777" stroke-width="7"/>${headwearSvg(key,'#2b2727')}</svg>`;if(tab==='hair'){return `<svg viewBox="225 70 825 1080" aria-hidden="true"><path d="M441 550 C426 485 432 414 478 369 C515 330 568 320 627 322 C689 319 747 336 789 376 C834 419 849 483 838 550 C849 611 847 660 834 714 C824 758 799 807 760 838 C720 870 674 890 627 890 C586 887 550 873 523 854 C484 828 455 790 443 722 C429 651 437 582 441 550 Z" fill="#fff" stroke="#777" stroke-width="7"/>${hairBack[key]}<path d="M441 550 C426 485 432 414 478 369 C515 330 568 320 627 322 C689 319 747 336 789 376 C834 419 849 483 838 550 C849 611 847 660 834 714 C824 758 799 807 760 838 C720 870 674 890 627 890 C586 887 550 873 523 854 C484 828 455 790 443 722 C429 651 437 582 441 550 Z" fill="#fff" stroke="#777" stroke-width="7"/>${hairFront[key]}</svg>`}
  if(tab==='ears')return `<svg viewBox="300 570 670 200">${ears[key].L}${ears[key].R}</svg>`;
@@ -780,6 +828,7 @@ function motionTick(now){
  motion.raf=requestAnimationFrame(motionTick);
 }
 function stopDemo(resetView=true){
+ stopReaction(false);
  motion.playing=false;if(motion.raf)cancelAnimationFrame(motion.raf);motion.raf=0;
  speechAudio.pause();
  document.getElementById('demo').textContent='▶ Speech demo';document.getElementById('artDemo').textContent='▶ Smile · Sad · Laugh';
@@ -816,6 +865,7 @@ function toSVGString(node){const copy=node.cloneNode(true);copy.setAttribute('xm
 function saveFile(data,name,type){let blob=data instanceof Blob?data:new Blob([data],{type});let url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000)}
 document.getElementById('exportSvg').onclick=()=>saveFile(toSVGString(svg),'anitoons-v36-character.svg','image/svg+xml');
 document.getElementById('exportPart').onclick=()=>{const s=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${active==='mouth'?'-115 -70 230 160':'0 0 1254 1254'}"><defs><linearGradient id="hairFill"><stop stop-color="#473129"/><stop offset="1" stop-color="#281b1a"/></linearGradient><linearGradient id="skinFill"><stop stop-color="#f5b36f"/><stop offset="1" stop-color="#e79760"/></linearGradient><style>.ink{stroke:#15100f;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}.hairline{stroke:#140e0f;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;fill:none}.thin{stroke:#170e0f;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}.designs[data-feature="shirt"] .design{border-radius:16px;aspect-ratio:.92;padding:6px}.designs[data-feature="shirt"] .design svg{height:78%}
+.reactionControl{margin:10px 0 0;border:1px solid #ddd;background:white;border-radius:20px;padding:8px 13px;font-size:12px!important}.reactionControl:disabled{opacity:.45;cursor:default}@media(max-width:700px){.reactionControl{margin:2px 15px 10px}}
 </style></defs>${partMarkup(active,state[active])}</svg>`;saveFile(s,'anitoons-'+active+'-'+state[active]+'.svg','image/svg+xml')};
 document.getElementById('saveJson').onclick=()=>saveFile(JSON.stringify({version:36,rig:state,coordinateSystem:[1254,1254]},null,2),'anitoons-rig-v36.json','application/json');
 document.getElementById('png').onclick=()=>{const str=toSVGString(svg);const url=URL.createObjectURL(new Blob([str],{type:'image/svg+xml'}));const image=new Image();image.onload=()=>{const canvas=document.createElement('canvas');canvas.width=1254;canvas.height=1254;canvas.getContext('2d').drawImage(image,0,0);URL.revokeObjectURL(url);canvas.toBlob(blob=>saveFile(blob,'anitoons-v36-'+state.mouth+'.png','image/png'),'image/png')};image.onerror=()=>{URL.revokeObjectURL(url);alert('PNG export failed')};image.src=url};
@@ -860,7 +910,7 @@ stopDemo();
 const oldHeader=document.querySelector('header');oldHeader.remove();
 const legacy=document.querySelector('main');legacy.hidden=true;
 const app=document.createElement('div');app.className='app';
-app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 45</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
+app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 46</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
 <div class="workspace"><section class="portrait"><div id="previewMount"></div><div class="previewbar"><span>YOUR CHARACTER</span><button id="blinkPreview">Blink</button><button id="talkPreview">▶ Try talking</button></div><div class="expressions" aria-label="Expression preview"></div><span class="saveStatus" role="status" id="saveStatus">Choose a feature to make it yours</span></section>
 <section class="customizer"><nav class="features" aria-label="Character features"></nav><div class="pickerHeading"><h2 id="pickerTitle">Mouth style</h2><label class="colorLabel">Colour <input id="partColor" type="color" value="#efa66a" aria-label="Feature colour"></label></div><div id="designs" class="designs"></div><p id="facialHairHint" class="hint" hidden>Choose a complete beard and moustache look. Colour applies to both. Includes full, flowing, tucked, trimmed and moustache-only options.</p><div id="adjustMount"></div><details class="advanced"><summary>Drawing & export tools</summary><div id="exportMount"></div><div id="advancedMount"></div></details></section></div>`;
 document.body.appendChild(app);
@@ -904,9 +954,14 @@ let feature='mouth',expression='neutral';const history=[];
 const featureNames={mouth:'Mouth',eyes:'Eyes',brows:'Eyebrows',nose:'Nose',ears:'Ears',hair:'Hair',facialHair:'Beard & moustache',headwear:'Headwear',skin:'Skin',shirt:'Clothes',background:'Backdrop'};
 const icons={facialHair:'M3 8 Q5 13 8 12 L9 16 Q12 19 15 16 L16 12 Q19 13 21 8 L21 17 Q12 29 3 17Z M7 10 Q10 7 12 10 Q14 7 17 10',beard:'M3 8 Q5 13 8 12 L9 16 Q12 19 15 16 L16 12 Q19 13 21 8 L21 17 Q12 29 3 17Z',moustache:'M12 10 Q8 5 5 10 Q2 13 1 8 Q0 16 7 15 Q10 15 12 12 Q14 15 17 15 Q24 16 23 8 Q22 13 19 10 Q16 5 12 10Z',headwear:'M3 15 Q1 7 7 4 Q12 0 18 5 Q24 9 21 16 L18 19 Q12 13 6 19Z M4 12 Q12 5 20 8 M6 15 Q13 9 22 12',mouth:'M3 10 Q12 3 21 10 Q12 21 3 10Z M3 10 Q12 13 21 10',eyes:'M2 12 Q12 -1 22 12 Q12 25 2 12Z M16 12 A4 4 0 1 0 8 12 A4 4 0 1 0 16 12',brows:'M3 12 Q12 3 21 10 L21 13 Q12 7 3 15Z',nose:'M9 3 Q10 12 6 16 Q12 23 18 16 Q14 12 15 3',ears:'M17 19 Q8 27 5 14 Q3 2 13 2 Q23 4 17 13 Q12 12 12 17',hair:'M3 22 L3 10 Q1 0 11 3 Q21 -2 22 12 L20 22 L17 11 Q10 13 7 7Z',skin:'M12 2 C0 2 0 22 12 22 C24 22 24 2 12 2Z',shirt:'M7 3 L2 6 L4 12 L7 11 L7 22 L17 22 L17 11 L20 12 L22 6 L17 3 Q12 8 7 3Z',background:'M2 3 H22 V22 H2Z M2 20 L9 12 L14 17 L18 10 L22 16'};
 function checkpoint(){history.push(JSON.stringify(state));if(history.length>40)history.shift()}
-function updateApp(){expression=({smile:'smile',sad:'sad',laugh:'laugh',O:'surprise'})[state.mouth]||'neutral';render();drawDesigns();document.querySelectorAll('.expressions button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.expression===expression)))}
-function chooseExpression(key){stopDemo();expression=key;const map={neutral:['closed','open','neutral'],smile:['smile','happy','raised'],sad:['sad','open','sad'],laugh:['laugh','happy','raised'],surprise:['O','surprised','raised']};[state.mouth,state.eyes,state.brows]=map[key];updateApp()}
-for(const [key,label] of Object.entries({neutral:'Neutral',smile:'Smile',sad:'Sad',laugh:'Laugh',surprise:'Surprise'})){const b=document.createElement('button');b.textContent=label;b.dataset.expression=key;b.onclick=()=>{checkpoint();chooseExpression(key)};document.querySelector('.expressions').append(b)}
+function updateApp(){expression=({smile:'smile',sad:'sad',laugh:'laugh',O:'surprise',MBP:state.brows==='angry'?'angry':'neutral'})[state.mouth]||'neutral';if(reaction.button)reaction.button.disabled=expression==='neutral';render();drawDesigns();document.querySelectorAll('.expressions button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.expression===expression)))}
+function chooseExpression(key){stopDemo();expression=key;const map={neutral:['closed','open','neutral'],smile:['smile','happy','raised'],sad:['sad','open','sad'],laugh:['laugh','happy','raised'],surprise:['O','surprised','raised'],angry:['MBP','open','angry']};[state.mouth,state.eyes,state.brows]=map[key];updateApp();if(reaction.button)reaction.button.disabled=key==='neutral';startReaction(key)}
+for(const [key,label] of Object.entries({neutral:'Neutral',smile:'Smile',sad:'Sad',laugh:'Laugh',surprise:'Surprise',angry:'Angry'})){const b=document.createElement('button');b.textContent=label;b.dataset.expression=key;b.onclick=()=>{checkpoint();chooseExpression(key)};document.querySelector('.expressions').append(b)}
+reaction.button=document.createElement('button');
+reaction.button.type='button';reaction.button.className='reactionControl';reaction.button.textContent='▶ Animate reaction';reaction.button.disabled=true;
+reaction.button.onclick=()=>{if(reaction.playing)stopReaction();else if(expression!=='neutral'){stopDemo();startReaction(expression,true)}};
+document.querySelector('.expressions').after(reaction.button);
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&reaction.playing)stopReaction()});
 for(const [key,label] of Object.entries(featureNames)){const b=document.createElement('button');b.innerHTML=`<svg viewBox="0 0 24 26" aria-hidden="true"><path d="${icons[key]}"/></svg><span>${label}</span>`;b.dataset.feature=key;b.onclick=()=>{feature=key;drawDesigns()};document.querySelector('.features').append(b)}
 function drawDesigns(){
  document.getElementById('facialHairHint').hidden=!['facialHair'].includes(feature);
@@ -927,7 +982,7 @@ function applyColours(){for(const [key,id] of [['skin','skinFill'],['shirt','shi
 document.getElementById('partColor').oninput=e=>setColour(e.target.value);
 document.getElementById('partColor').onpointerdown=checkpoint;
 document.getElementById('undoCharacter').onclick=()=>{if(!history.length)return;for(const k of Object.keys(state))delete state[k];Object.assign(state,JSON.parse(history.pop()));for(const [id,colors] of [['skinFill',['#f6b36e','#eca064','#e79560']],['shirtFill',['#f0828c','#e56879']],['hairFill',['#2b2727','#2b2727','#2b2727']]])document.querySelectorAll('#'+id+' stop').forEach((n,i)=>n.setAttribute('stop-color',colors[i]));document.getElementById('background').setAttribute('fill','#229af0');document.getElementById('width').value=state.width;document.getElementById('position').value=state.position;applyColours();updateApp()};
-document.getElementById('talkPreview').onclick=()=>{expression='neutral';document.getElementById('demo').click()};
+document.getElementById('talkPreview').onclick=()=>{expression='neutral';reaction.button.disabled=true;document.getElementById('demo').click()};
 document.getElementById('blinkPreview').onclick=()=>document.getElementById('blink').click();
 document.getElementById('saveCharacter').onclick=()=>{try{localStorage.setItem('anitoons-character-v21',JSON.stringify(state));document.getElementById('saveStatus').textContent='Character saved on this device'}catch{document.getElementById('saveStatus').textContent='Device storage unavailable — use Save rig JSON below'}};
 try{const saved=JSON.parse(localStorage.getItem('anitoons-character-v21'));if(saved&&typeof saved==='object'){if(['braid','doubleBraid'].includes(saved.beard)){saved.beard='flowing';saved.facialHair='beard_flowing'}for(const k of Object.keys(state))if(typeof saved[k]===typeof state[k]){if(k==='width'||k==='position'){if(Number.isFinite(saved[k]))state[k]=saved[k]}else if(k==='mouthStyle'?mouthStyles[saved[k]]:k==='eyeStyle'?eyeStyles[saved[k]]:catalogs[k]?.[saved[k]])state[k]=saved[k]}for(const k of ['skinColour','shirtColour','hairColour','backgroundColour','headwearColour','beardColour','moustacheColour','facialHairColour'])if(/^#[0-9a-f]{6}$/i.test(saved[k]))state[k]=saved[k]}}catch{}

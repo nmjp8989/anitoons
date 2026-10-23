@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v22</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v23</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#1997f0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -27,7 +27,7 @@
 @media(max-width:700px){.appbar{height:63px;padding:0 18px}.appbar strong{font-size:23px}.workspace{display:flex;flex-direction:column;gap:0;padding:0}.portrait{background:white}.stage{border-radius:0;aspect-ratio:auto;height:clamp(230px,37dvh,360px)}.previewbar{padding:0 15px;margin:10px 0}.expressions{padding:0 15px 8px}.saveStatus{margin:3px 15px 12px}.customizer{border-radius:0;padding:13px 15px 24px;border-top:1px solid #eee}.features{padding-bottom:9px}.pickerHeading{margin:17px 0 12px}.designs{max-height:290px}.design{border-radius:50%;padding:10px}.design span{font-size:10px}.advanced{margin-top:14px}}
 .designs[data-feature="hair"] .design svg{height:82%;}.designs[data-feature="hair"] .design{aspect-ratio:.87;border-radius:18px;padding:5px}.designs[data-feature="hair"] .design span{margin:0;font-size:10px}.designs{overscroll-behavior:contain;scrollbar-width:thin}
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v22</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v23</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -266,6 +266,73 @@ addHair('cap','Baseball cap','M9 48 Q8 14 47 12 Q84 12 89 46 Q105 48 107 54 Q87 
 addHair('backCap','Backwards cap','M9 50 Q7 14 48 12 Q88 13 89 51 L67 50 Q66 32 49 32 Q32 32 31 49Z M10 47 L-8 48 L-10 55 L12 55Z','M49 17 L49 27 M14 42 L26 42 M72 43 L84 44');
 addHair('cowboy','Cowboy hat','M14 42 L19 8 Q28 13 34 9 Q43 3 50 13 Q57 3 67 9 Q76 15 82 8 L88 43 Q108 35 112 44 Q114 62 87 59 Q50 50 13 59 Q-14 64 -13 46 Q-10 36 14 42Z','M17 34 Q50 44 85 34 M15 43 Q48 52 88 44');
 
+
+// Long-hair collection: back volume is behind the neck and shoulders;
+// fringes and face-framing locks sit in front of the head.
+const previousHairCatalog={...catalogs.hair};
+const longFront={
+ middle:'M12 77 L9 48 Q6 22 28 18 Q45 11 50 24 Q60 10 79 23 Q96 37 87 63 L84 78 L77 51 Q62 44 51 30 Q41 43 23 48 L18 66Z',
+ side:'M12 77 L9 49 Q5 24 28 19 Q55 7 78 24 Q96 37 87 62 L84 77 L77 51 Q52 48 33 31 Q35 42 42 46 Q26 43 22 40 L18 66Z',
+ bangs:'M12 77 L9 48 Q6 22 28 18 Q53 8 78 24 Q94 36 87 61 L84 78 L78 46 L72 47 L70 42 L63 47 L60 42 L53 47 L50 42 L43 47 L40 42 L33 47 L23 44 L18 66Z',
+ swept:'M12 77 L9 48 Q5 24 28 19 Q55 8 78 24 Q95 37 87 63 L84 77 L77 48 Q56 50 43 38 L35 30 Q33 44 22 48 L18 66Z',
+ pulled:'M12 77 L10 46 Q11 24 31 20 Q53 11 76 24 Q91 34 87 57 L84 76 L78 49 Q61 46 51 35 Q38 46 22 47 L18 66Z'
+};
+function longBack(kind,length=145){
+ const y=length;
+ if(kind==='straight')return `M15 38 Q0 47 3 79 L2 ${y} L24 ${y-4} L27 82 L73 82 L77 ${y-4} L98 ${y} L96 77 Q100 48 84 38Z`;
+ if(kind==='taper')return `M15 37 Q-2 58 4 88 Q-1 114 14 ${y} L26 ${y-12} L27 83 L73 83 L78 ${y-10} L95 ${y} Q103 108 96 85 Q102 54 84 37Z`;
+ if(kind==='waves')return `M15 37 Q-2 48 3 70 Q-9 86 0 102 Q-8 119 6 ${y-12} L2 ${y} Q16 ${y+5} 25 ${y-8} L28 83 L72 83 L77 ${y-7} Q90 ${y+5} 102 ${y-2} L95 ${y-12} Q109 118 100 103 Q109 87 98 73 Q104 49 84 37Z`;
+ if(kind==='bob')return `M15 38 Q-3 57 6 88 L3 ${y-6} Q14 ${y+2} 28 ${y-4} L28 83 L72 83 L73 ${y-4} Q88 ${y+2} 99 ${y-8} L94 85 Q101 55 84 38Z`;
+ return `M15 38 Q-7 53 0 75 Q-10 81 -3 91 Q-12 100 -4 110 Q-11 119 -2 127 Q-8 ${y-3} 4 ${y+2} Q12 ${y+8} 24 ${y-4} L29 81 L71 81 L76 ${y-4} Q90 ${y+8} 100 ${y} Q110 ${y-6} 101 ${y-14} Q112 121 103 111 Q114 100 104 91 Q112 80 101 73 Q105 51 84 38Z`;
+}
+function frameLocks(length,curly=false){const y=length;return curly?`M17 52 Q4 66 14 76 Q4 88 15 99 Q6 112 19 ${y} L25 ${y-5} Q17 111 23 100 Q14 88 23 77 L23 51Z M78 51 Q91 66 81 78 Q93 89 82 102 Q93 115 81 ${y} L75 ${y-5} Q83 113 76 101 Q85 89 76 77Z`:`M17 51 Q10 78 15 ${y} L24 ${y-5} Q16 92 23 52Z M78 51 Q87 78 84 ${y} L75 ${y-5} Q83 92 76 51Z`;}
+function longStyle(key,label,part,kind,length,locks=false){
+ const details=part==='bangs'?'M22 31 Q49 20 77 33 M30 34 L30 42 M46 31 L46 41 M62 32 L62 41':part==='side'?'M23 30 Q49 19 75 38 M37 26 Q56 35 72 40':'M26 30 Q39 21 47 27 M55 26 Q73 23 82 40';
+ addHair(key,label,longFront[part]+(locks?frameLocks(length,kind==='curls'):''),details,longBack(kind,length));
+}
+longStyle('longStraight','Long straight','middle','straight',151,true);
+longStyle('longSideSweep','Long side sweep','side','taper',147,true);
+longStyle('longBluntBangs','Long blunt bangs','bangs','straight',150,true);
+longStyle('longSoftWaves','Long soft waves','middle','waves',148,true);
+longStyle('longWavyBangs','Wavy with bangs','bangs','waves',140,true);
+longStyle('longLooseCurls','Long loose curls','middle','curls',147,true);
+longStyle('volumeCurls','Voluminous curls','swept','curls',139,true);
+longStyle('shoulderCurls','Shoulder curls','middle','curls',117,true);
+longStyle('shoulderLayers','Shoulder layers','side','taper',122,true);
+longStyle('shoulderStraight','Shoulder straight','middle','straight',118,true);
+longStyle('shoulderBangs','Shoulder bangs','bangs','straight',119,true);
+longStyle('chinBob','Chin-length bob','middle','bob',100);
+longStyle('bobSide','Side-swept bob','side','bob',104,true);
+longStyle('bobBangs','Bob with bangs','bangs','bob',102);
+longStyle('angledBob','Angled bob','swept','taper',112,true);
+longStyle('wavyLob','Wavy long bob','middle','waves',121,true);
+longStyle('layeredLob','Layered long bob','swept','taper',125,true);
+longStyle('softLongLayers','Soft long layers','swept','waves',145,true);
+longStyle('curlyBangs','Curly bangs','bangs','curls',125,true);
+longStyle('sleekLob','Sleek long bob','middle','bob',120,true);
+addHair('pixieSweep','Swept pixie',longFront.side,'M24 30 Q48 21 73 38 M18 52 L17 64 M80 49 L83 65','M15 55 L6 79 L14 88 L26 79 L76 78 L86 89 L96 80 L86 53Z');
+addHair('shortTucked','Short tucked',longFront.pulled,'M25 31 Q41 22 48 29 M56 29 Q72 25 80 40','M14 53 L6 80 L16 94 L27 81 L75 81 L86 94 L96 79 L85 51Z');
+const ponyBack='M74 26 Q98 12 104 40 Q115 48 106 65 Q117 76 107 90 Q117 105 102 122 Q92 131 80 125 Q91 113 87 99 Q98 86 89 73 Q99 59 88 49 L74 43Z';
+addHair('highPony','High ponytail',longFront.pulled,'M23 32 Q39 22 48 29 M57 28 Q73 26 80 39',ponyBack);
+addHair('wavyPony','Wavy ponytail',longFront.swept,'M23 31 Q45 23 68 35 M74 42 L82 48',ponyBack+' M8 51 Q-7 59 -1 78 Q-11 92 0 109 Q-8 122 10 130 L20 118 Q11 101 18 84 L24 56Z');
+addHair('lowPony','Low ponytail',longFront.pulled,'M25 32 Q40 24 48 31 M56 30 Q73 27 81 42','M79 72 Q104 63 104 87 Q111 99 101 115 Q107 127 91 142 L77 133 Q87 115 80 102 L72 89Z');
+const bunTop='M31 23 Q20 17 25 6 Q20 -5 34 -9 Q37 -22 50 -16 Q66 -23 72 -9 Q86 -4 77 10 Q82 24 62 25Z';
+addHair('messyBun','Messy bun',bunTop+longFront.pulled,'M31 9 Q41 -2 56 7 M46 15 Q59 18 69 6 M22 35 Q41 23 48 32 M56 31 Q71 26 81 43 M16 62 Q9 78 15 94 M84 60 Q93 78 85 94');
+addHair('bunBangs','Bun with bangs',bunTop+longFront.bangs,'M31 8 Q45 -4 62 8 M39 17 Q56 23 72 7 M26 32 L27 42 M43 29 L44 42 M62 30 L63 42 M17 62 Q9 80 16 94 M83 62 Q92 80 85 94');
+addHair('sleekHighBun','Sleek high bun','M34 22 Q23 10 35 -2 Q47 -10 60 -3 Q77 5 65 23Z '+longFront.pulled,'M36 10 Q48 -1 62 9 M24 33 Q42 24 49 31 M55 30 Q73 26 81 42');
+addHair('lowBun','Low bun',longFront.middle,'M23 30 Q40 20 48 28 M56 27 Q75 24 82 42','M24 85 Q5 90 13 108 Q10 124 31 127 L70 127 Q92 125 87 108 Q95 91 77 85Z');
+// Braided lengths follow the same shoulder anchors, with alternating lobes.
+let braidLeft='M15 65 Q3 73 13 82 Q2 90 13 98 Q3 106 14 114 Q6 122 17 129 Q11 137 21 145 L20 154 L27 147 L24 139 Q34 131 24 123 Q34 114 24 106 Q35 98 24 90 Q34 82 23 73Z';
+let braidRight='M84 65 Q96 73 86 82 Q97 90 86 98 Q96 106 85 114 Q93 122 82 129 Q88 137 78 145 L79 154 L72 147 L75 139 Q65 131 75 123 Q65 114 75 106 Q64 98 75 90 Q65 82 76 73Z';
+addHair('twinBraids','Twin braids',longFront.middle+braidLeft+braidRight,'M15 82 L24 89 M15 99 L24 106 M17 115 L24 123 M85 82 L76 89 M85 99 L76 106 M83 115 L76 123 M27 30 Q40 22 48 28 M55 28 Q73 24 81 41');
+addHair('sideBraid','Side braid',longFront.side+braidRight,'M85 82 L76 89 M85 99 L76 106 M83 115 L76 123 M24 30 Q44 22 72 38','M16 50 Q0 64 9 89 L25 87 L28 62Z');
+addHair('halfUp','Half-up waves',longFront.pulled,'M25 32 Q40 22 49 31 M56 30 Q72 26 80 42',longBack('waves',143));
+addHair('curlyUpdo','Curly updo',bunTop+longFront.pulled+frameLocks(100,true),'M29 6 q6 -7 11 0 M48 0 q8 -6 12 2 M58 14 q8 -5 12 1 M26 31 Q39 22 48 30 M57 29 Q73 25 80 41');
+addHair('asymmetricCurls','Asymmetric curls',longFront.side+frameLocks(130,true),'M24 30 Q48 20 74 39',longBack('curls',139));
+// New collection first, keeping saved IDs and the existing collection intact.
+const newHairEntries=Object.entries(catalogs.hair).filter(([key])=>!previousHairCatalog[key]);
+catalogs.hair=Object.fromEntries([...newHairEntries,...Object.entries(previousHairCatalog)]);
+
 const svg=document.getElementById('character');let active='mouth',running=null;
 function partMarkup(which,key){if(which==='mouth')return mouthSvg(key);if(which==='eyes')return eyesSvg(key);if(which==='brows')return browSvg(key);if(which==='nose')return noseSvg(key);if(which==='hair')return hairBack[key]+hairFront[key];if(which==='ears')return ears[key].L+ears[key].R;return ''}
 const mouthStyles={soft:'Soft lips',classic:'Clean ink',petite:'Petite lips'};
@@ -441,7 +508,7 @@ stopDemo();
 const oldHeader=document.querySelector('header');oldHeader.remove();
 const legacy=document.querySelector('main');legacy.hidden=true;
 const app=document.createElement('div');app.className='app';
-app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 22</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
+app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 23</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
 <div class="workspace"><section class="portrait"><div id="previewMount"></div><div class="previewbar"><span>YOUR CHARACTER</span><button id="blinkPreview">Blink</button><button id="talkPreview">▶ Try talking</button></div><div class="expressions" aria-label="Expression preview"></div><span class="saveStatus" role="status" id="saveStatus">Choose a feature to make it yours</span></section>
 <section class="customizer"><nav class="features" aria-label="Character features"></nav><div class="pickerHeading"><h2 id="pickerTitle">Mouth style</h2><label class="colorLabel">Colour <input id="partColor" type="color" value="#efa66a" aria-label="Feature colour"></label></div><div id="designs" class="designs"></div><div id="adjustMount"></div><details class="advanced"><summary>Drawing & export tools</summary><div id="exportMount"></div><div id="advancedMount"></div></details></section></div>`;
 document.body.appendChild(app);

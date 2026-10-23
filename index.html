@@ -792,9 +792,9 @@ function poseTalkingArms(ms=0,duration=0){
  const t=ms/1000,envelope=enabled?Math.max(0,Math.min(1,t/.35,(duration-ms)/350)):0;
  for(const arm of document.querySelectorAll('#torso [data-standing-arm]')){
   const side=+arm.dataset.standingArm,rest=+arm.dataset.armRest;
-  // The free hand leads; the opposite hand adds a smaller, delayed emphasis.
-  const wave=(1-Math.cos(t*2.7+(side===1?.65:0)))/2;
-  const lift=arm.dataset.armFixed==='true'?0:envelope*(side===-1?34:19)*wave;
+  // Only one free arm gestures; the other preserves the standing pose.
+  const wave=(1-Math.cos(t*2.7))/2;
+  const lift=side!==-1||arm.dataset.armFixed==='true'?0:envelope*34*wave;
   arm.setAttribute('transform',`rotate(${(rest-lift).toFixed(3)} 214 1048)`);
  }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v38</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v39</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -27,8 +27,17 @@
 @media(max-width:700px){.appbar{height:63px;padding:0 18px}.appbar strong{font-size:23px}.workspace{display:flex;flex-direction:column;gap:0;padding:0}.portrait{background:white}.stage{border-radius:0;aspect-ratio:auto;height:clamp(230px,37dvh,360px)}.previewbar{padding:0 15px;margin:10px 0}.expressions{padding:0 15px 8px}.saveStatus{margin:3px 15px 12px}.customizer{border-radius:0;padding:13px 15px 24px;border-top:1px solid #eee}.features{padding-bottom:9px}.pickerHeading{margin:17px 0 12px}.designs{max-height:290px}.design{border-radius:50%;padding:10px}.design span{font-size:10px}.advanced{margin-top:14px}}
 .designs[data-feature="hair"] .design svg{height:82%;}.designs[data-feature="hair"] .design{aspect-ratio:.87;border-radius:18px;padding:5px}.designs[data-feature="hair"] .design span{margin:0;font-size:10px}.designs{overscroll-behavior:contain;scrollbar-width:thin}
 .designs[data-feature="facialHair"] .design,.designs[data-feature="beard"] .design,.designs[data-feature="moustache"] .design{border-radius:16px;aspect-ratio:.85;padding:5px}.designs[data-feature="facialHair"] .design svg,.designs[data-feature="beard"] .design svg,.designs[data-feature="moustache"] .design svg{height:80%}
+
+/* Camera-only 2.5D preview. No character paths or source assets are changed. */
+.camera-row{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:12px 0 0;padding:10px 12px;background:#fff;border:1px solid #e6e6e2;border-radius:16px}
+.camera-label{font-size:10px;letter-spacing:.09em;font-weight:700;color:#777;white-space:nowrap}
+.camera-options{display:flex;gap:3px;background:#f1f1ef;border-radius:12px;padding:3px;min-width:0}
+.camera-options button{border:0;background:transparent;border-radius:9px;padding:8px 10px;font-size:11px;white-space:nowrap;color:#4d5358;min-height:34px}
+.camera-options button[aria-pressed=true]{background:#1d252b;color:white;box-shadow:0 1px 4px #0002}
+.camera-options button:focus-visible{outline:3px solid #328ed6;outline-offset:2px}
+@media(max-width:700px){.camera-row{margin:10px 12px 0;padding:8px;gap:6px}.camera-options{flex:1;justify-content:space-between}.camera-options button{flex:1;padding:8px 3px;font-size:10px}}
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v38</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v39</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -463,11 +472,72 @@ function eyesSvg(key,style=state.eyeStyle){
  const scale=style==='almond'?'1.06 .70':style==='compact'?'.82 .86':'1 1';
  return `<g transform="translate(627 607) scale(${scale}) translate(-627 -607)">${baseEyesSvg(key)}</g>`;
 }
+
+/**
+ * Preview-only 2.5D camera. SVG path data and character selections are immutable:
+ * we apply reversible transforms to the already-rendered groups. At front view
+ * every original layer is untransformed, pixel-for-pixel as before.
+ *
+ * This is deliberately a stylized three-quarter illusion, not an unseen-side
+ * reconstruction. SVG-native transforms also survive Save SVG / Save PNG.
+ */
+const cameraDirections={left:-1,front:0,right:1};
+let cameraView='front';
+const cameraLayerIds=['hairBack','headwearBack','torso','earLeft','earRight','face','eyebrowGroup','eyeGroup','noseGroup','beardGroup','moustacheGroup','mouthGroup','frontHair','headwearFront'];
+const cameraMatrix=(width,shift)=>`translate(${627+shift} 0) scale(${width} 1) translate(-627 0)`;
+
+/** Narrow the far eye/brow at runtime without changing either asset's paths. */
+function cameraSplitFeatures(group,turn){
+ const first=group.firstElementChild;
+ // eyesSvg has its own editable style transform; preserve it around both eyes.
+ const root=first&&first.tagName.toLowerCase()==='g'&&first.hasAttribute('transform')?first:group;
+ const left=document.createElementNS('http://www.w3.org/2000/svg','g');
+ const right=document.createElementNS('http://www.w3.org/2000/svg','g');
+ for(const child of [...root.children]){
+  let cx=627;
+  try{const b=child.getBBox();cx=b.x+b.width/2}catch{}
+  (cx<627?left:right).appendChild(child);
+ }
+ for(const [part,centre,isFar] of [[left,546,turn>0],[right,711,turn<0]]){
+  const width=isFar?.72:1.02;
+  const offset=turn*(isFar?14:3);
+  part.setAttribute('transform',`translate(${centre+offset} 0) scale(${width} 1) translate(-${centre} 0)`);
+  root.appendChild(part);
+ }
+}
+function applyCameraView(){
+ const turn=cameraDirections[cameraView];
+ if(!turn){
+  for(const id of cameraLayerIds)document.getElementById(id).removeAttribute('transform');
+  return;
+ }
+ const set=(id,width,offset)=>document.getElementById(id).setAttribute('transform',cameraMatrix(width,turn*offset));
+ // Torso remains nearly frontal, while head silhouette and outer ornaments turn.
+ set('torso',.95,-8);
+ for(const id of ['hairBack','headwearBack','face','frontHair','headwearFront'])set(id,.84,48);
+ // Depth illusion: far ear tucks behind the face, near ear projects out.
+ for(const [id,cx,isFar] of [['earLeft',405,turn>0],['earRight',874,turn<0]]){
+  const width=isFar?.70:1.05;
+  const offset=isFar?48:37;
+  document.getElementById(id).setAttribute('transform',
+   cameraMatrix(.84,turn*48)+` translate(${turn*offset} 0) translate(${cx} 0) scale(${width} 1) translate(-${cx} 0)`);
+ }
+ set('eyebrowGroup',.84,56);
+ set('eyeGroup',.84,56);
+ cameraSplitFeatures(document.getElementById('eyebrowGroup'),turn);
+ cameraSplitFeatures(document.getElementById('eyeGroup'),turn);
+ // Features closer to the viewer move more than the far silhouette.
+ set('noseGroup',.88,94);
+ set('beardGroup',.84,54);
+ set('moustacheGroup',.85,66);
+ set('mouthGroup',.86,78);
+}
+
 function render(){document.getElementById('beardGroup').innerHTML=beardSvg(state.beard);document.getElementById('moustacheGroup').innerHTML=moustacheSvg(state.moustache);const covered=state.headwear&&state.headwear!=='none';document.getElementById('headwearBack').innerHTML='';document.getElementById('headwearFront').innerHTML=headwearSvg(state.headwear||'none');document.getElementById('hairBack').innerHTML=covered?'':hairBack[state.hair];document.getElementById('frontHair').innerHTML=covered?'':hairFront[state.hair];document.getElementById('earLeft').innerHTML=ears[state.ears].L;document.getElementById('earRight').innerHTML=ears[state.ears].R;
  document.getElementById('eyebrowGroup').innerHTML=browSvg(state.brows);document.getElementById('eyeGroup').innerHTML=eyesSvg(state.eyes);document.getElementById('noseGroup').innerHTML=noseSvg(state.nose);document.getElementById('mouthGroup').innerHTML=`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(state.mouth)}</g>`;
  document.getElementById('status').innerHTML=`Mouth <b>${mouthNames[state.mouth]}</b> · Eyes <b>${catalogs.eyes[state.eyes]}</b> · Hair <b>${catalogs.hair[state.hair]}</b>`;
  for(const e of document.querySelectorAll('.choice'))e.setAttribute('aria-pressed',String(e.dataset.key===state[active]));
- updateFour();updateFocus();
+ applyCameraView();updateFour();updateFocus();
 }
 function smallTile(tab,key){if(tab==='facialHair')return combinedFacialHairTile(key);if(tab==='beard'||tab==='moustache')return facialHairTile(tab,key);if(tab==='headwear')return `<svg viewBox="175 50 950 1190" aria-hidden="true"><path d="M441 550 C426 485 432 414 478 369 C515 330 568 320 627 322 C689 319 747 336 789 376 C834 419 849 483 838 550 C849 611 847 660 834 714 C824 758 799 807 760 838 C720 870 674 890 627 890 C586 887 550 873 523 854 C484 828 455 790 443 722 C429 651 437 582 441 550Z" fill="#fff" stroke="#777" stroke-width="7"/>${headwearSvg(key,'#2b2727')}</svg>`;if(tab==='hair'){return `<svg viewBox="225 70 825 1080" aria-hidden="true"><path d="M441 550 C426 485 432 414 478 369 C515 330 568 320 627 322 C689 319 747 336 789 376 C834 419 849 483 838 550 C849 611 847 660 834 714 C824 758 799 807 760 838 C720 870 674 890 627 890 C586 887 550 873 523 854 C484 828 455 790 443 722 C429 651 437 582 441 550 Z" fill="#fff" stroke="#777" stroke-width="7"/>${hairBack[key]}<path d="M441 550 C426 485 432 414 478 369 C515 330 568 320 627 322 C689 319 747 336 789 376 C834 419 849 483 838 550 C849 611 847 660 834 714 C824 758 799 807 760 838 C720 870 674 890 627 890 C586 887 550 873 523 854 C484 828 455 790 443 722 C429 651 437 582 441 550 Z" fill="#fff" stroke="#777" stroke-width="7"/>${hairFront[key]}</svg>`}
  if(tab==='ears')return `<svg viewBox="300 570 670 200">${ears[key].L}${ears[key].R}</svg>`;
@@ -624,12 +694,26 @@ stopDemo();
 const oldHeader=document.querySelector('header');oldHeader.remove();
 const legacy=document.querySelector('main');legacy.hidden=true;
 const app=document.createElement('div');app.className='app';
-app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 38</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
+app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 39</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="saveCharacter" class="save">Save character</button></div></header>
 <div class="workspace"><section class="portrait"><div id="previewMount"></div><div class="previewbar"><span>YOUR CHARACTER</span><button id="blinkPreview">Blink</button><button id="talkPreview">▶ Try talking</button></div><div class="expressions" aria-label="Expression preview"></div><span class="saveStatus" role="status" id="saveStatus">Choose a feature to make it yours</span></section>
 <section class="customizer"><nav class="features" aria-label="Character features"></nav><div class="pickerHeading"><h2 id="pickerTitle">Mouth style</h2><label class="colorLabel">Colour <input id="partColor" type="color" value="#efa66a" aria-label="Feature colour"></label></div><div id="designs" class="designs"></div><p id="facialHairHint" class="hint" hidden>Choose a complete beard and moustache look. Colour applies to both. Includes full, flowing, tucked, trimmed and moustache-only options.</p><div id="adjustMount"></div><details class="advanced"><summary>Drawing & export tools</summary><div id="exportMount"></div><div id="advancedMount"></div></details></section></div>`;
 document.body.appendChild(app);
 document.querySelector('.footer').remove();
 document.getElementById('previewMount').append(document.getElementById('stage'));
+
+const cameraRow=document.createElement('div');
+cameraRow.className='camera-row';
+cameraRow.innerHTML='<span class="camera-label">CAMERA VIEW</span><div class="camera-options" role="group" aria-label="Camera view"><button type="button" data-camera-view="left" aria-pressed="false">◀ Left ¾</button><button type="button" data-camera-view="front" aria-pressed="true">Front</button><button type="button" data-camera-view="right" aria-pressed="false">Right ¾ ▶</button></div>';
+document.getElementById('previewMount').after(cameraRow);
+function selectCameraView(view){
+ if(!Object.hasOwn(cameraDirections,view))return;
+ cameraView=view;
+ for(const b of cameraRow.querySelectorAll('[data-camera-view]'))b.setAttribute('aria-pressed',String(b.dataset.cameraView===view));
+ render();
+ try{localStorage.setItem('anitoons-camera-view',view)}catch{}
+}
+cameraRow.querySelectorAll('[data-camera-view]').forEach(b=>b.onclick=()=>selectCameraView(b.dataset.cameraView));
+
 document.getElementById('adjustMount').append(document.querySelector('.sliders'));
 document.getElementById('advancedMount').append(document.querySelector('.motion-panel'));
 for(const id of ['png','exportSvg','exportSheet','saveJson'])document.getElementById('exportMount').append(document.getElementById(id));
@@ -686,4 +770,5 @@ if(state.facialHair==='none'&&(state.beard!=='none'||state.moustache!=='none')){
 document.getElementById('width').value=state.width;document.getElementById('position').value=state.position;
 for(const id of ['width','position'])document.getElementById(id).addEventListener('pointerdown',checkpoint);
 applyColours();updateApp();
+try{const previousCamera=localStorage.getItem('anitoons-camera-view');if(Object.hasOwn(cameraDirections,previousCamera))selectCameraView(previousCamera)}catch{}
 </script></body></html>

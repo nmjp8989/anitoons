@@ -332,6 +332,8 @@ addHair('asymmetricCurls','Asymmetric curls',longFront.side+frameLocks(130,true)
 // New collection first, keeping saved IDs and the existing collection intact.
 const newHairEntries=Object.entries(catalogs.hair).filter(([key])=>!previousHairCatalog[key]);
 catalogs.hair=Object.fromEntries([...newHairEntries,...Object.entries(previousHairCatalog)]);
+// Close the crown behind parted fringes so the backdrop cannot show through.
+for(const [key] of newHairEntries)hairBack[key]+=`<g transform="translate(377 210) scale(5)"><path fill="url(#hairFill)" d="M13 62 L13 43 Q12 19 50 18 Q88 19 86 45 L85 62 L77 51 L23 51Z"/></g>`;
 
 const svg=document.getElementById('character');let active='mouth',running=null;
 function partMarkup(which,key){if(which==='mouth')return mouthSvg(key);if(which==='eyes')return eyesSvg(key);if(which==='brows')return browSvg(key);if(which==='nose')return noseSvg(key);if(which==='hair')return hairBack[key]+hairFront[key];if(which==='ears')return ears[key].L+ears[key].R;return ''}

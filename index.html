@@ -474,63 +474,64 @@ function eyesSvg(key,style=state.eyeStyle){
 }
 
 /**
- * Preview-only 2.5D camera. SVG path data and character selections are immutable:
- * we apply reversible transforms to the already-rendered groups. At front view
- * every original layer is untransformed, pixel-for-pixel as before.
+ * 2.5D camera compositor for the EXISTING front-view SVG assets.
  *
- * This is deliberately a stylized three-quarter illusion, not an unseen-side
- * reconstruction. SVG-native transforms also survive Save SVG / Save PNG.
+ * The original vector geometry remains untouched: at 0 degrees it is rendered
+ * verbatim. For +/-35 degrees, the left and right halves are clipped in SOURCE
+ * coordinates, then projected with unequal widths around one shared centre.
+ * That asymmetric projection is substantially different from squeezing one
+ * flat SVG. Existing expressions, colour choices and visemes are untouched.
+ *
+ * Limit: hidden face/turban surfaces cannot be reconstructed from front art.
  */
 const cameraDirections={left:-1,front:0,right:1};
 let cameraView='front';
-const cameraLayerIds=['hairBack','headwearBack','torso','earLeft','earRight','face','eyebrowGroup','eyeGroup','noseGroup','beardGroup','moustacheGroup','mouthGroup','frontHair','headwearFront'];
-const cameraMatrix=(width,shift)=>`translate(${627+shift} 0) scale(${width} 1) translate(-627 0)`;
+const cameraTurnWidth={near:1.02,far:.52};
+const cameraAnimatedLayerIds=['hairBack','headwearBack','earLeft','earRight','eyebrowGroup','eyeGroup','noseGroup','beardGroup','moustacheGroup','mouthGroup','frontHair','headwearFront'];
+const cameraFace=document.getElementById('face');
+const cameraFaceOriginal=cameraFace.innerHTML;
+const cameraTorso=document.getElementById('torso');
+const cameraTorsoOriginal=cameraTorso.getAttribute('transform');
+const cameraSvgDefs=svg.querySelector('defs');
+const cameraClipDefs=document.createElementNS('http://www.w3.org/2000/svg','g');
+cameraClipDefs.innerHTML='<clipPath id="anitoonsCameraLeft" clipPathUnits="userSpaceOnUse"><rect x="-2500" y="-2500" width="3127" height="6200"/></clipPath><clipPath id="anitoonsCameraRight" clipPathUnits="userSpaceOnUse"><rect x="627" y="-2500" width="3127" height="6200"/></clipPath>';
+cameraSvgDefs.append(cameraClipDefs);
 
-/** Narrow the far eye/brow at runtime without changing either asset's paths. */
-function cameraSplitFeatures(group,turn){
- const first=group.firstElementChild;
- // eyesSvg has its own editable style transform; preserve it around both eyes.
- const root=first&&first.tagName.toLowerCase()==='g'&&first.hasAttribute('transform')?first:group;
- const left=document.createElementNS('http://www.w3.org/2000/svg','g');
- const right=document.createElementNS('http://www.w3.org/2000/svg','g');
- for(const child of [...root.children]){
-  let cx=627;
-  try{const b=child.getBBox();cx=b.x+b.width/2}catch{}
-  (cx<627?left:right).appendChild(child);
- }
- for(const [part,centre,isFar] of [[left,546,turn>0],[right,711,turn<0]]){
-  const width=isFar?.72:1.02;
-  const offset=turn*(isFar?14:3);
-  part.setAttribute('transform',`translate(${centre+offset} 0) scale(${width} 1) translate(-${centre} 0)`);
-  root.appendChild(part);
- }
+/**
+ * Rebuild only the presentation wrappers, never an individual shape/path.
+ * Adjacent half-projections agree exactly at x=627, so the seam is continuous.
+ * The near half retains width while the far half is foreshortened.
+ */
+function cameraProjectLayer(id,original){
+ const layer=document.getElementById(id);
+ if(cameraView==='front'){layer.innerHTML=original;return;}
+ const turn=cameraDirections[cameraView];
+ // Angle-dependent screen shift. The nose and mouth travel slightly farther
+ // toward the look direction because they sit ahead of the cheek surface.
+ const shift=turn*(id==='noseGroup'?79:id==='mouthGroup'?66:id==='moustacheGroup'?64:id==='eyebrowGroup'||id==='eyeGroup'?51:id==='beardGroup'?50:55);
+ // Keeps the perspective both obvious and consistent across headwear/eyes/beard.
+ const nearScale=(id==='beardGroup'||id==='moustacheGroup')?.97:cameraTurnWidth.near;
+ const farScale=(id==='beardGroup'||id==='moustacheGroup')?.57:cameraTurnWidth.far;
+ const leftScale=turn<0?nearScale:farScale,rightScale=turn>0?nearScale:farScale;
+ const half=(side,scale)=>'<g transform="translate('+(627+shift)+' 0) scale('+scale+' 1) translate(-627 0)"><g clip-path="url(#anitoonsCamera'+side+')">'+original+'</g></g>';
+ layer.innerHTML=half('Left',leftScale)+half('Right',rightScale);
 }
 function applyCameraView(){
- const turn=cameraDirections[cameraView];
- if(!turn){
-  for(const id of cameraLayerIds)document.getElementById(id).removeAttribute('transform');
+ // Unchanged torso anchors the bust even when the head rotates.
+ cameraTorso.removeAttribute('transform');
+ cameraFace.removeAttribute('transform');
+ if(cameraView==='front'){
+  cameraFace.innerHTML=cameraFaceOriginal;
+  if(cameraTorsoOriginal!==null)cameraTorso.setAttribute('transform',cameraTorsoOriginal);
   return;
  }
- const set=(id,width,offset)=>document.getElementById(id).setAttribute('transform',cameraMatrix(width,turn*offset));
- // Torso remains nearly frontal, while head silhouette and outer ornaments turn.
- set('torso',.95,-8);
- for(const id of ['hairBack','headwearBack','face','frontHair','headwearFront'])set(id,.84,48);
- // Depth illusion: far ear tucks behind the face, near ear projects out.
- for(const [id,cx,isFar] of [['earLeft',405,turn>0],['earRight',874,turn<0]]){
-  const width=isFar?.70:1.05;
-  const offset=isFar?48:37;
-  document.getElementById(id).setAttribute('transform',
-   cameraMatrix(.84,turn*48)+` translate(${turn*offset} 0) translate(${cx} 0) scale(${width} 1) translate(-${cx} 0)`);
+ const turn=cameraDirections[cameraView];
+ cameraTorso.setAttribute('transform','translate('+(turn*11)+' 0)');
+ cameraProjectLayer('face',cameraFaceOriginal);
+ for(const id of cameraAnimatedLayerIds){
+  const layer=document.getElementById(id);
+  cameraProjectLayer(id,layer.innerHTML);
  }
- set('eyebrowGroup',.84,56);
- set('eyeGroup',.84,56);
- cameraSplitFeatures(document.getElementById('eyebrowGroup'),turn);
- cameraSplitFeatures(document.getElementById('eyeGroup'),turn);
- // Features closer to the viewer move more than the far silhouette.
- set('noseGroup',.88,94);
- set('beardGroup',.84,54);
- set('moustacheGroup',.85,66);
- set('mouthGroup',.86,78);
 }
 
 function render(){document.getElementById('beardGroup').innerHTML=beardSvg(state.beard);document.getElementById('moustacheGroup').innerHTML=moustacheSvg(state.moustache);const covered=state.headwear&&state.headwear!=='none';document.getElementById('headwearBack').innerHTML='';document.getElementById('headwearFront').innerHTML=headwearSvg(state.headwear||'none');document.getElementById('hairBack').innerHTML=covered?'':hairBack[state.hair];document.getElementById('frontHair').innerHTML=covered?'':hairFront[state.hair];document.getElementById('earLeft').innerHTML=ears[state.ears].L;document.getElementById('earRight').innerHTML=ears[state.ears].R;
@@ -585,7 +586,8 @@ const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 function composeMouth(viseme){
  const root=document.getElementById('mouthGroup');
  const center=`translate(627 ${756+state.position}) scale(${state.width/100} 1)`;
- root.innerHTML=`<g transform="${center}">${mouthSvg(viseme)}</g>`;
+ const original=`<g transform="${center}">${mouthSvg(viseme)}</g>`;
+ cameraProjectLayer('mouthGroup',original);
 }
 function seekSpeech(ms){
  const t=clamp(ms,0,motion.duration);

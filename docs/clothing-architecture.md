@@ -14,7 +14,7 @@ Add a reusable template when a garment needs new structural behavior. Arbitrary 
 
 `BODY_RIG` defines shoulder anchors and arm lengths. Arm coordinates are nested shoulder → elbow → wrist. Clothing never changes those anchors. `setBodyArmPose` only writes joint transforms. All assembled parts receive the same body projection for front and ¾ views; near/far arm drawing order changes with the camera. Framing controls crop and full-body horizontal proportion, not garment topology.
 
-The lower body uses hip → knee → ankle groups, ready for a future gait implementation. Walking, ground contact, foot planting and skirt deformation are not implemented. Dresses use the template hem/flare and currently support standing poses.
+The lower body uses hip → knee → ankle groups, ready for a future gait implementation. Walking in place is available in v72. The front view uses depth foreshortening; ¾ views solve the two-bone chain against alternating foot targets and keep the shoes level. Arms counter-swing. World-space travel, terrain-aware foot planting and cloth/skirt deformation are not implemented. Dresses retain their template hem while the legs walk underneath.
 
 One silhouette filter outlines the combined pieces, avoiding closed outlines at overlapping shoulder and elbow joints. Internal garment details have explicit strokes.
 

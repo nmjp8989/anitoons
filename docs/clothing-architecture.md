@@ -27,3 +27,9 @@ Inspect rendered neutral, raised-arm, short-sleeve, sleeveless, jacket and dress
 ### v73 walking correction
 
 Walking now uses a shared sagittal foot trajectory with a 60% support phase and a 40% lifted return. A two-segment solution bends the knee forward before projecting the joints into front and three-quarter views. Independent segment transforms preserve limb width; inverse shin transforms keep shoes level. Arms counter-swing along the viewing direction. This replaces sideways screen-space knee rotations. The animation remains a walk in place. Tests cover grounded support, continuous loop boundaries, forward knee bends, and no airborne phase, in addition to the wardrobe checks.
+
+### v75 continuous clothes and body direction
+
+The walking trouser contour is now a single filled path through hip, knee, and cuff. Joint transforms still attach the shoes, but no independently rotated cloth edges can expose a knee gap. Rest/gesture hands and relaxed back/edge hands are separate shared rig states. Near/far arms and hip anchors follow the same body projection as collars, seams, pockets and hems. Garment projection maps absolute SVG path control points (M/L/H/V/C/Q/S/T/Z) once; templates must use those absolute commands. It does not duplicate clipped strips, avoiding projection bands. Front geometry remains unchanged.
+
+The visible appbar version is checked against the document version. Visual review covers six walking phases in each camera view and sleeveless, long-sleeved, tunic and dress templates. Regression tests also check that the knee center remains inside the trouser fill and walking does not display open palms. This remains a stylized 2D walk in place, not a full 3D cloth simulation.

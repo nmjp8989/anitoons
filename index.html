@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v72</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v73</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -74,7 +74,7 @@
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v72</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v73</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -791,7 +791,7 @@ function rigLegSvg(side,pose,view){
  const spread=pose==='wide'?70:pose==='straight'?-15:12,ankle=100+spread,turn=cameraDirections[view]||0;
  // Local hip -> knee -> ankle groups are the attachment contract for future gait.
  return `<g data-rig-leg="${side}" transform="translate(627 1450) scale(${side} 1)"><g data-rig-hip>`+
- rigFill(`M5 -30 H175 Q185 180 ${155+spread} 380 H${38+spread} L8 180Z`,state.trouserColour)+
+ '<g data-rig-thigh>'+rigFill(`M5 -30 H175 Q185 180 ${155+spread} 380 H${38+spread} L8 180Z`,state.trouserColour)+'</g>'+
  `<g data-rig-knee transform="translate(${ankle} 380)">`+rigFill('M-62 -18 Q0 -30 58 -18 L44 360 H-44 L-55 180Z',state.trouserColour)+rigDetail('M-40 6 Q0 -9 39 6 M-41 344 H41',3)+
  `<g data-rig-ankle transform="translate(0 360) scale(${turn&&side!==turn?-1:1} 1)">`+
  rigFill(turn?'M-43 -8 H40 L48 26 Q64 44 105 57 Q135 69 132 94 Q110 111 33 111 L-55 102 Q-64 79 -51 39Z':'M-43 -8 H43 L49 37 Q69 61 69 90 Q54 111 0 112 Q-54 111 -69 90 Q-69 61 -49 37Z',state.shoeColour)+rigDetail(turn?'M-56 87 Q36 109 130 88 M24 31 L58 43 M16 44 L51 56':'M-65 87 Q0 105 65 87 M-35 39 Q0 49 35 39 M-29 51 Q0 60 29 51',3)+'</g></g></g></g>';
@@ -1567,29 +1567,41 @@ function animationEyesSvg(p){
 // Animation only changes joint rotations. Clothing topology stays identical.
 function restoreHeadshotTorso(){poseTalkingArms();}
 // Walk in place. Front uses depth foreshortening; ¾ uses a two-bone leg solve.
+// One sagittal gait, projected into front / three-quarter views. Distances are rig units.
+function walkingStep(seconds,side){
+ const t=((seconds/1.2+(side===1?.5:0))%1+1)%1;
+ const stance=t<.6,u=stance?t/.6:(t-.6)/.4;
+ // Constant-speed support; smooth return with toe clearance during swing.
+ const forward=stance?170-340*u:-170+340*(u*u*(3-2*u));
+ const lift=stance?0:105*Math.pow(Math.sin(Math.PI*u),1.5);
+ const down=712-lift,dist=Math.hypot(forward,down);
+ const angle=Math.atan2(forward,down)+Math.acos(Math.min(1,(380*380+dist*dist-360*360)/(2*380*dist)));
+ return {t,stance,forward,lift,kneeForward:380*Math.sin(angle),kneeDown:380*Math.cos(angle),down};
+}
 function poseWalking(seconds){
- const phase=seconds*Math.PI*2/1.2,turn=cameraDirections[cameraView]||0;
- const deg=180/Math.PI;
+ const turn=cameraDirections[cameraView]||0;
  for(const leg of document.querySelectorAll('#torso [data-rig-leg]')){
-  const side=+leg.dataset.rigLeg,cycle=phase+(side===1?Math.PI:0);
-  const swing=Math.sin(cycle),lift=Math.max(0,swing),hip=leg.querySelector('[data-rig-hip]'),knee=leg.querySelector('[data-rig-knee]'),ankle=leg.querySelector('[data-rig-ankle]');
-  const spread=state.pose==='wide'?70:state.pose==='straight'?-15:12,x=100+spread;
-  const flip=turn&&side!==turn?-1:1;
-  if(!turn){
-   // Looking towards the camera: stepping advances in depth, never sideways.
-   hip.setAttribute('transform',`translate(${x} 0) scale(${1+.035*swing} ${1-.075*lift}) translate(${-x} 0)`);
-   knee.setAttribute('transform',`translate(${x} 380) scale(1 ${1-.09*lift})`);
-   ankle.setAttribute('transform',`translate(0 360) scale(1 ${1+.07*swing})`);
-  }else{
-   const dx=turn*side*85*Math.cos(cycle),dy=735-75*lift;
-   const bend=-turn*side*Math.acos(Math.max(-1,Math.min(1,(dx*dx+dy*dy-380*380-360*360)/(2*380*360))));
-   const a=Math.atan2(-dx,dy)-Math.atan2(360*Math.sin(bend),380+360*Math.cos(bend));
-   hip.setAttribute('transform',`rotate(${a*deg} ${x} 0)`);
-   knee.setAttribute('transform',`translate(${x} 380) rotate(${bend*deg})`);
-   ankle.setAttribute('transform',`translate(0 360) rotate(${-(a+bend)*deg}) scale(${flip} 1)`);
-  }
+  const side=+leg.dataset.rigLeg,g=walkingStep(seconds,side);
+  const x=100+(state.pose==='wide'?70:state.pose==='straight'?-15:12);
+  const project=(f,y)=>({x:turn*side*.72*f,y:y-(turn?.12:.28)*f});
+  const k=project(g.kneeForward,g.kneeDown),f=project(g.forward,g.down);
+  // Each segment aims at the projected joint; width stays constant. No lateral knee bend.
+  const segment=(dx,dy,length,ox,oy)=>{const d=Math.hypot(dx,dy);return [dy/d,-dx/d,dx/length,dy/length,ox,oy];};
+  const upper=segment(k.x,k.y,380,x,0);upper[4]-=upper[0]*x;upper[5]-=upper[1]*x;
+  leg.querySelector('[data-rig-thigh]').setAttribute('transform',`matrix(${upper.join(' ')})`);
+  const shin=segment(f.x-k.x,f.y-k.y,360,x+k.x,k.y);
+  leg.querySelector('[data-rig-knee]').setAttribute('transform',`matrix(${shin.join(' ')})`);
+  // Undo shin rotation and foreshortening so the shoe does not shear or tilt sideways.
+  const [a,b,c,d]=shin,det=a*d-b*c,flip=turn&&side!==turn?-1:1;
+  leg.querySelector('[data-rig-ankle]').setAttribute('transform',`translate(0 360) matrix(${d/det} ${-b/det} ${-c/det} ${a/det} 0 0) scale(${flip} 1)`);
  }
- setBodyArmPose({left:[-4+9*Math.sin(phase),-12-7*Math.max(0,-Math.sin(phase)),0],right:[-4-9*Math.sin(phase),-12-7*Math.max(0,Math.sin(phase)),0]});
+ // Opposite arm / leg swing in the same projected direction; relaxed elbows.
+ for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){
+  const side=+arm.dataset.rigArm,g=walkingStep(seconds,side),swing=-g.forward/170;
+  arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${-3-turn*side*15*swing}) scale(1 ${1-.06*(1-swing)})`);
+  arm.querySelector('[data-rig-elbow]').setAttribute('transform',`rotate(${-8-turn*side*6*Math.max(0,swing)})`);
+  arm.querySelector('[data-rig-wrist]').setAttribute('transform','rotate(0)');
+ }
 }
 
 function poseHeadshotArms(p){if(reaction.key==='walk'&&reaction.playing&&state.framing==='full')poseWalking((performance.now()-reaction.started)/1000);else setBodyArmPose(p.arms||restingBodyPose());}

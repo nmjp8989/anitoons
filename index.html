@@ -873,7 +873,7 @@ function restingBodyPose(){
 function poseTalkingArms(ms=0,duration=0){
  const p=restingBodyPose();
  if(duration>0&&state.talkGestures&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const a=p[state.gestureSide===1?'right':'left'];a[1]=-110+10*Math.sin(ms/350);a[2]=8*Math.sin(ms/280);}
- setBodyArmPose(p);
+ setBodyArmPose(p,state.armPose==='point'?{[state.gestureSide===1?'right':'left']:'point'}:{});
 }
 function armRigSnapshot(){return {version:2,coordinateSpace:'nested local joint coordinates',body:BODY_RIG,garment:garmentDesign(),pose:restingBodyPose()};}
 

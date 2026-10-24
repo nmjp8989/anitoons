@@ -33,3 +33,9 @@ Walking now uses a shared sagittal foot trajectory with a 60% support phase and 
 The walking trouser contour is now a single filled path through hip, knee, and cuff. Joint transforms still attach the shoes, but no independently rotated cloth edges can expose a knee gap. Rest/gesture hands and relaxed back/edge hands are separate shared rig states. Near/far arms and hip anchors follow the same body projection as collars, seams, pockets and hems. Garment projection maps absolute SVG path control points (M/L/H/V/C/Q/S/T/Z) once; templates must use those absolute commands. It does not duplicate clipped strips, avoiding projection bands. Front geometry remains unchanged.
 
 The visible appbar version is checked against the document version. Visual review covers six walking phases in each camera view and sleeveless, long-sleeved, tunic and dress templates. Regression tests also check that the knee center remains inside the trouser fill and walking does not display open palms. This remains a stylized 2D walk in place, not a full 3D cloth simulation.
+
+### v76 hip attachment and gesture hands
+
+Trouser roots now share fixed inner/outer hip anchors with a rounded pelvis bridge; leg spread affects the lower leg rather than pulling the waistband apart. The pelvis no longer ends in a square ledge. Coverage tests sample the hip region across 24 walk phases in each view for every outfit, as well as knee coverage.
+
+Open, pointing, and relaxed hands are shared rig states. Explaining uses a palm-up left hand and an index-pointing right hand with smaller shoulder rotation so both fit in the headshot frame. The cartoon hand family has broader palms, rounded fingers, and revised thumb orientation. These remain procedural vector assets shared by every clothing template.

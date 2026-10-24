@@ -39,3 +39,11 @@ The visible appbar version is checked against the document version. Visual revie
 Trouser roots now share fixed inner/outer hip anchors with a rounded pelvis bridge; leg spread affects the lower leg rather than pulling the waistband apart. The pelvis no longer ends in a square ledge. Coverage tests sample the hip region across 24 walk phases in each view for every outfit, as well as knee coverage.
 
 Open, pointing, and relaxed hands are shared rig states. Explaining uses a palm-up left hand and an index-pointing right hand with smaller shoulder rotation so both fit in the headshot frame. The cartoon hand family has broader palms, rounded fingers, and revised thumb orientation. These remain procedural vector assets shared by every clothing template.
+
+### v77 shoulders, hand views, and hair
+
+Shoulder rotation and foreshortening share the fixed sleeve-cap center at local (0,48), with a stationary cap overlap. Full sleeves use a single cloth fill rather than coincident skin and cloth edges. Tests verify the transformed shoulder center remains at the socket during gestures and walking.
+
+Hand states are explicit reusable drawings: front palm, open gesture, pointing, relaxed back, and relaxed edge. Gesture state takes precedence over the neutral camera view; front neutral/walking shows the palm, and three-quarter views choose back/edge. All garment styles use these same attachments. No per-outfit hand asset is required.
+
+Six long hairstyles share existing head registration, with front braid/tress layers and rear volume. Eight Indian presets use the wardrobe registry. Hair browsing has All, Girls, and Boys filters without restricting which character can use a style. Headbands follow the crown instead of crossing the forehead.

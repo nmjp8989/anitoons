@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v66</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v67</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -71,7 +71,7 @@
 @media(max-width:390px){.preset-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v66</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v67</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -1369,7 +1369,7 @@ stopDemo();
 const oldHeader=document.querySelector('header');oldHeader.remove();
 const legacy=document.querySelector('main');legacy.hidden=true;
 const app=document.createElement('div');app.className='app';
-app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 66</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="randomCharacter" class="random" type="button" aria-label="Create random character" title="Generate a new character from the existing parts"><span class="randomIcon" aria-hidden="true">🎲</span><span class="randomText"> Random</span></button><button id="saveCharacter" class="save">Save character</button></div></header>
+app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 67</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="randomCharacter" class="random" type="button" aria-label="Create random character" title="Generate a new character from the existing parts"><span class="randomIcon" aria-hidden="true">🎲</span><span class="randomText"> Random</span></button><button id="saveCharacter" class="save">Save character</button></div></header>
 <div class="workspace"><section class="portrait"><div id="previewMount"></div><div class="previewbar"><span>YOUR CHARACTER</span><button id="blinkPreview">Blink</button><button id="talkPreview">▶ Try talking</button></div><div class="expressions" aria-label="Expression preview"></div><span class="saveStatus" role="status" id="saveStatus">Choose a feature to make it yours</span></section>
 <section class="customizer">
 <div class="studio-switch" role="tablist" aria-label="Studio mode"><button id="charactersMode" type="button" role="tab" aria-selected="true">Characters</button><button id="customizeMode" type="button" role="tab" aria-selected="false">Customize</button></div>
@@ -1558,6 +1558,30 @@ document.getElementById('randomCharacter').onclick=randomAppearance;
 
 
 const premadeCharacters=[
+ {"id":"kid-amir","category":"kids","name":"Amir","changes":{"skinColour":"#c08b63","hair":"curlyFringe","hairColour":"#25201f","head":"round","headSize":88,"eyeStyle":"button","brows":"raised","mouth":"smile","shirt":"hoodie","shirtColour":"#5c97b9","backgroundColour":"#e5f2f8"}},
+ {"id":"kid-sofia","category":"kids","name":"Sofia","changes":{"skinColour":"#f0c8a1","hair":"twinBraids","hairColour":"#4d3026","headwear":"headband","headwearColour":"#e89771","head":"petite","headSize":92,"eyeStyle":"wideOval","mouth":"smile","shirt":"dress","shirtColour":"#b998c6","backgroundColour":"#fff0ed"}},
+ {"id":"kid-meher","category":"kids","name":"Meher","changes":{"skinColour":"#c18a60","hair":"sideBraid","hairColour":"#252026","head":"soft","headSize":90,"eyeStyle":"almond","mouth":"smile","shirt":"kurti","shirtColour":"#e2aa4a","backgroundColour":"#f3f2dc"}},
+ {"id":"kid-oliver","category":"kids","name":"Oliver","changes":{"skinColour":"#f0c39e","hair":"windswept","hairColour":"#b17746","head":"bold","headSize":84,"eyeStyle":"toon","mouth":"smile","shirt":"tee","shirtColour":"#61a5ad","backgroundColour":"#e7f6e9"}},
+ {"id":"kid-zoya","category":"kids","name":"Zoya","changes":{"skinColour":"#ba7b54","hair":"longBluntBangs","hairColour":"#171c22","head":"oval","headSize":89,"eyeStyle":"round","mouth":"smile","shirt":"vneck","shirtColour":"#c96d8f","backgroundColour":"#f9ebf2"}},
+ {"id":"kid-kiara","category":"kids","name":"Kiara","changes":{"skinColour":"#8c5a45","hair":"afro","hairColour":"#202024","head":"round","headSize":94,"eyeStyle":"wideOval","brows":"raised","mouth":"smile","shirt":"hoodie","shirtColour":"#e5a74f","backgroundColour":"#eef6ec"}},
+ {"id":"kid-leo","category":"kids","name":"Leo","changes":{"skinColour":"#ddb18b","hair":"spiked","hairColour":"#62462d","head":"slender","headSize":91,"eyeStyle":"bold","mouth":"smile","shirt":"polo","shirtColour":"#6b81c1","backgroundColour":"#e8edfd"}},
+ {"id":"kid-noor","category":"kids","name":"Noor","changes":{"skinColour":"#d49e78","hair":"shoulderLayers","hairColour":"#47312e","headwear":"headband","headwearColour":"#65a4a6","head":"petite","headSize":93,"eyeStyle":"oval","mouth":"smile","shirt":"cardigan","shirtColour":"#dc8c85","backgroundColour":"#f2f7ea"}},
+ {"id":"adult-priya","category":"adults","name":"Priya","changes":{"skinColour":"#b17b55","hair":"longSoftWaves","hairColour":"#262125","head":"oval","headSize":98,"eyeStyle":"almond","mouthStyle":"soft","mouth":"smile","shirt":"kurti","shirtColour":"#8b72b3","backgroundColour":"#efebfa"}},
+ {"id":"adult-harpreet","category":"adults","name":"Harpreet","changes":{"skinColour":"#b4805f","hair":"crop","hairColour":"#212124","headwear":"dumalla","headwearColour":"#4f648f","head":"broad","headSize":98,"facialHair":"wideCurled","beard":"wide","moustache":"handlebar","beardColour":"#282322","moustacheColour":"#282322","shirt":"button","shirtColour":"#738d92","backgroundColour":"#e5ede9"}},
+ {"id":"adult-fatima","category":"adults","name":"Fatima","changes":{"skinColour":"#af775a","headwear":"wrappedHijab","headwearColour":"#ad768d","hairColour":"#221f20","head":"soft","headSize":96,"eyeStyle":"oval","mouth":"smile","shirt":"dress","shirtColour":"#e2bca0","backgroundColour":"#fff3e9"}},
+ {"id":"adult-omar","category":"adults","name":"Omar","changes":{"skinColour":"#7c5039","hair":"highFade","hairColour":"#19181d","head":"slender","headSize":98,"eyeStyle":"hooded","facialHair":"beard_boxed","beard":"boxed","moustache":"natural","beardColour":"#201c1e","moustacheColour":"#201c1e","shirt":"blazer","shirtColour":"#46516b","backgroundColour":"#e9edf5"}},
+ {"id":"adult-carmen","category":"adults","name":"Carmen","changes":{"skinColour":"#d69c79","hair":"wavyLob","hairColour":"#603d2d","head":"balanced","eyeStyle":"tapered","mouthStyle":"bow","mouth":"smile","shirt":"vneck","shirtColour":"#e1957d","backgroundColour":"#fdf0e6"}},
+ {"id":"adult-jun","category":"adults","name":"Jun","changes":{"skinColour":"#edc49b","hair":"sidePart","hairColour":"#252b32","head":"slender","eyeStyle":"hooded","mouth":"smile","shirt":"crew","shirtColour":"#64918e","backgroundColour":"#e8f1f1"}},
+ {"id":"adult-aisha","category":"adults","name":"Aisha","changes":{"skinColour":"#704936","hair":"curlyUpdo","hairColour":"#20191b","headwear":"headband","headwearColour":"#f0ba64","head":"broad","eyeStyle":"round","mouth":"smile","shirt":"cardigan","shirtColour":"#b77f8f","backgroundColour":"#f1e9e3"}},
+ {"id":"adult-sam","category":"adults","name":"Sam","changes":{"skinColour":"#e7b693","hair":"tousled","hairColour":"#6a4738","head":"balanced","eyeStyle":"toon","glasses":"rectangle","glassesColour":"#2f3237","lensOpacity":10,"mouth":"smile","shirt":"hoodie","shirtColour":"#7a9bce","backgroundColour":"#edf2fa"}},
+ {"id":"adult-nisha","category":"adults","name":"Nisha","changes":{"skinColour":"#966247","hair":"sleekLob","hairColour":"#211c24","head":"petite","eyeStyle":"almond","mouth":"smile","shirt":"dress","shirtColour":"#55a497","backgroundColour":"#e8f7ef"}},
+ {"id":"adult-marcus","category":"adults","name":"Marcus","changes":{"skinColour":"#754b38","hair":"tightCurls","hairColour":"#1b2021","head":"bold","eyeStyle":"toon","facialHair":"beard_short","beard":"short","moustache":"natural","beardColour":"#24211f","moustacheColour":"#24211f","mouth":"smile","shirt":"polo","shirtColour":"#c5874f","backgroundColour":"#f6eadc"}},
+ {"id":"elder-bibi","category":"elders","name":"Bibi Ji","changes":{"skinColour":"#b98767","hair":"lowBun","hairColour":"#85888a","head":"soft","headSize":97,"glasses":"oval","glassesColour":"#5b564d","lensOpacity":7,"eyeStyle":"droop","mouth":"smile","shirt":"kurti","shirtColour":"#7597a3","backgroundColour":"#f2eee6"}},
+ {"id":"elder-baldev","category":"elders","name":"Baldev","changes":{"skinColour":"#bc855e","headwear":"dastaar","headwearColour":"#b9a389","head":"round","headSize":97,"facialHair":"beard_tied","beard":"tied","moustache":"thick","beardColour":"#858487","moustacheColour":"#858487","eyeStyle":"hooded","shirt":"crew","shirtColour":"#728b75","backgroundColour":"#eff3e8"}},
+ {"id":"elder-rosa","category":"elders","name":"Rosa","changes":{"skinColour":"#d3a082","hair":"bobSide","hairColour":"#98979a","head":"oval","eyeStyle":"droop","glasses":"catEye","glassesColour":"#795755","lensOpacity":4,"mouth":"smile","shirt":"cardigan","shirtColour":"#b68eab","backgroundColour":"#f8eff1"}},
+ {"id":"elder-kenji","category":"elders","name":"Kenji","changes":{"skinColour":"#e2b38d","hair":"receding","hairColour":"#8a8b8e","head":"slender","headSize":97,"eyeStyle":"heavyLid","glasses":"rectangle","glassesColour":"#4a4644","lensOpacity":8,"mouth":"smile","shirt":"button","shirtColour":"#68899c","backgroundColour":"#eaf4f5"}},
+ {"id":"elder-mary","category":"elders","name":"Mary","changes":{"skinColour":"#f0c19d","hair":"shortTucked","hairColour":"#b0aa9e","head":"round","headSize":95,"eyeStyle":"wideOval","mouth":"smile","shirt":"vneck","shirtColour":"#9a80ae","backgroundColour":"#f2edf5"}},
+ {"id":"elder-hassan","category":"elders","name":"Hassan","changes":{"skinColour":"#967053","headwear":"kufi","headwearColour":"#e3ded2","head":"broad","headSize":96,"facialHair":"beard_round","beard":"round","moustache":"natural","beardColour":"#999a99","moustacheColour":"#999a99","eyeStyle":"hooded","mouth":"smile","shirt":"cardigan","shirtColour":"#718d84","backgroundColour":"#e8efeb"}},
  {id:'kid-ava',category:'kids',name:'Ava',changes:{skinColour:'#e6aa7b',hairColour:'#28242b',hair:'bun',head:'soft',headSize:91,shirt:'hoodie',shirtColour:'#d77a8c',mouth:'smile',eyeStyle:'round',backgroundColour:'#e9f0ff'}},
  {id:'kid-noah',category:'kids',name:'Noah',changes:{skinColour:'#dc965f',hairColour:'#262329',hair:'crop',head:'round',headSize:88,shirt:'polo',shirtColour:'#3675cb',mouth:'smile',eyeStyle:'toon',backgroundColour:'#eef2ff'}},
  {id:'kid-rohan',category:'kids',name:'Rohan',changes:{skinColour:'#a86e4c',hairColour:'#282020',hair:'crop',head:'balanced',headSize:93,shirt:'hoodie',shirtColour:'#e3b12e',eyeStyle:'round',mouth:'smile',backgroundColour:'#fff2d5'}},
@@ -1624,7 +1648,11 @@ function libraryThumbnail(preset,i){
   Object.assign(state,snapshot);cameraView=previousView;applyColours(true);
  }
 }
+let galleryObserver=null;
+let galleryRevision=0;
 function drawLibrary(){
+ ++galleryRevision;
+ if(galleryObserver){galleryObserver.disconnect();galleryObserver=null;}
  const tabs=document.getElementById('libraryTabs'),grid=document.getElementById('presetGrid');
  if(!tabs.childElementCount)for(const [id,label] of Object.entries(libraryCategories)){
   const btn=document.createElement('button');btn.type='button';btn.textContent=label;btn.dataset.category=id;btn.setAttribute('role','tab');
@@ -1637,12 +1665,16 @@ function drawLibrary(){
   libraryCategory==='mine'?mine:libraryCategory==='custom'?[current]:
   premadeCharacters.filter(p=>p.category===libraryCategory);
  const fragment=document.createDocumentFragment();
+ const queuedThumbnails=[];
  for(const [i,preset] of items.entries()){
   const wrap=document.createElement('div');wrap.className='preset-wrap';
   const card=document.createElement('button');card.type='button';card.className='preset-card';card.title='Use '+preset.name;
   card.setAttribute('aria-pressed',String(selectedCharacterId===preset.id));
   const art=document.createElement('div');art.className='preset-art';
-  try{art.append(libraryThumbnail(preset,i))}catch{art.textContent='Preview unavailable'}
+  // Placeholder first; generate only visible actual SVG portraits to keep the
+  // larger character library responsive on phones and low-power devices.
+  art.setAttribute('aria-label',preset.name+' portrait');
+  queuedThumbnails.push({art,preset,index:i});
   const label=document.createElement('span');label.className='preset-name';label.textContent=preset.name;
   card.append(art,label);card.onclick=()=>chooseLibraryCharacter(preset);wrap.append(card);
   if(preset.saved&&preset.id!=='current'){
@@ -1654,6 +1686,34 @@ function drawLibrary(){
  }
  if(!items.length){const msg=document.createElement('p');msg.className='preset-empty';msg.textContent='No saved characters yet. Customize a premade character, then click Save character.';fragment.append(msg);}
  grid.replaceChildren(fragment);
+ const revision=galleryRevision;
+ const paint=(item)=>{
+  if(revision!==galleryRevision||!grid.contains(item.art))return;
+  try{item.art.replaceChildren(libraryThumbnail(item.preset,item.index))}
+  catch(error){console.error('Character thumbnail failed:',item.preset.id,error);item.art.textContent='Preview unavailable';}
+ };
+ if(typeof IntersectionObserver==='function'){
+  const pending=new Map(queuedThumbnails.map(item=>[item.art,item]));
+  galleryObserver=new IntersectionObserver(entries=>{
+   for(const entry of entries)if(entry.isIntersecting){
+    const item=pending.get(entry.target);
+    if(!item)continue;
+    pending.delete(entry.target);
+    galleryObserver?.unobserve(entry.target);
+    paint(item);
+   }
+  },{root:grid,rootMargin:'100px 0px'});
+  for(const item of queuedThumbnails)galleryObserver.observe(item.art);
+ }else{
+  // Fallback: three portraits per frame rather than blocking startup.
+  let cursor=0;
+  const next=()=>{
+   if(revision!==galleryRevision)return;
+   for(let count=0;count<3&&cursor<queuedThumbnails.length;count++)paint(queuedThumbnails[cursor++]);
+   if(cursor<queuedThumbnails.length)requestAnimationFrame(next);
+  };
+  requestAnimationFrame(next);
+ }
  document.getElementById('libraryCount').textContent=items.length+' character'+(items.length===1?'':'s');
 }
 function saveCurrentCharacter(){

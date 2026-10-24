@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v76</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v77</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -74,7 +74,7 @@
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v76</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v77</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -396,6 +396,32 @@ function hairLayer(outline,details=''){
 for(const [key,art] of Object.entries(refinedHair)){hairFront[key]=hairLayer(art.front,art.lines);hairBack[key]=hairLayer(art.back,art.backLines);}
 
 
+// Long hairstyles share the established temple and crown registration.
+const indianLongHair={indianSilky:'Long centre-part',indianWaves:'Long flowing waves',indianSideBraid:'Long side braid',indianTwinBraids:'Long twin braids',indianPonytail:'Long ponytail',indianJasmine:'Braid with jasmine'};
+const longCrown='M8 68 C-1 44 5 16 28 5 Q50 -5 71 5 C96 15 105 43 94 68 L88 60 Q87 38 76 32 Q63 29 51 34 Q39 28 26 34 Q15 44 14 63Z';
+const crownLines='M51 34 Q50 15 51 5 M47 9 Q23 12 15 37 M57 9 Q81 15 90 40';
+for(const [key,label] of Object.entries(indianLongHair)){
+ let back='',front=longCrown,lines=crownLines;
+ if(key==='indianSilky'||key==='indianWaves'){
+  const waves=key==='indianWaves';
+  back=waves?'M7 43 C-10 76 1 93 -9 119 C-19 148 0 169 -6 194 Q-9 222 17 238 L31 226 L29 105 H76 L76 227 L91 240 Q118 221 108 194 C99 171 116 149 108 124 C98 96 111 72 94 43Z':'M6 42 Q-3 92 1 150 L3 229 Q14 240 30 232 L29 106 H75 L75 232 Q91 242 104 228 L105 150 Q110 89 96 42Z';
+  lines+=' M7 62 Q1 131 12 214 M96 62 Q104 137 93 215';
+ }else{
+  back='M8 42 Q0 80 12 116 L31 120 L31 96 H73 L74 119 L93 114 Q106 80 95 43Z';
+  const xs=key==='indianTwinBraids'?[12,91]:key==='indianSideBraid'?[98]:[83];
+  for(const x of xs){if(key==='indianPonytail'){back+=` M${x-15} 75 Q${x+35} 100 ${x+18} 156 Q${x+8} 187 ${x+22} 229 Q${x-4} 221 ${x-9} 191 Q${x-20} 141 ${x-15} 75Z`;continue;}
+   for(let j=0;j<7;j++){const y=99+j*18;back+=` M${x} ${y} Q${x-22} ${y+8} ${x-9} ${y+20} Q${x+4} ${y+30} ${x+12} ${y+15} Q${x+20} ${y+2} ${x} ${y}Z`;}
+   back+=` M${x-6} 229 L${x+9} 229 L${x+12} 246 L${x-8} 244Z`;
+  }
+ }
+ if(key==='indianSilky'||key==='indianWaves')front+=' M8 64 Q2 145 9 230 L20 235 Q15 158 18 90 L14 63Z M88 63 L84 90 Q88 158 83 235 L98 231 Q106 145 94 64Z';
+ if(['indianSideBraid','indianTwinBraids','indianJasmine'].includes(key)){const tail=back.slice(back.indexOf(' M'));front+=tail;}
+ addHair(key,label,front,lines,back);
+ if(key==='indianJasmine')hairFront[key]+='<g fill="#fff7df" stroke="#625745" stroke-width="2">'+Array.from({length:7},(_,i)=>`<circle cx="${815+Math.sin(i)*12}" cy="${850+i*18}" r="17"/>`).join('')+'</g>';
+}
+const hairSections={all:'All',girls:'Girls',boys:'Boys'};
+let hairSection='all';
+function hairSectionFor(key){return /crop|short|fade|quiff|buzz|mohawk|crew|slick|pompadour|bald|undercut|spik|bowl|flatTop|sidePart|mullet/i.test(key)?'boys':'girls';}
 const headwearNames={none:'No head covering',headband:'Fabric headband',kufi:'Kufi cap',keffiyeh:'Keffiyeh with agal',hijab:'Draped hijab',wrappedHijab:'Wrapped hijab',dastaar:'Sikh dastaar',punjabiTurban:'Pleated Punjabi turban',dumalla:'Sikh dumalla',patka:'Sikh patka'};
 catalogs.headwear=headwearNames;
 function coveringShape(d,colour,stroke=1.65){return `<path d="${d}" fill="${colour}" fill-rule="evenodd" stroke="#211d1d" stroke-width="${stroke}" stroke-linejoin="round"/>`}
@@ -408,8 +434,8 @@ function headwearSvg(key,colour=state.headwearColour){
  // A curved fabric band rests across the existing hairstyle; it does not replace
  // or mask the user's bun, long hair or fringe. Source is local headwear geometry.
  if(key==='headband'){
-  art=coveringShape('M12 71 C15 48 31 38 51 38 C72 38 88 50 91 71 L86 77 C81 57 67 49 51 49 C34 49 22 59 18 77Z',colour,1.4);
-  art+=coveringLines('M18 65 C27 48 38 43 51 43 C67 43 78 53 85 65','#fff5ef',.7);
+  art=coveringShape('M7 62 C5 25 23 8 51 7 C80 7 98 27 96 62 L90 67 C91 35 76 17 51 17 C27 17 12 35 14 67Z',colour,1.4);
+  art+=coveringLines('M10 52 C11 24 29 12 51 12 C74 12 91 28 93 52','#fff5ef',.7);
  }
  if(key==='kufi')art=coveringShape('M12 55 C10 43 12 29 19 22 Q50 9 81 22 C89 28 94 41 93 55 Q53 47 12 55Z',colour)+coveringLines('M13 39 Q52 26 91 40 M12 49 Q52 38 93 50')+coveringLines('M24 37 l4 4 l-4 4 l-4 -4Z M39 34 l4 4 l-4 4 l-4 -4Z M54 33 l4 4 l-4 4 l-4 -4Z M69 35 l4 4 l-4 4 l-4 -4Z M83 38 l4 4 l-4 4 l-4 -4Z','#8c8376',.7);
  if(key==='keffiyeh')art=coveringShape('M-7 110 C-14 77 -10 37 8 18 C24 1 46 -5 66 -2 C96 1 116 25 118 55 L121 105 Q125 129 137 149 L116 163 L96 153 Q91 126 95 99 C98 76 94 53 82 39 Q55 27 28 39 C17 54 10 82 12 102 Q15 127 9 153 L-8 165 L-27 149 Q-11 127 -7 110Z',colour)+coveringLines('M9 20 Q53 1 98 22 M8 24 Q54 7 102 26','#211d1d',4.4)+coveringLines('M15 33 Q54 18 96 35 M-2 49 Q-7 81 0 106 M109 48 Q116 80 110 105 M4 113 Q3 135 -7 150 M103 114 Q107 137 119 151')+coveringLines('M-4 57 l10 8 l-9 9 l10 8 l-8 9 M107 58 l-9 8 l11 9 l-9 9 l11 9 M-1 112 l8 6 l-8 8 l8 7 M108 114 l-7 7 l9 7 l-6 7','#9c8e7e',.75);
@@ -759,7 +785,8 @@ const topNames=Object.fromEntries(Object.entries(WARDROBE).map(([k,v])=>[k,v.lab
 catalogs.shirt=topNames;state.shirt='crew';
 const standingPoses={relaxed:'Relaxed standing',straight:'Straight standing',wide:'Wide stance',hip:'Hand on hip'};
 catalogs.pose=standingPoses;catalogs.framing={head:'Headshot',full:'Full body'};
-function rigFill(d,c='url(#shirtFill)'){return `<path d="${d}" fill="${c}" stroke="none"/>`;}
+function rigCloth(){return state.shirtColour||'#829bc5';}
+function rigFill(d,c=rigCloth()){return `<path d="${d}" fill="${c}" stroke="none"/>`;}
 function rigDetail(d,w=4){return `<path d="${d}" fill="none" stroke="#161011" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;}
 function garmentBodiceSvg(){
  const d=garmentDesign(),t=garmentTemplate(),hem=t.hem,half=205+t.flare;
@@ -783,13 +810,12 @@ function garmentBodiceSvg(){
 }
 function rigArmSvg(side,view=cameraView){
  const turn=cameraDirections[view]||0,armX=bodyCameraX(627+side*BODY_RIG.shoulderX,turn),depth=turn?(side===turn?.82:1):1;
- const t=garmentTemplate(),skin='url(#skinFill)',cloth='url(#shirtFill)';
+ const t=garmentTemplate(),skin='url(#skinFill)',cloth=rigCloth();
  const upper='M-55 44 C-53 14 -25 -3 0 -3 C27 -3 52 14 55 44 Q63 87 49 155 L43 230 Q0 257 -43 230 L-49 155 Q-63 86 -55 44Z';
  const fore='M-44 -18 Q0 -39 44 -18 Q51 53 39 124 L29 218 H-29 L-39 124 Q-51 53 -44 -18Z';
- let a=`<g data-rig-arm="${side}" transform="translate(${armX} ${BODY_RIG.shoulderY+(turn&&side===turn?-9:0)}) scale(${side*depth} 1)"><g data-rig-shoulder>`+rigFill(upper,skin);
- if(t.sleeve===1)a+=rigFill(upper,cloth);
- else if(t.sleeve>0)a+=rigFill('M-55 44 C-53 14 -25 -3 0 -3 C27 -3 52 14 55 44 Q62 65 54 107 Q0 127 -54 107 Q-62 65 -55 44Z',cloth)+rigDetail('M-56 107 Q0 127 56 107',3);
- a+=`<g transform="translate(0 ${BODY_RIG.upperArm})"><g data-rig-elbow>`+rigFill(fore,t.sleeve===1?cloth:skin)+`<g transform="translate(0 ${BODY_RIG.forearm})"><g data-rig-wrist>`+`<g data-hand-open display="none" transform="scale(-1 1)">${proportionalHandSvg(0,0,1.05)}</g><g data-hand-point display="none" transform="scale(-1 1)">${proportionalHandSvg(0,0,1.12,'point')}</g><g data-hand-relaxed>${relaxedHandSvg(turn&&side===turn?'edge':'back')}</g>`+' </g></g></g></g></g></g>';
+ let a=`<g data-rig-arm="${side}" transform="translate(${armX} ${BODY_RIG.shoulderY+(turn&&side===turn?-9:0)}) scale(${side*depth} 1)">`+`<ellipse data-shoulder-socket cx="0" cy="48" rx="53" ry="51" fill="${t.sleeve>0?cloth:skin}"/><g data-rig-shoulder>`+rigFill(upper,t.sleeve===1?cloth:skin);
+ if(t.sleeve>0&&t.sleeve<1)a+=rigFill('M-55 44 C-53 14 -25 -3 0 -3 C27 -3 52 14 55 44 Q62 65 54 107 Q0 127 -54 107 Q-62 65 -55 44Z',cloth)+rigDetail('M-56 107 Q0 127 56 107',3);
+ a+=`<g transform="translate(0 ${BODY_RIG.upperArm})"><g data-rig-elbow>`+rigFill(fore,t.sleeve===1?cloth:skin)+`<g transform="translate(0 ${BODY_RIG.forearm})"><g data-rig-wrist>`+`<g data-hand-open display="none" transform="scale(-1 1)">${proportionalHandSvg(0,0,1.05)}</g><g data-hand-point display="none" transform="scale(-1 1)">${proportionalHandSvg(0,0,1.12,'point')}</g><g data-hand-palm display="none">${proportionalHandSvg(0,0,.92)}</g><g data-hand-relaxed>${relaxedHandSvg(turn&&side===turn?'edge':'back')}</g>`+' </g></g></g></g></g></g>';
  return a;
 }
 function bodyCameraX(x,turn){
@@ -832,9 +858,9 @@ function topTile(key){const old=state.shirt;try{state.shirt=key;return `<svg vie
 function setBodyArmPose(poses,hands={}){
  for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){
   const side=+arm.dataset.rigArm,angles=poses[side===-1?'left':'right']||[0,0,0];
-  const gesture=Math.abs(angles[1])>40,hand=hands[side===-1?'left':'right']||(gesture?'open':'relaxed');
-  for(const kind of ['open','point','relaxed'])arm.querySelector('[data-hand-'+kind+']').setAttribute('display',hand===kind?'inline':'none');
-  for(const [i,j] of ['shoulder','elbow','wrist'].entries())arm.querySelector('[data-rig-'+j+']').setAttribute('transform',`rotate(${angles[i]})`);
+  const gesture=Math.abs(angles[1])>40,hand=hands[side===-1?'left':'right']||(gesture?'open':cameraView==='front'?'palm':'relaxed');
+  for(const kind of ['open','point','palm','relaxed'])arm.querySelector('[data-hand-'+kind+']').setAttribute('display',hand===kind?'inline':'none');
+  for(const [i,j] of ['shoulder','elbow','wrist'].entries())arm.querySelector('[data-rig-'+j+']').setAttribute('transform',`rotate(${angles[i]} ${j==='shoulder'?'0 48':'0 0'})`);
  }
 }
 function restingBodyPose(){
@@ -1167,7 +1193,7 @@ stopDemo();
 const oldHeader=document.querySelector('header');oldHeader.remove();
 const legacy=document.querySelector('main');legacy.hidden=true;
 const app=document.createElement('div');app.className='app';
-app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 76</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="randomCharacter" class="random" type="button" aria-label="Create random character" title="Generate a new character from the existing parts"><span class="randomIcon" aria-hidden="true">🎲</span><span class="randomText"> Random</span></button><button id="saveCharacter" class="save">Save character</button></div></header>
+app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 77</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="randomCharacter" class="random" type="button" aria-label="Create random character" title="Generate a new character from the existing parts"><span class="randomIcon" aria-hidden="true">🎲</span><span class="randomText"> Random</span></button><button id="saveCharacter" class="save">Save character</button></div></header>
 <div class="workspace"><section class="portrait"><div id="previewMount"></div><div class="previewbar"><span>YOUR CHARACTER</span><button id="blinkPreview">Blink</button><button id="talkPreview">▶ Try talking</button></div><div class="expressions" aria-label="Expression preview"></div><span class="saveStatus" role="status" id="saveStatus">Choose a feature to make it yours</span></section>
 <section class="customizer">
 <div class="studio-switch" role="tablist" aria-label="Studio mode"><button id="charactersMode" type="button" role="tab" aria-selected="true">Characters</button><button id="customizeMode" type="button" role="tab" aria-selected="false">Customize</button></div>
@@ -1266,7 +1292,8 @@ function drawDesigns(){
  document.querySelector('.colorLabel').hidden=!['skin','shirt','background','hair','headwear','facialHair','glasses'].includes(feature);
  const entries=feature==='mouth'?mouthStyles:feature==='eyes'?eyeStyles:catalogs[feature];const root=document.getElementById('designs');root.replaceChildren();
  if(!entries){const colours=feature==='skin'?['#f8d4b4','#efa66a','#ca895a','#925b3c','#593a2c']:feature==='shirt'?['#e56879','#999999','#287fd2','#e8b448','#4e8171']:['#229af0','#ff438a','#c4d8f8','#e8c596','#a9c7af'];for(const c of colours){const b=document.createElement('button');b.className='colourChoice';b.style.background=c;b.setAttribute('aria-label',c);b.onclick=()=>{checkpoint();setColour(c)};root.append(b)}return}
- for(const [key,label] of Object.entries(entries)){const b=document.createElement('button');b.className='design';const selected=feature==='mouth'?state.mouthStyle:feature==='eyes'?state.eyeStyle:state[feature];b.setAttribute('aria-pressed',String(selected===key));
+ if(feature==='hair'){const nav=document.createElement('div');nav.style.cssText='grid-column:1/-1;display:flex;gap:8px';for(const [key,label] of Object.entries(hairSections)){const b=document.createElement('button');b.className='design';b.textContent=label;b.dataset.hairSection=key;b.setAttribute('aria-pressed',String(key===hairSection));b.onclick=()=>{hairSection=key;drawDesigns()};nav.append(b)}root.append(nav);}
+ for(const [key,label] of Object.entries(entries)){if(feature==='hair'&&hairSection!=='all'&&hairSectionFor(key)!==hairSection)continue;const b=document.createElement('button');b.className='design';const selected=feature==='mouth'?state.mouthStyle:feature==='eyes'?state.eyeStyle:state[feature];b.setAttribute('aria-pressed',String(selected===key));
  let art=feature==='pose'?poseTile(key):feature==='head'?headTile(key):feature==='mouth'?mouthStyleTile(key):feature==='shirt'?topTile(key):feature==='eyes'?`<svg viewBox="425 520 405 170">${eyesSvg('open',key)}</svg>`:smallTile(feature,key);
  b.innerHTML=art+`<span>${label}</span>`;b.onclick=()=>{checkpoint();stopDemo();if(feature==='mouth')state.mouthStyle=key;else if(feature==='eyes')state.eyeStyle=key;else if(feature==='facialHair'){state.facialHair=key;const look=facialHairLooks[key];state.beard=look.beard;state.moustache=look.moustache;state.beardColour=state.moustacheColour=state.facialHairColour}else if(feature==='headwear'){state.headwear=key}else{state[feature]=key;if(feature==='pose')state.framing='full';if(feature==='hair')state.headwear='none'}updateApp()};root.append(b)}
 }
@@ -1394,6 +1421,9 @@ const premadeCharacters=[
  {id:'elder-kaur',category:'elders',name:'Mrs. Kaur',changes:{skinColour:'#c89975',hairColour:'#98969a',hair:'bun',head:'round',shirt:'cardigan',shirtColour:'#63968f',glasses:'oval',glassesColour:'#5c514b',lensOpacity:5,mouth:'smile',backgroundColour:'#f5f1eb'}},
  {id:'elder-david',category:'elders',name:'David',changes:{skinColour:'#e2b08e',hair:'crop',hairColour:'#88898c',head:'broad',shirt:'button',shirtColour:'#a09caa',glasses:'browline',glassesColour:'#464045',lensOpacity:5,facialHair:'beard_light',beard:'light',moustache:'natural',beardColour:'#89868a',moustacheColour:'#89868a',mouth:'smile',backgroundColour:'#eef2e8'}}
 ];
+premadeCharacters.push(...[
+ ['meera','Meera','adults','indianSilky','kurti','#c56a80','#bd875f'],['kavya','Kavya','adults','indianWaves','kurti','#397c78','#a96c47'],['simran','Simran','adults','indianSideBraid','kurti','#d5a141','#d19a73'],['isha','Isha','kids','indianTwinBraids','dress','#6f86ba','#c98c61'],['priya','Priya','adults','indianPonytail','hoodie','#a15f85','#9c6446'],['lakshmi','Lakshmi','adults','indianJasmine','kurti','#a65343','#865239'],['arjun','Arjun','adults','crop','button','#478080','#b77c52'],['gurleen','Gurleen','kids','indianSideBraid','kurti','#9c79b7','#cf946c']
+].map(([id,name,category,hair,shirt,shirtColour,skinColour])=>({id:'india-'+id,name,category,changes:{hair,shirt,shirtColour,skinColour,hairColour:'#26201d',headwear:'none',head:'balanced',headSize:category==='kids'?92:98,mouth:'smile',eyeStyle:'round',backgroundColour:'#edf1e9'}})));
 const libraryCategories={all:'All',mine:'My Characters',kids:'Kids',adults:'Adults',elders:'Elders',custom:'Custom'};
 const libraryStorageKey='anitoons-library-v1';
 let libraryCategory='all',libraryMode='characters',selectedCharacterId='';
@@ -1634,8 +1664,8 @@ function poseWalking(seconds){
  // Opposite arm / leg swing in the same projected direction; relaxed elbows.
  for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){
   const side=+arm.dataset.rigArm,g=walkingStep(seconds,side),swing=-g.forward/170;
-  arm.querySelector('[data-hand-open]').setAttribute('display','none');arm.querySelector('[data-hand-point]').setAttribute('display','none');arm.querySelector('[data-hand-relaxed]').setAttribute('display','inline');
-  arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${-3-turn*side*15*swing}) scale(1 ${1-.06*(1-swing)})`);
+  arm.querySelector('[data-hand-open]').setAttribute('display','none');arm.querySelector('[data-hand-point]').setAttribute('display','none');arm.querySelector('[data-hand-palm]').setAttribute('display',turn?'none':'inline');arm.querySelector('[data-hand-relaxed]').setAttribute('display',turn?'inline':'none');
+  arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${-3-turn*side*15*swing} 0 48) translate(0 48) scale(1 ${1-.06*(1-swing)}) translate(0 -48)`);
   arm.querySelector('[data-rig-elbow]').setAttribute('transform',`rotate(${-8-turn*side*6*Math.max(0,swing)})`);
   arm.querySelector('[data-rig-wrist]').setAttribute('transform','rotate(0)');
  }

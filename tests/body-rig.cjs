@@ -9,6 +9,7 @@ const result=await p.evaluate(()=>{
   const geometry=()=>JSON.stringify([...document.querySelectorAll('#torso path')].map(n=>n.getAttribute('d')));
   const original=geometry();const nodes=[...document.querySelectorAll('#torso [data-rig-arm]')];
   for(const time of [0,.2,1,2.8,3.5]){poseHeadshotArms(reactionPose('wave',time));if(geometry()!==original)throw Error('Geometry changed '+shirt);if(nodes.some(n=>!n.isConnected))throw Error('Rig replaced mid-animation');checks++;}
+  if(framing==='full'){for(const time of [0,.3,.6,.9]){poseWalking(time);if(document.getElementById('torso').innerHTML.includes('NaN'))throw Error('Invalid gait');}render();if(document.querySelector('#torso [data-rig-hip]').hasAttribute('transform'))throw Error('Gait reset failed');}
   if(nodes.length!==2)throw Error('Expected exactly two arms');
   if(framing==='full'&&document.querySelectorAll('#torso [data-rig-knee]').length!==2)throw Error('Leg joint missing');
  }

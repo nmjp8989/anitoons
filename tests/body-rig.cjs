@@ -12,6 +12,8 @@ const result=await p.evaluate(()=>{
   const loop=walkingStep(t+1.2,side);if(Math.abs(loop.forward-g.forward)>1e-8)throw Error('Loop seam');
   if(!g.stance&&!walkingStep(t,-side).stance)throw Error('Both feet airborne');
  }
+ state.gazeX=0;state.gazeY=0;
+ for(const view of ['left','front','right']){cameraView=view;const g=eyeGaze('open');if(g.x!==cameraDirections[view]*.8)throw Error('Gaze does not follow face');for(const style of Object.keys(eyeStyles)){state.eyeStyle=style;render();if(document.querySelector('#eyeGroup').innerHTML.includes('NaN'))throw Error('Invalid eye geometry');}if(eyeGaze('left').x!==-1||eyeGaze('right').x!==1)throw Error('Explicit look lost');}
  const styles=Object.keys(WARDROBE);let checks=0;
  for(const shirt of styles)for(const view of ['front','left','right'])for(const framing of ['head','full']){
   state.shirt=shirt;cameraView=view;state.framing=framing;render();

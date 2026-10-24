@@ -23,3 +23,7 @@ One silhouette filter outlines the combined pieces, avoiding closed outlines at 
 Install Playwright in your development environment, then run `node tests/body-rig.cjs`. Set `CHROMIUM_PATH` to an existing Chromium executable if needed. Tests cover 390 combinations of garment, framing, camera and wave phase; verify stable path geometry and DOM joints; check both leg chains; and exercise adding/removing a design.
 
 Inspect rendered neutral, raised-arm, short-sleeve, sleeveless, jacket and dress examples as well as running tests. Geometry invariance alone does not establish drawing quality.
+
+### v73 walking correction
+
+Walking now uses a shared sagittal foot trajectory with a 60% support phase and a 40% lifted return. A two-segment solution bends the knee forward before projecting the joints into front and three-quarter views. Independent segment transforms preserve limb width; inverse shin transforms keep shoes level. Arms counter-swing along the viewing direction. This replaces sideways screen-space knee rotations. The animation remains a walk in place. Tests cover grounded support, continuous loop boundaries, forward knee bends, and no airborne phase, in addition to the wardrobe checks.

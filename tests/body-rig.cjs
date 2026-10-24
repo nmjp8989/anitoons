@@ -3,6 +3,15 @@ const {chromium}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES?process.
 const {pathToFileURL}=require('node:url');const path=require('node:path');
 (async()=>{const browser=await chromium.launch({headless:true,...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),args:['--no-sandbox']});const p=await browser.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(pathToFileURL(path.resolve(__dirname,'../index.html')).href);
 const result=await p.evaluate(()=>{
+ // Verify support, forward knee bend, opposite steps, and seamless loop boundaries.
+ for(const side of [-1,1])for(let i=0;i<=120;i++){
+  const t=i/100,g=walkingStep(t,side),next=walkingStep(t+.00001,side);
+  if(g.stance&&g.lift!==0)throw Error('Supporting foot lifted');
+  if(g.kneeForward<g.forward/2)throw Error('Knee bent backwards');
+  if(Math.abs(next.forward-g.forward)>1||Math.abs(next.lift-g.lift)>1)throw Error('Gait discontinuity');
+  const loop=walkingStep(t+1.2,side);if(Math.abs(loop.forward-g.forward)>1e-8)throw Error('Loop seam');
+  if(!g.stance&&!walkingStep(t,-side).stance)throw Error('Both feet airborne');
+ }
  const styles=Object.keys(WARDROBE);let checks=0;
  for(const shirt of styles)for(const view of ['front','left','right'])for(const framing of ['head','full']){
   state.shirt=shirt;cameraView=view;state.framing=framing;render();

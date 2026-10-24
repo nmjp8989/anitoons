@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v70</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v71</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -74,7 +74,7 @@
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v70</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v71</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -95,14 +95,7 @@
   <path class="hairline" d="M398 537 Q367 435 434 332 M881 310 Q956 380 934 480 M459 285 Q465 218 517 195 M513 151 Q535 105 608 103"/>
 </g>
 <g id="headwearBack"></g>
-<g id="torso">
- <path class="ink" fill="url(#shirtFill)" d="M455 972 Q398 972 345 994 Q276 1025 249 1116 L224 1257 H1042 L1012 1121 Q985 1029 909 998 Q856 979 800 972 L736 960 H524 Z"/>
- <path class="hairline" d="M378 1149 Q368 1208 368 1257 M873 1152 Q884 1208 881 1257"/>
- <path d="M254 1134 Q275 1049 336 1017 M1004 1134 Q985 1048 919 1018" fill="none" stroke="#f3a2ab" stroke-width="6" opacity=".48" stroke-linecap="round"/>
- <path class="ink" fill="url(#skinFill)" d="M534 832 L535 915 Q535 954 491 970 Q544 1061 626 1068 Q720 1060 778 970 Q715 956 715 920 L715 828 Z"/>
- <path d="M473 969 Q507 1060 624 1092 Q743 1076 788 968" fill="none" stroke="#15100f" stroke-width="9" stroke-linecap="round"/>
- <path d="M475 970 Q504 1055 625 1062 Q728 1062 781 969" fill="none" stroke="#ef8b98" stroke-width="10" stroke-linecap="round"/>
-</g>
+<g id="torso"></g>
 <g id="earLeft"></g>
 <g id="earRight"></g>
 <g id="face">
@@ -733,355 +726,111 @@ const cameraAnimatedLayerIds=['hairBack','headwearBack','earLeft','earRight','ey
 const cameraFace=document.getElementById('face');
 const cameraFaceOriginal=cameraFace.innerHTML;
 const cameraTorso=document.getElementById('torso');
-const cameraTorsoOriginal=cameraTorso.innerHTML;
-const topNames={crew:'Crew-neck sweater',tee:'Short-sleeve tee',vneck:'V-neck top',polo:'Polo shirt',button:'Button-up shirt',hoodie:'Pullover hoodie',kurti:'Kurti / tunic',dress:'Scoop-neck dress',cardigan:'Buttoned cardigan',tank:'Tank top',stripeTank:'Striped tank',blazer:'Open blazer',tuxedo:'Tuxedo & bow tie'};
-catalogs.shirt=topNames;state.shirt='crew';
-const torsoOutline='M491 970 Q398 972 345 994 Q276 1025 249 1116 L224 1257 H1042 L1012 1121 Q985 1029 909 998 Q856 979 778 970';
-const topNeck='M534 832 L535 915 Q535 954 491 970 Q544 1061 626 1068 Q720 1060 778 970 Q715 956 715 920 L715 828Z';
-function torsoSvg(key=state.shirt){
- if(key==='crew')return cameraTorsoOriginal.replace('class="ink" fill="url(#skinFill)"','data-neck="true" class="ink" fill="url(#skinFill)"');
- const P=(d,fill='url(#shirtFill)',width=7)=>shape(d,fill,width);
- const seam=d=>line(d,4.5);
- const isTank=key==='tank'||key==='stripeTank',short=key==='tee'||key==='polo';
- const scoop='Q725 1067 627 1069 Q530 1063 491 970Z';
- const vee='L627 1093 L491 970Z';
- const shallow='Q711 1026 627 1036 Q543 1025 491 970Z';
- const end=key==='vneck'?vee:['polo','button'].includes(key)?'L627 1045 L491 970Z':key==='hoodie'?shallow:scoop;
- let art=P(torsoOutline+'Z','url(#skinFill)');
- art+=`<path data-neck="true" d="${topNeck}" fill="url(#skinFill)" stroke="${ink}" stroke-width="7" stroke-linejoin="round"/>`;
- const longShape=torsoOutline+end;
- const shortShape='M491 970 Q398 972 345 994 Q281 1021 249 1116 L366 1154 L375 1257 H880 L889 1154 L1012 1121 Q985 1029 909 998 Q856 979 778 970'+end;
- const tankShape='M491 970 L444 986 Q459 1079 367 1138 L393 1257 H862 L889 1138 Q797 1079 811 983 L778 970'+scoop;
- art+=P(isTank?tankShape:short?shortShape:longShape);
- if(!isTank)art+=seam(short?'M366 1154 L373 1115 M889 1154 L882 1118':'M378 1149 Q368 1208 368 1257 M873 1152 Q884 1208 881 1257');
- if(key==='tee')art+=seam('M484 980 Q530 1080 627 1082 Q728 1080 785 980');
- if(key==='vneck')art+=seam('M482 976 L627 1108 L788 976');
- if(key==='polo'||key==='button'){
-  art+=P('M491 970 L524 950 L627 1045 L555 1020 L521 1051Z');
-  art+=P('M778 970 L730 950 L627 1045 L699 1020 L745 1051Z');
-  art+=seam(`M627 1045 L627 ${key==='polo'?1138:1257}`);
-  for(const y of key==='polo'?[1072,1108]:[1072,1122,1172,1222])art+=`<circle cx="642" cy="${y}" r="4" fill="${ink}"/>`;
-  if(key==='button')art+=seam('M749 1090 H823 V1160 Q786 1184 749 1160Z M749 1104 H823');
- }
- if(key==='hoodie'){
-  art+=P('M491 970 Q451 942 455 917 Q505 906 535 935 L627 1036 L715 935 Q754 909 799 920 Q801 947 778 970 L718 1014 Q627 1062 536 1014Z');
-  art+=seam('M486 933 Q522 974 558 994 M768 935 Q733 977 699 994 M543 1021 L533 1140 M712 1021 L723 1140 M468 1204 Q627 1152 786 1204 L798 1257 M456 1257 L468 1204');
-  art+='<path d="M533 1130 V1150 M723 1130 V1150" stroke="#fffdfa" stroke-width="7" stroke-linecap="round"/>';
- }
- if(isTank){
-  art+=seam('M452 991 Q469 1085 377 1143 M803 990 Q788 1086 879 1143 M499 984 Q545 1080 627 1082 Q711 1080 770 984');
-  if(key==='stripeTank')for(const y of [1120,1170,1220])art+=`<path d="M405 ${y} H850" stroke="#fffdfa" stroke-width="16" opacity=".65"/>`;
- }
- if(key==='blazer'||key==='tuxedo'){
-  art+=P('M524 963 L627 1038 L730 963 L764 1257 H490Z','#fffdfa',5);
-  art+=P('M491 970 L524 953 L599 1110 L553 1257 H390 L378 1149 L345 994Z');
-  art+=P('M778 970 L730 953 L654 1110 L701 1257 H881 L873 1152 L909 998Z');
-  art+=P('M524 953 L627 1160 L511 1080 L544 1045 L489 1022Z');
-  art+=P('M730 953 L627 1160 L743 1080 L710 1045 L765 1022Z');
-  art+=seam('M627 1160 V1257 M764 1140 H840');
-  if(key==='tuxedo'){
-   art+=P('M615 1018 L571 999 Q559 1028 571 1052 L615 1035Z',ink,4)+P('M639 1018 L683 999 Q695 1028 683 1052 L639 1035Z',ink,4)+P('M615 1016 H639 V1039 H615Z',ink,3);
-   for(const y of [1080,1114,1148])art+=`<circle cx="627" cy="${y}" r="4.5" fill="${ink}"/>`;
-  }
- }
 
- if(key==='kurti'){
-  art+=seam('M627 1071 V1227 M606 1103 Q627 1110 648 1103',4);
-  for(const y of [1137,1181])art+=`<circle cx="639" cy="${y}" r="4.5" fill="${ink}"/>`;
- }
- if(key==='dress')art+=seam('M523 989 Q627 1114 731 989 M410 1217 Q627 1245 844 1217',4);
- if(key==='cardigan'){
-  art+=P('M501 975 L546 979 L627 1095 L708 979 L771 975 L858 1257 H396Z','url(#shirtFill)',5);
-  art+=seam('M546 979 L627 1101 L708 979 M627 1101 V1257',4);
-  for(const y of [1148,1201,1244])art+=`<circle cx="640" cy="${y}" r="5" fill="${ink}"/>`;
- }
- return art;
-}
+// CLOTHING API: add/remove designs here. Geometry and animation never branch on IDs.
+const GARMENT_TEMPLATES={
+ sleeveless:{sleeve:0,hem:1435,flare:0},short:{sleeve:.46,hem:1435,flare:0},
+ long:{sleeve:1,hem:1435,flare:0},jacket:{sleeve:1,hem:1470,flare:18},
+ tunic:{sleeve:1,hem:1640,flare:45},dress:{sleeve:.38,hem:1900,flare:100}
+};
+const WARDROBE={
+ crew:{label:'Classic sweater',template:'long',neck:'round'},
+ tee:{label:'Everyday T-shirt',template:'short',neck:'round'},
+ vneck:{label:'V-neck knit',template:'long',neck:'v'},
+ polo:{label:'Polo shirt',template:'short',neck:'collar',buttons:true},
+ button:{label:'Oxford shirt',template:'long',neck:'collar',buttons:true,pocket:true},
+ hoodie:{label:'Pullover hoodie',template:'long',neck:'hood',pouch:true},
+ kurti:{label:'Long kurti',template:'tunic',neck:'round',buttons:true},
+ dress:{label:'Flared day dress',template:'dress',neck:'round',belt:true},
+ cardigan:{label:'Cardigan',template:'long',neck:'v',buttons:true},
+ tank:{label:'Sleeveless top',template:'sleeveless',neck:'scoop'},
+ stripeTank:{label:'Striped sleeveless top',template:'sleeveless',neck:'scoop',pattern:'stripe'},
+ blazer:{label:'Tailored blazer',template:'jacket',neck:'lapel',pocket:true},
+ tuxedo:{label:'Dinner jacket',template:'jacket',neck:'lapel',bow:true}
+};
+const BODY_RIG=Object.freeze({shoulderX:280,shoulderY:1020,upperArm:230,forearm:210,hipY:1450,kneeY:1830,ankleY:2190});
+function garmentDesign(id=state.shirt){return WARDROBE[id]||WARDROBE.crew;}
+function garmentTemplate(id=state.shirt){return GARMENT_TEMPLATES[garmentDesign(id).template];}
+const topNames=Object.fromEntries(Object.entries(WARDROBE).map(([k,v])=>[k,v.label]));
+catalogs.shirt=topNames;state.shirt='crew';
 const standingPoses={relaxed:'Relaxed standing',straight:'Straight standing',wide:'Wide stance',hip:'Hand on hip'};
 catalogs.pose=standingPoses;catalogs.framing={head:'Headshot',full:'Full body'};
-
-/**
- * Full-body clothes have their own fitted drawing coordinates. Previous versions
- * scaled the headshot SVG (0.80x by 1.48y) into a clipped shirt outline. That
- * stretched hoodie details, chopped off the pocket and split the collar.
- * Headshot torsoSvg() remains untouched; both views use the same colour fills
- * and style names, but their geometry is fitted to their respective body.
- */
-function fittedStandingGarmentSvg(style=state.shirt){
- const P=(d,c='url(#shirtFill)',w=6)=>shape(d,c,w);
- const F=(d,c='url(#shirtFill)')=>`<path d="${d}" fill="${c}" stroke="none"/>`;
- const L=(d,w=4)=>line(d,w);
- const cloth='url(#shirtFill)',skin='url(#skinFill)';
- const isTank=style==='tank'||style==='stripeTank';
- // Distinct neck openings built into the shirt silhouette, not pasted on top.
- const opening={
-  crew:'L700 1018 Q627 1074 554 1018 L518 1010Z',
-  tee:'L700 1018 Q627 1072 554 1018 L518 1010Z',
-  vneck:'L701 1017 L627 1115 L553 1017 L518 1010Z',
-  polo:'L705 1017 Q627 1091 549 1017 L518 1010Z',
-  button:'L705 1017 Q627 1091 549 1017 L518 1010Z',
-  hoodie:'L706 1013 Q627 1092 548 1013 L518 1010Z',
-  tank:'L710 1013 Q627 1134 544 1013 L518 1010Z',
-  stripeTank:'L710 1013 Q627 1134 544 1013 L518 1010Z',
-  blazer:'L714 1010 L627 1128 L540 1010 L518 1010Z',
-  tuxedo:'L714 1010 L627 1128 L540 1010 L518 1010Z',
-  kurti:'L703 1018 Q627 1079 551 1018 L518 1010Z',
-  dress:'L711 1018 Q627 1132 543 1018 L518 1010Z',
-  cardigan:'L711 1018 L627 1110 L543 1018 L518 1010Z'
- }[style]||'L700 1018 Q627 1074 554 1018 L518 1010Z';
- const outer='M518 1010 Q463 983 414 1020 Q400 1080 432 1175 L452 1432 Q627 1461 802 1432 L822 1175 Q854 1080 840 1020 Q791 983 736 1010';
- const body=outer+opening;
- // Continuous neck fill extends below the deepest V without a dark arc crossing it.
- let art=F('M535 834 L535 946 Q533 978 514 1003 L528 1140 Q627 1179 726 1140 L740 1003 Q720 977 715 946 L715 834Z',skin);
- art+=P(body,cloth,8);
- const neckLine={crew:'M555 1023 Q627 1081 699 1023',tee:'M555 1023 Q627 1079 699 1023'};
- if(neckLine[style])art+=L(neckLine[style],5);
- if(style==='vneck')art+=L('M558 1029 L627 1119 L697 1029',5);
- if(style==='hoodie'){
-  // Folded hood panels remain the same size as the actual neckline.
-  art+=P('M520 1012 Q497 976 511 955 Q548 957 579 1001 L627 1078 Q588 1081 548 1050Z',cloth,5);
-  art+=P('M734 1012 Q757 976 743 955 Q706 957 675 1001 L627 1078 Q666 1081 706 1050Z',cloth,5);
-  art+=L('M532 985 Q558 1014 595 1053 M722 985 Q696 1014 659 1053',3);
-  // Separate hoodie strings and pouch, never clipped through the waistband.
-  art+=L('M576 1097 L570 1214 M678 1097 L684 1214',5);
-  art+='<path d="M570 1201 L570 1218 M684 1201 L684 1218" fill="none" stroke="#fffdfa" stroke-width="6" stroke-linecap="round"/>';
-  art+=P('M519 1315 Q627 1290 735 1315 L749 1404 Q627 1395 505 1404Z',cloth,5);
-  art+=L('M518 1351 L553 1356 M736 1351 L701 1356',3);
+function rigFill(d,c='url(#shirtFill)'){return `<path d="${d}" fill="${c}" stroke="none"/>`;}
+function rigDetail(d,w=4){return `<path d="${d}" fill="none" stroke="#161011" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;}
+function garmentBodiceSvg(){
+ const d=garmentDesign(),t=garmentTemplate(),hem=t.hem,half=205+t.flare;
+ const opening=d.neck==='v'?'L627 1120 L542 1005':d.neck==='scoop'?'Q627 1140 542 1005':'Q627 1080 542 1005';
+ const body=`M542 1005 Q445 967 347 1020 Q370 1130 407 1210 L${627-half} ${hem} Q627 ${hem+20} ${627+half} ${hem} L847 1210 Q884 1130 907 1020 Q809 967 712 1005 ${opening}Z`;
+ let a=rigFill('M535 830 H715 V952 Q721 986 739 1000 L718 1142 H536 L515 1000 Q535 980 535 952Z','url(#skinFill)')+rigFill(body);
+ if(d.pattern==='stripe'){
+  a+=`<defs><clipPath id="rigGarmentClip"><path d="${body}"/></clipPath></defs><g clip-path="url(#rigGarmentClip)">`;
+  for(let y=1110;y<hem;y+=75)a+=`<path d="M300 ${y} H950" stroke="#fffdfa" stroke-width="21" opacity=".65"/>`;a+='</g>';
  }
- if(style==='polo'||style==='button'){
-  art+=P('M534 1007 L556 992 L627 1082 L581 1055 L562 1083Z',cloth,5);
-  art+=P('M720 1007 L698 992 L627 1082 L673 1055 L692 1083Z',cloth,5);
-  art+=L(`M627 1082 L627 ${style==='polo'?1190:1413}`,4);
-  for(const y of (style==='polo'?[1104,1142,1180]:[1110,1160,1210,1260,1310,1360]))
-   art+=`<circle cx="640" cy="${y}" r="4" fill="#161011"/>`;
-  if(style==='button')art+=L('M726 1167 H788 V1241 Q757 1258 726 1241Z M726 1180 H788',4);
- }
- if(isTank){
-  art+=L('M509 1011 Q512 1091 453 1155 M745 1011 Q742 1091 801 1155',5);
-  if(style==='stripeTank'){
-   art+=`<defs><clipPath id="standingGarmentStripeClip"><path d="${body}"/></clipPath></defs><g clip-path="url(#standingGarmentStripeClip)">`;
-   for(const y of [1164,1230,1296,1362])
-    art+=`<path d="M405 ${y} H850" stroke="#fffdfa" opacity=".6" stroke-width="19"/>`;
-   art+='</g>';
-  }
- }
- if(style==='blazer'||style==='tuxedo'){
-  art+=P('M553 1021 L627 1128 L701 1021 L693 1404 H562Z','#fffdfa',4);
-  art+=P('M521 1001 L557 999 L627 1193 L549 1139 L573 1104 L526 1060Z',cloth,5);
-  art+=P('M733 1001 L697 999 L627 1193 L705 1139 L681 1104 L728 1060Z',cloth,5);
-  art+=L('M627 1193 V1410 M723 1260 H789',4);
-  if(style==='tuxedo'){
-   art+=P('M613 1067 L572 1041 Q568 1071 581 1091 L613 1077Z','#161011',3);
-   art+=P('M641 1067 L682 1041 Q686 1071 673 1091 L641 1077Z','#161011',3);
-   art+=P('M614 1066 H640 V1084 H614Z','#161011',2);
-  }
- }
- if(style==='kurti'){
-  art+=L('M627 1082 V1230 M603 1104 Q627 1113 651 1104',4);
-  for(const y of [1142,1191,1224])art+=`<circle cx="639" cy="${y}" r="4" fill="#161011"/>`;
- }
- if(style==='dress')art+=L('M546 1030 Q627 1139 708 1030 M465 1230 Q627 1254 789 1230',4);
- if(style==='cardigan'){
-  art+=P('M528 1010 L558 1016 L627 1118 L696 1016 L728 1010 L788 1395 H466Z',cloth,5);
-  art+=L('M553 1019 L627 1122 L701 1019 M627 1122 V1408',4);
-  for(const y of [1170,1232,1294,1356])art+=`<circle cx="640" cy="${y}" r="4" fill="#161011"/>`;
- }
- // Single hem seam: the shirt covers the trouser top without extra black bands.
- art+=L('M462 1419 Q627 1435 792 1419',3.5);
- return art;
+ a+=rigDetail(`M542 1005 ${opening==='L627 1120 L542 1005'?'L627 1120 L712 1005':d.neck==='scoop'?'Q627 1140 712 1005':'Q627 1080 712 1005'}`);
+ if(d.neck==='collar')a+=rigFill('M539 991 L627 1063 L576 1092 L515 1011Z')+rigFill('M715 991 L627 1063 L678 1092 L739 1011Z')+rigDetail('M539 991 L627 1063 L576 1092 L515 1011 M715 991 L627 1063 L678 1092 L739 1011');
+ if(d.neck==='hood')a+=rigFill('M529 1006 Q489 950 525 941 Q584 951 627 1056 Q670 951 729 941 Q765 950 725 1006 L676 1060 L627 1056 L578 1060Z')+rigDetail('M529 1006 Q489 950 525 941 Q584 951 627 1056 Q670 951 729 941 Q765 950 725 1006 M578 1060 L568 1200 M676 1060 L686 1200');
+ if(d.neck==='lapel')a+=rigFill('M542 1005 L627 1120 L712 1005 L693 1454 H561Z','#fffdfa')+rigFill('M520 993 L547 998 L627 1157 L551 1115 L566 1075Z')+rigFill('M734 993 L707 998 L627 1157 L703 1115 L688 1075Z')+rigDetail('M520 993 L547 998 L627 1157 L551 1115 L566 1075 M734 993 L707 998 L627 1157 L703 1115 L688 1075');
+ if(d.buttons){a+=rigDetail(`M627 1060 V${hem-25}`,3);for(let y=1100;y<hem-30;y+=65)a+=`<circle cx="641" cy="${y}" r="4" fill="#161011"/>`;}
+ if(d.pocket)a+=rigDetail('M735 1120 H804 V1190 Q769 1210 735 1190Z M735 1134 H804');
+ if(d.pouch)a+=rigDetail('M520 1300 Q627 1275 734 1300 L753 1390 H501Z');
+ if(d.belt)a+=rigDetail('M414 1380 Q627 1401 840 1380',10);
+ if(d.bow)a+=rigFill('M616 1060 L574 1038 V1088 L616 1076 H638 L680 1088 V1038 L638 1060Z','#161011');
+ return a+rigDetail(`M${627-half+8} ${hem-16} Q627 ${hem+2} ${627+half-8} ${hem-16}`,3);
 }
-
-function standingBodySvg(pose=state.pose,view=cameraView,includeArms=true){
- const P=(d,c,w=8)=>shape(d,c,w),skin='url(#skinFill)',cloth='url(#shirtFill)',pants=state.trouserColour,shoe=state.shoeColour;
- const wide=pose==='wide',straight=pose==='straight',hip=pose==='hip';
- let art='<ellipse cx="627" cy="2310" rx="310" ry="27" fill="#102b42" opacity=".14"/>';
- const spread=wide?82:straight?-20:16;
- for(const side of [-1,1]){
-  const ankle=100+spread,turn=cameraDirections[view]||0;
-  art+=`<g data-standing-leg="${side}" transform="translate(627 0) scale(${side} 1)">`;
-  art+=P(`M10 1425 L169 1425 Q190 1545 177 1670 Q170 1760 ${160+spread} 1840 Q${161+spread} 1950 ${145+spread} 2040 L${142+spread} 2195 L${58+spread} 2195 L${50+spread} 2040 Q${32+spread} 1938 ${38+spread} 1840 L10 1650 Q-2 1540 10 1425Z`,pants);
-  art+=line(`M149 1530 Q130 1585 86 1599 M${62+spread} 1858 Q${104+spread} 1841 ${143+spread} 1855 M${60+spread} 2177 Q${100+spread} 2186 ${141+spread} 2177`,3.5);
-  // The ankle remains fixed while both shoes turn towards the chosen camera.
-  const flip=turn&&side!==turn;
-  art+=`<g data-foot-direction="${turn}" data-ankle="${ankle},2190" transform="translate(${ankle} 2190) scale(${flip?-1:1} 1)">`;
-  if(!turn){
-   art+=P('M-43 -10 Q0 -3 43 -10 L49 37 Q69 61 69 90 Q54 111 0 112 Q-54 111 -69 90 Q-69 61 -49 37Z',shoe,6);
-   art+=line('M-65 87 Q0 105 65 87 M-35 39 Q0 49 35 39 M-29 51 Q0 60 29 51 M-23 63 Q0 71 23 63',3.5);
-  }else{
-   art+=P('M-43 -10 L40 -10 L48 26 Q64 44 105 57 Q135 69 132 94 Q110 111 33 111 L-55 102 Q-64 79 -51 39Z',shoe,6);
-   art+=line('M-56 87 Q36 109 130 88 M24 31 L58 43 M16 44 L51 56 M8 57 L42 68',3.5);
-  }
-  art+='</g></g>';
- }
- art+=P('M455 1390 Q627 1368 799 1390 L802 1514 Q707 1542 627 1522 Q547 1542 452 1514Z',pants);
- art+=line('M625 1442 V1535 M475 1430 Q497 1480 537 1485 M779 1430 Q758 1480 717 1485',4);
- const sleeveless=['tank','stripeTank'].includes(state.shirt),short=['tee','polo'].includes(state.shirt);
- // Arms share the shoulder anchors; sleeves and hands are independently outlined.
- if(includeArms)for(const side of [-1,1]){
-  const bent=hip&&side===1,angle=straight?0:wide?-4:-2;
-  art+=`<g transform="translate(627 0) scale(${side} 1)"><g data-standing-arm="${side}" data-arm-rest="${angle}" data-arm-fixed="${bent}" transform="rotate(${angle} 214 1048)">`;
-  const arm=bent?'M193 1020 Q242 1014 271 1083 L357 1285 Q367 1310 339 1327 L204 1410 L170 1357 L278 1288 L187 1154Z':'M184 1020 Q247 1005 273 1070 Q300 1225 290 1360 L280 1585 L216 1585 L202 1360 L166 1147Z';
-  art+=P(arm,skin);
-  if(!sleeveless){
-   const sleeve=short?'M184 1020 Q247 1005 273 1070 L287 1185 L195 1198 L166 1147Z':arm;
-   art+=P(sleeve,cloth);art+=line(short?'M196 1183 L285 1172':bent?'M191 1354 L217 1394':'M218 1558 L280 1558',5);
-  }
-  if(bent){
-   art+=P('M200 1355 Q179 1344 161 1358 L129 1387 Q119 1400 134 1405 L156 1392 L143 1417 Q138 1432 153 1432 L173 1409 Q160 1440 178 1437 L198 1413 Q194 1440 209 1427 L231 1392Z',skin,6);
-  }else{
-   art+=P('M218 1579 L279 1579 L286 1616 L282 1667 Q279 1684 267 1677 L262 1640 L260 1680 Q254 1695 244 1682 L242 1641 L238 1680 Q230 1690 222 1677 L220 1637 L212 1655 Q200 1663 196 1648 L201 1616Z',skin,6);
-  }
-  art+='</g></g>';
- }
- // Full-body garment is designed for this silhouette; no transformed headshot art.
- art+=fittedStandingGarmentSvg(state.shirt);
- return art;
+function rigArmSvg(side){
+ const t=garmentTemplate(),skin='url(#skinFill)',cloth='url(#shirtFill)';
+ const upper='M-56 -17 Q0 -24 56 -17 Q67 67 51 155 L45 230 Q0 260 -45 230 L-53 154 Q-65 62 -56 -17Z';
+ const fore='M-44 -18 Q0 -39 44 -18 Q51 53 39 124 L29 218 H-29 L-39 124 Q-51 53 -44 -18Z';
+ let a=`<g data-rig-arm="${side}" transform="translate(${627+side*BODY_RIG.shoulderX} ${BODY_RIG.shoulderY}) scale(${side} 1)"><g data-rig-shoulder>`+rigFill(upper,skin);
+ if(t.sleeve===1)a+=rigFill(upper,cloth);
+ else if(t.sleeve>0)a+=rigFill('M-56 -17 Q0 -24 56 -17 Q65 40 56 107 Q0 127 -56 107 Q-65 40 -56 -17Z',cloth)+rigDetail('M-56 107 Q0 127 56 107',3);
+ a+=`<g transform="translate(0 ${BODY_RIG.upperArm})"><g data-rig-elbow>`+rigFill(fore,t.sleeve===1?cloth:skin)+`<g transform="translate(0 ${BODY_RIG.forearm})"><g data-rig-wrist>`+proportionalHandSvg(0,0,1.15)+' </g></g></g></g></g></g>';
+ return a;
 }
-/**
- * Arm rig in the source illustration's local SVG coordinates.
- * Shoulder pivot is within the sleeve cap; the joint chain stays nested.
- * Clothing, hand, and forearm outline paths are unchanged.
- */
-// One anatomical hand drawing shared by bust and standing rigs.
-// A tapered wrist opens into a palm, four graduated fingers and an opposing thumb.
+function rigLegSvg(side,pose,view){
+ const spread=pose==='wide'?70:pose==='straight'?-15:12,ankle=100+spread,turn=cameraDirections[view]||0;
+ // Local hip -> knee -> ankle groups are the attachment contract for future gait.
+ return `<g data-rig-leg="${side}" transform="translate(627 1450) scale(${side} 1)"><g data-rig-hip>`+
+ rigFill(`M5 -30 H175 Q185 180 ${155+spread} 380 H${38+spread} L8 180Z`,state.trouserColour)+
+ `<g data-rig-knee transform="translate(${ankle} 380)">`+rigFill('M-62 -18 Q0 -30 58 -18 L44 360 H-44 L-55 180Z',state.trouserColour)+rigDetail('M-40 6 Q0 -9 39 6 M-41 344 H41',3)+
+ `<g data-rig-ankle transform="translate(0 360) scale(${turn&&side!==turn?-1:1} 1)">`+
+ rigFill(turn?'M-43 -8 H40 L48 26 Q64 44 105 57 Q135 69 132 94 Q110 111 33 111 L-55 102 Q-64 79 -51 39Z':'M-43 -8 H43 L49 37 Q69 61 69 90 Q54 111 0 112 Q-54 111 -69 90 Q-69 61 -49 37Z',state.shoeColour)+rigDetail(turn?'M-56 87 Q36 109 130 88 M24 31 L58 43 M16 44 L51 56':'M-65 87 Q0 105 65 87 M-35 39 Q0 49 35 39 M-29 51 Q0 60 29 51',3)+'</g></g></g></g>';
+}
+function bodyRigSvg(pose=state.pose,view=cameraView,full=state.framing==='full'){
+ const turn=cameraDirections[view]||0,near=turn?-turn:-1,far=-near;
+ const sx=(full?.85:1)*(turn?.92:1),shift=627*(1-sx)+turn*24;
+ const filter='<defs><filter id="sharedBodyInk" x="-30%" y="-30%" width="160%" height="160%"><feMorphology in="SourceAlpha" operator="dilate" radius="3.5" result="edge"/><feFlood flood-color="#161011"/><feComposite in2="edge" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>';
+ return filter+`<g data-body-rig="1" data-garment="${Object.hasOwn(WARDROBE,state.shirt)?state.shirt:'crew'}" transform="matrix(${sx} 0 0 1 ${shift} 0)">`+(full?'<ellipse cx="627" cy="2308" rx="290" ry="24" fill="#102b42" opacity=".14"/>':'')+'<g filter="url(#sharedBodyInk)">'+(full?rigLegSvg(-1,pose,view)+rigLegSvg(1,pose,view):'')+(full?rigFill('M450 1415 H804 V1530 Q710 1550 627 1530 Q544 1550 450 1530Z',state.trouserColour)+rigDetail('M627 1450 V1580',3):'')+rigArmSvg(far)+garmentBodiceSvg()+rigArmSvg(near)+'</g></g>';
+}
+function torsoSvg(){return bodyRigSvg(state.pose,'front',false);}
+function standingBodyCompositeSvg(pose=state.pose,view=cameraView){return bodyRigSvg(pose,view,true);}
+function poseTile(key){return `<svg viewBox="220 800 820 1600" aria-hidden="true">${bodyRigSvg(key,'front',true)}</svg>`;}
+function topTile(key){const old=state.shirt;try{state.shirt=key;return `<svg viewBox="220 900 814 600" aria-hidden="true">${bodyRigSvg('straight','front',false)}</svg>`;}finally{state.shirt=old;}}
+function setBodyArmPose(poses){
+ for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){
+  const side=+arm.dataset.rigArm,angles=poses[side===-1?'left':'right']||[0,0,0];
+  for(const [i,j] of ['shoulder','elbow','wrist'].entries())arm.querySelector('[data-rig-'+j+']').setAttribute('transform',`rotate(${angles[i]})`);
+ }
+}
+function restingBodyPose(){
+ const poses={left:[-3,0,0],right:[-3,0,0]};
+ if(state.pose==='hip')poses.right=[-18,95,15];
+ const p={rest:[-3,0,0],explain:[-12,-120,-12],present:[-15,-110,-15],point:[-12,-118,0],wave:[-18,-145,10]};
+ if(state.armPose!=='rest')poses[state.gestureSide===1?'right':'left']=p[state.armPose]||p.rest;
+ return poses;
+}
+function poseTalkingArms(ms=0,duration=0){
+ const p=restingBodyPose();
+ if(duration>0&&state.talkGestures&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const a=p[state.gestureSide===1?'right':'left'];a[1]=-110+10*Math.sin(ms/350);a[2]=8*Math.sin(ms/280);}
+ setBodyArmPose(p);
+}
+function armRigSnapshot(){return {version:2,coordinateSpace:'nested local joint coordinates',body:BODY_RIG,garment:garmentDesign(),pose:restingBodyPose()};}
+
 function proportionalHandSvg(x=0,y=0,scale=1,pose='open'){
  const skin='url(#skinFill)';
  const open='M-22 -9 L22 -9 Q24 17 31 36 L39 80 Q43 99 33 102 Q25 105 22 90 L16 63 L22 115 Q23 130 13 131 Q5 130 3 115 L-3 67 L-1 127 Q-1 142 -12 140 Q-20 138 -20 122 L-24 69 L-28 114 Q-30 129 -40 123 Q-46 119 -43 105 L-34 60 L-48 79 Q-59 87 -64 77 Q-67 70 -57 55 L-38 31 Q-29 21 -22 -9Z';
  const point='M-22 -9 L22 -9 Q25 12 28 30 Q44 34 42 49 L34 80 Q30 92 19 85 L14 73 Q8 94 -3 85 Q-13 97 -23 84 L-29 60 L-34 124 Q-35 141 -46 136 Q-54 133 -51 118 L-45 54 L-55 69 Q-66 76 -69 66 Q-72 59 -60 44 L-36 22Z';
  return `<g data-proportional-hand="${pose}" transform="translate(${x} ${y}) scale(${scale})"><path d="${pose==='point'?point:open}" fill="${skin}" stroke="none"/><path d="M-31 38 Q-11 53 17 41 M-31 38 Q-37 51 -34 60 M-23 65 L-24 76 M-3 65 L-2 78 M16 62 L18 75" fill="none" stroke="#161011" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></g>`;
-}
-const ARM_RIG={
- shoulderPivot:{x:214,y:1052},
- elbowPivot:{x:239,y:1295},
- wristPivot:{x:248,y:1530},
- limits:{shoulder:{min:-10,max:30},elbow:{min:-8,max:102},wrist:{min:-35,max:35}}
-};
-// Positive elbow bend turns both mirrored arms inwards.
-const ARM_TALK_POSES={
- rest:{shoulder:0,elbow:0,wrist:0},
- explain:{shoulder:15,elbow:76,wrist:12},
- present:{shoulder:20,elbow:68,wrist:16},
- point:{shoulder:18,elbow:64,wrist:-12},
- wave:{shoulder:26,elbow:92,wrist:18} // Higher emphasis, not an overhead reach
-};
-function clampArmJoint(joint,angle){
- const {min,max}=ARM_RIG.limits[joint];
- return Math.max(min,Math.min(max,angle));
-}
-function getStandingArmPose(side){
- const rest=state.pose==='straight'?0:state.pose==='wide'?-4:-2;
- const selected=state.pose==='hip'&&state.gestureSide===1?-1:state.gestureSide;
- const mobile=side===selected&&!(state.pose==='hip'&&side===1);
- const p=mobile?(ARM_TALK_POSES[state.armPose]||ARM_TALK_POSES.rest):ARM_TALK_POSES.rest;
- return {
-  shoulder:clampArmJoint('shoulder',rest+p.shoulder),
-  elbow:clampArmJoint('elbow',p.elbow),
-  wrist:clampArmJoint('wrist',p.wrist)
- };
-}
-function armRigSnapshot(){
- const copy=p=>({x:p.x,y:p.y});
- const entry=side=>{
-  const angles=getStandingArmPose(side);
-  return {
-   fixed:state.pose==='hip'&&side===1,
-   shoulder:{pivot:copy(ARM_RIG.shoulderPivot),angle:angles.shoulder,limits:ARM_RIG.limits.shoulder},
-   elbow:{pivot:copy(ARM_RIG.elbowPivot),angle:angles.elbow,limits:ARM_RIG.limits.elbow},
-   wrist:{pivot:copy(ARM_RIG.wristPivot),angle:angles.wrist,limits:ARM_RIG.limits.wrist}
-  };
- };
- return {coordinateSpace:'arm-local SVG units',angleUnit:'degrees',activeGesture:state.armPose,selectedSide:state.gestureSide,left:entry(-1),right:entry(1)};
-}
-
-const seamlessArmFilter='<defs><filter id="anitoonsSeamlessArmInk" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB"><feMorphology in="SourceAlpha" operator="dilate" radius="5" result="expanded"/><feFlood flood-color="#161011" result="ink"/><feComposite in="ink" in2="expanded" operator="in" result="outline"/><feMerge><feMergeNode in="outline"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>';
-function standingGestureArmSvg(side,pose=state.pose,view=cameraView){
- const turn=cameraDirections[view]||0,far=turn!==0&&side===turn,sx=turn===0?1:far?.86:1.02,sy=far?.98:1;
- const skin='url(#skinFill)',cloth='url(#shirtFill)',P=(d,c,w=7)=>shape(d,c,w),F=(d,c)=>`<path d="${d}" fill="${c}" stroke="none"/>`;
- const short=['tee','polo'].includes(state.shirt),sleeveless=['tank','stripeTank'].includes(state.shirt);
- const fixed=pose==='hip'&&side===1,rest=pose==='straight'?0:pose==='wide'?-4:-2;
- // One articulated arm per side, outside the cylindrical camera strips.
- let out=`<g data-standing-arm="${side}" data-arm-fixed="${fixed}" data-arm-rest="${rest}" transform="translate(${627+turn*22} 0) scale(${side*sx} ${sy})">`;
- // Apply one outer ink outline to moving segments, not the cover over the shoulder.
- out+='<g data-arm-ink filter="url(#anitoonsSeamlessArmInk)">';
- out+=`<g data-arm-shoulder transform="rotate(${rest} ${ARM_RIG.shoulderPivot.x} ${ARM_RIG.shoulderPivot.y})">`;
- if(fixed){
-  const d='M193 1020 Q242 1014 271 1083 L357 1285 Q367 1310 339 1327 L204 1410 L170 1357 L278 1288 L187 1154Z';
-  out+=P(d,skin,8);
-  if(!sleeveless)out+=P(short?'M193 1020 Q242 1014 271 1083 L286 1184 L183 1195 L170 1154Z':d,cloth,8);
-  // The hip hand is composited over the shirt so its fingers remain visible.
-  out+='</g></g>'; // close shoulder and assembled outline
-  // This no-stroke colour bridge conceals the root's circular outline.
-  // It stays in torso space so the arm rotates under the shoulder socket.
-  out+=`<ellipse data-shoulder-bridge="true" cx="${ARM_RIG.shoulderPivot.x-5}" cy="${ARM_RIG.shoulderPivot.y-7}" rx="37" ry="40" fill="${sleeveless?skin:cloth}" stroke="none"/>`;
-  return out+'</g>';
- }
- const upper='M178 1022 Q228 996 269 1048 Q291 1093 283 1164 L278 1247 L275 1299 Q239 1327 202 1299 L184 1195 Q165 1108 178 1022Z';
- out+=F(upper,skin);
- if(!sleeveless){
-  out+=F(short?'M184 1020 Q239 1002 273 1070 L287 1185 L195 1198 L166 1147Z':upper,cloth);
-  if(short)out+=line('M195 1187 Q242 1194 284 1180',4);
- }
- // Fill the inner elbow socket without adding an edge or ring.
- // An outer silhouette is drawn once around the assembled arm, after posing.
- out+=`<circle cx="${ARM_RIG.elbowPivot.x}" cy="${ARM_RIG.elbowPivot.y}" r="38" fill="${short||sleeveless?skin:cloth}" stroke="none"/>`;
- // The elbow pivots in the upper arm; the forearm and hand move as one chain.
- out+=`<g data-arm-elbow transform="rotate(0 ${ARM_RIG.elbowPivot.x} ${ARM_RIG.elbowPivot.y})">`;
- const forearm='M203 1280 Q239 1269 275 1280 Q290 1330 281 1396 Q277 1464 274 1538 L223 1538 Q216 1460 204 1393 Q193 1335 203 1280Z';
- out+=F(forearm,skin);
- if(!sleeveless){
-  if(!short)out+=F(forearm,cloth); // Never draw closed elbow/wrist cuffs.
- }
- // The sleeve or forearm extends through the wrist pivot as one unoutlined fill.
- out+=`<circle cx="${ARM_RIG.wristPivot.x}" cy="${ARM_RIG.wristPivot.y}" r="27" fill="${short||sleeveless?skin:cloth}" stroke="none"/>`;
- out+=`<g data-arm-wrist transform="rotate(0 ${ARM_RIG.wristPivot.x} ${ARM_RIG.wristPivot.y})">`;
- const selected=state.pose==='hip'&&state.gestureSide===1?-1:state.gestureSide;
- out+=proportionalHandSvg(248,1530,1.14,state.armPose==='point'&&side===selected?'point':'open');
- out+='</g></g></g>'; // close wrist, elbow and shoulder before shoulder bridge
- out+='</g>'; // close inked arm silhouette
- // Do not outline this overlay: it blends the sleeve into the torso.
- // Keeping it outside the animated shoulder chain covers the pivot seam.
- out+=`<ellipse data-shoulder-bridge="true" cx="${ARM_RIG.shoulderPivot.x-5}" cy="${ARM_RIG.shoulderPivot.y-7}" rx="37" ry="40" fill="${sleeveless?skin:cloth}" stroke="none"/>`;
- return out+'</g>'; // close local arm root
-}
-function standingHipHandSvg(view){
- const turn=cameraDirections[view]||0,far=turn===1,sx=turn===0?1:far?.86:1.02,sy=far?.98:1;
- return `<g data-standing-hip-hand transform="translate(${627+turn*22} 0) scale(${sx} ${sy})"><g filter="url(#anitoonsSeamlessArmInk)"><g transform="rotate(45 220 1370)">${proportionalHandSvg(220,1370,1.05)}</g></g></g>`;
-}
-function standingBodyCompositeSvg(pose=state.pose,view=cameraView){
- const turn=cameraDirections[view]||0,farSide=turn||1,nearSide=-farSide;
- // Far arm behind, near arm in front. Clothing/leg designs remain shared.
- return seamlessArmFilter+standingGestureArmSvg(farSide,pose,view)
- +projectStandingBody(standingBodySvg(pose,view,false),view)
- +standingGestureArmSvg(nearSide,pose,view)+(pose==='hip'?standingHipHandSvg(view):'');
-}
-function poseTalkingArms(ms=0,duration=0){
- const active=state.talkGestures&&state.framing==='full'&&duration>0&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- const t=ms/1000,selected=state.pose==='hip'&&state.gestureSide===1?-1:state.gestureSide;
- const envelope=active?Math.max(0,Math.min(1,t/.28,(duration-ms)/320)):0;
- const wave=(1-Math.cos(t*3.2))/2;
- for(const arm of document.querySelectorAll('#torso [data-standing-arm]')){
-  const side=Number(arm.dataset.standingArm),angles=getStandingArmPose(side);
-  const moving=side===selected&&arm.dataset.armFixed!=='true';
-  if(moving&&envelope){
-   // Keep the upper arm anchored at the cap throughout speech.
-   // Animate the elbow and wrist only; no swinging whole-arm gesture.
-   if(state.armPose==='rest'){
-    angles.elbow+=envelope*(64+13*wave);
-    angles.wrist+=envelope*(11+7*Math.sin(t*3.2));
-   }else{
-    angles.elbow+=envelope*(10*wave-5);
-    angles.wrist+=envelope*(7*Math.sin(t*3.2));
-   }
-  }
-  for(const [joint,axis] of [['shoulder','shoulderPivot'],['elbow','elbowPivot'],['wrist','wristPivot']]){
-   const pivot=ARM_RIG[axis],node=arm.querySelector('[data-arm-'+joint+']');
-   if(node)node.setAttribute('transform',`rotate(${clampArmJoint(joint,angles[joint]).toFixed(2)} ${pivot.x} ${pivot.y})`);
-  }
- }
-}
-function projectStandingBody(art,view){
- const turn=cameraDirections[view];if(!turn)return art;
- return cameraCuts.slice(0,-1).map((x,i)=>{const end=cameraCuts[i+1],scale=(torsoCameraX(end,turn)-torsoCameraX(x,turn))/(end-x),shift=torsoCameraX(x,turn)-scale*x+turn*20;return `<g transform="matrix(${scale} 0 0 1 ${shift} 0)"><g clip-path="url(#anitoonsCameraStrip${i})">${art}</g></g>`}).join('');
 }
 function applyFraming(){
  const full=state.framing==='full';svg.setAttribute('viewBox',full?'-600 0 2454 2454':'0 0 1254 1254');
@@ -1089,7 +838,7 @@ function applyFraming(){
  document.querySelectorAll('[data-framing]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.framing===state.framing)));
 }
 function poseTile(key){return `<svg viewBox="220 800 820 1600" aria-hidden="true">${standingBodyCompositeSvg(key,'front')}</svg>`;}
-function topTile(key){return `<svg viewBox="210 885 850 380" aria-hidden="true">${torsoSvg(key)}</svg>`;}
+
 const cameraCuts=[-2500,327,387,447,507,567,627,687,747,807,867,927,3754];
 const cameraClipDefs=document.createElementNS('http://www.w3.org/2000/svg','g');
 cameraClipDefs.innerHTML=cameraCuts.slice(0,-1).map((x,i)=>`<clipPath id="anitoonsCameraStrip${i}" clipPathUnits="userSpaceOnUse"><rect x="${x-1.5}" y="-2500" width="${cameraCuts[i+1]-x+3}" height="6200"/></clipPath>`).join('');
@@ -1145,9 +894,9 @@ function applyCameraView(){
  cameraFace.removeAttribute('transform');
  cameraTorso.removeAttribute('transform');
  applyFraming();
- cameraTorso.innerHTML=state.framing==='full'?standingBodyCompositeSvg():torsoSvg();
+ cameraTorso.innerHTML=bodyRigSvg(state.pose,cameraView,state.framing==='full');
  cameraProjectLayer('face',cameraFaceOriginal);
- if(state.framing!=='full')cameraProjectLayer('torso',cameraTorso.innerHTML);else poseTalkingArms();
+ poseTalkingArms();
  const sourceHair=document.getElementById('frontHair').innerHTML;
  const sourceBack=document.getElementById('hairBack').innerHTML;
  const farSide=cameraView==='left'?'Left':'Right';
@@ -1390,7 +1139,7 @@ stopDemo();
 const oldHeader=document.querySelector('header');oldHeader.remove();
 const legacy=document.querySelector('main');legacy.hidden=true;
 const app=document.createElement('div');app.className='app';
-app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 70</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="randomCharacter" class="random" type="button" aria-label="Create random character" title="Generate a new character from the existing parts"><span class="randomIcon" aria-hidden="true">🎲</span><span class="randomText"> Random</span></button><button id="saveCharacter" class="save">Save character</button></div></header>
+app.innerHTML=`<header class="appbar"><strong>anitoons<span>CHARACTER STUDIO · 71</span></strong><div><button id="undoCharacter" aria-label="Undo last edit">↶</button><button id="randomCharacter" class="random" type="button" aria-label="Create random character" title="Generate a new character from the existing parts"><span class="randomIcon" aria-hidden="true">🎲</span><span class="randomText"> Random</span></button><button id="saveCharacter" class="save">Save character</button></div></header>
 <div class="workspace"><section class="portrait"><div id="previewMount"></div><div class="previewbar"><span>YOUR CHARACTER</span><button id="blinkPreview">Blink</button><button id="talkPreview">▶ Try talking</button></div><div class="expressions" aria-label="Expression preview"></div><span class="saveStatus" role="status" id="saveStatus">Choose a feature to make it yours</span></section>
 <section class="customizer">
 <div class="studio-switch" role="tablist" aria-label="Studio mode"><button id="charactersMode" type="button" role="tab" aria-selected="true">Characters</button><button id="customizeMode" type="button" role="tab" aria-selected="false">Customize</button></div>
@@ -1797,10 +1546,10 @@ function extendAnimationPose(key,t,w,p){
  if(key==='think')Object.assign(p,{mouth:'closed',eyes:'open',brows:'raised',gazeX:65*w,gazeY:-75*w,angle:5*w,y:2*beat*w});
  if(key==='nod')Object.assign(p,{mouth:'smile',eyes:'happy',brows:'neutral',y:10*Math.sin(t*5)*w,angle:2*Math.sin(t*5)*w});
  if(key==='shake')Object.assign(p,{mouth:'sad',brows:'raised',x:11*Math.sin(t*5)*w,angle:5*Math.sin(t*5)*w});
- if(key==='wave')Object.assign(p,{mouth:'smile',eyes:'happy',brows:'raised',angle:-2*w,arms:{left:[-75*w,-90*w,12*Math.sin(t*9)*w],right:[0,0,0]}});
- if(key==='explain')Object.assign(p,{mouth:['closed','EE','A','O'][Math.floor(t*6)%4],brows:'raised',angle:beat*w,arms:{left:[-25*w,-112*w,(-18+7*beat)*w],right:[0,0,0]}});
- if(key==='shrug')Object.assign(p,{mouth:'U',eyes:'open',brows:'raised',y:-5*w,angle:3*w,arms:{left:[-38*w,-108*w,-27*w],right:[-38*w,-108*w,-27*w]}});
- if(key==='celebrate')Object.assign(p,{mouth:'laugh',eyes:'happy',brows:'raised',y:-8*pulse*w,arms:{left:[-80*w,-78*w,8*beat*w],right:[-80*w,-78*w,-8*beat*w]}});
+ if(key==='wave')Object.assign(p,{mouth:'smile',eyes:'happy',brows:'raised',angle:-2*w,arms:{left:[-18*w,-145*w,12*Math.sin(t*9)*w],right:[0,0,0]}});
+ if(key==='explain')Object.assign(p,{mouth:['closed','EE','A','O'][Math.floor(t*6)%4],brows:'raised',angle:beat*w,arms:{left:[-12*w,-120*w,(-18+7*beat)*w],right:[0,0,0]}});
+ if(key==='shrug')Object.assign(p,{mouth:'U',eyes:'open',brows:'raised',y:-5*w,angle:3*w,arms:{left:[-15*w,-120*w,-27*w],right:[-15*w,-120*w,-27*w]}});
+ if(key==='celebrate')Object.assign(p,{mouth:'laugh',eyes:'happy',brows:'raised',y:-8*pulse*w,arms:{left:[-22*w,-140*w,8*beat*w],right:[-22*w,-140*w,-8*beat*w]}});
  if(key==='sleepy')Object.assign(p,{mouth:t>1.4&&t<2.3?'O':'closed',eyes:t>1?'closed':'sleepy',brows:'sad',y:8*w,angle:5*w});
  return p;
 }
@@ -1812,46 +1561,9 @@ function animationEyesSvg(p){
   return eyesSvg(p.eyes);
  }finally{state.gazeX=savedX;state.gazeY=savedY;}
 }
-// The source tops include resting sleeves. Only their central bodice belongs
-// in the articulated rig; collars, pockets, lapels and patterns stay intact.
-function articulatedHeadshotTorsoSvg(){
- const body='M491 970 Q446 964 405 1008 L400 1105 L375 1257 H879 L854 1105 L849 1008 Q808 964 778 970 L778 780 H491Z';
- return `<g data-articulated-garment="${state.shirt}"><defs><clipPath id="headshotBodiceClip"><path d="${body}"/></clipPath></defs><g clip-path="url(#headshotBodiceClip)">${torsoSvg()}</g><path d="M400 1115 L375 1257 M854 1115 L879 1257" fill="none" stroke="#161011" stroke-width="7" stroke-linecap="round"/></g>`;
-}
-function restoreHeadshotTorso(){
- if(state.framing==='head'&&document.querySelector('#torso [data-articulated-garment]'))cameraProjectLayer('torso',torsoSvg());
-}
-function headshotArmSvg(side){
- const tank=['tank','stripeTank'].includes(state.shirt),short=['tee','polo'].includes(state.shirt);
- const skin='url(#skinFill)',cloth='url(#shirtFill)',fill=(d,c)=>`<path d="${d}" fill="${c}" stroke="none"/>`;
- const turn=cameraDirections[cameraView]||0,rootX=side==='left'?415:839;
- const anchorX=turn?torsoCameraX(rootX,turn)+129.6*turn-.12*turn*1025:rootX;
- // Upper arm 205, forearm 180; round overlaps share one outer contour.
- // Shoulder roots sit underneath the original garment, rather than on its chest.
- return `<g data-headshot-arm="${side}" transform="translate(${anchorX} 1025) scale(${side==='left'?-1:1} 1)"><g filter="url(#headshotArmInk)"><g data-headshot-shoulder>`+
- fill('M-49 -16 Q0 -53 49 -12 Q57 43 49 115 L43 207 Q5 238 -40 210 L-49 118 Q-58 39 -49 -16Z',tank?skin:cloth)+
- (short?fill('M-49 101 Q0 115 49 101 L43 207 Q5 238 -40 210Z',skin):'')+
- `<g transform="translate(2 205)"><g data-headshot-elbow>`+
- fill('M-41 -16 Q0 -35 43 -16 Q49 36 39 97 L29 188 L-29 188 L-39 101 Q-49 35 -41 -16Z',tank||short?skin:cloth)+
- `<g transform="translate(0 180)"><g data-headshot-wrist>`+
- proportionalHandSvg(0,0,1.28)+
- '</g></g></g></g></g></g></g>';
-}
-function poseHeadshotArms(p){
- let group=document.getElementById('headshotArms');
- if(!p.arms||state.framing!=='head'||libraryMode!=='animations'){if(group)group.remove();restoreHeadshotTorso();return;}
- if(!document.querySelector('#torso [data-articulated-garment]'))cameraProjectLayer('torso',articulatedHeadshotTorsoSvg());
- if(!group){
-  group=document.createElementNS('http://www.w3.org/2000/svg','g');group.id='headshotArms';
-  group.innerHTML='<defs><filter id="headshotArmInk" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB"><feMorphology in="SourceAlpha" operator="dilate" radius="3.5" result="expanded"/><feFlood flood-color="#161011"/><feComposite in2="expanded" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'+headshotArmSvg('left')+headshotArmSvg('right');
-  document.getElementById('torso').before(group);
- }
- for(const side of ['left','right']){
-  const arm=group.querySelector(`[data-headshot-arm="${side}"]`),angles=p.arms[side];
-  arm.style.display='';
-  for(const [i,joint] of ['shoulder','elbow','wrist'].entries())arm.querySelector(`[data-headshot-${joint}]`).setAttribute('transform',`rotate(${angles[i].toFixed(2)})`);
- }
-}
+// Animation only changes joint rotations. Clothing topology stays identical.
+function restoreHeadshotTorso(){poseTalkingArms();}
+function poseHeadshotArms(p){setBodyArmPose(p.arms||restingBodyPose());}
 function syncAnimationPlayback(playing){
  const button=document.getElementById('animationPlay');if(button)button.textContent=playing?'Ⅱ Pause':'▶ Replay';
 }

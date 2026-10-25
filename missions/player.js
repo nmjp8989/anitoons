@@ -2,6 +2,7 @@
 'use strict';
 const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
 let mission,engine,S,selected=null,busy=false,epoch=0,characterArt={},drag=null,ignoreClickUntil=0;
+const voice=new MissionVoicePlayer();
 const audio={ctx:null,master:null,muted:false,timer:null,scene:'home',beat:0,
  async start(){try{if(!this.ctx){this.ctx=new (window.AudioContext||window.webkitAudioContext)();this.master=this.ctx.createGain();this.master.gain.value=this.muted?0:.36;this.master.connect(this.ctx.destination);}await this.ctx.resume();$('sound').dataset.audioState=this.ctx.state;if(!this.timer)this.timer=setInterval(()=>this.tick(),250);}catch{ $('sound').setAttribute('aria-label','Audio unavailable');$('sound').querySelector('span').textContent='Audio unavailable';}},
  tone(freq,time=.15,type='sine',volume=.12,delay=0,endFreq=null){if(!this.ctx||this.ctx.state!=='running')return;const t=this.ctx.currentTime+delay,o=this.ctx.createOscillator(),g=this.ctx.createGain();o.type=type;o.frequency.setValueAtTime(freq,t);if(endFreq)o.frequency.exponentialRampToValueAtTime(endFreq,t+time);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(volume,.0002),t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+time);o.connect(g);g.connect(this.master);o.start(t);o.stop(t+time+.03);},
@@ -14,6 +15,7 @@ const audio={ctx:null,master:null,muted:false,timer:null,scene:'home',beat:0,
 
 function esc(text){return String(text).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function say(text,options=[]){
+ voice.stop();
  $('speech').textContent=text;
  $('choices').replaceChildren();
  for(const option of options){
@@ -33,6 +35,7 @@ function message(id){
  const d=mission.dialogues[id];
  if(!d)throw Error('Unknown dialogue: '+id);
  say(d.text,d.choices||[]);
+ if(S?.started)voice.play(id,d.text);
 }
 function sprite(pose){return characterArt[pose]||characterArt.stand||ART.fallback(pose);}
 function actorMarkup(){
@@ -267,6 +270,7 @@ function hydrate(){
  }));
 }
 function reset(){
+ voice.stop();
  epoch++;busy=false;engine.reset();S=engine.state;
  selected=null;drag=null;$('pointerItem').hidden=true;$('caption').hidden=true;$('fx').replaceChildren();
  if($('complete').open)$('complete').close();
@@ -282,7 +286,7 @@ $('start').onclick=()=>{
  if(!engine)return;S.started=true;$('startCover').hidden=true;audio.start();
  message(mission.startMessage||'welcome');paint();
 };
-$('sound').onclick=()=>{audio.mute();if(S?.started)audio.start();};
+$('sound').onclick=()=>{audio.mute();voice.setMuted(audio.muted);if(S?.started)audio.start();};
 $('restart').onclick=()=>{if(S)reset();};
 $('again').onclick=()=>{reset();$('start').focus();};
 $('review').onclick=()=>$('complete').close();
@@ -308,6 +312,7 @@ document.addEventListener('pointermove',pointerMove,{passive:false});
 document.addEventListener('pointerup',pointerUp);
 document.addEventListener('pointercancel',()=>{drag=null;$('pointerItem').hidden=true;});
 document.addEventListener('visibilitychange',()=>{
+ voice.setHidden(document.hidden);
  if(audio.ctx){
   if(document.hidden)audio.ctx.suspend().catch(()=>{});
   else if(S?.started)audio.ctx.resume().catch(()=>{});
@@ -318,8 +323,8 @@ $('start').disabled=true;
 // slugs so a query parameter cannot read arbitrary paths or remote URLs.
 const missionSlug=new URLSearchParams(location.search).get('mission');
 const missionFile=missionSlug&&/^[a-z0-9-]{1,48}$/.test(missionSlug)?'adventures/'+missionSlug+'.json':'mission.json';
-fetch(missionFile).then(r=>{if(!r.ok)throw Error('Mission unavailable');return r.json();}).then(def=>{
- mission=def;engine=new MissionEngine(def);hydrate();reset();
+fetch(missionFile).then(r=>{if(!r.ok)throw Error('Mission unavailable');return r.json();}).then(async def=>{
+ mission=def;engine=new MissionEngine(def);await voice.load(def.id);hydrate();reset();
 }).catch(error=>{
  console.error(error);say('This mission could not load. Please refresh to try again.');
  $('start').textContent='Please refresh';
@@ -328,3 +333,4 @@ function fitScene(){
  $('world').setAttribute('preserveAspectRatio',matchMedia('(max-width:760px)').matches?'xMidYMid meet':'xMidYMid slice');
 }
 fitScene();window.addEventListener('resize',fitScene);
+

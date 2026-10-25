@@ -12,3 +12,14 @@ reference/dolltoon/
 tmp/
 dist/
 build/
+
+# Credentials, local reference voices and Python caches
+.env
+.env.*
+!.env.example
+voice-references/*.wav
+voice-references/*.mp3
+voice-references/*.zip
+__pycache__/
+*.pyc
+

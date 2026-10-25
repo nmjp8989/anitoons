@@ -1,86 +1,763 @@
 {
   "id": "missing-key",
-  "version": 1,
+  "version": 2,
   "title": "The Missing Key",
+  "subtitle": "A small errand. A very elusive key.",
   "character": "Harpreet",
   "intro": "The market closes soon. Help Harpreet find his scooter key and get on the road.",
+  "startScene": "home",
+  "startMessage": "welcome",
   "question": "Where should we look for my scooter key?",
-  "choices": [
-    {
-      "label": "Check the cupboard",
-      "action": "cupboard"
+  "hero": {
+    "id": "character",
+    "name": "Harpreet",
+    "layout": {
+      "home": [
+        665,
+        128,
+        220,
+        394
+      ],
+      "yard": [
+        450,
+        128,
+        220,
+        394
+      ],
+      "sit": [
+        212,
+        226,
+        184,
+        322
+      ],
+      "ride": [
+        695,
+        180,
+        208,
+        305
+      ]
     },
-    {
-      "label": "Look outside",
-      "action": "outside"
+    "label": {
+      "home": [
+        773,
+        105,
+        150
+      ],
+      "yard": [
+        559,
+        105,
+        150
+      ],
+      "sit": [
+        300,
+        220,
+        150
+      ],
+      "ride": [
+        817,
+        161,
+        150
+      ]
+    },
+    "shadow": {
+      "home": [
+        775,
+        525
+      ],
+      "yard": [
+        560,
+        525
+      ],
+      "sit": [
+        300,
+        491
+      ]
     }
-  ],
+  },
   "scenes": {
     "home": {
-      "name": "Harpreet\u2019s home",
-      "music": "home"
+      "name": "Harpreet’s home",
+      "icon": "⌂",
+      "art": "home",
+      "music": "home",
+      "objects": [
+        {
+          "id": "sofa",
+          "type": "sofa",
+          "name": "Sofa — sit down",
+          "hitbox": [
+            120,
+            330,
+            360,
+            180
+          ],
+          "badge": [
+            "Have a seat",
+            298,
+            316,
+            135
+          ]
+        },
+        {
+          "id": "table",
+          "type": "table",
+          "name": "Small wooden table",
+          "interactive": false
+        },
+        {
+          "id": "cupboard",
+          "type": "cupboard",
+          "name": "Cupboard — look inside",
+          "hitbox": [
+            900,
+            190,
+            250,
+            280
+          ],
+          "badge": [
+            "Cupboard",
+            1022,
+            150,
+            120
+          ]
+        },
+        {
+          "id": "cup",
+          "type": "cup",
+          "name": "Cup of chai — give to Harpreet",
+          "if": "!tea",
+          "draggable": true,
+          "badge": [
+            "A cup of chai",
+            527,
+            376,
+            135
+          ]
+        },
+        {
+          "id": "key",
+          "type": "key",
+          "name": "Scooter key — pick up",
+          "if": "visible.key+!inventory.key",
+          "badge": [
+            "The key!",
+            1017,
+            301,
+            100
+          ]
+        },
+        {
+          "id": "door",
+          "type": "door",
+          "name": "Go outside to the courtyard",
+          "hitbox": [
+            1195,
+            165,
+            85,
+            300
+          ],
+          "badge": [
+            "Go outside →",
+            1204,
+            122,
+            140
+          ]
+        }
+      ]
     },
     "yard": {
       "name": "The courtyard",
-      "music": "yard"
+      "icon": "☀",
+      "art": "yard",
+      "music": "yard",
+      "objects": [
+        {
+          "id": "home",
+          "type": "homeDoor",
+          "name": "Return to the house"
+        },
+        {
+          "id": "scooter",
+          "type": "scooter",
+          "name": "Scooter — inspect or ride",
+          "hitbox": [
+            625,
+            270,
+            400,
+            280
+          ],
+          "badge": [
+            "A locked scooter",
+            818,
+            247,
+            175
+          ]
+        },
+        {
+          "id": "go",
+          "type": "go",
+          "name": "Start scooter and go to the market",
+          "if": "unlocked+mounted"
+        }
+      ]
+    }
+  },
+  "inventoryItems": {
+    "key": {
+      "label": "Scooter key",
+      "usedIf": "unlocked",
+      "usedLabel": "Key · used",
+      "sprite": "key"
+    }
+  },
+  "draggable": [
+    "cup",
+    "character",
+    "key"
+  ],
+  "dialogues": {
+    "welcome": {
+      "text": "Ah, you’re here! Before we head to the market, could you pass me that cup of chai?",
+      "choices": [
+        {
+          "label": "Where is the scooter key?",
+          "message": "ask"
+        }
+      ]
+    },
+    "cupHint": {
+      "text": "A warm cup of chai. Tap Harpreet to give it to him, or drag the cup onto him."
+    },
+    "cupSpill": {
+      "text": "Tea belongs in a cup, not on my sofa! Try giving it to me."
+    },
+    "cantCombine": {
+      "text": "Those don’t go together. Try another object."
+    },
+    "badDrop": {
+      "text": "Drop it onto something that can use it. Or tap the item, then its target."
+    },
+    "ask": {
+      "text": "Before we rush off… could you pass me that chai?",
+      "choices": [
+        {
+          "label": "Show me how",
+          "message": "teaHow"
+        }
+      ]
+    },
+    "teaHow": {
+      "text": "Drag the cup on the table onto me. Or tap the cup, then tap me."
+    },
+    "teaDone": {
+      "text": "Now that’s a proper cup of chai. One sip and I can think again…"
+    },
+    "question": {
+      "text": "Where should we look for my scooter key?",
+      "choices": [
+        {
+          "label": "Check the cupboard",
+          "event": "click:cupboard"
+        },
+        {
+          "label": "Look outside",
+          "scene": "yard"
+        }
+      ]
+    },
+    "characterHome": {
+      "text": "That’s me! Tap the sofa to sit down, or choose what to ask.",
+      "choices": [
+        {
+          "label": "Ask about the key",
+          "message": "question",
+          "if": "tea"
+        },
+        {
+          "label": "Ask about the key",
+          "message": "ask",
+          "if": "!tea"
+        }
+      ]
+    },
+    "characterYard": {
+      "text": "Ready for a ride. Tap the scooter to help me onto it."
+    },
+    "sofaSit": {
+      "text": "Ahh. This sofa is dangerously comfortable. But the market won’t wait!",
+      "choices": [
+        {
+          "label": "Stand up",
+          "event": "click:character"
+        },
+        {
+          "label": "Let’s look for the key",
+          "message": "question",
+          "if": "tea"
+        }
+      ]
+    },
+    "stand": {
+      "text": "Right. Back to our little adventure."
+    },
+    "cupboardBlocked": {
+      "text": "That’s my cupboard. Pass me the chai first — I’ll remember what I was doing."
+    },
+    "cupboardEmpty": {
+      "text": "Just the usual odds and ends now. The key is safely in your pocket.",
+      "choices": [
+        {
+          "label": "Go outside →",
+          "scene": "yard"
+        }
+      ]
+    },
+    "cupboardVisible": {
+      "text": "There it is, on the middle shelf. Tap the little golden key."
+    },
+    "cupboardFound": {
+      "text": "Of course! I put it away while tidying up. There’s the key, on the shelf."
+    },
+    "keyFound": {
+      "text": "Found it! Keep the key in your pocket. Let’s see if the scooter is ready.",
+      "choices": [
+        {
+          "label": "Head outside →",
+          "scene": "yard"
+        }
+      ]
+    },
+    "keySelected": {
+      "text": "Key selected. Tap the scooter outside, or drag this key onto it."
+    },
+    "keyUsed": {
+      "text": "The key has already unlocked the scooter."
+    },
+    "yardLocked": {
+      "text": "My trusty old scooter. Now, if only I could find the key…",
+      "choices": [
+        {
+          "label": "Look at the scooter",
+          "event": "click:scooter"
+        },
+        {
+          "label": "Use the scooter key",
+          "event": "drop:key:scooter",
+          "if": "inventory.key"
+        }
+      ]
+    },
+    "yardUnlocked": {
+      "text": "There she is. Drag me onto the scooter, or tap me and then the scooter."
+    },
+    "homeTea": {
+      "text": "Back home. Let’s try that cupboard by the door."
+    },
+    "homeFresh": {
+      "text": "A little chai before we head out? The cup is on the table."
+    },
+    "homeKey": {
+      "text": "Key in your pocket. The scooter is waiting outside.",
+      "choices": [
+        {
+          "label": "Go outside →",
+          "scene": "yard"
+        }
+      ]
+    },
+    "scooterLocked": {
+      "text": "Locked! No amount of hopeful staring will start this scooter.",
+      "choices": [
+        {
+          "label": "Back to the house",
+          "scene": "home"
+        },
+        {
+          "label": "Use the key",
+          "event": "drop:key:scooter",
+          "if": "inventory.key"
+        }
+      ]
+    },
+    "scooterUnlocked": {
+      "text": "Unlocked! Drag Harpreet onto the seat. Or tap Harpreet, then the scooter."
+    },
+    "scooterReady": {
+      "text": "Ready when you are. Let’s go!",
+      "choices": [
+        {
+          "label": "Start the scooter →",
+          "event": "click:go"
+        }
+      ]
+    },
+    "keyUnlocked": {
+      "text": "That’s the one! A satisfying click. Now help me onto the scooter.",
+      "choices": [
+        {
+          "label": "Hop on the scooter",
+          "event": "drop:character:scooter"
+        }
+      ]
+    },
+    "mounted": {
+      "text": "Perfect! Key in. Shall we head to the market?",
+      "choices": [
+        {
+          "label": "Start the scooter →",
+          "event": "click:go"
+        }
+      ]
+    },
+    "keyHint": {
+      "text": "Tap the key in your pocket, then tap the scooter. You can drag it there too."
+    },
+    "needKey": {
+      "text": "The key is still inside the house. Tap the home doorway to return."
+    },
+    "departure": {
+      "text": "Next stop: the market. Hold on to your shopping list!"
+    },
+    "finished": {
+      "text": "Mission complete. One small errand, one very good cup of chai."
     }
   },
   "rules": [
     {
-      "when": "drop:cup:character",
+      "when": "click:cup",
+      "in": "home",
+      "if": "!tea",
       "actions": [
-        "pose:drink",
-        "sound:sip",
-        "flag:tea",
-        "dialogue:question"
+        "select:cup",
+        "message:cupHint"
+      ]
+    },
+    {
+      "when": "click:character",
+      "if": "pose.sit",
+      "actions": [
+        "pose:stand",
+        "message:stand"
+      ]
+    },
+    {
+      "when": "click:character",
+      "if": "pose.ride",
+      "actions": [
+        "message:scooterReady"
+      ]
+    },
+    {
+      "when": "click:character",
+      "in": "home",
+      "actions": [
+        "select:character",
+        "message:characterHome"
+      ]
+    },
+    {
+      "when": "click:character",
+      "in": "yard",
+      "actions": [
+        "select:character",
+        "message:characterYard"
+      ]
+    },
+    {
+      "when": "click:sofa",
+      "in": "home",
+      "actions": [
+        "event:drop:character:sofa"
       ]
     },
     {
       "when": "click:cupboard",
+      "in": "home",
+      "if": "!tea",
+      "actions": [
+        "message:cupboardBlocked"
+      ]
+    },
+    {
+      "when": "click:cupboard",
+      "in": "home",
+      "if": "inventory.key",
+      "actions": [
+        "message:cupboardEmpty"
+      ]
+    },
+    {
+      "when": "click:cupboard",
+      "in": "home",
+      "if": "visible.key",
+      "actions": [
+        "message:cupboardVisible"
+      ]
+    },
+    {
+      "when": "click:cupboard",
+      "in": "home",
       "if": "tea",
       "actions": [
         "sound:creak",
-        "show:key"
+        "show:key",
+        "message:cupboardFound"
       ]
     },
     {
       "when": "click:key",
+      "in": "home",
+      "if": "visible.key+!inventory.key",
       "actions": [
         "inventory:key",
-        "sound:discover"
-      ],
-      "if": "visible.key"
-    },
-    {
-      "when": "drop:key:scooter",
-      "actions": [
-        "flag:unlocked",
-        "sound:unlock"
-      ],
-      "if": "inventory.key"
-    },
-    {
-      "when": "drop:character:sofa",
-      "actions": [
-        "pose:sit",
-        "sound:soft"
+        "sound:discover",
+        "message:keyFound"
       ]
     },
     {
-      "when": "drop:character:scooter",
+      "when": "click:key",
+      "if": "inventory.key+!unlocked",
       "actions": [
-        "pose:ride"
-      ],
-      "if": "unlocked"
+        "select:key",
+        "message:keySelected"
+      ]
+    },
+    {
+      "when": "click:key",
+      "if": "inventory.key+unlocked",
+      "actions": [
+        "select:key",
+        "message:keyUsed"
+      ]
+    },
+    {
+      "when": "click:door",
+      "in": "home",
+      "actions": [
+        "scene:yard"
+      ]
+    },
+    {
+      "when": "click:home",
+      "in": "yard",
+      "actions": [
+        "scene:home"
+      ]
+    },
+    {
+      "when": "click:scooter",
+      "in": "yard",
+      "if": "!unlocked",
+      "actions": [
+        "sound:locked",
+        "message:scooterLocked"
+      ]
+    },
+    {
+      "when": "click:scooter",
+      "in": "yard",
+      "if": "mounted",
+      "actions": [
+        "message:scooterReady"
+      ]
+    },
+    {
+      "when": "click:scooter",
+      "in": "yard",
+      "if": "unlocked",
+      "actions": [
+        "message:scooterUnlocked"
+      ]
     },
     {
       "when": "click:go",
+      "in": "yard",
       "if": "unlocked+mounted",
       "actions": [
         "sound:engine",
         "cutscene:departure",
         "ending:complete"
       ]
+    },
+    {
+      "when": "drop:cup:character",
+      "in": "home",
+      "if": "!tea",
+      "actions": [
+        "pose:drink",
+        "sound:sip",
+        "flag:tea",
+        "message:question"
+      ]
+    },
+    {
+      "when": "drop:cup:sofa",
+      "in": "home",
+      "actions": [
+        "message:cupSpill"
+      ]
+    },
+    {
+      "when": "drop:character:sofa",
+      "in": "home",
+      "actions": [
+        "pose:sit",
+        "sound:soft",
+        "message:sofaSit"
+      ]
+    },
+    {
+      "when": "drop:key:scooter",
+      "in": "yard",
+      "if": "inventory.key+!unlocked",
+      "actions": [
+        "flag:unlocked",
+        "sound:unlock",
+        "message:keyUnlocked"
+      ]
+    },
+    {
+      "when": "drop:character:scooter",
+      "in": "yard",
+      "if": "unlocked",
+      "actions": [
+        "pose:ride",
+        "message:mounted"
+      ]
+    },
+    {
+      "when": "enter:home",
+      "if": "inventory.key",
+      "actions": [
+        "message:homeKey"
+      ]
+    },
+    {
+      "when": "enter:home",
+      "if": "tea",
+      "actions": [
+        "message:homeTea"
+      ]
+    },
+    {
+      "when": "enter:home",
+      "actions": [
+        "message:homeFresh"
+      ]
+    },
+    {
+      "when": "enter:yard",
+      "if": "unlocked",
+      "actions": [
+        "message:yardUnlocked"
+      ]
+    },
+    {
+      "when": "enter:yard",
+      "actions": [
+        "message:yardLocked"
+      ]
     }
-  ]
+  ],
+  "objectives": [
+    {
+      "if": "!tea",
+      "text": "Share a chai with Harpreet"
+    },
+    {
+      "if": "!inventory.key",
+      "text": "Find the missing scooter key"
+    },
+    {
+      "if": "!unlocked",
+      "text": "Use the key on the scooter"
+    },
+    {
+      "if": "!mounted",
+      "text": "Help Harpreet onto the scooter"
+    },
+    {
+      "if": "complete",
+      "text": "Mission complete"
+    },
+    {
+      "text": "Start the scooter. Adventure awaits."
+    }
+  ],
+  "progress": [
+    {
+      "if": "tea"
+    },
+    {
+      "if": "inventory.key"
+    },
+    {
+      "if": "unlocked"
+    },
+    {
+      "if": "complete"
+    }
+  ],
+  "hints": [
+    {
+      "if": "!tea",
+      "text": "The cup is on the small table. Drag it onto Harpreet — or tap the cup and then Harpreet."
+    },
+    {
+      "if": "!inventory.key+scene.home",
+      "text": "Open the wooden cupboard by the door. The key is on its middle shelf."
+    },
+    {
+      "if": "!inventory.key+scene.yard",
+      "text": "The key is still inside the house. Tap the home doorway to return."
+    },
+    {
+      "if": "!unlocked+scene.yard",
+      "text": "Tap the key in your pocket, then tap the scooter. You can drag it there too."
+    },
+    {
+      "if": "!unlocked+scene.home",
+      "text": "Take the key outside through the door on the right."
+    },
+    {
+      "if": "!mounted",
+      "text": "Drag Harpreet onto the scooter, or tap him and then the scooter."
+    },
+    {
+      "text": "Tap “Let’s go” beside the scooter to start the engine and finish the mission."
+    }
+  ],
+  "cutscenes": {
+    "departure": {
+      "message": "departure",
+      "frames": [
+        {
+          "caption": "A turn of the key…",
+          "duration": 850,
+          "style": "riding"
+        },
+        {
+          "caption": "…and the neighbourhood wakes up.",
+          "duration": 850,
+          "sound": "engine"
+        },
+        {
+          "caption": "To the market!",
+          "duration": 2600,
+          "style": "depart"
+        }
+      ],
+      "after": "finished",
+      "music": "cutscene"
+    }
+  },
+  "completion": {
+    "title": "A key. A chai. A perfect getaway.",
+    "text": "You helped Harpreet get to the market. Sometimes the smallest adventures are the best ones.",
+    "stats": [
+      "Key found",
+      "Scooter started",
+      "Neighbour helped"
+    ]
+  }
 }

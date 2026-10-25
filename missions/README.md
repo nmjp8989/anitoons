@@ -4,6 +4,16 @@
 
 **New in v2:** the story content is no longer hard-coded into the browser's click handlers. The same `MissionEngine` and `player.js` can play different adventures defined in JSON. See [Mission JSON format](MISSION_FORMAT.md).
 
+## Mission 002 — The Rooftop Kite
+
+Open **[Mission 002](./?mission=rooftop-kite)**, or navigate to `/missions/?mission=rooftop-kite` when the static site is served over HTTP. This uses exactly the same engine as Mission 001, but a completely separate [JSON definition](adventures/rooftop-kite.json), [illustrated scene pack](kite-art.js), dialogue and branching puzzle.
+
+- Workshop: repair a torn kite with coloured paper, then tie cotton thread.
+- Rooftop: drag the kite into the chalk launch circle, choose the gentle east wind (the west gust offers a retry), and launch.
+- Finale: generated breeze and festival-themed tones accompany a short, limited-animation flight above the rooftops.
+
+Works with drag-and-drop or tap-to-select, including the inventory pocket, hints, replay and keyboard control. No external image, audio or AI-generation APIs are called at runtime. The second mission is content generated for this demonstration, **not** a working text-prompt-to-game authoring feature.
+
 ## Play
 
 Serve the repository using a static HTTP server and open `/missions/` (for example with `python3 -m http.server 8000`). No install, API key, paid assets or build step required. `file://` is unsupported because JSON is loaded with `fetch`.
@@ -35,9 +45,11 @@ The mission browser player is deliberately simple: no build tooling, external ru
 
 ```sh
 node tests/missions.cjs
+node tests/missions-002.cjs
 node --check missions/player.js
 node --check missions/mission-engine.js
 node --check missions/mission-props.js
+node --check missions/kite-art.js
 ```
 
 Also test in a browser: home first, outside first, drag cup, tap-to-combine key, sofa sitting and standing, blocked scooter, mounting, ending and replay. The JavaScript syntax and DOM-independent event flow are checked, but physical device QA is separate.

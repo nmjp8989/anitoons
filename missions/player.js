@@ -6,9 +6,9 @@ const audio={ctx:null,master:null,muted:false,timer:null,scene:'home',beat:0,
  async start(){try{if(!this.ctx){this.ctx=new (window.AudioContext||window.webkitAudioContext)();this.master=this.ctx.createGain();this.master.gain.value=this.muted?0:.36;this.master.connect(this.ctx.destination);}await this.ctx.resume();$('sound').dataset.audioState=this.ctx.state;if(!this.timer)this.timer=setInterval(()=>this.tick(),250);}catch{ $('sound').setAttribute('aria-label','Audio unavailable');$('sound').querySelector('span').textContent='Audio unavailable';}},
  tone(freq,time=.15,type='sine',volume=.12,delay=0,endFreq=null){if(!this.ctx||this.ctx.state!=='running')return;const t=this.ctx.currentTime+delay,o=this.ctx.createOscillator(),g=this.ctx.createGain();o.type=type;o.frequency.setValueAtTime(freq,t);if(endFreq)o.frequency.exponentialRampToValueAtTime(endFreq,t+time);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(Math.max(volume,.0002),t+.012);g.gain.exponentialRampToValueAtTime(.0001,t+time);o.connect(g);g.connect(this.master);o.start(t);o.stop(t+time+.03);},
  noise(time=.2,volume=.1,filter=1000,delay=0){if(!this.ctx||this.ctx.state!=='running')return;const count=Math.ceil(this.ctx.sampleRate*time),buffer=this.ctx.createBuffer(1,count,this.ctx.sampleRate),d=buffer.getChannelData(0);for(let i=0;i<count;i++)d[i]=(Math.random()*2-1)*(1-i/count);const src=this.ctx.createBufferSource(),f=this.ctx.createBiquadFilter(),g=this.ctx.createGain();src.buffer=buffer;f.type='lowpass';f.frequency.value=filter;g.gain.value=volume;src.connect(f);f.connect(g);g.connect(this.master);src.start(this.ctx.currentTime+delay);},
- tick(){if(document.hidden||!S?.started||S.complete||busy&&this.scene==='cutscene')return;const home=this.scene==='home',notes=home?[293.66,369.99,440,493.88,440,369.99,329.63,0,293.66,0,440,369.99,329.63,0,246.94,0]:[392,493.88,587.33,659.25,587.33,493.88,440,0,392,440,493.88,587.33,440,0,329.63,0];const n=notes[this.beat%notes.length];if(n)this.tone(n,home?.6:.28,'sine',home?.07:.075);if(this.beat%8===0){this.tone(home?146.83:196,1.8,'triangle',.045);this.tone(home?220:293.66,1.8,'sine',.02);}if(!home&&this.beat%2===0)this.noise(.07,.025,650);this.beat++;},
+ tick(){if(document.hidden||!S?.started||S.complete||busy&&this.scene==='cutscene')return;const home=['home','workshop'].includes(this.scene),notes=home?[293.66,369.99,440,493.88,440,369.99,329.63,0,293.66,0,440,369.99,329.63,0,246.94,0]:[392,493.88,587.33,659.25,587.33,493.88,440,0,392,440,493.88,587.33,440,0,329.63,0];const n=notes[this.beat%notes.length];if(n)this.tone(n,home?.6:.28,'sine',home?.07:.075);if(this.beat%8===0){this.tone(home?146.83:196,1.8,'triangle',.045);this.tone(home?220:293.66,1.8,'sine',.02);}if(!home&&this.beat%2===0)this.noise(.07,.025,650);this.beat++;},
  music(scene){this.scene=scene;this.beat=0;},
- fx(name){if(name==='sip'){this.noise(.65,.2,650);this.tone(480,.35,'sine',.04,0,250);}else if(name==='creak'){this.tone(160,.55,'sawtooth',.035,0,95);this.noise(.35,.05,550);}else if(name==='discover'||name==='unlock'){[587.33,739.99,880,1174.66].forEach((n,i)=>this.tone(n,.45,'sine',.14,i*.09));if(name==='unlock')this.noise(.08,.23,3500);}else if(name==='engine'){for(let i=0;i<15;i++){this.tone(55+i*5,.2,'sawtooth',.06,i*.13);this.noise(.12,.09,250+i*70,i*.13);}}else if(name==='soft'){this.noise(.15,.12,400);}else if(name==='locked'){this.tone(100,.13,'triangle',.2);this.tone(83,.17,'triangle',.12,.16);this.noise(.07,.15,2000);}else if(name==='step'){this.noise(.09,.12,600);}else if(name==='complete'){[392,493.88,587.33,783.99,987.77,1174.66].forEach((n,i)=>this.tone(n,.7,'triangle',.1,i*.12));}else{this.tone(650,.08,'sine',.07);}},
+ fx(name){if(name==='sip'){this.noise(.65,.2,650);this.tone(480,.35,'sine',.04,0,250);}else if(name==='creak'){this.tone(160,.55,'sawtooth',.035,0,95);this.noise(.35,.05,550);}else if(name==='discover'||name==='unlock'){[587.33,739.99,880,1174.66].forEach((n,i)=>this.tone(n,.45,'sine',.14,i*.09));if(name==='unlock')this.noise(.08,.23,3500);}else if(name==='engine'){for(let i=0;i<15;i++){this.tone(55+i*5,.2,'sawtooth',.06,i*.13);this.noise(.12,.09,250+i*70,i*.13);}}else if(name==='paper'){this.noise(.17,.07,3600);this.tone(440,.11,'triangle',.04);}else if(name==='tie'){this.noise(.12,.10,1900);this.tone(700,.14,'sine',.06);}else if(name==='gust'){this.noise(.9,.18,2100);this.tone(150,.5,'triangle',.06,0,95);}else if(name==='gentle'||name==='flutter'){this.noise(.5,.055,1100);this.tone(560,.21,'sine',.06);}else if(name==='launch'){[392,493.88,659.25,784,987.77].forEach((n,i)=>this.tone(n,.75,'triangle',.12,i*.13));this.noise(1.2,.07,1300);}else if(name==='soft'){this.noise(.15,.12,400);}else if(name==='locked'){this.tone(100,.13,'triangle',.2);this.tone(83,.17,'triangle',.12,.16);this.noise(.07,.15,2000);}else if(name==='step'){this.noise(.09,.12,600);}else if(name==='complete'){[392,493.88,587.33,783.99,987.77,1174.66].forEach((n,i)=>this.tone(n,.7,'triangle',.1,i*.12));}else{this.tone(650,.08,'sine',.07);}},
  mute(){this.muted=!this.muted;if(this.master&&this.ctx)this.master.gain.setTargetAtTime(this.muted?0:.36,this.ctx.currentTime,.04);$('sound').setAttribute('aria-pressed',String(this.muted));$('sound').setAttribute('aria-label',this.muted?'Unmute sound':'Mute sound');$('sound').querySelector('span').textContent=this.muted?'Sound off':'Sound on';}
 };
 
@@ -80,6 +80,11 @@ function paint(){
   button.className='inventory-item'+(selected===id?' selected':'');button.dataset.object=id;
   button.setAttribute('aria-label',item.label);
   if(item.sprite==='key')button.innerHTML=`<svg viewBox="-35 -20 85 45">${ART.key}</svg><span>${esc(used?item.usedLabel||item.label:item.label)}</span>`;
+  else if(item.sprite&&ART[item.sprite]){
+   const icon=document.createElementNS(NS,'svg');icon.setAttribute('viewBox','0 0 90 75');icon.innerHTML=ART[item.sprite];
+   const caption=document.createElement('span');caption.textContent=used?item.usedLabel||item.label:item.label;
+   button.append(icon,caption);
+  }
   else{const span=document.createElement('span');span.textContent=used?item.usedLabel||item.label:item.label;button.append(span)}
   $('inventory').append(button);
  }
@@ -119,12 +124,13 @@ async function cutscene(id,token){
   $('caption').textContent=frame.caption||'';
   if(frame.sound)audio.fx(frame.sound);
   if(frame.style==='riding')$('obj-scooter')?.classList.add('riding');
-  if(frame.style==='depart'){
+  if(frame.style==='flutter')$('obj-kite')?.classList.add('kite-flutter');
+  if(frame.style==='depart'||frame.style==='fly'){
    const group=document.createElementNS(NS,'g');group.id='departure';
    for(const objId of frame.moveObjects||['scooter',mission.hero?.id||'character']){
     const obj=$('obj-'+objId);if(obj)group.append(obj);
    }
-   $('actors').append(group);group.classList.add('depart');
+   $('actors').append(group);group.classList.add(frame.style==='fly'?'kite-fly':'depart');
   }
   await wait(Math.max(0,Math.min(12000,frame.duration||0)));
  }
@@ -197,6 +203,9 @@ function dragArt(id){
  if(id==='character')return sprite('stand');
  if(id==='cup')return `<svg viewBox="-50 -55 100 100">${ART.cup}</svg>`;
  if(id==='key')return `<svg viewBox="-40 -35 95 70">${ART.key}</svg>`;
+ const art=mission.inventoryItems?.[id]?.sprite;
+ if(art&&ART[art])return `<svg viewBox="0 0 90 75">${ART[art]}</svg>`;
+ if(id==='kite'&&ART.kiteKite)return `<svg viewBox="-105 -130 210 410">${ART.kiteKite}</svg>`;
  return '<span>✦</span>';
 }
 function pointerDown(e){
@@ -204,7 +213,9 @@ function pointerDown(e){
  if(!node||!S?.started||busy||S.complete||e.button!==0)return;
  const id=node.dataset.object;
  if(!(mission.draggable||[]).includes(id))return;
- if((mission.inventoryItems||{})[id]&&!S.inventory.includes(id)&&!engine.has('visible.'+id))return;
+ // Props in the current scene can be dragged directly before collection.
+ const inScene=!!mission.scenes[S.scene].objects?.some(p=>p.id===id&&engine.has(p.if));
+ if((mission.inventoryItems||{})[id]&&!S.inventory.includes(id)&&!inScene)return;
  drag={id,startX:e.clientX,startY:e.clientY,moved:false,pointer:e.pointerId};
 }
 function pointerMove(e){

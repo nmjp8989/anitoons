@@ -72,7 +72,8 @@
         300,
         491
       ]
-    }
+    },
+    "ridingLabel": "Ready, neighbour!"
   },
   "scenes": {
     "home": {
@@ -758,7 +759,11 @@
         {
           "caption": "To the market!",
           "duration": 2600,
-          "style": "depart"
+          "style": "depart",
+          "moveObjects": [
+            "scooter",
+            "character"
+          ]
         }
       ],
       "after": "finished",
@@ -786,5 +791,23 @@
     {
       "text": "FIND THE KEY"
     }
-  ]
+  ],
+  "effects": {
+    "drink": {
+      "art": "cup",
+      "dialogue": "teaDone",
+      "positions": {
+        "home": [
+          790,
+          282
+        ],
+        "yard": [
+          575,
+          282
+        ]
+      },
+      "duration": 1100,
+      "thenPose": "stand"
+    }
+  }
 }

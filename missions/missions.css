@@ -11,3 +11,6 @@
 .kite-fly{transform-box:view-box;transform-origin:center;animation:kiteFly 3.4s cubic-bezier(.23,.59,.38,1) forwards}
 @keyframes kiteFly{0%{transform:translate(0,0) rotate(0deg) scale(1)}28%{transform:translate(-115px,-75px) rotate(-9deg) scale(.96)}65%{transform:translate(60px,-220px) rotate(7deg) scale(.8)}100%{transform:translate(220px,-525px) rotate(-12deg) scale(.57)}}
 @media(max-width:760px){.topbar nav{gap:8px}.topbar nav a:not(#studioLink){font-size:10px;white-space:nowrap}}
+
+@media(prefers-reduced-motion:reduce){.kite-flutter,.kite-fly{animation:none!important}}
+@media(max-width:760px){.topbar nav a:not(#studioLink){display:inline-flex!important;font-size:10px;white-space:nowrap}.topbar nav{gap:8px}}

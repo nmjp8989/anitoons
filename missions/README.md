@@ -58,6 +58,7 @@ Also test in a browser: home first, outside first, drag cup, tap-to-combine key,
 
 Author a second genuine adventure with different objects/scenes (adding any new SVG artwork to the prop catalogue). Then add a small mission picker and a simple mission-building UI. The core does not require changing for new dialogue, scene transitions, conditions or puzzles.
 
+
 ## Mission 003 — The Last Delivery
 
 Open `/missions/delivery.html` (or `/missions/?mission=last-delivery`). This is a
@@ -76,3 +77,10 @@ existing studio rig. The new presentation is separate from the legacy Mission
 001/002 player. See `docs/mission-audio.md` for the single-secret voice pipeline.
 
 Checks: `node tests/missions-003.cjs` plus the existing mission/audio tests.
+
+Mission 003 presentation update: true left/right rig poses, twelve walk samples
+phased by distance, compact joint/face pose patches, idle breathing/blinks/glances
+and neighbour gestures. Dialogue uses large A/B/C/D buttons (keyboard letters or
+1–4), plus Cinematic/Follow/Wide camera modes, action close-ups, extra ambient
+props and a quiet original procedural score that ducks under speech. Stored
+voice clips are reused. Check `node tests/delivery-presentation.cjs` as well.

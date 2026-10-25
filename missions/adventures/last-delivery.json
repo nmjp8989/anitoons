@@ -852,6 +852,12 @@
         "walk": 480
       },
       {
+        "camera": {
+          "preset": "detail",
+          "target": "parcel"
+        }
+      },
+      {
         "pose": {
           "actor": "harpreet",
           "action": "reach",
@@ -884,11 +890,20 @@
           "actor": "harpreet",
           "item": null
         }
+      },
+      {
+        "camera": "wide"
       }
     ],
     "dryLabel": [
       {
         "walk": 420
+      },
+      {
+        "camera": {
+          "preset": "detail",
+          "target": "lamp"
+        }
       },
       {
         "pose": {
@@ -926,6 +941,9 @@
           "actor": "harpreet",
           "item": null
         }
+      },
+      {
+        "camera": "wide"
       }
     ],
     "makePinwheel": [
@@ -972,6 +990,12 @@
         "walk": 700
       },
       {
+        "camera": {
+          "preset": "detail",
+          "target": "scooter"
+        }
+      },
+      {
         "pose": {
           "actor": "harpreet",
           "action": "reach",
@@ -995,11 +1019,20 @@
           "actor": "harpreet",
           "action": "idle"
         }
+      },
+      {
+        "camera": "wide"
       }
     ],
     "fitFuse": [
       {
         "walk": 850
+      },
+      {
+        "camera": {
+          "preset": "detail",
+          "target": "scooter"
+        }
       },
       {
         "pose": {
@@ -1037,11 +1070,20 @@
           "actor": "harpreet",
           "item": null
         }
+      },
+      {
+        "camera": "wide"
       }
     ],
     "tradePinwheel": [
       {
         "walk": 950
+      },
+      {
+        "camera": {
+          "preset": "conversation",
+          "target": "kabir"
+        }
       },
       {
         "pose": {
@@ -1104,11 +1146,20 @@
           "actor": "kabir",
           "item": null
         }
+      },
+      {
+        "camera": "wide"
       }
     ],
     "tradeChai": [
       {
         "walk": 950
+      },
+      {
+        "camera": {
+          "preset": "conversation",
+          "target": "kabir"
+        }
       },
       {
         "pose": {
@@ -1171,6 +1222,9 @@
           "actor": "kabir",
           "item": null
         }
+      },
+      {
+        "camera": "wide"
       }
     ],
     "wrongRoad": [

@@ -7,7 +7,7 @@ class MissionVoicePlayer{
   this.stop();this.lines={};
   if(!/^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$/.test(id))return;
   try{
-   const response=await fetch('audio/'+id+'.json');
+   const response=await fetch('audio/'+id+'.json?updated='+Date.now(),{cache:'no-store'});
    if(response.ok){const manifest=await response.json();if(manifest.mission===id)this.lines=manifest.lines||{};}
   }catch{/* Subtitles remain available when audio is absent/offline. */}
  }

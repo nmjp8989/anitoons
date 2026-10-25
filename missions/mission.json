@@ -657,6 +657,20 @@
       "actions": [
         "message:yardLocked"
       ]
+    },
+    {
+      "when": "navigate:yard",
+      "in": "home",
+      "actions": [
+        "scene:yard"
+      ]
+    },
+    {
+      "when": "navigate:home",
+      "in": "yard",
+      "actions": [
+        "scene:home"
+      ]
     }
   ],
   "objectives": [
@@ -759,5 +773,18 @@
       "Scooter started",
       "Neighbour helped"
     ]
-  }
+  },
+  "progressLabels": [
+    {
+      "if": "complete",
+      "text": "MISSION COMPLETE"
+    },
+    {
+      "if": "unlocked",
+      "text": "HIT THE ROAD"
+    },
+    {
+      "text": "FIND THE KEY"
+    }
+  ]
 }

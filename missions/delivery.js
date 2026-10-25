@@ -102,7 +102,7 @@ function showDialogue(id,waitForEnd=false){
  stopLine();const d=mission.dialogues[id];if(!d)throw Error('Unknown dialogue '+id);
  const who=mission.cast[d.speaker]||mission.cast.harpreet;speakerId=d.speaker;
  $('dialogue').hidden=false;$('dialogue').classList.toggle('has-choices',!!d.choices?.length);
- const focus=actors[d.speaker]||actors.harpreet,hero=actors.harpreet;if(focus&&camera.mode==='auto'&&camera.name!=='detail')camera.to('conversation',{x:hero?(focus.x+hero.x)/2:focus.x,y:410});
+ const focus=actors[d.speaker]||actors.harpreet,hero=actors.harpreet;if(focus&&camera.mode==='auto'&&camera.name!=='detail'&&(waitForEnd||d.speaker!=='harpreet'||d.choices?.length))camera.to('conversation',{x:hero?(focus.x+hero.x)/2:focus.x,y:410});
  $('dialogue').style.setProperty('--speaker-colour',who.colour);$('speaker').textContent=who.name;$('speakerRole').textContent=who.role;$('subtitle').textContent=d.text;$('choices').replaceChildren();
  if(actors[d.speaker]&&actors[d.speaker].action!=='ride')actors[d.speaker].action='talk';
  for(const [i,c] of (d.choices||[]).entries()){const b=document.createElement('button');b.setAttribute('aria-label',c.label);b.setAttribute('aria-keyshortcuts',String.fromCharCode(65+i));const key=document.createElement('span');key.className='choice-key';key.textContent=String.fromCharCode(65+i)+':';const text=document.createElement('span');text.className='choice-text';text.textContent=c.label;b.append(key,text);b.onclick=()=>{if(!busy&&!paused)dispatch(c.event);};$('choices').append(b);}

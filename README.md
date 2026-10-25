@@ -25,6 +25,8 @@ The script writes the archive checksum, extracted package files and decoded reso
 
 Apktool decodes Android resources and Dalvik bytecode into smali; it **does not recover the original Android Studio source project**. For higher-level Java-like inspection you can also use [JADX](https://github.com/skylot/jadx).
 
-## Planned MVP
+## Current direction: Missions
 
-Original customizable characters, lip-sync from audio, scene/background selection, a few reusable animations, and vertical-video export. Implementation has not begun.
+Anitoons now includes an initial playable point-and-click mission, **The Missing Key**, alongside its character studio. Open [Missions](missions/) to play the home/courtyard puzzle with branching choices, object interactions, pose cuts, synthesized music and sound effects.
+
+See [the mission implementation notes](missions/README.md) for the flow, code structure and checks. The first draft prioritizes a complete playable mission; a visual mission editor and mobile packaging are future work.

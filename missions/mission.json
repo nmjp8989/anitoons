@@ -1,0 +1,86 @@
+{
+  "id": "missing-key",
+  "version": 1,
+  "title": "The Missing Key",
+  "character": "Harpreet",
+  "intro": "The market closes soon. Help Harpreet find his scooter key and get on the road.",
+  "question": "Where should we look for my scooter key?",
+  "choices": [
+    {
+      "label": "Check the cupboard",
+      "action": "cupboard"
+    },
+    {
+      "label": "Look outside",
+      "action": "outside"
+    }
+  ],
+  "scenes": {
+    "home": {
+      "name": "Harpreet\u2019s home",
+      "music": "home"
+    },
+    "yard": {
+      "name": "The courtyard",
+      "music": "yard"
+    }
+  },
+  "rules": [
+    {
+      "when": "drop:cup:character",
+      "actions": [
+        "pose:drink",
+        "sound:sip",
+        "flag:tea",
+        "dialogue:question"
+      ]
+    },
+    {
+      "when": "click:cupboard",
+      "if": "tea",
+      "actions": [
+        "sound:creak",
+        "show:key"
+      ]
+    },
+    {
+      "when": "click:key",
+      "actions": [
+        "inventory:key",
+        "sound:discover"
+      ],
+      "if": "visible.key"
+    },
+    {
+      "when": "drop:key:scooter",
+      "actions": [
+        "flag:unlocked",
+        "sound:unlock"
+      ],
+      "if": "inventory.key"
+    },
+    {
+      "when": "drop:character:sofa",
+      "actions": [
+        "pose:sit",
+        "sound:soft"
+      ]
+    },
+    {
+      "when": "drop:character:scooter",
+      "actions": [
+        "pose:ride"
+      ],
+      "if": "unlocked"
+    },
+    {
+      "when": "click:go",
+      "if": "unlocked+mounted",
+      "actions": [
+        "sound:engine",
+        "cutscene:departure",
+        "ending:complete"
+      ]
+    }
+  ]
+}

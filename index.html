@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v85</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v86</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -74,7 +74,7 @@
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0;max-height:480px;overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
 .preset-country{display:block;font-size:9px;color:#68717d;padding:0 3px 8px}.preset-card:has(.preset-country) .preset-name{padding-bottom:2px}.animation-framing{display:flex;align-items:center;gap:6px;margin:14px 0}.animation-framing button{border:1px solid #dce1e8;background:#fff;border-radius:9px;padding:8px 12px;font-size:11px}.animation-framing button[aria-pressed=true]{background:#2476de;color:white}.animation-card .animation-poster{display:block;width:100%;height:115px;border-radius:10px;overflow:hidden;background:#edf2ef}.animation-card .animation-poster svg{display:block;width:100%;height:100%;max-height:none}.animation-card{padding:7px 7px 11px;gap:5px;min-height:166px}.animation-card strong{font-size:11px}.animation-card small{font-size:9px}.animation-framing{flex-wrap:wrap}@media(max-width:480px){.animation-card .animation-poster{height:92px}.animation-card{min-height:142px}}.designs[data-feature="dress"] .design,.designs[data-feature="bottom"] .design{aspect-ratio:.76;border-radius:14px;padding:5px}.designs[data-feature="dress"] .design svg,.designs[data-feature="bottom"] .design svg{height:82%}</style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v85</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v86</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -1031,9 +1031,11 @@ function rigLegSvg(side,pose,view){
 function bodyRigSvg(pose=state.pose,view=cameraView,full=state.framing==='full'){
  const turn=cameraDirections[view]||0,near=turn?-turn:-1,far=-near;
  const sx=full?.94:1,shift=627*(1-sx);
+ const waist=Math.max(bottomProfile().hip,garmentTemplate().hem<1535?228+garmentTemplate().flare:190);
+ const pelvis=`M${627-waist} 1380 H${627+waist} L${627+waist-12} 1470 Q800 1535 752 1585 Q654 1570 627 1620 Q600 1570 502 1585 Q454 1535 ${627-waist+12} 1470Z`;
  const lower='translate(0 1450) scale(1 .92) translate(0 -1450)';
  const filter='<defs><filter id="sharedBodyInk" x="-30%" y="-30%" width="160%" height="160%"><feMorphology in="SourceAlpha" operator="dilate" radius="4.4" result="edge"/><feFlood flood-color="#161011"/><feComposite in2="edge" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>';
- return filter+`<g data-body-rig="1" data-garment="${Object.hasOwn(WARDROBE,state.shirt)?state.shirt:'crew'}" transform="matrix(${sx} 0 0 1 ${shift} 0)">`+(full?'<ellipse cx="627" cy="2239.36" rx="300" ry="24" fill="#102b42" opacity=".14"/>':'')+'<g filter="url(#sharedBodyInk)">'+(full?`<defs><clipPath id="walkingHemClip"><rect data-hem-clip x="0" y="${clothingHem()+11}" width="1254" height="2000"/></clipPath></defs><g clip-path="url(#walkingHemClip)"><g data-lower-body transform="${lower}">${rigLegSvg(far,pose,view)+rigLegSvg(near,pose,view)}</g></g>`:'')+(full?`<g data-rig-pelvis transform="${lower}">`+bodySurfaceSvg(rigFill('M450 1415 H804 L804 1480 Q796 1540 752 1585 Q654 1570 627 1620 Q600 1570 502 1585 Q458 1540 450 1480Z',state.trouserColour)+rigDetail('M627 1450 V1515',3),turn)+'</g>':'')+(full&&bottomProfile().skirt?`<g data-moving-garment data-cloth-hem="${bottomProfile().hem}">${bodySurfaceSvg(bottomSkirtSvg(),turn)}</g>`:'')+rigArmSvg(far,view)+`<g data-moving-garment data-cloth-hem="${garmentTemplate().hem}">${bodySurfaceSvg(garmentBodiceSvg(),turn)}</g>`+rigArmSvg(near,view)+'</g></g>';
+ return filter+`<g data-body-rig="1" data-garment="${Object.hasOwn(WARDROBE,state.shirt)?state.shirt:'crew'}" transform="matrix(${sx} 0 0 1 ${shift} 0)">`+(full?'<ellipse cx="627" cy="2239.36" rx="300" ry="24" fill="#102b42" opacity=".14"/>':'')+'<g filter="url(#sharedBodyInk)">'+(full?`<defs><clipPath id="walkingHemClip"><rect data-hem-clip x="0" y="${clothingHem()-5}" width="1254" height="2000"/></clipPath></defs><g clip-path="url(#walkingHemClip)"><g data-lower-body transform="${lower}">${rigLegSvg(far,pose,view)+rigLegSvg(near,pose,view)}</g></g>`:'')+(full?`<g data-rig-pelvis transform="${lower}">`+bodySurfaceSvg(rigFill(pelvis,state.trouserColour)+rigDetail('M627 1450 V1515',3),turn)+'</g>':'')+(full&&bottomProfile().skirt?`<g data-moving-garment data-cloth-hem="${bottomProfile().hem}">${bodySurfaceSvg(bottomSkirtSvg(),turn)}</g>`:'')+rigArmSvg(far,view)+`<g data-moving-garment data-cloth-hem="${garmentTemplate().hem}">${bodySurfaceSvg(garmentBodiceSvg(),turn)}</g>`+rigArmSvg(near,view)+'</g></g>';
 }
 function torsoSvg(){return bodyRigSvg(state.pose,'front',false);}
 function standingBodyCompositeSvg(pose=state.pose,view=cameraView){return bodyRigSvg(pose,view,true);}
@@ -1901,16 +1903,21 @@ function animationEyesSvg(p){
 function restoreHeadshotTorso(){poseTalkingArms();}
 // Walk in place. Front uses depth foreshortening; ¾ uses a two-bone leg solve.
 // One sagittal gait, projected into front / three-quarter views. Distances are rig units.
+// One compact gait in sagittal space. A straight support leg carries the body;
+// only the returning leg bends. Hermite swing matches stance speed at contact.
 function walkingStep(seconds,side){
  const t=((seconds/1.2+(side===1?.5:0))%1+1)%1;
- const stance=t<.6,u=stance?t/.6:(t-.6)/.4;
- // Constant-speed support; smooth return with toe clearance during swing.
- const ease=u*u*(3-2*u);
- const forward=stance?130-260*ease:-130+260*ease;
- const lift=stance?0:85*Math.pow(Math.sin(Math.PI*u),2);
- const down=746-lift,dist=Math.hypot(forward,down);
- const angle=Math.atan2(forward,down)+Math.acos(Math.min(1,(400*400+dist*dist-400*400)/(2*400*dist)));
- return {t,stance,forward,lift,kneeForward:400*Math.sin(angle),kneeDown:400*Math.cos(angle),down};
+ const stance=t<.6,u=stance?t/.6:(t-.6)/.4,A=105;
+ const m=-4*A/3;
+ const forward=stance?A-2*A*u:-A+m*u+(6*A-3*m)*u*u+(-4*A+2*m)*u*u*u;
+ const lift=stance?0:55*Math.pow(Math.sin(Math.PI*u),2);
+ const down=746-lift,dist=Math.hypot(forward,down),upper=380,lower=366;
+ const reach=Math.min(dist,upper+lower);
+ const bend=Math.acos(Math.max(-1,Math.min(1,(upper*upper+reach*reach-lower*lower)/(2*upper*reach))));
+ const angle=Math.atan2(forward,down)+bend;
+ // A tiny extension keeps the planted sole on the floor through the stride.
+ const stretch=dist/(upper+lower)>1?dist/(upper+lower):1;
+ return {t,stance,forward,lift,kneeForward:upper*stretch*Math.sin(angle),kneeDown:upper*stretch*Math.cos(angle),down};
 }
 function poseWalkingGarment(seconds,root=document){
  const groups=root.querySelectorAll('#torso [data-moving-garment]');
@@ -1936,7 +1943,7 @@ function poseWalkingGarment(seconds,root=document){
  for(const el of group.querySelectorAll('circle,ellipse')){if(!el.dataset.restCx){el.dataset.restCx=el.getAttribute('cx');el.dataset.restCy=el.getAttribute('cy');}const x=+el.dataset.restCx,y=+el.dataset.restCy,q=progress(y);el.setAttribute('cx',x+sway*q+(x-627)*.035*q*(1-Math.cos(phase*2)));el.setAttribute('cy',y+flutter*q);}
  }
  const clip=root.querySelector('#torso [data-hem-clip]');
- if(clip)clip.setAttribute('y',clothingHem()+11+flutter);
+ if(clip)clip.setAttribute('y',clothingHem()-5+flutter);
 }
 function poseWalking(seconds,root=document){
  poseWalkingGarment(seconds,root);
@@ -1969,9 +1976,9 @@ function poseWalking(seconds,root=document){
  }
  // Opposite arm / leg swing in the same projected direction; relaxed elbows.
  for(const arm of root.querySelectorAll('#torso [data-rig-arm]')){
-  const side=+arm.dataset.rigArm,g=walkingStep(seconds,side),swing=-g.forward/170;
+  const side=+arm.dataset.rigArm,g=walkingStep(seconds,side),swing=-g.forward/105;
   arm.querySelector('[data-hand-action]').setAttribute('display','none');arm.querySelector('[data-hand-open]').setAttribute('display','none');arm.querySelector('[data-hand-point]').setAttribute('display','none');arm.querySelector('[data-hand-palm]').setAttribute('display',turn?'none':'inline');arm.querySelector('[data-hand-relaxed]').setAttribute('display',turn?'inline':'none');
-  arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${-3-turn*side*15*swing} 0 48) translate(0 48) scale(1 ${1-.06*(1-swing)}) translate(0 -48)`);
+  arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${-3-turn*side*11*swing} 0 48) translate(0 48) scale(1 ${1-.06*(1-swing)}) translate(0 -48)`);
   arm.querySelector('[data-rig-elbow]').setAttribute('transform',`rotate(${-8-turn*side*6*Math.max(0,swing)})`);
   arm.querySelector('[data-rig-wrist]').setAttribute('transform','rotate(0)');
  }

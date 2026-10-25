@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v87</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v88</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -74,7 +74,7 @@
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0;max-height:480px;overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
 .preset-country{display:block;font-size:9px;color:#68717d;padding:0 3px 8px}.preset-card:has(.preset-country) .preset-name{padding-bottom:2px}.animation-framing{display:flex;align-items:center;gap:6px;margin:14px 0}.animation-framing button{border:1px solid #dce1e8;background:#fff;border-radius:9px;padding:8px 12px;font-size:11px}.animation-framing button[aria-pressed=true]{background:#2476de;color:white}.animation-card .animation-poster{display:block;width:100%;height:115px;border-radius:10px;overflow:hidden;background:#edf2ef}.animation-card .animation-poster svg{display:block;width:100%;height:100%;max-height:none}.animation-card{padding:7px 7px 11px;gap:5px;min-height:166px}.animation-card strong{font-size:11px}.animation-card small{font-size:9px}.animation-framing{flex-wrap:wrap}@media(max-width:480px){.animation-card .animation-poster{height:92px}.animation-card{min-height:142px}}.designs[data-feature="dress"] .design,.designs[data-feature="bottom"] .design{aspect-ratio:.76;border-radius:14px;padding:5px}.designs[data-feature="dress"] .design svg,.designs[data-feature="bottom"] .design svg{height:82%}</style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v87</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v88</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -881,6 +881,22 @@ Object.assign(WARDROBE,{
  yukata:{label:'Yukata-inspired robe · Japan',template:'dress',sleeve:.74,neck:'wrap',hem:2100,flare:80,belt:true,trim:'wideBand'},
  qipao:{label:'Qipao-inspired dress · China',template:'dress',sleeve:.3,neck:'high',hem:1900,flare:25,trim:'piping',pattern:'flowers'}
 });
+// Reference-inspired outfits reuse the same garment and arm rig.
+Object.assign(WARDROBE,{
+ kurtaChunni:{label:'Kurta with draped chunni',template:'tunic',neck:'round',sleeve:.74,hem:1790,flare:35,dupatta:true,trim:'embroidery',suggestedColour:'#487d80'},
+ salwarChunni:{label:'Long kurta with chunni',template:'dress',neck:'round',sleeve:1,hem:1970,flare:50,dupatta:true,suggestedColour:'#a5647e'},
+ sherwani:{label:'Sherwani · formal long coat',template:'tunic',neck:'high',sleeve:1,hem:1850,flare:22,buttons:true,trim:'piping',suggestedColour:'#70436e'},
+ nehruVest:{label:'Nehru waistcoat & shirt',template:'long',neck:'high',sleeveColour:'#f5f0e7',buttons:true,pocket:true,suggestedColour:'#bb9140'},
+ suitTie:{label:'Business suit & tie',template:'jacket',neck:'lapel',tie:true,pocket:true,suggestedColour:'#364e62'},
+ shirtTie:{label:'Shirt & tie',template:'long',neck:'collar',tie:true,buttons:true,suggestedColour:'#82acc0'},
+ formalVest:{label:'Formal waistcoat & shirt',template:'long',neck:'lapel',sleeveColour:'#eef2f4',tie:true,buttons:true,suggestedColour:'#485d7d'},
+ scrubs:{label:'Medical scrubs',template:'short',neck:'v',pocket:true,pouch:true,suggestedColour:'#58a88f'},
+ labCoat:{label:'Lab coat & shirt',template:'tunic',neck:'lapel',hem:1730,flare:18,buttons:true,doublePocket:true,suggestedColour:'#e8edef'},
+ utilityVest:{label:'Utility vest & T-shirt',template:'short',neck:'v',sleeveColour:'#3f4943',utility:true,suggestedColour:'#bf793d'},
+ safetyVest:{label:'High-visibility vest & shirt',template:'short',neck:'v',sleeveColour:'#4a5d4d',safety:true,suggestedColour:'#b7ce45'},
+ rolledShirt:{label:'Rolled-sleeve shirt',template:'long',sleeve:.74,neck:'collar',buttons:true,doublePocket:true,rolled:true,suggestedColour:'#5a8585'},
+ suspenders:{label:'Shirt & suspenders',template:'long',neck:'collar',buttons:true,suspenders:true,suggestedColour:'#b45e55'}
+});
 const BOTTOMS={
  straight:{label:'Straight trousers',hip:183,knee:66,cuff:51},
  slim:{label:'Slim trousers',hip:171,knee:55,cuff:41},
@@ -955,7 +971,7 @@ function garmentBodiceSvg(){
  a+=rigDetail(`M542 1005 ${opening==='L627 1120 L542 1005'?'L627 1120 L712 1005':d.neck==='scoop'?'Q627 1140 712 1005':'Q627 1080 712 1005'}`);
  if(d.neck==='collar')a+=rigFill('M539 991 L627 1063 L576 1092 L515 1011Z')+rigFill('M715 991 L627 1063 L678 1092 L739 1011Z')+rigDetail('M539 991 L627 1063 L576 1092 L515 1011 M715 991 L627 1063 L678 1092 L739 1011');
  if(d.neck==='hood')a+=rigFill('M522 1006 C493 978 505 939 536 943 Q585 951 627 1056 Q669 951 718 943 C749 939 761 978 732 1006 L681 1057 L627 1056 L573 1057Z')+rigDetail('M522 1006 C493 978 505 939 536 943 Q585 951 627 1056 Q669 951 718 943 C749 939 761 978 732 1006 M578 1075 V1200 M676 1075 V1200');
- if(d.neck==='lapel')a+=rigFill('M542 1005 L627 1120 L712 1005 L693 1454 H561Z','#fffdfa')+rigFill('M520 993 L547 998 L627 1157 L551 1115 L566 1075Z')+rigFill('M734 993 L707 998 L627 1157 L703 1115 L688 1075Z')+rigDetail('M520 993 L547 998 L627 1157 L551 1115 L566 1075 M734 993 L707 998 L627 1157 L703 1115 L688 1075');
+ if(d.neck==='lapel')a+=rigFill(`M542 1005 L627 1120 L712 1005 L693 ${Math.min(1454,hem-14)} H561Z`,'#fffdfa')+rigFill('M520 993 L547 998 L627 1157 L551 1115 L566 1075Z')+rigFill('M734 993 L707 998 L627 1157 L703 1115 L688 1075Z')+rigDetail('M520 993 L547 998 L627 1157 L551 1115 L566 1075 M734 993 L707 998 L627 1157 L703 1115 L688 1075');
  if(d.trim||['diamonds','check'].includes(d.pattern)){
   a+=`<defs><clipPath id="regionalTrim"><path d="${body}"/></clipPath></defs><g clip-path="url(#regionalTrim)">`;
   const accent=bodyShade(rigCloth(),.33),gold='#e7c57c';
@@ -981,7 +997,7 @@ function garmentBodiceSvg(){
  }
  if(d.panel)a+=rigDetail('M545 1007 L407 1195 M709 1007 L847 1195',4);
  if(d.rib)a+=rigDetail(`M${627-half+12} ${hem-31} Q627 ${hem-12} ${627+half-12} ${hem-31}`,4);
- if(d.neck==='high')a+=rigFill('M542 1005 V948 Q627 925 712 948 V1005 Q627 1030 542 1005Z')+rigDetail('M542 948 Q627 971 712 948 M542 1005 Q627 1030 712 1005',3);
+ if(d.neck==='high')a+=rigFill('M542 1005 V948 Q627 925 712 948 V1005 Q627 1080 542 1005Z')+rigDetail('M542 948 Q627 971 712 948 M542 1005 Q627 1030 712 1005',3);
  if(d.neck==='henley')a+=rigDetail('M608 1053 V1165 H646 V1053',3)+rigDetail('M627 1080 V1084 M627 1120 V1124',5);
  if(d.neck==='wrap')a+=rigDetail(`M542 1005 L735 ${Math.min(1390,hem-30)} M712 1005 L627 1130`,3);
  if(d.zip) a+=rigDetail(`M627 1063 V${hem-27}`,4)+rigFill('M619 1130 H635 V1153 H619Z',bodyShade(rigCloth(),.35));
@@ -992,17 +1008,32 @@ function garmentBodiceSvg(){
  if(d.pocket)a+=rigDetail('M735 1120 H804 V1190 Q769 1210 735 1190Z M735 1134 H804');
  if(d.pouch)a+=rigDetail('M531 1294 Q627 1287 723 1294 L746 1389 Q627 1400 508 1389Z');
  if(d.belt)a+=rigDetail('M414 1380 Q627 1401 840 1380',10);
+ if(d.tie)a+=rigFill('M608 1062 H646 L650 1090 L627 1112 L604 1090Z','#bd8440')+rigFill('M618 1103 H636 L653 1290 L627 1322 L601 1290Z','#bd8440')+rigDetail('M618 1103 H636 L653 1290 L627 1322 L601 1290Z',2.5);
+ if(d.utility){a+=rigFill('M593 1060 H660 V1430 H593Z','#39443b')+rigDetail('M451 1190 H550 V1280 H451Z M704 1190 H803 V1280 H704Z M451 1340 H550 V1412 H451Z M704 1340 H803 V1412 H704Z',4);}
+ if(d.safety)a+=rigFill('M464 1023 H501 V1434 H464Z','#ececc7')+rigFill('M753 1023 H790 V1434 H753Z','#ececc7')+rigFill('M415 1270 H839 V1305 H415Z M411 1380 H843 V1414 H411Z','#ececc7');
+ if(d.suspenders)a+=rigFill('M475 1020 L513 1029 L548 1433 H517Z M779 1020 L741 1029 L706 1433 H737Z','#423a36')+rigFill('M513 1400 H549 V1433 H513Z M705 1400 H741 V1433 H705Z','#c5a467');
+ if(d.dupatta){
+  const scarf=bodyShade(rigCloth(),.25),gold='#e6ca8c',end=Math.min(hem-36,1850);
+  // Two fabric ends hang over the bodice; the loose chest drape joins both shoulders.
+  a+=rigFill(`M400 1010 Q433 991 479 1026 L481 ${end-18} Q448 ${end+1} 408 ${end-10} L422 1120Z`,scarf);
+  a+=rigFill(`M786 1022 Q821 993 853 1012 L825 ${end-170} Q795 ${end-156} 761 ${end-170} L774 1122Z`,scarf);
+  a+=rigFill('M401 1010 Q437 994 472 1018 Q625 1191 791 1018 Q823 997 853 1012 L837 1070 Q631 1259 418 1070Z',scarf);
+  a+=`<path d="M420 1065 Q630 1242 834 1065 M427 1134 L424 ${end-32} M794 1137 L782 ${end-189}" fill="none" stroke="${gold}" stroke-width="7" stroke-linecap="round"/>`;
+  a+=rigDetail(`M425 ${end-25} L466 ${end-30} M775 ${end-186} L814 ${end-186}`,3);
+ }
  if(d.bow)a+=rigFill('M616 1060 L574 1038 V1088 L616 1076 H638 L680 1088 V1038 L638 1060Z','#161011');
  if(t.hem<1500)a+=rigFill(`M${627-half} ${hem-18} Q627 ${hem-3} ${627+half} ${hem-18} L${627+half} ${hem} Q627 ${hem+20} ${627-half} ${hem}Z`,bodyShade(rigCloth(),.09));
  return a+rigDetail(`M${627-half+8} ${hem-16} Q627 ${hem+2} ${627+half-8} ${hem-16}`,3);
 }
 function rigArmSvg(side,view=cameraView){
  const turn=cameraDirections[view]||0,armX=bodyCameraX(627+side*BODY_RIG.shoulderX,turn),depth=turn?(side===turn?.82:1):1;
- const t=garmentTemplate(),skin='url(#skinFill)',cloth=rigCloth();
+ const t=garmentTemplate(),skin='url(#skinFill)',cloth=t.sleeveColour||rigCloth();
  const upper='M-61 44 C-60 13 -30 -6 0 -6 C30 -6 60 13 61 44 C65 87 57 158 49 230 Q0 274 -49 230 C-57 158 -65 87 -61 44Z';
  const fore='M-49 -18 Q0 -42 49 -18 C53 47 47 117 38 181 Q36 200 35 218 H-35 Q-36 200 -38 181 C-47 117 -53 47 -49 -18Z';
  let a=`<g data-rig-arm="${side}" transform="translate(${armX} ${BODY_RIG.shoulderY+(turn&&side===turn?-9:0)}) scale(${side*depth} 1)">`+`<ellipse data-shoulder-socket cx="0" cy="48" rx="62" ry="55" fill="${t.sleeve>0?cloth:skin}"/><g data-rig-shoulder>`+rigFill(upper,t.sleeve===1?cloth:skin);
  if(t.sleeve>0&&t.sleeve<1){const end=t.sleeve*230,w=61-end*.027;a+=`<defs><clipPath id="sleeveCloth-${side}"><path d="M-90 -30 H90 V${end} Q0 ${end+18} -90 ${end}Z"/></clipPath></defs><g clip-path="url(#sleeveCloth-${side})">${rigFill(upper,cloth)}</g>`+rigDetail(`M${-w} ${end+3} Q0 ${end+15} ${w} ${end+3}`,3);}
+
+ if(t.rolled){const end=t.sleeve*230;a+=rigFill(`M-56 ${end-17} Q0 ${end-7} 56 ${end-17} L55 ${end+5} Q0 ${end+17} -55 ${end+5}Z`,bodyShade(cloth,.12))+rigDetail(`M-55 ${end+5} Q0 ${end+17} 55 ${end+5}`,3);}
 
  a+=`<g transform="translate(0 ${BODY_RIG.upperArm})"><ellipse data-elbow-bridge cx="0" cy="0" rx="49" ry="47" fill="${t.sleeve===1?cloth:skin}"/><g data-rig-elbow>`+rigFill(fore,t.sleeve===1?cloth:skin)+(t.sleeve===1?rigFill('M-36 196 Q0 203 36 196 L35 220 Q0 227 -35 220Z',bodyShade(cloth,.09))+rigDetail('M-35 220 Q0 227 35 220',3):'')+`<g transform="translate(0 ${BODY_RIG.forearm})"><g data-rig-wrist>`+`<g data-hand-open display="none">${actionHandSvg('open','palm')}</g><g data-hand-point display="none">${actionHandSvg('point','palm')}</g><g data-hand-palm display="none">${actionHandSvg('relaxed','palm')}</g><g data-hand-relaxed>${actionHandSvg('relaxed',turn?'edge':'back')}</g><g data-hand-action display="none"></g>`+' </g></g></g></g></g></g>';
  return a;
@@ -1053,13 +1084,13 @@ function torsoSvg(){return bodyRigSvg(state.pose,'front',false);}
 function standingBodyCompositeSvg(pose=state.pose,view=cameraView){return bodyRigSvg(pose,view,true);}
 function poseTile(key){return `<svg viewBox="220 800 820 1600" aria-hidden="true">${bodyRigSvg(key,'front',true)}</svg>`;}
 function clothingTile(key,section='shirt'){
- const oldShirt=state.shirt,oldBottom=state.bottom;
+ const oldShirt=state.shirt,oldBottom=state.bottom,oldColour=state.shirtColour;
  try{
-  if(section==='bottom'){state.bottom=key;state.shirt='crew';}else state.shirt=key;
+  if(section==='bottom'){state.bottom=key;state.shirt='crew';}else {state.shirt=key;if(WARDROBE[key]?.suggestedColour)state.shirtColour=WARDROBE[key].suggestedColour;}
   const full=section!=='shirt',box=section==='bottom'?'220 1310 820 1050':section==='dress'?'220 880 820 1500':'220 900 814 650';
   const art=bodyRigSvg('straight','front',full),prefix='clothes-'+section+'-'+key+'-';
   return `<svg viewBox="${box}" aria-hidden="true">${art.replace(/id="([^"]+)"/g,(_,id)=>`id="${prefix+id}"`).replace(/url\(#([^)]*)\)/g,(_,id)=>id==='skinFill'?'url(#skinFill)':`url(#${prefix+id})`)}</svg>`;
- }finally{state.shirt=oldShirt;state.bottom=oldBottom;}
+ }finally{state.shirt=oldShirt;state.bottom=oldBottom;state.shirtColour=oldColour;}
 }
 function topTile(key){return clothingTile(key);}
 function setBodyArmPose(poses,hands={},root=document){
@@ -1535,7 +1566,7 @@ function drawDesigns(){
  if(feature==='hair'){const nav=document.createElement('div');nav.style.cssText='grid-column:1/-1;display:flex;gap:8px';for(const [key,label] of Object.entries(hairSections)){const b=document.createElement('button');b.className='design';b.textContent=label;b.dataset.hairSection=key;b.setAttribute('aria-pressed',String(key===hairSection));b.onclick=()=>{hairSection=key;drawDesigns()};nav.append(b)}root.append(nav);}
  for(const [key,label] of Object.entries(entries)){if(feature==='hair'&&hairSection!=='all'&&hairSectionFor(key)!==hairSection)continue;const b=document.createElement('button');b.className='design';const selected=feature==='mouth'?state.mouthStyle:feature==='eyes'?state.eyeStyle:feature==='dress'?state.shirt:state[feature];b.setAttribute('aria-pressed',String(selected===key));
  let art=feature==='pose'?poseTile(key):feature==='head'?headTile(key):feature==='mouth'?mouthStyleTile(key):['shirt','bottom','dress'].includes(feature)?clothingTile(key,feature):feature==='eyes'?`<svg viewBox="425 520 405 170">${eyesSvg('open',key)}</svg>`:smallTile(feature,key);
- b.innerHTML=art+`<span>${label}</span>`;b.onclick=()=>{checkpoint();stopDemo();if(feature==='mouth')state.mouthStyle=key;else if(feature==='eyes')state.eyeStyle=key;else if(feature==='facialHair'){state.facialHair=key;const look=facialHairLooks[key];state.beard=look.beard;state.moustache=look.moustache;state.beardColour=state.moustacheColour=state.facialHairColour}else if(feature==='headwear'){state.headwear=key}else{if(feature==='bottom'&&garmentDesign().template==='dress')state.shirt='crew';state[feature==='dress'?'shirt':feature]=key;if(['bottom','dress'].includes(feature))state.framing='full';if(feature==='hair')state.headwear='none'}updateApp()};root.append(b)}
+ b.innerHTML=art+`<span>${label}</span>`;b.onclick=()=>{checkpoint();stopDemo();if(feature==='mouth')state.mouthStyle=key;else if(feature==='eyes')state.eyeStyle=key;else if(feature==='facialHair'){state.facialHair=key;const look=facialHairLooks[key];state.beard=look.beard;state.moustache=look.moustache;state.beardColour=state.moustacheColour=state.facialHairColour}else if(feature==='headwear'){state.headwear=key}else{if(feature==='bottom'&&garmentDesign().template==='dress')state.shirt='crew';state[feature==='dress'?'shirt':feature]=key;if(['shirt','dress'].includes(feature)&&WARDROBE[key]?.suggestedColour)state.shirtColour=WARDROBE[key].suggestedColour;if(['bottom','dress'].includes(feature))state.framing='full';if(feature==='hair')state.headwear='none'}updateApp()};root.append(b)}
 }
 function setColour(c){state[feature==='bottom'?'trouserColour':feature==='dress'?'shirtColour':feature+'Colour']=c;if(feature==='facialHair')state.beardColour=state.moustacheColour=c;applyColours();document.getElementById('partColor').value=c}
 function applyColours(skipPreviewTiles=false){for(const [key,id] of [['skin','skinFill'],['shirt','shirtFill'],['hair','hairFill']])if(state[key+'Colour'])document.querySelectorAll('#'+id+' stop').forEach(n=>n.setAttribute('stop-color',state[key+'Colour']));const backdrop=state.backgroundColour||'#229af0';document.getElementById('background').setAttribute('fill',backdrop);document.getElementById('stage').style.background=backdrop;render(skipPreviewTiles)}
@@ -1683,8 +1714,11 @@ const worldWardrobe={
  'Santiago':{shirt:'guayabera',bottom:'chinos',shirtColour:'#c8ba9e'}
 };
 for(const preset of worldCharacters)if(worldWardrobe[preset.name])Object.assign(preset.changes,worldWardrobe[preset.name]);
-for(const preset of premadeCharacters)if(preset.id==='india-meera')Object.assign(preset.changes,{shirt:'embroideredKurta',bottom:'salwar'});
+for(const preset of premadeCharacters)if(preset.id==='india-meera')Object.assign(preset.changes,{shirt:'kurtaChunni',bottom:'salwar'});
 for(const preset of premadeCharacters)if(preset.id==='india-arjun'||preset.id==='adult-arjan')Object.assign(preset.changes,{shirt:'embroideredKurta',bottom:'straight'});
+
+const referenceOutfits={'adult-harpreet':'nehruVest','adult-omar':'suitTie','adult-jun':'rolledShirt','adult-marcus':'formalVest','india-arjun':'sherwani','world-7':'shirtTie','world-8':'safetyVest','world-21':'utilityVest'};
+for(const p of premadeCharacters)if(referenceOutfits[p.id]){p.changes.shirt=referenceOutfits[p.id];p.changes.shirtColour=WARDROBE[p.changes.shirt].suggestedColour;}
 
 const libraryCategories={all:'All',world:'World',mine:'My Characters',kids:'Kids',adults:'Adults',elders:'Elders',custom:'Custom'};
 const libraryStorageKey='anitoons-library-v1';
@@ -2074,6 +2108,166 @@ reactionTick=function(now){
  if(libraryMode==='animations'&&reaction.playing&&!document.getElementById('animationLoop').checked&&now-reaction.started>=3600){stopDemo();reaction.pausedAt=0;document.getElementById('animationStatus').textContent='Finished · press Replay to watch again';return;}
  originalReactionTick(now);
 };
+
+// Scene previews share the existing character art and pose functions.
+// Each actor owns a state snapshot and a namespaced SVG; editor state stays independent.
+const sceneLocations={
+ living:{label:'Living room',wall:'#f0e5d4',floor:'#cfaf8b'},
+ park:{label:'Park',wall:'#d8edf0',floor:'#a7c18b'},
+ classroom:{label:'Classroom',wall:'#e9eadb',floor:'#ceb598'},
+ cafe:{label:'Café',wall:'#eadbd2',floor:'#b9957c'},
+ street:{label:'Neighbourhood',wall:'#dbe9ef',floor:'#b9bfbd'},
+ studio:{label:'Colour studio',wall:'#e5e3f2',floor:'#c9c4e0'}
+};
+const sceneActions={talk:'Talking',listen:'Listening',smile:'Smiling',wave:'Waving',explain:'Explaining',laugh:'Laughing',walk:'Walking in place',dance:'Happy dance',celebrate:'Celebrating'};
+const scene={location:'living',cast:[],nodes:[],playing:false,raf:0,started:0,elapsed:.9,lastPaint:0,alternate:true};
+const sceneStorageKey='anitoons-scene-v1',sceneNS='http://www.w3.org/2000/svg';
+const sceneTab=document.createElement('button');sceneTab.id='scenesMode';sceneTab.type='button';sceneTab.setAttribute('role','tab');sceneTab.setAttribute('aria-selected','false');sceneTab.textContent='Scenes';document.querySelector('.studio-switch').append(sceneTab);
+const scenePanel=document.createElement('section');scenePanel.id='scenePanel';scenePanel.hidden=true;scenePanel.setAttribute('aria-label','Scene builder');
+scenePanel.innerHTML='<h2 class="animation-heading">Build a little world</h2><p class="animation-subtitle">Choose a place, add your cast, and preview their actions together.</p><h3>Choose a setting</h3><div id="sceneLocations" class="scene-locations"></div><div class="scene-cast-heading"><h3>Your cast <span id="sceneCastCount"></span></h3><button type="button" id="sceneAdd">+ Add character</button></div><div id="sceneCast"></div><label class="scene-alternate"><input type="checkbox" id="sceneAlternate" checked> Take turns talking</label><div class="scene-controls"><button type="button" id="scenePlay">▶ Play scene</button><button type="button" id="sceneReset">Reset actions</button><button type="button" id="sceneSaveImage">Save picture</button><button type="button" id="sceneSaveSvg">Save SVG</button></div><p class="scene-note" id="sceneStatus" role="status">Arrange up to four characters. Talking is a silent motion preview.</p>';
+document.querySelector('.customizer').append(scenePanel);
+const sceneMount=document.createElement('div');sceneMount.id='sceneMount';sceneMount.className='scene-stage';sceneMount.hidden=true;
+sceneMount.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" id="sceneCanvas" viewBox="0 0 1280 800" role="img" aria-label="Animated scene with multiple characters"><g id="sceneBackground"></g><g id="sceneActors"></g></svg>';
+document.getElementById('previewMount').append(sceneMount);
+const sceneCanvas=document.getElementById('sceneCanvas');
+const sceneStyle=document.createElement('style');sceneStyle.textContent=`
+.scene-stage{width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:22px;background:#e9e3d9}.scene-stage>svg{display:block;width:100%;height:100%}.scene-screen .camera-row,.scene-screen .previewbar,.scene-screen .expressions,.scene-screen .reactionControl,.scene-screen #saveStatus,.scene-screen #stage{display:none!important}.scene-screen .workspace{grid-template-columns:minmax(0,1.25fr) minmax(340px,.85fr)}.scene-screen .portrait{align-self:start;position:sticky;top:18px}.scene-screen .appbar .save,.scene-screen #randomCharacter,.scene-screen #undoCharacter{display:none}.scene-locations{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.scene-location{border:1px solid #e2e4e6;background:#f7f7f5;border-radius:12px;padding:7px;font-size:11px}.scene-location svg{display:block;width:100%;height:48px;margin-bottom:5px;border-radius:7px}.scene-location[aria-pressed=true]{border-color:#2476de;background:#edf3ff;box-shadow:0 0 0 1px #2476de}.scene-cast-heading{display:flex;align-items:center;justify-content:space-between;margin-top:15px}.scene-cast-heading h3{margin:0}.scene-cast-heading span{font-size:11px;color:#777}.scene-cast-heading button,.scene-controls button{border:1px solid #dce1e8;background:white;border-radius:10px;padding:10px 12px;font-size:12px}.scene-cast-card{border:1px solid #e4e7eb;border-radius:14px;padding:12px;margin:10px 0;background:#fafbf9}.scene-cast-top{display:flex;align-items:center;gap:8px;margin-bottom:10px}.scene-cast-top strong{font-size:12px;flex:1}.scene-cast-top button{border:0;background:transparent;color:#727b83;font-size:11px}.scene-cast-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.scene-cast-grid label{display:block;font-size:10px;color:#65717b}.scene-cast-grid select{display:block;width:100%;min-width:0;margin-top:4px;background:white;border:1px solid #dce1e4;border-radius:8px;padding:8px 5px;color:#25313c;font:inherit;font-size:12px}.scene-cast-grid .scene-character{grid-column:1/-1}.scene-alternate{display:flex;align-items:center;gap:7px;font-size:12px;margin:17px 0}.scene-controls{display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid #e3e7eb;padding-top:16px}.scene-controls #scenePlay{background:#2476de;color:white;border-color:#2476de}.scene-note{font-size:11px;color:#737c84;line-height:1.5}.scene-stage[hidden],#scenePanel[hidden]{display:none}@media(max-width:700px){.scene-stage{border-radius:0;min-height:240px}.scene-screen .portrait{position:static}.scene-screen .workspace{display:flex}.scene-locations{grid-template-columns:repeat(3,1fr)}}`;
+document.head.append(sceneStyle);
+function sceneBackgroundSvg(key){
+ const p=sceneLocations[key]||sceneLocations.living;
+ let art=`<rect width="1280" height="800" fill="${p.wall}"/><path d="M0 540 H1280 V800 H0Z" fill="${p.floor}"/><path d="M0 540 H1280" stroke="#343d43" stroke-opacity=".13" stroke-width="4"/>`;
+ if(key==='living')art+='<rect x="90" y="83" width="210" height="240" rx="8" fill="#a2bab6" stroke="#f9f3e7" stroke-width="17"/><path d="M195 88 V315 M98 201 H291" stroke="#f9f3e7" stroke-width="9"/><rect x="888" y="270" width="260" height="240" rx="35" fill="#9aaca0"/><rect x="848" y="352" width="340" height="172" rx="30" fill="#8c9d91"/><path d="M890 520 V555 M1144 520 V555" stroke="#695e50" stroke-width="16"/><path d="M710 465 V223" stroke="#8d795f" stroke-width="10"/><path d="M640 250 L666 143 H754 L780 250Z" fill="#fff1cb"/><ellipse cx="710" cy="499" rx="55" ry="9" fill="#8d795f"/>';
+ if(key==='park')art+='<circle cx="1064" cy="115" r="57" fill="#fff0b6"/><path d="M0 415 Q330 295 650 420 T1280 390 V550 H0Z" fill="#b6d09c"/><path d="M150 490 V220 M1100 480 V200" stroke="#9e8060" stroke-width="31"/><g fill="#7ca687"><circle cx="140" cy="200" r="117"/><circle cx="215" cy="255" r="80"/><circle cx="1074" cy="173" r="110"/><circle cx="1150" cy="231" r="85"/></g><path d="M820 800 Q650 620 750 540 H850 Q750 650 1020 800Z" fill="#d9c9a5"/>';
+ if(key==='classroom')art+='<rect x="270" y="90" width="740" height="290" rx="8" fill="#477266" stroke="#b48f67" stroke-width="18"/><path d="M334 166 H675 M334 211 H889 M334 256 H780" stroke="#cbe1ce" stroke-width="8" stroke-linecap="round"/><rect x="62" y="305" width="145" height="222" fill="#bda486"/><path d="M70 365 H199 M70 430 H199" stroke="#987a58" stroke-width="7"/><g fill="#d6c79d"><rect x="85" y="323" width="23" height="36"/><rect x="117" y="310" width="30" height="49"/></g>';
+ if(key==='cafe')art+='<rect x="70" y="70" width="310" height="270" rx="18" fill="#aec1bd" stroke="#805f49" stroke-width="12"/><path d="M225 76 V334" stroke="#805f49" stroke-width="8"/><rect x="780" y="150" width="350" height="210" rx="8" fill="#54685e"/><path d="M825 203 H1070 M825 252 H1007 M825 300 H1046" stroke="#dad6bf" stroke-width="8"/><path d="M760 435 H1200 V535 H760Z" fill="#aa8566"/><path d="M740 435 H1220" stroke="#71553f" stroke-width="20"/>';
+ if(key==='street')art+='<path d="M0 200 H280 V540 H0Z" fill="#d1aa91"/><path d="M300 120 H660 V540 H300Z" fill="#b2bcb8"/><path d="M680 260 H990 V540 H680Z" fill="#d7be87"/><path d="M1010 180 H1280 V540 H1010Z" fill="#a4bac5"/><g fill="#718b92"><path d="M60 260 H140 V355 H60Z M180 260 H250 V355 H180Z M360 180 H450 V290 H360Z M510 180 H600 V290 H510Z M740 325 H830 V420 H740Z M880 325 H950 V420 H880Z M1070 250 H1155 V350 H1070Z"/></g><path d="M0 615 H1280" stroke="#e3ded1" stroke-width="12"/>';
+ if(key==='studio')art+='<circle cx="165" cy="170" r="190" fill="#f4d6b5" opacity=".7"/><circle cx="1120" cy="390" r="220" fill="#b8c9cf" opacity=".65"/><path d="M550 0 L840 540 H650 L360 0Z" fill="#f5effa" opacity=".5"/>';
+ return art;
+}
+for(const [key,p] of Object.entries(sceneLocations)){
+ const b=document.createElement('button');b.type='button';b.className='scene-location';b.dataset.sceneLocation=key;b.innerHTML=`<svg viewBox="0 0 1280 800" aria-hidden="true">${sceneBackgroundSvg(key)}</svg><span>${p.label}</span>`;b.onclick=()=>{scene.location=key;drawSceneBackground();persistScene();};document.getElementById('sceneLocations').append(b);
+}
+function drawSceneBackground(){document.getElementById('sceneBackground').innerHTML=sceneBackgroundSvg(scene.location);for(const b of document.querySelectorAll('[data-scene-location]'))b.setAttribute('aria-pressed',String(b.dataset.sceneLocation===scene.location));}
+function sceneWithState(actor,fn){
+ const before={...state},oldView=cameraView;
+ try{Object.assign(state,actor.appearance,{framing:'full'});cameraView=actor.view;return fn();}
+ finally{Object.assign(state,before);cameraView=oldView;}
+}
+function scenePreset(id){return [...premadeCharacters,...readCharacterLibrary()].find(p=>p.id===id);}
+function newSceneActor(id,index){
+ let appearance;if(id==='current')appearance=JSON.parse(JSON.stringify(state));else{const p=scenePreset(id)||premadeCharacters[0];appearance={...freshCharacterDefaults,...p.changes};}
+ return {id,appearance,view:index%2?'left':'right',action:'talk',position:50};
+}
+function remapSceneRefs(root,prefix){
+ const ids=new Set();
+ for(const el of [root,...root.querySelectorAll('[id]')])if(el.id){
+  if(!el.id.startsWith(prefix))el.id=prefix+el.id;
+  if(ids.has(el.id)&&el.closest('defs'))el.remove();else ids.add(el.id);
+ }
+ for(const el of [root,...root.querySelectorAll('*')])for(const attr of [...el.attributes])if(attr.value.includes('url(#'))el.setAttribute(attr.name,attr.value.replace(/url\(#([^)]*)\)/g,(_,id)=>`url(#${id.startsWith(prefix)?id:prefix+id})`));
+}
+function createSceneActor(actor,index){
+ const oldFrame=svg.dataset.animationFrame;
+ let copy;
+ try{delete svg.dataset.animationFrame;sceneWithState(actor,()=>{applyColours(true);copy=svg.cloneNode(true);});}
+ finally{if(oldFrame!==undefined)svg.dataset.animationFrame=oldFrame;else delete svg.dataset.animationFrame;applyColours(true);}
+ copy.removeAttribute('id');copy.removeAttribute('data-reaction');copy.setAttribute('viewBox','-130 0 1514 2300');copy.setAttribute('overflow','visible');copy.setAttribute('aria-label',actor.id==='current'?'Your character':scenePreset(actor.id)?.name||'Character');copy.querySelector('#background')?.remove();
+ const prefix=`sceneActor${index}-`;
+ for(const e of copy.querySelectorAll('[id]')){e.dataset.sceneLayer=e.id;e.id=prefix+e.id;}
+ for(const style of copy.querySelectorAll('style'))style.textContent=style.textContent.split('.designs')[0];
+ remapSceneRefs(copy,prefix);
+ const scope={querySelector:s=>copy.querySelector(s.replace(/#torso/g,'[data-scene-layer="torso"]')),querySelectorAll:s=>copy.querySelectorAll(s.replace(/#torso/g,'[data-scene-layer="torso"]'))};
+ return {svg:copy,scope,prefix,faceKey:'',layers:Object.fromEntries([...copy.querySelectorAll('[data-scene-layer]')].map(e=>[e.dataset.sceneLayer,e]))};
+}
+function layoutSceneActors(){
+ const n=scene.cast.length,scale=n===1?1:n===2?.96:n===3?.81:.68;
+ const positions=n===1?[640]:n===2?[365,915]:n===3?[240,640,1040]:[160,480,800,1120];
+ for(const [i,node] of scene.nodes.entries()){
+  const height=700*scale,width=460*scale,cx=positions[i]+(scene.cast[i].position-50)*2;
+  for(const [a,v] of Object.entries({x:cx-width/2,y:720-681*scale,width,height}))node.svg.setAttribute(a,v);
+ }
+}
+function rebuildSceneCast(){
+ scene.nodes=scene.cast.map(createSceneActor);document.getElementById('sceneActors').replaceChildren(...scene.nodes.map(n=>n.svg));layoutSceneActors();paintScene(scene.elapsed);
+}
+function paintScene(seconds){
+ const talkers=scene.cast.map((a,i)=>a.action==='talk'?i:-1).filter(i=>i>=0),speaker=talkers.length?talkers[Math.floor(seconds/2.4)%talkers.length]:-1;
+ for(const [i,actor] of scene.cast.entries())sceneWithState(actor,()=>{
+  const node=scene.nodes[i];if(!node)return;
+  const t=seconds+i*.23,action=actor.action,active=action!=='talk'||!scene.alternate||speaker===i;
+  const p=reactionPose(action==='talk'?(active?'explain':'smile'):action==='listen'?'nod':action,t);
+  if(action==='talk'&&active)p.mouth=['closed','EE','A','O','EE','MBP'][Math.floor(t*7)%6];
+  if(action==='walk'||action==='dance')poseWalking(t*(action==='dance'?.7:1),node.scope);
+  if(action!=='walk')setBodyArmPose(p.arms||restingBodyPose(),p.hands||{},node.scope);
+  const faceKey=[p.mouth,p.eyes,p.brows,p.gazeX,p.gazeY,p.wink].join(':');
+  if(node.faceKey!==faceKey){
+   const parts={eyeGroup:animationEyesSvg(p),eyebrowGroup:browSvg(p.brows),mouthGroup:`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(p.mouth)}</g>`,beardGroup:jawBeardSvg(p.mouth),moustacheGroup:moustacheSvg(state.moustache)};
+   for(const [id,art] of Object.entries(parts)){node.layers[id].innerHTML=cameraMarkup(id,art);remapSceneRefs(node.layers[id],node.prefix);}node.faceKey=faceKey;
+  }
+  for(const id of reactionHeadIds)node.layers[id]?.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${p.angle} 627 900)`);
+  // New hand shapes reference this actor's own skin gradient.
+  for(const el of node.svg.querySelectorAll('[data-hand-action]'))remapSceneRefs(el,node.prefix);
+ });
+}
+function sceneTick(now){
+ if(!scene.playing||libraryMode!=='scenes')return;
+ if(now-scene.lastPaint>=66){scene.elapsed=(now-scene.started)/1000;paintScene(scene.elapsed);scene.lastPaint=now;}
+ scene.raf=requestAnimationFrame(sceneTick);
+}
+function pauseScene(){scene.playing=false;if(scene.raf)cancelAnimationFrame(scene.raf);scene.raf=0;document.getElementById('scenePlay').textContent='▶ Play scene';}
+function persistScene(){try{localStorage.setItem(sceneStorageKey,JSON.stringify({version:1,location:scene.location,cast:scene.cast,alternate:scene.alternate}));}catch{document.getElementById('sceneStatus').textContent='Scene preview works, but this browser could not save it.';}}
+function drawSceneCastControls(){
+ const root=document.getElementById('sceneCast');root.replaceChildren();
+ const all=[{id:'current',name:'Current character'},...premadeCharacters,...readCharacterLibrary()];
+ for(const [i,actor] of scene.cast.entries()){
+  const card=document.createElement('div');card.className='scene-cast-card';
+  const top=document.createElement('div');top.className='scene-cast-top';const title=document.createElement('strong');title.textContent=`Character ${i+1}`;top.append(title);
+  const remove=document.createElement('button');remove.type='button';remove.textContent='Remove';remove.disabled=scene.cast.length===1;remove.setAttribute('aria-label',`Remove character ${i+1}`);remove.onclick=()=>{pauseScene();scene.cast.splice(i,1);drawSceneCastControls();rebuildSceneCast();persistScene();};top.append(remove);card.append(top);
+  const grid=document.createElement('div');grid.className='scene-cast-grid';
+  const select=(label,field,options)=>{
+   const wrap=document.createElement('label');wrap.textContent=label;const input=document.createElement('select');input.setAttribute('aria-label',`${label} for character ${i+1}`);
+   for(const [value,text] of options){const option=document.createElement('option');option.value=value;option.textContent=text;input.append(option);}input.value=actor[field];
+   input.onchange=()=>{pauseScene();if(field==='id'){Object.assign(actor,{...newSceneActor(input.value,i),view:actor.view,action:actor.action,position:actor.position});drawSceneCastControls();}else actor[field]=input.value;rebuildSceneCast();persistScene();};wrap.append(input);grid.append(wrap);return wrap;
+  };
+  select('Character','id',all.map(p=>[p.id,p.name+(p.country?' · '+p.country:'')])).className='scene-character';
+  select('Action','action',Object.entries(sceneActions));select('Facing','view',[['right','Right ¾'],['front','Front'],['left','Left ¾']]);
+  const label=document.createElement('label');label.textContent='Move left / right';label.className='scene-character';const slider=document.createElement('input');slider.type='range';slider.min=0;slider.max=100;slider.value=actor.position;slider.setAttribute('aria-label',`Position for character ${i+1}`);slider.style.width='100%';slider.oninput=()=>{actor.position=+slider.value;layoutSceneActors();persistScene();};label.append(slider);grid.append(label);
+  if(actor.id==='current'){const refresh=document.createElement('button');refresh.type='button';refresh.textContent='Use latest customizations';refresh.onclick=()=>{pauseScene();actor.appearance=JSON.parse(JSON.stringify(state));rebuildSceneCast();persistScene();};grid.append(refresh);}
+  card.append(grid);root.append(card);
+ }
+ document.getElementById('sceneCastCount').textContent=`${scene.cast.length} / 4`;document.getElementById('sceneAdd').disabled=scene.cast.length>=4;
+}
+function initializeScene(){
+ if(scene.cast.length)return;
+ try{const saved=JSON.parse(localStorage.getItem(sceneStorageKey)||'null');if(saved&&saved.version===1&&sceneLocations[saved.location]&&Array.isArray(saved.cast)&&saved.cast.length>0&&saved.cast.length<=4){
+  scene.location=saved.location;scene.alternate=saved.alternate!==false;
+  scene.cast=saved.cast.filter(a=>a&&sceneActions[a.action]&&Object.hasOwn(cameraDirections,a.view)&&a.appearance&&typeof a.appearance==='object').map((a,i)=>{
+   const fresh=newSceneActor(a.id,i);for(const [key,value] of Object.entries(a.appearance))if(Object.hasOwn(freshCharacterDefaults,key)&&typeof value===typeof freshCharacterDefaults[key])fresh.appearance[key]=value;
+   return {...fresh,action:a.action,view:a.view,position:Math.max(0,Math.min(100,Number(a.position)||50))};
+  });
+ }}catch{}
+ if(!scene.cast.length)scene.cast=[newSceneActor('current',0),newSceneActor('adult-harpreet',1)];
+ // Use a known preset if a historical ID no longer exists.
+ for(const a of scene.cast)if(a.id!=='current'&&!scenePreset(a.id)){const first=premadeCharacters[0];a.id=first.id;}
+ document.getElementById('sceneAlternate').checked=scene.alternate;drawSceneCastControls();drawSceneBackground();rebuildSceneCast();
+}
+const characterStudioSwitch=switchStudioMode;
+switchStudioMode=function(mode){
+ pauseScene();characterStudioSwitch(mode==='scenes'?'scenes':mode);
+ const inScene=mode==='scenes';if(inScene)libraryMode='scenes';
+ document.querySelector('.app').classList.toggle('scene-screen',inScene);scenePanel.hidden=!inScene;sceneMount.hidden=!inScene;sceneTab.setAttribute('aria-selected',String(inScene));
+ if(inScene){for(const id of ['charactersMode','customizeMode','animationsMode'])document.getElementById(id).setAttribute('aria-selected','false');document.getElementById('characterLibrary').hidden=true;document.getElementById('nextAnimations').hidden=true;initializeScene();}
+};
+sceneTab.onclick=()=>switchStudioMode('scenes');
+document.getElementById('sceneAdd').onclick=()=>{if(scene.cast.length>=4)return;pauseScene();scene.cast.push(newSceneActor(premadeCharacters[(scene.cast.length*7)%premadeCharacters.length].id,scene.cast.length));drawSceneCastControls();rebuildSceneCast();persistScene();};
+document.getElementById('sceneAlternate').onchange=e=>{scene.alternate=e.target.checked;paintScene(scene.elapsed);persistScene();};
+document.getElementById('scenePlay').onclick=()=>{if(scene.playing)pauseScene();else{scene.playing=true;scene.started=performance.now()-scene.elapsed*1000;scene.lastPaint=0;document.getElementById('scenePlay').textContent='Ⅱ Pause scene';scene.raf=requestAnimationFrame(sceneTick);}};
+document.getElementById('sceneReset').onclick=()=>{pauseScene();scene.elapsed=.9;rebuildSceneCast();};
+document.getElementById('sceneSaveSvg').onclick=()=>saveFile(toSVGString(sceneCanvas),'anitoons-scene.svg','image/svg+xml');
+document.getElementById('sceneSaveImage').onclick=()=>{
+ const url=URL.createObjectURL(new Blob([toSVGString(sceneCanvas)],{type:'image/svg+xml'})),picture=new Image();picture.onload=()=>{const canvas=document.createElement('canvas');canvas.width=1280;canvas.height=800;canvas.getContext('2d').drawImage(picture,0,0,1280,800);URL.revokeObjectURL(url);canvas.toBlob(blob=>{if(blob)saveFile(blob,'anitoons-scene.png','image/png');},'image/png');};picture.onerror=()=>{URL.revokeObjectURL(url);document.getElementById('sceneStatus').textContent='Picture export failed. Please try Save SVG.';};picture.src=url;
+};
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseScene();});
 
 </script></body></html>
 

@@ -39,6 +39,8 @@
    bank[id][key]=node.svg.outerHTML;
   }
  }
- parent.postMessage({type:'anitoons-delivery-cast',bank},location.origin);
+ const publish=()=>parent.postMessage({type:'anitoons-delivery-cast',bank},location.origin);
+ window.addEventListener('message',e=>{if(e.source===parent&&e.origin===location.origin&&e.data?.type==='anitoons-delivery-request')publish();});
+ publish();
  }catch(error){console.warn('Delivery rig could not load',error);parent.postMessage({type:'anitoons-delivery-cast-error'},location.origin);}
 })();

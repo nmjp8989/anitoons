@@ -1,7 +1,7 @@
 /* Reuse the current Anitoons character rig without exposing studio controls in Play mode. */
 (function(){
  if(!new URLSearchParams(location.search).has('missionBridge'))return;
- if(new URLSearchParams(location.search).get('missionBridge')==='delivery'){const script=document.createElement('script');script.src='missions/delivery-bridge.js';document.body.append(script);return;}
+ if(new URLSearchParams(location.search).get('missionBridge')==='delivery'){const script=document.createElement('script');script.src='missions/delivery-bridge.js?v=003.5';document.body.append(script);return;}
  try{
  const original={...state},oldView=cameraView,poses={};
  for(const [i,pose] of ['stand','drink','sit','ride'].entries()){

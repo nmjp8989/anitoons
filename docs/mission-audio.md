@@ -1,81 +1,41 @@
-# Stored dialogue pipeline
+# Mission voices
 
-Mission JSON dialogue → one cached MiMo MP3 per line → manifest → browser playback.
-This automates dialogue production, not whole mission writing, artwork or animation.
-No API key or live TTS calls are used in the browser.
+Mission JSON dialogue → cached MiMo MP3 per line → manifest → browser playback.
+The browser uses stored audio, never the API key. No live TTS is needed in play.
 
-## One-time GitHub setup
+## Setup
 
-Repository Settings → Secrets and variables → Actions → New repository secret:
+Only `MIMO_API_KEY` is needed in repository Settings → Secrets and variables →
+Actions. The three reference samples are already committed at the repository root.
+`voices.json` maps Harpreet to male_sample.wav, Meena to female_sample.wav and Kabir
+ to kid_sample.mp3. There is no voice-reference URL secret or private ZIP step.
 
-1. `MIMO_API_KEY`: your MiMo key.
-2. `VOICE_REFERENCES_URL`: a private direct HTTPS download URL for a ZIP containing
-   `voices.json` plus reference WAV/MP3 files. See `voice-references/README.md`.
+After a mission JSON or reference changes on main, Actions generates Mission 003
+by default. Actions → Generate mission dialogue → Run workflow also lets you select
+Mission 001, Mission 002 or all missions. Updating a secret alone does not start a
+workflow. The workflow commits the generated MP3s and requests a GitHub Pages build.
+The repository must permit Actions writes and have branch-based Pages configured.
+No force pushes are used; a concurrent change to main may require a rerun.
 
-The current repository is public. The reference bundle stays private; generated
-dialogue is public game content. Do not put the API key in source or mission JSON.
-The connector cannot manage GitHub secrets; enter them in GitHub settings.
-
-Actions → **Generate mission dialogue** → Run workflow. Subsequent mission JSON
-changes on main trigger generation automatically. Secret updates do not trigger
-a run; use Run workflow after first setup or replacing a voice bundle.
-Actions must permit repository writes for the generated-audio commit.
-If main requires PRs, the push will fail; retrieve the generated artifact and
-commit it through the normal PR process instead. No force pushes are performed.
-
-## Local use
+## Local commands
 
 ```sh
 python3 -m pip install -r tools/requirements-audio.txt
-# Place the samples and voices.json in voice-references/ first.
-python3 tools/build_mission_audio.py --dry-run
-# Set MIMO_API_KEY privately in your shell, then:
-python3 tools/build_mission_audio.py
+python3 tools/build_mission_audio.py --mission missions/adventures/last-delivery.json --dry-run
+# Set MIMO_API_KEY privately in the shell, then:
+python3 tools/build_mission_audio.py --mission missions/adventures/last-delivery.json
+python3 tools/genaudio.py -i story.txt --voice male_sample.wav -o test3.mp3
 ```
 
-Generate a single file using the original interface:
+Use `--force` only for overwriting a single-file output. WAV output requires ffmpeg.
+The batch builder hashes text, speaker, model and reference contents/type; unchanged
+lines make zero API calls. Old files stay available for old mission versions.
+All definitions and references are validated before generation. No automatic paid
+API retries occur. A failed run preserves completed clips as a workflow artifact;
+copy those into missions/audio before retrying to avoid paying for them again.
 
-```sh
-python3 tools/genaudio.py -i story.txt --voice output.wav -o test3.mp3
-```
-
-Use `--force` to replace an existing single-file output. WAV output requires
-ffmpeg. WAV and MP3 voice inputs use their corresponding MIME type. The MiMo
-request schema otherwise follows the user's working script; live API behavior
-must be verified with a real key and sample.
-
-## Per-character voices and caching
-
-Every dialogue entry is generated, including hints/error responses under
-`dialogues`. Choice labels and standalone UI hints are not spoken.
-Set mission `voiceSpeaker` or per-dialogue `speaker` to a key in voices.json.
-Otherwise `harpreet` is used.
-
-The clip filename hashes exact text, model, endpoint, speaker and reference sample
-contents/type. Unchanged lines make zero API calls. Existing files are never
-overwritten. Old clips are kept so cached/previous mission versions keep working.
-The default limit is 100 new clips per invocation; use `--dry-run` to inspect
-the batch and `--max-new-lines` locally to change it. There are no automatic
-API retries (a retry can cause duplicate billing).
-
-The builder validates all missions and voice files before the first API call.
-It saves clips as they complete, but only publishes manifests after the batch
-succeeds. On Actions failure, download the `mission-dialogue` artifact and copy
-its contents into `missions/audio/` before retrying if you want to preserve
-completed clips. Otherwise the next runner can generate those lines again.
-
-## Playback and animation hooks
-
-The player fetches `missions/audio/<mission-id>.json` and plays the matching
-line when a dialogue opens. New dialogue interrupts old audio; reset stops it;
-the Sound button mutes both voice and music; tab hiding pauses voice. Missing
-audio or text mismatches leave the subtitle playable without speech.
-
-`mission-voice-start` includes `{id, speaker, audio}` in event detail.
-`mission-voice-end` signals completion or interruption. These are hooks for the
-upcoming multi-character timeline/rig integration; this change does not implement
-lip-sync, character gestures or completion-triggered story sequences yet.
-
-After generated audio is committed, use the normal static-site deployment.
-GitHub-token commits do not trigger other push workflows; this workflow does
-not automatically publish Pages. If needed, deploy manually after generation.
+Per-dialogue `speaker` selects a key in voices.json; `voiceSpeaker` sets a mission
+default. Subtitles always remain available. Choice labels/UI hints are not voiced.
+Mission 003 sequences await the actual audio end (or the player skipping) before
+continuing. Mouth poses use an audio amplitude approximation, not phoneme alignment.
+Multiple actors use pose banks from the existing Anitoons SVG rig.

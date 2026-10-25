@@ -2,6 +2,12 @@ name: Generate mission dialogue
 
 on:
   workflow_dispatch:
+    inputs:
+      mission:
+        description: Mission to voice
+        type: choice
+        options: [last-delivery, rooftop-kite, missing-key, all]
+        default: last-delivery
   push:
     branches: [main]
     paths:
@@ -9,12 +15,15 @@ on:
       - 'missions/adventures/*.json'
       - 'tools/genaudio.py'
       - 'tools/build_mission_audio.py'
-      - 'tools/fetch_voice_references.py'
       - 'tools/requirements-audio.txt'
+      - 'voices.json'
+      - '*_sample.wav'
+      - '*_sample.mp3'
       - '.github/workflows/mission-audio.yml'
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: mission-dialogue
@@ -36,20 +45,28 @@ jobs:
       - name: Check credentials
         env:
           MIMO_API_KEY: ${{ secrets.MIMO_API_KEY }}
-          VOICE_REFERENCES_URL: ${{ secrets.VOICE_REFERENCES_URL }}
-        run: |
-          test -n "$MIMO_API_KEY" || { echo 'Add repository secret MIMO_API_KEY'; exit 1; }
-          test -n "$VOICE_REFERENCES_URL" || { echo 'Add repository secret VOICE_REFERENCES_URL'; exit 1; }
-      - name: Download private reference samples
+        run: test -n "$MIMO_API_KEY" || { echo 'Add repository secret MIMO_API_KEY'; exit 1; }
+      - name: Select mission and validate references
         env:
-          VOICE_REFERENCES_URL: ${{ secrets.VOICE_REFERENCES_URL }}
-        run: python tools/fetch_voice_references.py
-      - name: Validate mission batch
-        run: python tools/build_mission_audio.py --dry-run
+          SELECTED_MISSION: ${{ inputs.mission || 'last-delivery' }}
+        run: |
+          case "$SELECTED_MISSION" in
+            all) echo 'MISSION_FILE=' >> "$GITHUB_ENV" ;;
+            missing-key) echo 'MISSION_FILE=missions/mission.json' >> "$GITHUB_ENV" ;;
+            last-delivery|rooftop-kite) echo "MISSION_FILE=missions/adventures/$SELECTED_MISSION.json" >> "$GITHUB_ENV" ;;
+            *) echo 'Unknown mission'; exit 1 ;;
+          esac
       - name: Generate only missing or changed lines
         env:
           MIMO_API_KEY: ${{ secrets.MIMO_API_KEY }}
-        run: python tools/build_mission_audio.py
+        run: |
+          if [ -n "$MISSION_FILE" ]; then
+            python tools/build_mission_audio.py --mission "$MISSION_FILE" --dry-run
+            python tools/build_mission_audio.py --mission "$MISSION_FILE"
+          else
+            python tools/build_mission_audio.py --dry-run --max-new-lines 200
+            python tools/build_mission_audio.py --max-new-lines 200
+          fi
       - name: Preserve clips for recovery
         if: always()
         uses: actions/upload-artifact@v4
@@ -65,3 +82,7 @@ jobs:
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Generate mission voice clips'
           git push origin HEAD:main
+      - name: Request GitHub Pages rebuild with stored audio
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds" --silent

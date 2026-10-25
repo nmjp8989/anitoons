@@ -1,6 +1,7 @@
 /* Reuse the current Anitoons character rig without exposing studio controls in Play mode. */
 (function(){
  if(!new URLSearchParams(location.search).has('missionBridge'))return;
+ if(new URLSearchParams(location.search).get('missionBridge')==='delivery'){const script=document.createElement('script');script.src='missions/delivery-bridge.js';document.body.append(script);return;}
  try{
  const original={...state},oldView=cameraView,poses={};
  for(const [i,pose] of ['stand','drink','sit','ride'].entries()){
@@ -28,3 +29,4 @@
  parent.postMessage({type:'anitoons-mission-art',poses},location.origin);
  }catch(error){console.warn('Mission uses its built-in character fallback:',error);}
 })();
+

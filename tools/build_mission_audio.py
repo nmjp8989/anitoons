@@ -83,7 +83,7 @@ def build(jobs, manifests, output_dir, api_key, timeout=120):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--mission', action='append', type=Path, help='Mission JSON; repeat for multiple missions (default: all)')
-    parser.add_argument('--voice-dir', type=Path, default=ROOT / 'voice-references')
+    parser.add_argument('--voice-dir', type=Path, default=ROOT)
     parser.add_argument('--output-dir', type=Path, default=ROOT / 'missions/audio')
     parser.add_argument('--dry-run', action='store_true')
     parser.add_argument('--max-new-lines', type=int, default=100)

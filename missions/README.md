@@ -57,3 +57,22 @@ Also test in a browser: home first, outside first, drag cup, tap-to-combine key,
 ## Next
 
 Author a second genuine adventure with different objects/scenes (adding any new SVG artwork to the prop catalogue). Then add a small mission picker and a simple mission-building UI. The core does not require changing for new dialogue, scene transitions, conditions or puzzles.
+
+## Mission 003 — The Last Delivery
+
+Open `/missions/delivery.html` (or `/missions/?mission=last-delivery`). This is a
+fullscreen dusk adventure with three playable locations, a cinema finale, three
+characters from the existing Anitoons rig, stored dialogue, approximate audio-driven
+mouth motion, short action sequences, inventory combinations and autosave.
+
+Recover the parcel address with the desk lamp, tighten the scooter terminal with
+Meena's spanner, and trade Kabir either a paper/pencil pinwheel or a warm chai for
+the headlight fuse. Fit the fuse, then take Clocktower Hill. The flooded underpass
+allows a retry. Tool repair and the trade can be solved in either order.
+
+The shared `MissionEngine` still owns puzzle state. `sequence-runner.js` runs the
+walking/pose/voice/effect cues. `delivery-bridge.js` builds pose banks using the
+existing studio rig. The new presentation is separate from the legacy Mission
+001/002 player. See `docs/mission-audio.md` for the single-secret voice pipeline.
+
+Checks: `node tests/missions-003.cjs` plus the existing mission/audio tests.

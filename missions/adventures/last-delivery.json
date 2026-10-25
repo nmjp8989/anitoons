@@ -1,0 +1,1155 @@
+{
+  "id": "last-delivery",
+  "version": 3,
+  "number": "003",
+  "title": "The Last Delivery",
+  "subtitle": "One parcel. One promise. Before the lights go out.",
+  "voiceSpeaker": "harpreet",
+  "startScene": "home",
+  "startMessage": "intro",
+  "hero": {
+    "id": "harpreet",
+    "name": "Harpreet"
+  },
+  "cast": {
+    "harpreet": {
+      "name": "Harpreet",
+      "role": "THE COURIER",
+      "colour": "#e9b65d"
+    },
+    "meena": {
+      "name": "Meena",
+      "role": "TEA & REPAIRS",
+      "colour": "#75d4c0"
+    },
+    "kabir": {
+      "name": "Kabir",
+      "role": "LOCAL SPACE EXPLORER",
+      "colour": "#e5929e"
+    }
+  },
+  "inventoryItems": {
+    "parcel": {
+      "label": "Rain-soaked parcel",
+      "icon": "parcel"
+    },
+    "paper": {
+      "label": "Coloured paper",
+      "icon": "paper"
+    },
+    "pencil": {
+      "label": "Pencil",
+      "icon": "pencil"
+    },
+    "pinwheel": {
+      "label": "Paper pinwheel",
+      "icon": "pinwheel"
+    },
+    "wrench": {
+      "label": "Spanner",
+      "icon": "wrench"
+    },
+    "chai": {
+      "label": "Warm chai",
+      "icon": "chai"
+    },
+    "fuse": {
+      "label": "Headlight fuse",
+      "icon": "fuse"
+    }
+  },
+  "scenes": {
+    "home": {
+      "name": "Above the old lane",
+      "chapter": "01 / A PROMISE",
+      "music": "home",
+      "heroX": 590,
+      "objects": [
+        {
+          "id": "lamp",
+          "name": "Desk lamp",
+          "x": 300,
+          "y": 300,
+          "w": 95,
+          "h": 150,
+          "icon": "lamp"
+        },
+        {
+          "id": "parcel",
+          "name": "Soaked parcel",
+          "x": 390,
+          "y": 420,
+          "w": 105,
+          "h": 75,
+          "icon": "parcel",
+          "if": "!inventory.parcel+!delivered"
+        },
+        {
+          "id": "paper",
+          "name": "Coloured paper",
+          "x": 237,
+          "y": 427,
+          "w": 85,
+          "h": 50,
+          "icon": "paper",
+          "if": "!inventory.paper+!pinwheelMade+!fuseFound"
+        },
+        {
+          "id": "pencil",
+          "name": "Pencil",
+          "x": 337,
+          "y": 451,
+          "w": 40,
+          "h": 28,
+          "icon": "pencil",
+          "if": "!inventory.pencil+!pinwheelMade"
+        },
+        {
+          "id": "note",
+          "name": "Courier’s note",
+          "x": 931,
+          "y": 214,
+          "w": 98,
+          "h": 120,
+          "icon": "note"
+        },
+        {
+          "id": "door",
+          "name": "Down to the courtyard",
+          "x": 1120,
+          "y": 230,
+          "w": 140,
+          "h": 340,
+          "icon": "door"
+        }
+      ]
+    },
+    "courtyard": {
+      "name": "Rain on the courtyard",
+      "chapter": "02 / A SMALL SETBACK",
+      "music": "courtyard",
+      "heroX": 480,
+      "objects": [
+        {
+          "id": "homeDoor",
+          "name": "Upstairs",
+          "x": 30,
+          "y": 235,
+          "w": 145,
+          "h": 315,
+          "icon": "door"
+        },
+        {
+          "id": "scooter",
+          "name": "Your scooter",
+          "x": 570,
+          "y": 357,
+          "w": 450,
+          "h": 230,
+          "icon": "scooter"
+        },
+        {
+          "id": "kabir",
+          "name": "Kabir",
+          "x": 1045,
+          "y": 333,
+          "w": 140,
+          "h": 260,
+          "icon": "actor"
+        },
+        {
+          "id": "stallDoor",
+          "name": "Meena’s corner",
+          "x": 1132,
+          "y": 145,
+          "w": 145,
+          "h": 100,
+          "icon": "exit"
+        },
+        {
+          "id": "flood",
+          "name": "Flood warning",
+          "x": 275,
+          "y": 310,
+          "w": 130,
+          "h": 115,
+          "icon": "flood"
+        },
+        {
+          "id": "depart",
+          "name": "Take the hill road",
+          "x": 760,
+          "y": 575,
+          "w": 235,
+          "h": 55,
+          "icon": "exit",
+          "if": "labelRead+cableFixed+fuseInstalled"
+        }
+      ]
+    },
+    "stall": {
+      "name": "Meena’s tea & repairs",
+      "chapter": "03 / THE CORNER LIGHT",
+      "music": "stall",
+      "heroX": 510,
+      "objects": [
+        {
+          "id": "back",
+          "name": "Back to the courtyard",
+          "x": 20,
+          "y": 262,
+          "w": 150,
+          "h": 315,
+          "icon": "exit"
+        },
+        {
+          "id": "meena",
+          "name": "Meena",
+          "x": 875,
+          "y": 242,
+          "w": 165,
+          "h": 310,
+          "icon": "actor"
+        },
+        {
+          "id": "tools",
+          "name": "Tool roll",
+          "x": 688,
+          "y": 391,
+          "w": 125,
+          "h": 85,
+          "icon": "wrench",
+          "if": "!inventory.wrench+!cableFixed"
+        },
+        {
+          "id": "chai",
+          "name": "Fresh chai",
+          "x": 1085,
+          "y": 393,
+          "w": 80,
+          "h": 84,
+          "icon": "chai",
+          "if": "!inventory.chai+!fuseFound"
+        },
+        {
+          "id": "radio",
+          "name": "Old radio",
+          "x": 380,
+          "y": 323,
+          "w": 125,
+          "h": 85,
+          "icon": "radio"
+        },
+        {
+          "id": "poster",
+          "name": "Tonight at the Picture House",
+          "x": 179,
+          "y": 144,
+          "w": 127,
+          "h": 192,
+          "icon": "poster"
+        }
+      ]
+    }
+  },
+  "dialogues": {
+    "intro": {
+      "text": "One last parcel. The rain has blurred the address, and whoever sent it wrote: before the lights go out.",
+      "speaker": "harpreet"
+    },
+    "note": {
+      "text": "A handwritten note: keep this dry. Tonight, a whole neighbourhood is counting on one little light.",
+      "speaker": "harpreet"
+    },
+    "parcelTaken": {
+      "text": "Still warm inside. But the label is soaked. Better dry it gently, without opening the parcel.",
+      "speaker": "harpreet"
+    },
+    "lamp": {
+      "text": "A warm desk lamp. Good for drying something delicate.",
+      "speaker": "harpreet"
+    },
+    "labelDry": {
+      "text": "There it is. The Old Picture House, Clocktower Hill. A replacement projector bulb. Tonight is their first show in years.",
+      "speaker": "harpreet"
+    },
+    "paperTaken": {
+      "text": "A square of coloured paper. Too cheerful to leave behind.",
+      "speaker": "harpreet"
+    },
+    "pencilTaken": {
+      "text": "A pencil. Every delivery needs a little paperwork.",
+      "speaker": "harpreet"
+    },
+    "pinwheelMade": {
+      "text": "A fold, a twist, and a pencil for a handle. One extremely advanced wind-powered spaceship.",
+      "speaker": "harpreet"
+    },
+    "courtyardFirst": {
+      "text": "The rain has stopped. Unfortunately, my scooter seems to have taken the evening off.",
+      "speaker": "harpreet"
+    },
+    "scooterBroken": {
+      "text": "A loose battery terminal, and an empty headlight fuse holder. Meena will know where to find a spanner.",
+      "speaker": "harpreet"
+    },
+    "needParcel": {
+      "text": "I should collect the parcel upstairs before heading out.",
+      "speaker": "harpreet"
+    },
+    "needLabel": {
+      "text": "I need a readable address before choosing a road.",
+      "speaker": "harpreet"
+    },
+    "needCable": {
+      "text": "That loose terminal is still stopping the engine.",
+      "speaker": "harpreet"
+    },
+    "needFuse": {
+      "text": "The engine is ready, but the hill road will be dark. I still need the headlight fuse.",
+      "speaker": "harpreet"
+    },
+    "flood": {
+      "text": "The underpass is flooded. The high road past the clocktower should still be open.",
+      "speaker": "harpreet"
+    },
+    "kabirHello": {
+      "text": "Captain Kabir reporting! I found a tiny space crystal beside your scooter. It fits perfectly in my spaceship.",
+      "speaker": "kabir",
+      "choices": [
+        {
+          "label": "Ask about the crystal",
+          "event": "ask:crystal"
+        },
+        {
+          "label": "Ask about the Picture House",
+          "event": "ask:picture"
+        }
+      ]
+    },
+    "crystal": {
+      "text": "It is your fuse? Oh. Can we trade? Something that spins, or something warm. Space is surprisingly cold.",
+      "speaker": "kabir"
+    },
+    "picture": {
+      "text": "The blue lantern on the hill! Mum says the cinema opens tonight, if the projector works. Are you taking its missing bit?",
+      "speaker": "kabir"
+    },
+    "kabirAfter": {
+      "text": "A real film on a giant screen! Save me a seat near the front.",
+      "speaker": "kabir"
+    },
+    "pinwheelTrade": {
+      "text": "Whoa! A wind engine! Definitely an upgrade. Here is your little glass fuse, captain.",
+      "speaker": "kabir"
+    },
+    "chaiTrade": {
+      "text": "Warm chai! That is much better than a cold space crystal. Here, your fuse.",
+      "speaker": "kabir"
+    },
+    "fuseFit": {
+      "text": "A perfect fit. And there is the headlight. We are back in business.",
+      "speaker": "harpreet"
+    },
+    "meenaHello": {
+      "text": "Last delivery, Harpreet? You have that one-more-problem face. What has the scooter done now?",
+      "speaker": "meena",
+      "choices": [
+        {
+          "label": "The battery terminal is loose",
+          "event": "ask:tools"
+        },
+        {
+          "label": "Who is waiting for this parcel?",
+          "event": "ask:cinema"
+        }
+      ]
+    },
+    "tools": {
+      "text": "Take the spanner from my tool roll. Tighten the terminal, gently. And have a chai if you need one.",
+      "speaker": "meena"
+    },
+    "cinema": {
+      "text": "The Picture House has been dark for years. Tonight, the owner promised a free show. Without that bulb, it stays a promise.",
+      "speaker": "meena"
+    },
+    "wrenchTaken": {
+      "text": "Just the size I need. I will bring it back tomorrow.",
+      "speaker": "harpreet"
+    },
+    "chaiTaken": {
+      "text": "One warm chai. Meena always makes an extra.",
+      "speaker": "harpreet"
+    },
+    "repair": {
+      "text": "A quarter turn. A snug connection. Let us hear that engine again.",
+      "speaker": "harpreet"
+    },
+    "radio": {
+      "text": "The radio says more rain is coming. We have a little time, but not the whole evening.",
+      "speaker": "harpreet"
+    },
+    "poster": {
+      "text": "Tonight: the return of the Old Picture House. Doors open at dusk. Someone has drawn a little blue lantern beside the address.",
+      "speaker": "harpreet"
+    },
+    "ready": {
+      "text": "Parcel safe. Engine running. Headlight on. Now, which way to the Picture House?",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "Take the underpass",
+          "event": "route:underpass"
+        },
+        {
+          "label": "Climb Clocktower Hill",
+          "event": "route:hill"
+        }
+      ]
+    },
+    "wrongRoad": {
+      "text": "Water right across the underpass. No delivery is worth losing the scooter. We will take the hill.",
+      "speaker": "harpreet"
+    },
+    "road": {
+      "text": "Come on, old friend. One more climb. There is a whole audience waiting for us.",
+      "speaker": "harpreet"
+    },
+    "arrival": {
+      "text": "A blue lantern. A locked door. Then footsteps from inside. I think we made it.",
+      "speaker": "harpreet"
+    },
+    "delivered": {
+      "text": "The bulb is in. The projector is turning. Sometimes a small parcel carries a whole evening.",
+      "speaker": "harpreet"
+    },
+    "finalKid": {
+      "text": "You did it! Look, the screen is lighting up!",
+      "speaker": "kabir"
+    },
+    "cantCombine": {
+      "text": "That does not help here. Let me look at what this actually needs.",
+      "speaker": "harpreet"
+    },
+    "alreadyDry": {
+      "text": "The address is clear now: Old Picture House, Clocktower Hill.",
+      "speaker": "harpreet"
+    },
+    "alreadyFixed": {
+      "text": "The cable is secure. No need to keep tightening it.",
+      "speaker": "harpreet"
+    },
+    "saveResume": {
+      "text": "Back to the last delivery. The neighbourhood is still waiting.",
+      "speaker": "harpreet"
+    }
+  },
+  "rules": [
+    {
+      "when": "click:parcel",
+      "actions": [
+        "inventory:parcel",
+        "sequence:collectParcel"
+      ],
+      "if": "!inventory.parcel",
+      "in": "home"
+    },
+    {
+      "when": "click:lamp",
+      "actions": [
+        "message:lamp"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:note",
+      "actions": [
+        "message:note"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:paper",
+      "actions": [
+        "inventory:paper",
+        "message:paperTaken"
+      ],
+      "if": "!pinwheelMade+!inventory.paper",
+      "in": "home"
+    },
+    {
+      "when": "click:pencil",
+      "actions": [
+        "inventory:pencil",
+        "message:pencilTaken"
+      ],
+      "if": "!pinwheelMade+!inventory.pencil",
+      "in": "home"
+    },
+    {
+      "when": "drop:parcel:lamp",
+      "actions": [
+        "message:alreadyDry"
+      ],
+      "if": "labelRead",
+      "in": "home"
+    },
+    {
+      "when": "drop:parcel:lamp",
+      "actions": [
+        "sequence:dryLabel"
+      ],
+      "if": "inventory.parcel+!labelRead",
+      "in": "home"
+    },
+    {
+      "when": "label:done",
+      "actions": [
+        "flag:labelRead"
+      ]
+    },
+    {
+      "when": "drop:paper:pencil",
+      "actions": [
+        "sequence:makePinwheel"
+      ],
+      "if": "inventory.paper+inventory.pencil+!pinwheelMade"
+    },
+    {
+      "when": "drop:pencil:paper",
+      "actions": [
+        "sequence:makePinwheel"
+      ],
+      "if": "inventory.paper+inventory.pencil+!pinwheelMade"
+    },
+    {
+      "when": "pinwheel:done",
+      "actions": [
+        "flag:pinwheelMade",
+        "remove:paper",
+        "remove:pencil",
+        "inventory:pinwheel"
+      ]
+    },
+    {
+      "when": "click:door",
+      "actions": [
+        "scene:courtyard"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:homeDoor",
+      "actions": [
+        "scene:home"
+      ],
+      "in": "courtyard"
+    },
+    {
+      "when": "click:stallDoor",
+      "actions": [
+        "scene:stall"
+      ],
+      "in": "courtyard"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:courtyard"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:flood",
+      "actions": [
+        "message:flood"
+      ],
+      "in": "courtyard"
+    },
+    {
+      "when": "click:kabir",
+      "actions": [
+        "message:kabirAfter"
+      ],
+      "if": "fuseFound",
+      "in": "courtyard"
+    },
+    {
+      "when": "click:kabir",
+      "actions": [
+        "message:kabirHello"
+      ],
+      "in": "courtyard"
+    },
+    {
+      "when": "ask:crystal",
+      "actions": [
+        "message:crystal"
+      ],
+      "in": "courtyard"
+    },
+    {
+      "when": "ask:picture",
+      "actions": [
+        "message:picture"
+      ],
+      "in": "courtyard"
+    },
+    {
+      "when": "drop:pinwheel:kabir",
+      "actions": [
+        "sequence:tradePinwheel"
+      ],
+      "if": "inventory.pinwheel+!fuseFound",
+      "in": "courtyard"
+    },
+    {
+      "when": "drop:chai:kabir",
+      "actions": [
+        "sequence:tradeChai"
+      ],
+      "if": "inventory.chai+!fuseFound",
+      "in": "courtyard"
+    },
+    {
+      "when": "trade:pinwheel",
+      "actions": [
+        "flag:fuseFound",
+        "inventory:fuse",
+        "remove:pinwheel",
+        "flag:pinwheelTraded"
+      ]
+    },
+    {
+      "when": "trade:chai",
+      "actions": [
+        "flag:fuseFound",
+        "inventory:fuse",
+        "remove:chai",
+        "flag:chaiTraded"
+      ]
+    },
+    {
+      "when": "click:meena",
+      "actions": [
+        "message:meenaHello"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "ask:tools",
+      "actions": [
+        "flag:toolsOffered",
+        "message:tools"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "ask:cinema",
+      "actions": [
+        "message:cinema"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:tools",
+      "actions": [
+        "inventory:wrench",
+        "message:wrenchTaken"
+      ],
+      "if": "!inventory.wrench+!cableFixed",
+      "in": "stall"
+    },
+    {
+      "when": "click:chai",
+      "actions": [
+        "inventory:chai",
+        "message:chaiTaken"
+      ],
+      "if": "!inventory.chai+!fuseFound",
+      "in": "stall"
+    },
+    {
+      "when": "click:radio",
+      "actions": [
+        "message:radio"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:poster",
+      "actions": [
+        "message:poster"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "drop:wrench:scooter",
+      "actions": [
+        "message:alreadyFixed"
+      ],
+      "if": "cableFixed",
+      "in": "courtyard"
+    },
+    {
+      "when": "drop:wrench:scooter",
+      "actions": [
+        "sequence:repairScooter"
+      ],
+      "if": "inventory.wrench+!cableFixed",
+      "in": "courtyard"
+    },
+    {
+      "when": "repair:done",
+      "actions": [
+        "flag:cableFixed",
+        "remove:wrench"
+      ]
+    },
+    {
+      "when": "drop:fuse:scooter",
+      "actions": [
+        "sequence:fitFuse"
+      ],
+      "if": "inventory.fuse+!fuseInstalled",
+      "in": "courtyard"
+    },
+    {
+      "when": "fuse:done",
+      "actions": [
+        "flag:fuseInstalled",
+        "remove:fuse"
+      ]
+    },
+    {
+      "when": "click:scooter",
+      "actions": [
+        "message:needParcel"
+      ],
+      "if": "!inventory.parcel",
+      "in": "courtyard"
+    },
+    {
+      "when": "click:scooter",
+      "actions": [
+        "message:needLabel"
+      ],
+      "if": "!labelRead",
+      "in": "courtyard"
+    },
+    {
+      "when": "click:scooter",
+      "actions": [
+        "message:needCable"
+      ],
+      "if": "!cableFixed",
+      "in": "courtyard"
+    },
+    {
+      "when": "click:scooter",
+      "actions": [
+        "message:needFuse"
+      ],
+      "if": "!fuseInstalled",
+      "in": "courtyard"
+    },
+    {
+      "when": "click:scooter",
+      "actions": [
+        "message:ready"
+      ],
+      "if": "inventory.parcel+labelRead+cableFixed+fuseInstalled",
+      "in": "courtyard"
+    },
+    {
+      "when": "click:depart",
+      "actions": [
+        "message:needParcel"
+      ],
+      "if": "!inventory.parcel",
+      "in": "courtyard"
+    },
+    {
+      "when": "click:depart",
+      "actions": [
+        "message:needLabel"
+      ],
+      "if": "!labelRead",
+      "in": "courtyard"
+    },
+    {
+      "when": "click:depart",
+      "actions": [
+        "message:needCable"
+      ],
+      "if": "!cableFixed",
+      "in": "courtyard"
+    },
+    {
+      "when": "click:depart",
+      "actions": [
+        "message:needFuse"
+      ],
+      "if": "!fuseInstalled",
+      "in": "courtyard"
+    },
+    {
+      "when": "click:depart",
+      "actions": [
+        "message:ready"
+      ],
+      "if": "inventory.parcel+labelRead+cableFixed+fuseInstalled",
+      "in": "courtyard"
+    },
+    {
+      "when": "route:underpass",
+      "actions": [
+        "sequence:wrongRoad"
+      ],
+      "if": "inventory.parcel+labelRead+cableFixed+fuseInstalled",
+      "in": "courtyard"
+    },
+    {
+      "when": "route:hill",
+      "actions": [
+        "sequence:departure"
+      ],
+      "if": "inventory.parcel+labelRead+cableFixed+fuseInstalled",
+      "in": "courtyard"
+    },
+    {
+      "when": "delivery:done",
+      "actions": [
+        "flag:delivered",
+        "remove:parcel",
+        "ending:complete"
+      ]
+    }
+  ],
+  "sequences": {
+    "opening": [
+      {
+        "camera": "intro"
+      },
+      {
+        "line": "intro"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "collectParcel": [
+      {
+        "walk": 480
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "reach"
+        }
+      },
+      {
+        "sound": "paper"
+      },
+      {
+        "wait": 450
+      },
+      {
+        "line": "parcelTaken"
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "idle"
+        }
+      }
+    ],
+    "dryLabel": [
+      {
+        "walk": 420
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "reach"
+        }
+      },
+      {
+        "effect": "dry"
+      },
+      {
+        "wait": 1100
+      },
+      {
+        "event": "label:done"
+      },
+      {
+        "line": "labelDry"
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "idle"
+        }
+      }
+    ],
+    "makePinwheel": [
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "reach"
+        }
+      },
+      {
+        "sound": "paper"
+      },
+      {
+        "wait": 650
+      },
+      {
+        "event": "pinwheel:done"
+      },
+      {
+        "line": "pinwheelMade"
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "idle"
+        }
+      }
+    ],
+    "repairScooter": [
+      {
+        "walk": 700
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "reach"
+        }
+      },
+      {
+        "sound": "metal"
+      },
+      {
+        "wait": 900
+      },
+      {
+        "event": "repair:done"
+      },
+      {
+        "line": "repair"
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "idle"
+        }
+      }
+    ],
+    "fitFuse": [
+      {
+        "walk": 850
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "reach"
+        }
+      },
+      {
+        "sound": "click"
+      },
+      {
+        "event": "fuse:done"
+      },
+      {
+        "effect": "headlight"
+      },
+      {
+        "line": "fuseFit"
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "idle"
+        }
+      }
+    ],
+    "tradePinwheel": [
+      {
+        "walk": 950
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "reach"
+        }
+      },
+      {
+        "pose": {
+          "actor": "kabir",
+          "action": "reach"
+        }
+      },
+      {
+        "sound": "paper"
+      },
+      {
+        "wait": 650
+      },
+      {
+        "event": "trade:pinwheel"
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "idle"
+        }
+      },
+      {
+        "line": "pinwheelTrade"
+      },
+      {
+        "pose": {
+          "actor": "kabir",
+          "action": "idle"
+        }
+      }
+    ],
+    "tradeChai": [
+      {
+        "walk": 950
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "reach"
+        }
+      },
+      {
+        "pose": {
+          "actor": "kabir",
+          "action": "reach"
+        }
+      },
+      {
+        "sound": "paper"
+      },
+      {
+        "wait": 650
+      },
+      {
+        "event": "trade:chai"
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "idle"
+        }
+      },
+      {
+        "line": "chaiTrade"
+      },
+      {
+        "pose": {
+          "actor": "kabir",
+          "action": "idle"
+        }
+      }
+    ],
+    "wrongRoad": [
+      {
+        "effect": "flood"
+      },
+      {
+        "line": "wrongRoad"
+      },
+      {
+        "message": "ready"
+      }
+    ],
+    "departure": [
+      {
+        "walk": 820
+      },
+      {
+        "pose": {
+          "actor": "harpreet",
+          "action": "ride"
+        }
+      },
+      {
+        "sound": "engine"
+      },
+      {
+        "line": "road"
+      },
+      {
+        "effect": "depart"
+      },
+      {
+        "wait": 1800
+      },
+      {
+        "scene": "road"
+      },
+      {
+        "wait": 2400
+      },
+      {
+        "scene": "cinema"
+      },
+      {
+        "line": "arrival"
+      },
+      {
+        "effect": "door"
+      },
+      {
+        "wait": 800
+      },
+      {
+        "line": "delivered"
+      },
+      {
+        "effect": "projector"
+      },
+      {
+        "line": "finalKid"
+      },
+      {
+        "event": "delivery:done"
+      },
+      {
+        "ending": true
+      }
+    ]
+  },
+  "hints": [
+    {
+      "if": "!inventory.parcel",
+      "text": "The parcel is on the desk upstairs."
+    },
+    {
+      "if": "!labelRead",
+      "text": "Rain blurred the address. Try the parcel near the warm desk lamp."
+    },
+    {
+      "if": "!cableFixed",
+      "text": "Meena has tools at her stall. A spanner will tighten the scooter terminal."
+    },
+    {
+      "if": "!fuseFound",
+      "text": "Kabir found the fuse. Trade him a warm chai, or combine paper and pencil into a pinwheel."
+    },
+    {
+      "if": "!fuseInstalled",
+      "text": "Use the glass fuse from your pocket on the scooter."
+    },
+    {
+      "text": "The underpass is flooded. Start the scooter and choose Clocktower Hill."
+    }
+  ]
+}

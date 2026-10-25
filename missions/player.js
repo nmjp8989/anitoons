@@ -233,6 +233,10 @@ function pointerUp(e){
 }
 function hydrate(){
  document.title='Anitoons Missions · '+mission.title;
+ document.querySelector('.heading .eyebrow').innerHTML='<span class="green-dot"></span> MISSION '+esc(mission.number||'001')+' <span class="divider">/</span> '+esc(mission.category||'A NEW ADVENTURE');
+ document.querySelector('meta[name="description"]').content=mission.intro||mission.title;
+ document.querySelector('section.game').setAttribute('aria-label',mission.title+' game');
+ $('speaker').querySelector('span').textContent=mission.hero?.subtitle||'CHARACTER';
  document.querySelector('.heading h1').textContent=mission.title+'.';
  document.querySelector('.heading p').textContent=mission.subtitle||mission.intro||'';
  document.querySelector('.start-card h2').textContent=mission.title;

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v83</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v84</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -73,8 +73,8 @@
 
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0;max-height:480px;overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
-.preset-country{display:block;font-size:9px;color:#68717d;padding:0 3px 8px}.preset-card:has(.preset-country) .preset-name{padding-bottom:2px}.animation-framing{display:flex;align-items:center;gap:6px;margin:14px 0}.animation-framing button{border:1px solid #dce1e8;background:#fff;border-radius:9px;padding:8px 12px;font-size:11px}.animation-framing button[aria-pressed=true]{background:#2476de;color:white}.animation-card svg{max-height:32px}</style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v83</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+.preset-country{display:block;font-size:9px;color:#68717d;padding:0 3px 8px}.preset-card:has(.preset-country) .preset-name{padding-bottom:2px}.animation-framing{display:flex;align-items:center;gap:6px;margin:14px 0}.animation-framing button{border:1px solid #dce1e8;background:#fff;border-radius:9px;padding:8px 12px;font-size:11px}.animation-framing button[aria-pressed=true]{background:#2476de;color:white}.animation-card .animation-poster{display:block;width:100%;height:115px;border-radius:10px;overflow:hidden;background:#edf2ef}.animation-card .animation-poster svg{display:block;width:100%;height:100%;max-height:none}.animation-card{padding:7px 7px 11px;gap:5px;min-height:166px}.animation-card strong{font-size:11px}.animation-card small{font-size:9px}.animation-framing{flex-wrap:wrap}@media(max-width:480px){.animation-card .animation-poster{height:92px}.animation-card{min-height:142px}}</style></head><body>
+<header><h1>🎬 Anitoons · Character Studio v84</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -918,8 +918,8 @@ function torsoSvg(){return bodyRigSvg(state.pose,'front',false);}
 function standingBodyCompositeSvg(pose=state.pose,view=cameraView){return bodyRigSvg(pose,view,true);}
 function poseTile(key){return `<svg viewBox="220 800 820 1600" aria-hidden="true">${bodyRigSvg(key,'front',true)}</svg>`;}
 function topTile(key){const old=state.shirt;try{state.shirt=key;return `<svg viewBox="220 900 814 600" aria-hidden="true">${bodyRigSvg('straight','front',false)}</svg>`;}finally{state.shirt=old;}}
-function setBodyArmPose(poses,hands={}){
- for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){
+function setBodyArmPose(poses,hands={},root=document){
+ for(const arm of root.querySelectorAll('#torso [data-rig-arm]')){
   const side=+arm.dataset.rigArm,which=side===-1?'left':'right',angles=poses[which]||[0,0,0];
   const gesture=Math.abs(angles[1])>40;
   const selected=hands[which]||(gesture?{pose:'open',view:'palm'}:{pose:'relaxed',view:cameraView==='front'?'palm':side===cameraDirections[cameraView]?'edge':'back'});
@@ -942,6 +942,7 @@ function restingBodyPose(){
  return poses;
 }
 function poseTalkingArms(ms=0,duration=0){
+ if(svg.dataset.animationFrame==='bust'){setBodyArmPose({left:[-3,0,0],right:[-3,0,0]});return;}
  const p=restingBodyPose();
  if(duration>0&&state.talkGestures&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const a=p[state.gestureSide===1?'right':'left'];a[1]=-110+10*Math.sin(ms/350);a[2]=8*Math.sin(ms/280);}
  const which=state.gestureSide===1?'right':'left';
@@ -978,10 +979,13 @@ function proportionalHandSvg(x=0,y=0,scale=1,pose='open'){
 }
 
 function applyFraming(){
- const full=state.framing==='full';svg.setAttribute('viewBox',full?'-600 0 2454 2454':svg.dataset.animationBust==='true'?'-220 0 1694 1730':'0 0 1254 1254');
- const bg=document.getElementById('background');const bust=!full&&svg.dataset.animationBust==='true';bg.setAttribute('x',full?-600:bust?-220:0);bg.setAttribute('width',full?2454:bust?1694:1254);bg.setAttribute('height',full?2454:bust?1730:1254);
+ const mode=svg.dataset.animationFrame||'',full=state.framing==='full';
+ const box=mode==='bust'?[0,0,1254,1254]:mode==='upper'?[-200,0,1654,1780]:full?[-600,0,2454,2454]:[0,0,1254,1254];
+ svg.setAttribute('viewBox',box.join(' '));
+ const bg=document.getElementById('background');for(const [i,attr] of ['x','y','width','height'].entries())bg.setAttribute(attr,box[i]);
  document.querySelectorAll('[data-framing]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.framing===state.framing)));
 }
+
 function poseTile(key){return `<svg viewBox="220 800 820 1600" aria-hidden="true">${standingBodyCompositeSvg(key,'front')}</svg>`;}
 
 const cameraCuts=[-2500,327,387,447,507,567,627,687,747,807,867,927,3754];
@@ -1546,9 +1550,9 @@ function switchStudioMode(mode){
  if(animationPanel)animationPanel.hidden=libraryMode!=='animations';
  const nextButton=document.getElementById('nextAnimations');if(nextButton)nextButton.hidden=libraryMode==='animations';
  const animationsTab=document.getElementById('animationsMode');if(animationsTab)animationsTab.setAttribute('aria-selected',String(libraryMode==='animations'));
- document.querySelector('.app').classList.toggle('animating-screen',libraryMode==='animations');svg.dataset.animationBust=String(libraryMode==='animations');
+ document.querySelector('.app').classList.toggle('animating-screen',libraryMode==='animations');if(libraryMode!=='animations')delete svg.dataset.animationFrame;
  if(libraryMode==='animations')document.getElementById('saveStatus').textContent='Your character · choose an animation to preview';
- if(libraryMode==='animations'){state.framing='head';render();}
+ if(libraryMode==='animations'){applyAnimationFraming();render();drawAnimationPosters();}else if(typeof animationPosterRevision!=='undefined'){++animationPosterRevision;}
  document.getElementById('characterLibrary').hidden=libraryMode!=='characters';
  document.getElementById('editorPanel').hidden=libraryMode!=='customize';
  if(typeof featureControls!=='undefined')featureControls.hidden=libraryMode!=='customize'||!adjustableFeatures.includes(feature);
@@ -1696,15 +1700,19 @@ const headshotAnimations=[
  ['wave','Hello / wave','👋','Raised hand & wrist wave'],['explain','Explaining','💬','Open-palm arm gesture'],
  ['shrug','Shrugging','🤷','Both palms up'],['celebrate','Celebrating','🙌','Both arms lifted'],
  ['sleepy','Sleepy','😴','Slow blink & head dip'],
- ['point','Pointing','☝','One finger · presenter'],['victory','Victory','✌','Two fingers · palm forward'],
- ['thumbsUp','Thumbs up','👍','Approval · turned wrist'],['stop','Stop / hello','✋','All fingers · palm forward'],
- ['fistPump','Fist pump','✊','Closed fist · celebration'],['welcome','Welcome','🤲','Both palms offered'],
- ['okay','OK sign','👌','Finger-and-thumb circle'],['pinch','Small detail','🤏','Precision pinch'],
- ['countOne','One idea','☝','Index finger raised'],['bow','Thank-you bow','🙇','Full body · gentle bow'],
+ ['point','Pointing','☝','One finger · presenter'],['bow','Thank-you bow','🙇','Full body · gentle bow'],
  ['dance','Happy dance','💃','Full body · step and sway'],['breathe','Calm breathing','🌿','Bust · soft breathing']
 ];
 let chosenAnimation='smile',animationFraming='auto';
-function syncAnimationFraming(){document.querySelectorAll('[data-animation-framing]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.animationFraming===state.framing)));}
+function applyAnimationFraming(key=chosenAnimation){
+ const frame=animationFraming==='auto'?(['walk','dance','bow'].includes(key)?'full':['wave','explain','shrug','celebrate','point'].includes(key)?'upper':'bust'):animationFraming;
+ svg.dataset.animationFrame=frame;
+ // The medium crop retains pelvis and legs underneath the top.
+ state.framing=frame==='bust'?'head':'full';
+ syncAnimationFraming();
+}
+function syncAnimationFraming(){document.querySelectorAll('[data-animation-framing]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.animationFraming===svg.dataset.animationFrame)));}
+
 function extendAnimationPose(key,t,w,p){
  Object.assign(p,{gazeX:state.gazeX||0,gazeY:state.gazeY||0,wink:false,arms:null,hands:null});
  const beat=Math.sin(t*3.4),pulse=(1-Math.cos(t*4))/2;
@@ -1759,8 +1767,8 @@ function walkingStep(seconds,side){
  const angle=Math.atan2(forward,down)+Math.acos(Math.min(1,(400*400+dist*dist-400*400)/(2*400*dist)));
  return {t,stance,forward,lift,kneeForward:400*Math.sin(angle),kneeDown:400*Math.cos(angle),down};
 }
-function poseWalkingGarment(seconds){
- const group=document.querySelector('#torso [data-moving-garment]');
+function poseWalkingGarment(seconds,root=document){
+ const group=root.querySelector('#torso [data-moving-garment]');
  if(!group)return;
  const hem=garmentTemplate().hem,phase=seconds*Math.PI*2/1.2;
  const sway=12*Math.sin(phase),flutter=5*Math.sin(phase*2);
@@ -1780,13 +1788,13 @@ function poseWalkingGarment(seconds){
   }
   path.setAttribute('d',tokens.join(' '));
  }
- const clip=document.querySelector('#torso [data-hem-clip]');
+ const clip=root.querySelector('#torso [data-hem-clip]');
  if(clip)clip.setAttribute('y',hem+11+flutter);
 }
-function poseWalking(seconds){
- poseWalkingGarment(seconds);
+function poseWalking(seconds,root=document){
+ poseWalkingGarment(seconds,root);
  const turn=cameraDirections[cameraView]||0;
- for(const leg of document.querySelectorAll('#torso [data-rig-leg]')){
+ for(const leg of root.querySelectorAll('#torso [data-rig-leg]')){
   const side=+leg.dataset.rigLeg,g=walkingStep(seconds,side);
   const x=100+(state.pose==='wide'?70:state.pose==='straight'?-15:12);
   const project=(f,y)=>({x:turn*side*.72*f,y:y});
@@ -1811,7 +1819,7 @@ function poseWalking(seconds){
   leg.querySelector('[data-rig-ankle]').setAttribute('transform',`translate(0 360) matrix(${d/det} ${-b/det} ${-c/det} ${a/det} 0 0) scale(${flip} 1)`);
  }
  // Opposite arm / leg swing in the same projected direction; relaxed elbows.
- for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){
+ for(const arm of root.querySelectorAll('#torso [data-rig-arm]')){
   const side=+arm.dataset.rigArm,g=walkingStep(seconds,side),swing=-g.forward/170;
   arm.querySelector('[data-hand-action]').setAttribute('display','none');arm.querySelector('[data-hand-open]').setAttribute('display','none');arm.querySelector('[data-hand-point]').setAttribute('display','none');arm.querySelector('[data-hand-palm]').setAttribute('display',turn?'none':'inline');arm.querySelector('[data-hand-relaxed]').setAttribute('display',turn?'inline':'none');
   arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${-3-turn*side*15*swing} 0 48) translate(0 48) scale(1 ${1-.06*(1-swing)}) translate(0 -48)`);
@@ -1820,7 +1828,7 @@ function poseWalking(seconds){
  }
 }
 
-function poseHeadshotArms(p){if(reaction.key==='dance'&&reaction.playing&&state.framing==='full'){poseWalking((performance.now()-reaction.started)/1000*.7);setBodyArmPose(p.arms||restingBodyPose(),p.hands||{});return;}if(reaction.key==='walk'&&reaction.playing&&state.framing==='full')poseWalking((performance.now()-reaction.started)/1000);else setBodyArmPose(p.arms||restingBodyPose(),p.hands||{});}
+function poseHeadshotArms(p){if(svg.dataset.animationFrame==='bust'){setBodyArmPose({left:[-3,0,0],right:[-3,0,0]});return;}if(reaction.key==='dance'&&reaction.playing&&state.framing==='full'){poseWalking((performance.now()-reaction.started)/1000*.7);setBodyArmPose(p.arms||restingBodyPose(),p.hands||{});return;}if(reaction.key==='walk'&&reaction.playing&&state.framing==='full')poseWalking((performance.now()-reaction.started)/1000);else setBodyArmPose(p.arms||restingBodyPose(),p.hands||{});}
 function syncAnimationPlayback(playing){
  const button=document.getElementById('animationPlay');if(button)button.textContent=playing?'Ⅱ Pause':'▶ Replay';
 }
@@ -1829,17 +1837,57 @@ function playHeadshotAnimation(key){
  stopDemo();chosenAnimation=key;
  document.querySelectorAll('[data-animation]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.animation===key)));
  document.getElementById('animationStatus').textContent=headshotAnimations.find(a=>a[0]===key)[1]+' · playing'+(document.getElementById('animationLoop').checked?' in a loop':' once');
- state.framing=animationFraming==='auto'?(['walk','dance','bow'].includes(key)?'full':'head'):animationFraming;svg.dataset.animationBust=String(state.framing==='head');syncAnimationFraming();render();startReaction(key,true);syncAnimationPlayback(true);
+ applyAnimationFraming(key);render();startReaction(key,true);syncAnimationPlayback(true);
+}
+let animationPosterRevision=0;
+function animationPoster(key,index){
+ const oldFrame=state.framing,oldView=cameraView;
+ try{
+  const body=['walk','dance','bow'].includes(key),gesture=['wave','explain','shrug','celebrate','point'].includes(key);
+  state.framing=body||gesture?'full':'head';cameraView='front';
+  const clone=svg.cloneNode(true),p=reactionPose(key,key==='sleepy'?1.8:key==='wink'?1:1.3);
+  clone.removeAttribute('id');clone.removeAttribute('data-reaction');clone.setAttribute('aria-hidden','true');clone.setAttribute('overflow','hidden');
+  clone.setAttribute('viewBox',body?'-100 80 1454 2320':gesture?'-150 80 1554 1730':'100 80 1054 1120');
+  const box=clone.getAttribute('viewBox').split(' ').map(Number),bg=clone.querySelector('#background');for(const [i,attr] of ['x','y','width','height'].entries())bg.setAttribute(attr,box[i]);bg.setAttribute('fill','#edf2ef');
+  clone.querySelector('#torso').innerHTML=bodyRigSvg(state.pose,'front',body||gesture);
+  const covered=state.headwear&&state.headwear!=='none'&&state.headwear!=='headband';
+  const layers={face:cameraFaceOriginal,hairBack:covered?'':hairBack[state.hair],frontHair:covered?'':hairFront[state.hair],headwearBack:'',headwearFront:headwearSvg(state.headwear||'none'),earLeft:ears[state.ears].L,earRight:ears[state.ears].R,eyebrowGroup:browSvg(p.brows),eyeGroup:animationEyesSvg(p),noseGroup:noseSvg(state.nose),beardGroup:jawBeardSvg(p.mouth),moustacheGroup:moustacheSvg(state.moustache),glassesGroup:glassesSvg(),mouthGroup:`<g transform="translate(627 ${756+state.position}) scale(${state.width/100} 1)">${mouthSvg(p.mouth)}</g>`};
+  for(const [id,art] of Object.entries(layers)){
+   const layer=clone.querySelector('#'+id);layer.innerHTML=cameraMarkup(id,art);layer.setAttribute('transform',`translate(${p.x} ${p.y}) rotate(${p.angle} 627 900)`);
+  }
+  if(key==='walk'||key==='dance')poseWalking(key==='walk'?.26:.65,clone);
+  if(key!=='walk')setBodyArmPose(p.arms||restingBodyPose(),p.hands||{},clone);
+  const ns='http://www.w3.org/2000/svg',crop=document.createElementNS(ns,'clipPath'),rect=document.createElementNS(ns,'rect');crop.id='animationPosterCrop';for(const [i,attr] of ['x','y','width','height'].entries())rect.setAttribute(attr,box[i]);crop.append(rect);clone.querySelector('defs').append(crop);const art=document.createElementNS(ns,'g');art.setAttribute('clip-path','url(#animationPosterCrop)');for(const child of [...clone.children])if(child.tagName.toLowerCase()!=='defs')art.append(child);clone.append(art);
+  const ids=new Map();for(const el of clone.querySelectorAll('[id]')){const id=el.id;ids.set(id,'anim-'+index+'-'+id);el.id=ids.get(id);}
+  for(const el of [clone,...clone.querySelectorAll('*')])for(const attr of [...el.attributes]){
+   const value=attr.value.replace(/url\(#([^)]*)\)/g,(_,id)=>'url(#'+(ids.get(id)||id)+')');
+   if(value!==attr.value)el.setAttribute(attr.name,value);
+  }
+  return clone;
+ }finally{state.framing=oldFrame;cameraView=oldView;}
+}
+function drawAnimationPosters(){
+ const revision=++animationPosterRevision,cards=[...document.querySelectorAll('[data-animation]')];let cursor=0;
+ const paint=()=>{
+  if(revision!==animationPosterRevision||libraryMode!=='animations')return;
+  for(let n=0;n<2&&cursor<cards.length;n++,cursor++){
+   const card=cards[cursor];
+   try{card.querySelector('.animation-poster').replaceChildren(animationPoster(card.dataset.animation,cursor));}
+   catch(error){console.error('Animation preview failed:',card.dataset.animation,error);card.querySelector('.animation-poster').textContent='Preview unavailable';}
+  }
+  if(cursor<cards.length)requestAnimationFrame(paint);
+ };
+ paint();
 }
 const animationTab=document.createElement('button');animationTab.id='animationsMode';animationTab.type='button';animationTab.setAttribute('role','tab');animationTab.setAttribute('aria-selected','false');animationTab.textContent='Animations';
 animationTab.onclick=()=>switchStudioMode('animations');document.querySelector('.studio-switch').append(animationTab);
 const animationPanel=document.createElement('section');animationPanel.id='animationPanel';animationPanel.hidden=true;animationPanel.setAttribute('aria-label','Character animations');
-animationPanel.innerHTML='<h2 class="animation-heading">Bring your character to life</h2><p class="animation-subtitle">Choose an action, then switch between bust and full body. Hands and palm direction follow the action in front and ¾ views.</p><div class="animation-framing" role="group" aria-label="Animation framing"><button type="button" data-animation-framing="head" aria-pressed="true">Bust & hands</button><button type="button" data-animation-framing="full" aria-pressed="false">Full body</button></div><div class="animation-grid" role="group" aria-label="Choose animation"></div><div class="animation-transport"><button id="animationPlay" type="button">▶ Play</button><button id="animationStop" type="button">■ Reset</button><label><input type="checkbox" id="animationLoop" checked> Loop</label></div><p class="animation-status" id="animationStatus" role="status">Select an animation to preview it.</p><div class="animation-navigation"><button id="animationBack" type="button">← Back to character</button></div>';
+animationPanel.innerHTML='<h2 class="animation-heading">Bring your character to life</h2><p class="animation-subtitle">Choose a pose preview to play it with your character. Use Bust only for expressions, Bust & hands for gestures, or Full body for movement.</p><div class="animation-framing" role="group" aria-label="Animation framing"><button type="button" data-animation-framing="bust" aria-pressed="true">Bust only</button><button type="button" data-animation-framing="upper" aria-pressed="false">Bust & hands</button><button type="button" data-animation-framing="full" aria-pressed="false">Full body</button></div><div class="animation-grid" role="group" aria-label="Choose animation"></div><div class="animation-transport"><button id="animationPlay" type="button">▶ Play</button><button id="animationStop" type="button">■ Reset</button><label><input type="checkbox" id="animationLoop" checked> Loop</label></div><p class="animation-status" id="animationStatus" role="status">Select an animation to preview it.</p><div class="animation-navigation"><button id="animationBack" type="button">← Back to character</button></div>';
 document.querySelector('.customizer').append(animationPanel);
-for(const b of document.querySelectorAll('[data-animation-framing]'))b.onclick=()=>{animationFraming=b.dataset.animationFraming;state.framing=animationFraming;svg.dataset.animationBust=String(animationFraming==='head');syncAnimationFraming();render();};
+for(const b of document.querySelectorAll('[data-animation-framing]'))b.onclick=()=>{animationFraming=b.dataset.animationFraming;applyAnimationFraming();render();};
 for(const [key,label,icon,detail] of headshotAnimations){
  const b=document.createElement('button');b.type='button';b.className='animation-card';b.dataset.animation=key;b.setAttribute('aria-pressed','false');
- b.innerHTML=`<span class="animation-icon" aria-hidden="true">${animationCardIcon(key)}</span><strong>${label}</strong><small>${detail}</small>`;b.onclick=()=>playHeadshotAnimation(key);animationPanel.querySelector('.animation-grid').append(b);
+ b.innerHTML=`<span class="animation-poster" aria-hidden="true"></span><strong>${label}</strong><small>${detail}</small>`;b.onclick=()=>playHeadshotAnimation(key);animationPanel.querySelector('.animation-grid').append(b);
 }
 const navigation=document.createElement('div');navigation.className='animation-navigation';navigation.innerHTML='<button type="button" id="nextAnimations" class="next-animation">Next: Animations →</button>';document.querySelector('.customizer').append(navigation);
 document.getElementById('nextAnimations').onclick=()=>switchStudioMode('animations');

@@ -1,38 +1,47 @@
-# Anitoons Missions — first playable
+# Anitoons Missions — reusable web player
 
-**The Missing Key** is a short point-and-click adventure with two connected locations and an ending. It adds a Missions entry to the character studio; existing studio features remain available.
+**Mission 001: The Missing Key** is a playable point-and-click adventure with two connected locations, chai, a sofa, a key puzzle, a scooter, branches, locally generated music/SFX and a limited-animation ending.
 
-Serve the repository through any static HTTP server and open `/missions/`. It uses no build step, external artwork, audio downloads, accounts, or API keys. Opening via `file://` is unsupported because the mission definition loads with `fetch`.
+**New in v2:** the story content is no longer hard-coded into the browser's click handlers. The same `MissionEngine` and `player.js` can play different adventures defined in JSON. See [Mission JSON format](MISSION_FORMAT.md).
 
 ## Play
 
-1. Give Harpreet the cup of chai, by dragging it or selecting it and then selecting him.
-2. Choose to search the cupboard, or visit the courtyard first and return.
-3. Open the cupboard and collect the key.
-4. Go outside. Use the pocket key on the scooter.
+Serve the repository using a static HTTP server and open `/missions/` (for example with `python3 -m http.server 8000`). No install, API key, paid assets or build step required. `file://` is unsupported because JSON is loaded with `fetch`.
+
+1. Give Harpreet chai by dragging the cup onto him, or tap the cup and then him.
+2. Search the cupboard or visit the courtyard first and return.
+3. Take the key from the cupboard.
+4. Go outside and use the key on the scooter.
 5. Move Harpreet onto the scooter and start it.
 
-The sofa is an optional sitting interaction. Tab and Enter activate objects; Escape cancels selection. The hint button gives guidance for the current puzzle step. Restart and Play again clear the mission. Progress is intentionally session-only.
+You can also sit on the sofa. Keyboard: Tab and Enter to explore, Escape to cancel selection. The Hint, Restart, Sound and Replay controls remain available. Game progress is session-only.
 
-## Structure
+## Separation of responsibilities
 
-- `mission.json`: title, question, choices, scene music identifiers, and event/action rules.
-- `mission-engine.js`: DOM-independent rule conditions, flags, inventory and poses. Completing the mission waits for the departure sequence.
-- `missions.js`: browser scene rendering, pointer and keyboard interactions, dialogue, cut-frame timing, and synthesized Web Audio music/effects.
-- `assets.js`: original SVG backgrounds, furniture, cup, key, classic scooter and fallback character.
-- `character-bridge.js`: renders pose snapshots from the existing Anitoons Harpreet preset in a same-origin hidden studio frame. Custom seated legs and a riding arm supplement the current rig. The built-in fallback is used if the frame cannot provide art.
+| File | Responsibility |
+| --- | --- |
+| `mission.json` | **Content only:** locations, props, dialogue, choices, branching rules, objectives, hints, inventory items, cutscene timeline and completion copy. |
+| `mission-engine.js` | **Generic story logic:** rule resolution, conditions, flags, inventory, scene/pose state and completion; no DOM. |
+| `player.js` | **Reusable runtime:** HTML/SVG renderer, inputs, drag/drop and tap equivalents, dialogue widgets, music and cut-frame playback. |
+| `assets.js` | Original SVG scene art, props, scooter and fallback actor. |
+| `mission-props.js` | Small sprite adapter mapping named prop types to existing SVG artwork; reusable for future mission JSON. |
+| `character-bridge.js` | Same-origin snapshot bridge to existing Anitoons character rig; fallback works if unavailable. |
+| `missions.css` | Shared responsive presentation. |
+| `tests/missions.cjs` | Full key/scooter sequence plus a second independent synthetic mission to prove the engine isn't key-specific. |
 
-Music differs between home and courtyard. All music and effects are generated locally with oscillators and filtered noise; playback begins with the Play button. Muting, background-tab suspension and reduced-motion CSS are included.
-
-This is a first mission runtime, not a finished visual mission editor. Object IDs and some dialogue/scene actions in the browser adapter are specific to this mission. Add a second mission before generalizing them into an editor.
+The mission browser player is deliberately simple: no build tooling, external runtime library, AI API call, server DB or visual editor.
 
 ## Check
 
 ```sh
 node tests/missions.cjs
-node --check missions/missions.js
-node --check missions/assets.js
-node --check missions/character-bridge.js
+node --check missions/player.js
+node --check missions/mission-engine.js
+node --check missions/mission-props.js
 ```
 
-Browser QA: full mission completion, outside-first return path, real cup drag, tap-to-combine key, seated pose, locked-scooter response, generated audio context startup, and replay reset. Physical mobile devices have not been tested.
+Also test in a browser: home first, outside first, drag cup, tap-to-combine key, sofa sitting and standing, blocked scooter, mounting, ending and replay. The JavaScript syntax and DOM-independent event flow are checked, but physical device QA is separate.
+
+## Next
+
+Author a second genuine adventure with different objects/scenes (adding any new SVG artwork to the prop catalogue). Then add a small mission picker and a simple mission-building UI. The core does not require changing for new dialogue, scene transitions, conditions or puzzles.

@@ -32,6 +32,7 @@ function harness(){
   await a('click:door');await a('drop:'+trade+':kabir');assert(e.state.inventory.includes('fuse'));
   await a('click:scooter');assert(!e.state.complete,'Fuse must be installed');
   await a('drop:fuse:scooter');assert(e.state.flags.fuseInstalled);
+  assert((await a('click:scooter')).actions.includes('message:ready'),'A repaired scooter must not describe old damage');
   await a('route:underpass');assert(!e.state.complete,'Flood allows another choice');
   const snapshot=JSON.parse(JSON.stringify(e.state));assert(snapshot.inventory.includes('parcel'));
   await a('route:hill');assert(e.state.complete&&e.state.flags.delivered);assert(!e.state.inventory.includes('parcel'));

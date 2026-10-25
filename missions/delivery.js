@@ -57,7 +57,7 @@ function paintActors(now){for(const actor of Object.values(actors)){
  else if(Math.floor(now/160)%29===0)frame='blink';
  if(actor.frame!==frame){actor.frame=frame;node.querySelector('.actor-sprite').innerHTML=`<svg x="${-actor.height*(actor.action==='ride'?.34:.245)}" y="${-actor.height}" width="${actor.height*(actor.action==='ride'?.68:.49)}" height="${actor.height}" overflow="visible">${bank[actor.id]?.[frame]||bank[actor.id]?.idle||DeliveryArt.fallback(actor.id)}</svg>`;}
  const hand=node.querySelector('.held-prop'),item=heldProps[actor.id]||'';
- if(hand.dataset.item!==item){hand.dataset.item=item;hand.innerHTML=item?`<svg x="${actor.direction>0?8:-72}" y="${-actor.height*.47}" width="68" height="68" viewBox="0 0 90 90">${DeliveryArt.icons[item]||''}</svg>`:'';}
+ if(hand.dataset.item!==item){hand.dataset.item=item;const size={chai:36,fuse:24,wrench:40,parcel:58,pinwheel:54}[item]||44;hand.innerHTML=item?`<svg x="${actor.direction>0?8:-size-9}" y="${-actor.height*(item==='chai'?.38:.44)}" width="${size}" height="${size}" viewBox="0 0 90 90">${DeliveryArt.icons[item]||''}</svg>`:'';}
  node.setAttribute('transform',`translate(${actor.x} ${actor.y})`);
  node.classList.toggle('walking',actor.action==='walk');node.classList.toggle('talking',actor.action==='talk');node.classList.toggle('riding',actor.action==='ride');
  // The ¾ rig faces right for Harpreet and left for both neighbours.
@@ -85,7 +85,7 @@ function showDialogue(id,waitForEnd=false){
  });
 }
 async function changeScene(scene){stopLine();clearSelection();$('dialogue').hidden=true;$('transition').classList.add('dark');await sleep(240);render(scene);$('transition').classList.remove('dark');sound.beat=0;}
-function pose({actor,action,facing}){if(actors[actor]){actors[actor].action=action;if(facing)actors[actor].direction=facing;if(action==='ride'){actors[actor].x=775;actors[actor].y=555;actors[actor].height=330;}paintActors(performance.now());}}
+function pose({actor,action,facing}){if(actors[actor]){actors[actor].action=action;if(facing)actors[actor].direction=facing;if(action==='ride'){actors[actor].direction=1;actors[actor].x=775;actors[actor].y=533;actors[actor].height=270;}paintActors(performance.now());}}
 async function effect(kind){
  if(kind==='dry'){$('effects').innerHTML='<g class="dry-effect" fill="none" stroke="#ffe1a3" stroke-width="3"><path d="M365 403Q345 380 363 360M390 406Q410 380 390 359M414 410Q400 390 417 373"/></g>';await sleep(1200);$('effects').replaceChildren();}
  if(kind==='headlight'&&S.flags.cableFixed){$('effects').innerHTML='<circle cx="925" cy="423" r="65" fill="url(#d-glow)"/>';await sleep(500);}
@@ -143,6 +143,7 @@ $('newGame').onclick=()=>begin(true);
 $('fullscreen').onclick=toggleFullscreen;$('pause').onclick=()=>setPaused(true);$('resume').onclick=()=>setPaused(false);
 $('pauseMenu').addEventListener('cancel',e=>{e.preventDefault();setPaused(false);});
 $('restart').onclick=()=>{setPaused(false);begin(true);};$('playAgain').onclick=()=>{$('ending').close();begin(true);};$('stay').onclick=()=>$('ending').close();
+$('replayFinale').onclick=async()=>{const token=++epoch;sequence.cancel();stopLine();$('ending').close();$('game').classList.remove('departing','door-open','projector-on');setBusy(true);try{await changeScene('courtyard');await sequence.run(mission.sequences.departure);}finally{if(token===epoch)setBusy(false);}};
 $('skip').onclick=()=>{stopLine();if(!busy&&!$('choices').children.length)$('dialogue').hidden=true;};
 $('musicVolume').oninput=e=>{sound.level=e.target.value/100;if(sound.gain&&sound.ctx)sound.gain.gain.setTargetAtTime(sound.level,sound.ctx.currentTime,.05);};
 $('voiceVolume').oninput=e=>{voice.volume=e.target.value/100;if(voice.clip)voice.clip.volume=voice.volume;};

@@ -448,7 +448,7 @@
     {
       "when": "click:scooter",
       "in": "courtyard",
-      "if": "!scooterInspected",
+      "if": "!scooterInspected+!cableFixed+!fuseInstalled",
       "actions": [
         "flag:scooterInspected",
         "message:scooterBroken"

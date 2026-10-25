@@ -13,7 +13,7 @@ kiteThread:"<path d=\"M0 78Q13 121 0 146Q-25 165 -4 188Q19 209 -2 238\" fill=\"n
 function makeKite(patched,tied){return '<g stroke-linecap="round">'+ART.kiteBody+(patched?ART.kitePatch:ART.kiteTear)+(tied?ART.kiteThread:'')+'</g>';}
 Object.assign(MissionSprites,{
  kiteBench:state=>'<g transform="translate(662 362) scale(1)">'+makeKite(!!state.flags.patched,!!state.flags.tied)+'</g>',
- kiteRoof:state=>'<g transform="translate('+(state.flags.positioned?969:704)+' '+(state.flags.positioned?332:417)+') scale(.76)">'+makeKite(true,true)+'</g>',
+ kiteRoof:state=>'<g transform="translate('+(state.flags.positioned?969:704)+' '+(state.flags.positioned?332:417)+') scale(.76)">'+makeKite(!!state.flags.patched,!!state.flags.tied)+'</g>',
  kitePaper:()=>'<g transform="translate(409 459) scale(1.08)">'+ART.kitePaperIcon+'</g>',
  kiteSpool:()=>'<g transform="translate(870 453) scale(1.18)">'+ART.kiteSpoolIcon+'</g>',
  kiteStairs:()=>'<g stroke="#614c3d" stroke-width="5"><path d="M1110 195H1253V544H1110Z" fill="#866f57"/><path d="M1128 219H1237V516H1128Z" fill="#e1c398"/><path d="M1129 469H1237M1129 428H1237M1129 387H1237"/><path d="M1175 468L1128 516M1206 427L1129 469M1236 384L1187 426"/></g><path d="M1162 290L1192 267L1220 291" fill="none" stroke="#776454" stroke-width="7"/>',

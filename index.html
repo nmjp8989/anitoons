@@ -401,6 +401,8 @@ const indianLongHair={indianSilky:'Long centre-part',indianWaves:'Long flowing w
 const longCrown='M8 68 C-1 44 5 16 28 5 Q50 -5 71 5 C96 15 105 43 94 68 L88 60 Q87 38 76 32 Q63 29 51 34 Q39 28 26 34 Q15 44 14 63Z';
 const crownLines='M51 34 Q50 15 51 5 M47 9 Q23 12 15 37 M57 9 Q81 15 90 40';
 for(const [key,label] of Object.entries(indianLongHair)){
+ // Braided styles use independent, layered plait geometry below.
+ if(['indianSideBraid','indianTwinBraids','indianJasmine'].includes(key))continue;
  let back='',front=longCrown,lines=crownLines;
  if(key==='indianSilky'||key==='indianWaves'){
   const waves=key==='indianWaves';
@@ -419,6 +421,54 @@ for(const [key,label] of Object.entries(indianLongHair)){
  addHair(key,label,front,lines,back);
  if(key==='indianJasmine')hairFront[key]+='<g fill="#fff7df" stroke="#625745" stroke-width="2">'+Array.from({length:7},(_,i)=>`<circle cx="${815+Math.sin(i)*12}" cy="${850+i*18}" r="17"/>`).join('')+'</g>';
 }
+// Interwoven braid assets: shared crown registration, distinct continuous/tapered plaits,
+// and local-space jasmine blossoms. Do not copy braid tails into both SVG layers.
+(function installWovenIndianBraids(){
+ const localGroup=(art)=>`<g transform="translate(377 210) scale(5)" stroke-linecap="round" stroke-linejoin="round">${art}</g>`;
+ const rootBack='M8 43 Q1 68 9 100 Q11 113 24 116 L27 94 L74 94 L77 116 Q90 113 95 99 Q103 69 95 43 L86 61 Q90 79 82 96 L20 96 Q12 80 15 61Z';
+ const crownArt=`<path d="${longCrown}" fill="url(#hairFill)" stroke="#171414" stroke-width="1.65"/><path d="${crownLines}" fill="none" stroke="#171414" stroke-width="1.05"/>`;
+ function braid(x,y0,n=7,flip=1){
+  const end=y0+n*16+9;
+  const center=(i)=>x+Math.sin(i*.68)*1.4*flip;
+  const first=center(0),last=center(n);
+  let art=`<path d="M${first-5.6} ${y0-13} C${first-8} ${y0-5} ${first-10.4} ${y0+4} ${first-9} ${y0+14} L${last-3.4} ${end-9} Q${last} ${end+8} ${last+3.4} ${end-9} L${first+9} ${y0+14} Q${first+10.4} ${y0+3} ${first+5.6} ${y0-13}Z" fill="url(#hairFill)" stroke="#171414" stroke-width="1.65"/>`;
+  for(let i=0;i<n;i++){
+   const c=center(i), y=y0+i*16, w=9.3-i*.65;
+   const left=`M${c-2} ${y-5} C${c-w-5} ${y-9} ${c-w-3} ${y+5} ${c-3} ${y+13} Q${c+2} ${y+17} ${c+4} ${y+11} Q${c-2} ${y+5} ${c-2} ${y-5}Z`;
+   const right=`M${c+2} ${y-5} C${c+w+5} ${y-9} ${c+w+3} ${y+5} ${c+3} ${y+13} Q${c-2} ${y+17} ${c-4} ${y+11} Q${c+2} ${y+5} ${c+2} ${y-5}Z`;
+   const a=`<path d="${left}" fill="url(#hairFill)" stroke="#191616" stroke-width=".85"/>`;
+   const b=`<path d="${right}" fill="url(#hairFill)" stroke="#191616" stroke-width=".85"/>`;
+   art+=(i%2===0?a+b:b+a);
+   const signed=i%2===0?-1:1;
+   art+=`<path d="M${c+signed*(w-2)} ${y+3} Q${c+signed*4} ${y+8} ${c-signed*2} ${y+13}" fill="none" stroke="#8e7f74" stroke-width=".7" opacity=".24"/>`;
+  }
+  art+=`<path d="M${last-4} ${end-8} Q${last-7} ${end+7} ${last} ${end+12} Q${last+6} ${end+6} ${last+4} ${end-8}" fill="url(#hairFill)" stroke="#171414" stroke-width="1.4"/>`;
+  return art;
+ }
+ function jasmineFlowers(x,y0){
+  let flowers='';
+  for(let i=0;i<6;i++){
+   const cx=x+(i%2===0?6.7:-5.8),cy=y0+9+i*18;
+   flowers+=`<g transform="translate(${cx} ${cy})" stroke="#8d8065" stroke-width=".55">`;
+   for(let petal=0;petal<5;petal++)flowers+=`<ellipse cx="0" cy="-3.25" rx="2.55" ry="3.75" transform="rotate(${petal*72})" fill="#fff5dc"/>`;
+   flowers+='<circle r="1.65" fill="#d9b565" stroke="none"/></g>';
+  }
+  return flowers;
+ }
+ const designs=[
+  {key:'indianSideBraid',label:'Long side braid',xs:[93],root:'M84 65 Q92 79 92 99 Q95 107 94 116 L85 114 Q83 100 83 88Z'},
+  {key:'indianTwinBraids',label:'Long twin braids',xs:[9,93],root:'M10 63 Q7 86 10 106 L19 111 L22 99 Q17 82 17 67Z M91 63 Q94 86 92 106 L83 111 L80 99 Q85 82 85 67Z'},
+  {key:'indianJasmine',label:'Braid with jasmine',xs:[93],root:'M84 65 Q92 79 92 99 Q95 107 94 116 L85 114 Q83 100 83 88Z'}
+ ];
+ for(const style of designs){
+  hairBack[style.key]=localGroup(`<path d="${rootBack}" fill="url(#hairFill)" stroke="#171414" stroke-width="1.65"/>`);
+  const plaits=style.xs.map((x,i)=>braid(x,107,7,i===0&&style.xs.length>1?-1:1)).join('');
+  const flowers=style.key==='indianJasmine'?jasmineFlowers(style.xs[0],107):'';
+  // Hairline and crown are shared so all three fit the existing face and head assets.
+  hairFront[style.key]=localGroup(crownArt+`<path d="${style.root}" fill="url(#hairFill)" stroke="#171414" stroke-width="1.65"/>`+plaits+flowers);
+  catalogs.hair[style.key]=style.label;
+ }
+})();
 const hairSections={all:'All',girls:'Girls',boys:'Boys'};
 let hairSection='all';
 function hairSectionFor(key){return /crop|short|fade|quiff|buzz|mohawk|crew|slick|pompadour|bald|undercut|spik|bowl|flatTop|sidePart|mullet/i.test(key)?'boys':'girls';}

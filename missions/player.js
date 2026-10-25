@@ -63,7 +63,7 @@ function paint(){
  const h=mission.hero||{},pos=h.label?.[S.pose]||h.label?.[S.scene]||[773,105,150];
  const shadow=h.shadow?.[S.pose]||h.shadow?.[S.scene];
  const shade=shadow&&S.pose!=='ride'?`<ellipse cx="${shadow[0]}" cy="${shadow[1]}" rx="63" ry="12" fill="#6a7057" opacity=".15"/>`:'';
- $('actors').innerHTML=shade+target(h.id||'character',h.name||mission.character||'Character',actorMarkup()+ART.label(S.pose==='ride'?'Ready, neighbour!':h.name||'Character',...pos));
+ $('actors').innerHTML=shade+target(h.id||'character',h.name||mission.character||'Character',actorMarkup()+ART.label(S.pose==='ride'?(h.ridingLabel||'Ready!'):h.name||'Character',...pos));
  $('location').textContent=(scene.icon||'⌂')+' '+scene.name;
  const goal=(mission.objectives||[]).find(item=>engine.has(item.if));
  $('objective').textContent=goal?.text||'Explore the scene';
@@ -100,13 +100,14 @@ function cut(){
 }
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function drink(token){
- message('teaDone');
+ if(mission.effects?.drink?.dialogue)message(mission.effects.drink.dialogue);
  const fx=$('fx');
- const x=S.scene==='home'?790:575;
- fx.innerHTML=`<g transform="translate(${x} 282) scale(.8)">${ART.cup}</g>`;
- cut();await wait(1100);
+ const effect=mission.effects?.drink||{art:'cup',dialogue:'teaDone',positions:{home:[790,282]},duration:1100,thenPose:'stand'};
+ const [x,y]=effect.positions?.[S.scene]||effect.positions?.default||[790,282];
+ fx.innerHTML=`<g transform="translate(${x} ${y}) scale(.8)">${ART[effect.art]||ART.cup}</g>`;
+ cut();await wait(effect.duration||1100);
  if(token!==epoch)return;
- fx.replaceChildren();S.pose='stand';paint();
+ fx.replaceChildren();S.pose=effect.thenPose||'stand';paint();
 }
 async function cutscene(id,token){
  const def=mission.cutscenes?.[id];if(!def)throw Error('Unknown cutscene '+id);
@@ -120,7 +121,7 @@ async function cutscene(id,token){
   if(frame.style==='riding')$('obj-scooter')?.classList.add('riding');
   if(frame.style==='depart'){
    const group=document.createElementNS(NS,'g');group.id='departure';
-   for(const objId of ['scooter',mission.hero?.id||'character']){
+   for(const objId of frame.moveObjects||['scooter',mission.hero?.id||'character']){
     const obj=$('obj-'+objId);if(obj)group.append(obj);
    }
    $('actors').append(group);group.classList.add('depart');
@@ -298,7 +299,11 @@ document.addEventListener('visibilitychange',()=>{
  }
 });
 $('start').disabled=true;
-fetch('mission.json').then(r=>{if(!r.ok)throw Error('Mission unavailable');return r.json();}).then(def=>{
+// A mission file is the only thing needed for a new story. Restrict names to
+// slugs so a query parameter cannot read arbitrary paths or remote URLs.
+const missionSlug=new URLSearchParams(location.search).get('mission');
+const missionFile=missionSlug&&/^[a-z0-9-]{1,48}$/.test(missionSlug)?'adventures/'+missionSlug+'.json':'mission.json';
+fetch(missionFile).then(r=>{if(!r.ok)throw Error('Mission unavailable');return r.json();}).then(def=>{
  mission=def;engine=new MissionEngine(def);hydrate();reset();
 }).catch(error=>{
  console.error(error);say('This mission could not load. Please refresh to try again.');

@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "mission": "last-delivery",
+  "lines": {
+    "intro": {
+      "text": "One last parcel. The rain has blurred the address, and whoever sent it wrote: before the lights go out.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/intro-e8bca9ccb364fe108a80.mp3"
+    },
+    "note": {
+      "text": "A handwritten note: keep this dry. Tonight, a whole neighbourhood is counting on one little light.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/note-a0427410fc5b52657bdd.mp3"
+    },
+    "parcelTaken": {
+      "text": "Still warm inside. But the label is soaked. Better dry it gently, without opening the parcel.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/parcelTaken-19a758374f4cdd6c3c12.mp3"
+    },
+    "lamp": {
+      "text": "A warm desk lamp. Good for drying something delicate.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/lamp-45c3d2e5c4313a2e21d9.mp3"
+    },
+    "labelDry": {
+      "text": "There it is. The Old Picture House, Clocktower Hill. A replacement projector bulb. Tonight is their first show in years.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/labelDry-f1e85bb4d57ec9090766.mp3"
+    },
+    "paperTaken": {
+      "text": "A square of coloured paper. Too cheerful to leave behind.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/paperTaken-4411315c792d84be10b9.mp3"
+    },
+    "pencilTaken": {
+      "text": "A pencil. Every delivery needs a little paperwork.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/pencilTaken-51abc096bf32f24dd102.mp3"
+    },
+    "pinwheelMade": {
+      "text": "A fold, a twist, and a pencil for a handle. One extremely advanced wind-powered spaceship.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/pinwheelMade-78e3a2879fbf664dc5a4.mp3"
+    },
+    "courtyardFirst": {
+      "text": "The rain has stopped. Unfortunately, my scooter seems to have taken the evening off.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/courtyardFirst-e49d5813337895f44342.mp3"
+    },
+    "scooterBroken": {
+      "text": "A loose battery terminal, and an empty headlight fuse holder. Meena will know where to find a spanner.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/scooterBroken-956d67d2f1a5efbae222.mp3"
+    },
+    "needParcel": {
+      "text": "I should collect the parcel upstairs before heading out.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/needParcel-3346c5cf528c6da6d5af.mp3"
+    },
+    "needLabel": {
+      "text": "I need a readable address before choosing a road.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/needLabel-b5fe23d617c2fbd01548.mp3"
+    },
+    "needCable": {
+      "text": "That loose terminal is still stopping the engine.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/needCable-e27c00981f4dcf2c0893.mp3"
+    },
+    "needFuse": {
+      "text": "The engine is ready, but the hill road will be dark. I still need the headlight fuse.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/needFuse-f543090c0b47500ef766.mp3"
+    },
+    "flood": {
+      "text": "The underpass is flooded. The high road past the clocktower should still be open.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/flood-40a145225c77300e9762.mp3"
+    },
+    "kabirHello": {
+      "text": "Captain Kabir reporting! I found a tiny space crystal beside your scooter. It fits perfectly in my spaceship.",
+      "speaker": "kabir",
+      "src": "audio/last-delivery/kabirHello-0cd9c795425bcd537523.mp3"
+    },
+    "crystal": {
+      "text": "It is your fuse? Oh. Can we trade? Something that spins, or something warm. Space is surprisingly cold.",
+      "speaker": "kabir",
+      "src": "audio/last-delivery/crystal-7bddbabcff4683f3ce06.mp3"
+    },
+    "picture": {
+      "text": "The blue lantern on the hill! Mum says the cinema opens tonight, if the projector works. Are you taking its missing bit?",
+      "speaker": "kabir",
+      "src": "audio/last-delivery/picture-cd466a9530cf7d4c5547.mp3"
+    },
+    "kabirAfter": {
+      "text": "A real film on a giant screen! Save me a seat near the front.",
+      "speaker": "kabir",
+      "src": "audio/last-delivery/kabirAfter-6f7cec65c14febe0b95f.mp3"
+    },
+    "pinwheelTrade": {
+      "text": "Whoa! A wind engine! Definitely an upgrade. Here is your little glass fuse, captain.",
+      "speaker": "kabir",
+      "src": "audio/last-delivery/pinwheelTrade-b770466faeec2c788888.mp3"
+    },
+    "chaiTrade": {
+      "text": "Warm chai! That is much better than a cold space crystal. Here, your fuse.",
+      "speaker": "kabir",
+      "src": "audio/last-delivery/chaiTrade-c8ed9329699324e94ccf.mp3"
+    },
+    "fuseFit": {
+      "text": "A perfect fit. And there is the headlight. We are back in business.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/fuseFit-6870f5188ff7e71ed56c.mp3"
+    },
+    "meenaHello": {
+      "text": "Last delivery, Harpreet? You have that one-more-problem face. What has the scooter done now?",
+      "speaker": "meena",
+      "src": "audio/last-delivery/meenaHello-a5a5526d903649cf7b0a.mp3"
+    },
+    "tools": {
+      "text": "Take the spanner from my tool roll. Tighten the terminal, gently. And have a chai if you need one.",
+      "speaker": "meena",
+      "src": "audio/last-delivery/tools-e5dde709b7093834c6b6.mp3"
+    },
+    "cinema": {
+      "text": "The Picture House has been dark for years. Tonight, the owner promised a free show. Without that bulb, it stays a promise.",
+      "speaker": "meena",
+      "src": "audio/last-delivery/cinema-21855ae7c60b6bdd5a9f.mp3"
+    },
+    "wrenchTaken": {
+      "text": "Just the size I need. I will bring it back tomorrow.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/wrenchTaken-3024df9e58ae86d9c79f.mp3"
+    },
+    "chaiTaken": {
+      "text": "One warm chai. Meena always makes an extra.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/chaiTaken-c4f868c2f6c2662efcf6.mp3"
+    },
+    "repair": {
+      "text": "A quarter turn. A snug connection. Let us hear that engine again.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/repair-3479aa1ab3192ea2fbd9.mp3"
+    },
+    "radio": {
+      "text": "The radio says more rain is coming. We have a little time, but not the whole evening.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/radio-c64a10b08b7e3326a7a7.mp3"
+    },
+    "poster": {
+      "text": "Tonight: the return of the Old Picture House. Doors open at dusk. Someone has drawn a little blue lantern beside the address.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/poster-99ce2c8c52d6ad92bed8.mp3"
+    },
+    "ready": {
+      "text": "Parcel safe. Engine running. Headlight on. Now, which way to the Picture House?",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/ready-e2d427269943d678a432.mp3"
+    },
+    "wrongRoad": {
+      "text": "Water right across the underpass. No delivery is worth losing the scooter. We will take the hill.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/wrongRoad-46d9d5e19f0e2161052d.mp3"
+    },
+    "road": {
+      "text": "Come on, old friend. One more climb. There is a whole audience waiting for us.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/road-60ee0437a910023b7b8a.mp3"
+    },
+    "arrival": {
+      "text": "A blue lantern. A locked door. Then footsteps from inside. I think we made it.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/arrival-4e99581cb60e8cd62df1.mp3"
+    },
+    "delivered": {
+      "text": "The bulb is in. The projector is turning. Sometimes a small parcel carries a whole evening.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/delivered-6c1e701543c539d85383.mp3"
+    },
+    "finalKid": {
+      "text": "You did it! Look, the screen is lighting up!",
+      "speaker": "kabir",
+      "src": "audio/last-delivery/finalKid-19c7d0127e8224ec2e85.mp3"
+    },
+    "cantCombine": {
+      "text": "That does not help here. Let me look at what this actually needs.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/cantCombine-c41db4b47cdc4a488435.mp3"
+    },
+    "alreadyDry": {
+      "text": "The address is clear now: Old Picture House, Clocktower Hill.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/alreadyDry-298b7e56629f11e7be83.mp3"
+    },
+    "alreadyFixed": {
+      "text": "The cable is secure. No need to keep tightening it.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/alreadyFixed-a3ce9dac1ad24505c940.mp3"
+    },
+    "saveResume": {
+      "text": "Back to the last delivery. The neighbourhood is still waiting.",
+      "speaker": "harpreet",
+      "src": "audio/last-delivery/saveResume-6f0baf9bee60805a818b.mp3"
+    }
+  }
+}

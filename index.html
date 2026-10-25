@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v81</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v82</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -73,8 +73,8 @@
 
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
-</style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v81</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+.preset-country{display:block;font-size:9px;color:#68717d;padding:0 3px 8px}.preset-card:has(.preset-country) .preset-name{padding-bottom:2px}.animation-framing{display:flex;align-items:center;gap:6px;margin:14px 0}.animation-framing button{border:1px solid #dce1e8;background:#fff;border-radius:9px;padding:8px 12px;font-size:11px}.animation-framing button[aria-pressed=true]{background:#2476de;color:white}.animation-card svg{max-height:32px}</style></head><body>
+<header><h1>🎬 Anitoons · Character Studio v82</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -417,7 +417,7 @@ for(const [key,label] of Object.entries(indianLongHair)){
    back+=` M${x-6} 229 L${x+9} 229 L${x+12} 246 L${x-8} 244Z`;
   }
  }
- if(key==='indianSilky'||key==='indianWaves')front+=' M8 64 Q2 145 9 230 L20 235 Q15 158 18 90 L14 63Z M88 63 L84 90 Q88 158 83 235 L98 231 Q106 145 94 64Z';
+ if(key==='indianSilky'||key==='indianWaves'){front=longCrown.replace('C-1 44 5 16 28 5 Q50 -5 71 5 C96 15 105 43 94 68','C-6 44 0 10 26 0 Q50 -12 74 0 C103 12 110 43 94 68');front+=' M8 59 Q4 77 12 90 L18 87 L15 64Z M89 60 Q98 74 93 90 L85 87 L87 65Z';lines=crownLines;}
  if(['indianSideBraid','indianTwinBraids','indianJasmine'].includes(key)){const tail=back.slice(back.indexOf(' M'));front+=tail;}
  addHair(key,label,front,lines,back);
  if(key==='indianJasmine')hairFront[key]+='<g fill="#fff7df" stroke="#625745" stroke-width="2">'+Array.from({length:7},(_,i)=>`<circle cx="${815+Math.sin(i)*12}" cy="${850+i*18}" r="17"/>`).join('')+'</g>';
@@ -868,11 +868,11 @@ function garmentBodiceSvg(){
 function rigArmSvg(side,view=cameraView){
  const turn=cameraDirections[view]||0,armX=bodyCameraX(627+side*BODY_RIG.shoulderX,turn),depth=turn?(side===turn?.82:1):1;
  const t=garmentTemplate(),skin='url(#skinFill)',cloth=rigCloth();
- const upper='M-55 44 C-53 14 -25 -3 0 -3 C27 -3 52 14 55 44 Q63 87 49 155 L43 230 Q0 257 -43 230 L-49 155 Q-63 86 -55 44Z';
+ const upper='M-55 44 C-53 14 -25 -3 0 -3 C27 -3 52 14 55 44 Q63 87 49 155 L43 230 Q0 270 -43 230 L-49 155 Q-63 86 -55 44Z';
  const fore='M-44 -18 Q0 -39 44 -18 Q51 53 39 124 L29 218 H-29 L-39 124 Q-51 53 -44 -18Z';
  let a=`<g data-rig-arm="${side}" transform="translate(${armX} ${BODY_RIG.shoulderY+(turn&&side===turn?-9:0)}) scale(${side*depth} 1)">`+`<ellipse data-shoulder-socket cx="0" cy="48" rx="59" ry="54" fill="${t.sleeve>0?cloth:skin}"/><g data-rig-shoulder>`+rigFill(upper,t.sleeve===1?cloth:skin);
  if(t.sleeve>0&&t.sleeve<1)a+=rigFill('M-55 44 C-53 14 -25 -3 0 -3 C27 -3 52 14 55 44 Q62 65 54 107 Q0 127 -54 107 Q-62 65 -55 44Z',cloth)+rigDetail('M-56 107 Q0 127 56 107',3);
- a+=`<g transform="translate(0 ${BODY_RIG.upperArm})"><g data-rig-elbow>`+rigFill(fore,t.sleeve===1?cloth:skin)+`<g transform="translate(0 ${BODY_RIG.forearm})"><g data-rig-wrist>`+`<g data-hand-open display="none" transform="scale(-1 1)">${proportionalHandSvg(0,0,1.05)}</g><g data-hand-point display="none" transform="scale(-1 1)">${proportionalHandSvg(0,0,1.12,'point')}</g><g data-hand-palm display="none">${proportionalHandSvg(0,0,.92)}</g><g data-hand-relaxed>${relaxedHandSvg(turn&&side===turn?'edge':'back')}</g>`+' </g></g></g></g></g></g>';
+ a+=`<g transform="translate(0 ${BODY_RIG.upperArm})"><ellipse data-elbow-bridge cx="0" cy="0" rx="44" ry="43" fill="${t.sleeve===1?cloth:skin}"/><g data-rig-elbow>`+rigFill(fore,t.sleeve===1?cloth:skin)+`<g transform="translate(0 ${BODY_RIG.forearm})"><g data-rig-wrist>`+`<g data-hand-open display="none">${actionHandSvg('open','palm')}</g><g data-hand-point display="none">${actionHandSvg('point','palm')}</g><g data-hand-palm display="none">${actionHandSvg('relaxed','palm')}</g><g data-hand-relaxed>${actionHandSvg('relaxed',turn?'edge':'back')}</g><g data-hand-action display="none"></g>`+' </g></g></g></g></g></g>';
  return a;
 }
 function bodyCameraX(x,turn){
@@ -914,9 +914,17 @@ function poseTile(key){return `<svg viewBox="220 800 820 1600" aria-hidden="true
 function topTile(key){const old=state.shirt;try{state.shirt=key;return `<svg viewBox="220 900 814 600" aria-hidden="true">${bodyRigSvg('straight','front',false)}</svg>`;}finally{state.shirt=old;}}
 function setBodyArmPose(poses,hands={}){
  for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){
-  const side=+arm.dataset.rigArm,angles=poses[side===-1?'left':'right']||[0,0,0];
-  const gesture=Math.abs(angles[1])>40,hand=hands[side===-1?'left':'right']||(gesture?'open':cameraView==='front'?'palm':'relaxed');
-  for(const kind of ['open','point','palm','relaxed'])arm.querySelector('[data-hand-'+kind+']').setAttribute('display',hand===kind?'inline':'none');
+  const side=+arm.dataset.rigArm,which=side===-1?'left':'right',angles=poses[which]||[0,0,0];
+  const gesture=Math.abs(angles[1])>40;
+  const selected=hands[which]||(gesture?{pose:'open',view:'palm'}:{pose:'relaxed',view:cameraView==='front'?'palm':side===cameraDirections[cameraView]?'edge':'back'});
+  const spec=typeof selected==='string'?{pose:selected,view:'palm'}:selected;
+  const pose=spec.pose==='palm'?'relaxed':spec.pose;
+  for(const kind of ['open','point','palm','relaxed'])arm.querySelector('[data-hand-'+kind+']').setAttribute('display','none');
+  const target=arm.querySelector('[data-hand-action]'),signature=pose+':'+spec.view;
+  target.setAttribute('display','inline');
+  if(target.dataset.signature!==signature){target.innerHTML=actionHandSvg(pose,spec.view||'palm');target.dataset.signature=signature;}
+  const turn=cameraDirections[cameraView]||0,depth=turn&&spec.view!=='edge'?(side===turn?.84:.96):1;
+  target.setAttribute('transform',`rotate(${spec.roll||0}) scale(${depth} 1)`);
   for(const [i,j] of ['shoulder','elbow','wrist'].entries())arm.querySelector('[data-rig-'+j+']').setAttribute('transform',`rotate(${angles[i]} ${j==='shoulder'?'0 48':'0 0'})`);
  }
 }
@@ -930,10 +938,31 @@ function restingBodyPose(){
 function poseTalkingArms(ms=0,duration=0){
  const p=restingBodyPose();
  if(duration>0&&state.talkGestures&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const a=p[state.gestureSide===1?'right':'left'];a[1]=-110+10*Math.sin(ms/350);a[2]=8*Math.sin(ms/280);}
- setBodyArmPose(p,state.armPose==='point'?{[state.gestureSide===1?'right':'left']:'point'}:{});
+ const which=state.gestureSide===1?'right':'left';
+ const hands=state.handPose!=='auto'?{[which]:{pose:state.handPose,view:state.handSurface==='auto'?'palm':state.handSurface}}:state.armPose==='point'?{[which]:{pose:'point',view:'back'}}:{};
+ setBodyArmPose(p,hands);
 }
 function armRigSnapshot(){return {version:2,coordinateSpace:'nested local joint coordinates',body:BODY_RIG,garment:garmentDesign(),pose:restingBodyPose()};}
 
+const HAND_POSES={
+ open:{label:'Open fingers',d:'M-24 -12 H24 L29 22 L47 78 Q52 91 43 95 Q34 99 29 86 L17 52 L23 108 Q24 121 14 122 Q4 122 3 110 L-2 57 L-5 120 Q-6 132 -16 130 Q-25 129 -24 117 L-22 58 L-34 106 Q-37 118 -47 114 Q-55 111 -51 99 L-37 50 L-61 65 Q-72 72 -77 63 Q-82 54 -72 47 L-44 25 Q-28 14 -24 -12Z',detail:'M-37 40 Q-18 27 -5 34 M-37 40 Q-29 49 -37 55 M-22 59 L-24 72 M-2 57 L-1 71 M17 52 L20 65'},
+ point:{label:'One finger',d:'M-24 -12 H24 Q25 4 33 19 Q47 22 44 38 L39 66 Q37 78 26 79 Q17 80 12 72 Q0 87 -12 77 Q-24 87 -34 74 L-37 54 L-43 118 Q-44 131 -54 129 Q-64 128 -62 115 L-54 40 Q-54 24 -42 15 Q-28 7 -24 -12Z',detail:'M-34 36 Q-10 23 26 32 Q37 38 29 46 L1 50 M-20 51 Q-3 62 16 57 M-13 67 Q0 73 12 69'},
+ victory:{label:'Victory',d:'M-24 -12 H24 Q29 6 35 22 Q45 28 42 43 L35 73 Q30 85 19 79 L12 72 Q1 87 -11 78 L-17 68 L-28 119 Q-31 132 -41 129 Q-51 126 -47 113 L-34 55 L-58 103 Q-64 115 -73 109 Q-81 104 -75 92 L-49 38 Q-43 21 -32 14Z',detail:'M-25 35 Q-2 25 29 35 M-18 49 Q2 58 23 50 M-10 64 Q2 70 13 64'},
+ thumbsUp:{label:'Thumbs up',d:'M-24 -12 H24 L29 15 Q41 21 40 36 L35 77 Q32 90 20 91 H-15 Q-33 88 -37 74 L-39 45 L-53 75 Q-58 87 -68 83 Q-78 78 -72 66 L-57 27 Q-51 14 -39 15 L-29 22Z',detail:'M-23 35 Q3 25 30 35 M-22 50 Q3 43 30 51 M-20 66 Q4 59 27 67 M-39 43 L-29 56'},
+ fist:{label:'Fist',d:'M-24 -12 H24 L30 14 Q42 20 42 35 L38 67 Q35 82 20 84 H-20 Q-38 81 -42 65 L-47 40 Q-50 26 -39 20 L-28 19Z',detail:'M-31 31 Q-6 21 29 30 M-20 31 L-19 45 M-4 28 L-3 43 M13 28 L14 43 M-39 47 Q-20 36 -7 44 Q0 52 -8 58 L-25 64'},
+ okay:{label:'OK',d:'M-24 -12 H24 L29 19 L48 80 Q52 92 42 96 Q32 99 28 86 L15 48 L21 108 Q22 120 12 121 Q2 121 1 109 L-4 56 L-7 111 Q-8 124 -18 122 Q-27 120 -25 108 L-23 70 Q-40 84 -55 72 Q-72 60 -63 44 Q-56 32 -41 35 L-31 40 Q-26 20 -24 -12Z M-42 48 Q-54 43 -55 55 Q-54 67 -43 65 Q-34 62 -37 54Z',detail:'M-23 70 Q-14 62 -5 66 M-37 45 Q-28 43 -22 51',evenodd:true},
+ pinch:{label:'Pinch',d:'M-24 -12 H24 Q27 7 36 23 Q48 32 42 49 L35 70 Q29 82 18 76 Q6 88 -6 78 Q-19 88 -30 77 L-39 57 Q-55 69 -65 57 Q-74 43 -61 31 Q-51 23 -41 30 L-34 36 Q-35 22 -28 18Z M-42 42 Q-50 33 -56 40 Q-61 47 -54 51 Q-47 55 -42 47Z',detail:'M-31 41 Q-5 27 28 39 M-20 56 Q1 64 22 56 M-11 70 L13 70',evenodd:true},
+ relaxed:{label:'Relaxed',d:'M-24 -12 H24 Q24 11 31 30 Q39 49 33 70 L25 105 Q22 116 13 113 Q7 111 9 101 L14 77 L6 111 Q3 121 -5 118 Q-12 115 -9 105 L-4 77 L-14 107 Q-18 116 -26 111 Q-31 108 -28 98 L-21 71 Q-27 81 -35 75 Q-43 68 -39 53 L-35 40 L-43 57 Q-48 67 -56 61 Q-62 56 -56 47 L-40 19 Q-28 10 -24 -12Z',detail:'M-34 41 Q-21 31 -10 37 M-21 70 L-18 80 M-4 75 L-6 85 M14 75 L12 85'},
+ palmUp:{label:'Offering palm',d:'M-24 -12 H24 Q23 10 31 27 L41 69 Q44 81 34 83 Q24 85 21 73 L14 49 L17 96 Q18 108 8 109 Q-2 109 -3 98 L-7 52 L-12 101 Q-14 114 -24 111 Q-33 108 -30 97 L-22 50 L-35 87 Q-39 98 -48 93 Q-56 88 -51 78 L-36 42 L-57 49 Q-70 53 -73 43 Q-76 33 -64 29 L-42 19 Q-28 11 -24 -12Z',detail:'M-34 35 Q-16 22 1 31 M-34 35 Q-25 46 -23 51 M-16 54 Q0 46 15 53'}
+};
+state.handPose='auto';state.handSurface='auto';
+catalogs.handPose={auto:'Automatic',...Object.fromEntries(Object.entries(HAND_POSES).map(([k,v])=>[k,v.label]))};catalogs.handSurface={auto:'Automatic',palm:'Palm',back:'Back',edge:'Side'};
+function actionHandSvg(pose='relaxed',view='palm'){
+ const h=HAND_POSES[pose]||HAND_POSES.relaxed;
+ const back=view==='back',edge=view==='edge',sx=(back?-1:1)*(edge?.48:1);
+ const crease=back?'M-23 41 Q0 31 25 41 M-12 51 L-10 62 M8 50 L10 61':h.detail;
+ return `<g data-action-hand="${pose}" data-hand-surface="${view}" transform="scale(${sx} 1)"><path d="${h.d}" fill="url(#skinFill)" fill-rule="${h.evenodd?'evenodd':'nonzero'}"/>${rigDetail(crease,3)}</g>`;
+}
 function proportionalHandSvg(x=0,y=0,scale=1,pose='open'){
  // Shared cartoon hand family: broad palm, tapered wrist, grouped rounded fingers.
  const open='M-25 -12 L25 -12 C24 8 32 24 35 42 L48 91 Q51 104 42 108 Q32 111 28 98 L18 65 L23 119 Q24 132 14 133 Q4 133 3 121 L-2 70 L-5 130 Q-6 142 -17 140 Q-26 138 -25 126 L-23 71 L-34 119 Q-37 131 -47 126 Q-55 122 -51 110 L-37 63 L-62 79 Q-73 85 -79 76 Q-84 67 -73 59 L-45 35 Q-28 19 -25 -12Z';
@@ -943,8 +972,8 @@ function proportionalHandSvg(x=0,y=0,scale=1,pose='open'){
 }
 
 function applyFraming(){
- const full=state.framing==='full';svg.setAttribute('viewBox',full?'-600 0 2454 2454':'0 0 1254 1254');
- const bg=document.getElementById('background');bg.setAttribute('x',full?-600:0);bg.setAttribute('width',full?2454:1254);bg.setAttribute('height',full?2454:1254);
+ const full=state.framing==='full';svg.setAttribute('viewBox',full?'-600 0 2454 2454':svg.dataset.animationBust==='true'?'-220 0 1694 1730':'0 0 1254 1254');
+ const bg=document.getElementById('background');const bust=!full&&svg.dataset.animationBust==='true';bg.setAttribute('x',full?-600:bust?-220:0);bg.setAttribute('width',full?2454:bust?1694:1254);bg.setAttribute('height',full?2454:bust?1730:1254);
  document.querySelectorAll('[data-framing]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.framing===state.framing)));
 }
 function poseTile(key){return `<svg viewBox="220 800 820 1600" aria-hidden="true">${standingBodyCompositeSvg(key,'front')}</svg>`;}
@@ -1336,7 +1365,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden&&reaction.p
 for(const [key,label] of Object.entries(featureNames)){const b=document.createElement('button');b.innerHTML=`<svg viewBox="0 0 24 26" aria-hidden="true"><path d="${icons[key]}"/></svg><span>${label}</span>`;b.dataset.feature=key;b.onclick=()=>{feature=key;drawDesigns()};document.querySelector('.features').append(b)}
 function drawDesigns(){
  document.getElementById('talkGestures').checked=state.talkGestures;document.getElementById('bodySettings').hidden=feature!=='pose';document.getElementById('gestureArmSide').value=String(state.gestureSide);document.querySelectorAll('[data-gesture-pose]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.gesturePose===state.armPose)));document.getElementById('trouserColor').value=state.trouserColour;document.getElementById('shoeColor').value=state.shoeColour;
- document.getElementById('headSettings').hidden=feature!=='head';document.getElementById('gazeSettings').hidden=feature!=='eyes';document.getElementById('headSize').value=state.headSize;document.getElementById('headSizeValue').textContent=state.headSize+'%';syncGaze();
+ document.getElementById('headSettings').hidden=feature!=='head';document.getElementById('gazeSettings').hidden=feature!=='eyes';document.getElementById('headSize').value=state.headSize;document.getElementById('headSizeValue').textContent=state.headSize+'%';syncGaze();for(const [id,key] of [['handPoseControl','handPose'],['handSurfaceControl','handSurface']]){const control=document.getElementById(id);if(control)control.value=state[key];}
  document.getElementById('glassesSettings').hidden=feature!=='glasses';
  document.getElementById('featureColourTitle').textContent=feature==='glasses'?'Frame colour':'Colour';
  document.getElementById('lensColor').value=state.lensColour;document.getElementById('lensOpacity').value=state.lensOpacity;document.getElementById('lensOpacityValue').value=state.lensOpacity+'%';
@@ -1360,6 +1389,11 @@ for(const [id,key] of [['lensColor','lensColour'],['lensOpacity','lensOpacity']]
 const framingRow=document.createElement('div');framingRow.className='camera-row';framingRow.innerHTML='<span class="camera-label">FRAMING</span><div class="camera-options" role="group" aria-label="Character framing"><button data-framing="head">Headshot</button><button data-framing="full">Full body</button></div>';cameraRow.before(framingRow);
 framingRow.querySelectorAll('button').forEach(b=>b.onclick=()=>{checkpoint();state.framing=b.dataset.framing;render()});
 const bodySettings=document.createElement('div');bodySettings.id='bodySettings';bodySettings.hidden=true;bodySettings.innerHTML='<label style="display:flex;align-items:center;gap:8px;margin-bottom:12px"><input id="talkGestures" type="checkbox" checked> Animate one arm while talking</label><div style="margin:8px 0 14px"><strong style="display:block;font-size:12px;margin-bottom:8px">ARM POSITION</strong><div class="camera-options" role="group" aria-label="Free arm position"><button type="button" data-gesture-pose="rest">Rest</button><button type="button" data-gesture-pose="explain">Explain</button><button type="button" data-gesture-pose="present">Present</button><button type="button" data-gesture-pose="point">Point</button><button type="button" data-gesture-pose="wave">Emphasis</button></div><label style="display:flex;align-items:center;gap:9px;margin-top:12px;font-size:12px">Move one arm <select id="gestureArmSide" aria-label="Which arm gestures" style="padding:7px;border:1px solid #bbb;border-radius:7px;background:white"><option value="-1">Screen left</option><option value="1">Screen right</option></select></label></div><p class="hint">Talking keeps the shoulder within 30° of its socket; the elbow and wrist do the explaining. Far and near arm depth stays correct in ¾ view, with original artwork untouched.</p><div style="display:flex;gap:20px;flex-wrap:wrap;padding:10px 0 20px"><label class="colorLabel">Trousers <input id="trouserColor" type="color" aria-label="Trouser colour"></label><label class="colorLabel">Shoes <input id="shoeColor" type="color" aria-label="Shoe colour"></label></div>';document.getElementById('designs').before(bodySettings);
+const handSettings=document.createElement('div');handSettings.style.cssText='display:flex;gap:12px;flex-wrap:wrap;margin:12px 0';
+handSettings.innerHTML='<label class="colorLabel">Hand pose <select id="handPoseControl" aria-label="Hand pose"></select></label><label class="colorLabel">Hand view <select id="handSurfaceControl" aria-label="Hand surface"></select></label>';
+bodySettings.append(handSettings);
+for(const [id,key] of [['handPoseControl','handPose'],['handSurfaceControl','handSurface']]){const select=document.getElementById(id);for(const [value,label] of Object.entries(catalogs[key])){const option=document.createElement('option');option.value=value;option.textContent=label;select.append(option);}select.onchange=()=>{checkpoint();state[key]=select.value;poseTalkingArms();};}
+
 for(const [id,key] of [['trouserColor','trouserColour'],['shoeColor','shoeColour']]){const input=document.getElementById(id);input.onpointerdown=checkpoint;input.oninput=()=>{state[key]=input.value;render();drawDesigns()}}
 document.getElementById('talkGestures').onchange=e=>{checkpoint();state.talkGestures=e.target.checked;if(!state.talkGestures)poseTalkingArms()};
 document.querySelectorAll('[data-gesture-pose]').forEach(b=>b.onclick=()=>{checkpoint();state.armPose=b.dataset.gesturePose;render();drawDesigns()});
@@ -1481,7 +1515,9 @@ const premadeCharacters=[
 premadeCharacters.push(...[
  ['meera','Meera','adults','indianSilky','kurti','#c56a80','#bd875f'],['kavya','Kavya','adults','indianWaves','kurti','#397c78','#a96c47'],['simran','Simran','adults','indianSideBraid','kurti','#d5a141','#d19a73'],['isha','Isha','kids','indianTwinBraids','dress','#6f86ba','#c98c61'],['priya','Priya','adults','indianPonytail','hoodie','#a15f85','#9c6446'],['lakshmi','Lakshmi','adults','indianJasmine','kurti','#a65343','#865239'],['arjun','Arjun','adults','crop','button','#478080','#b77c52'],['gurleen','Gurleen','kids','indianSideBraid','kurti','#9c79b7','#cf946c']
 ].map(([id,name,category,hair,shirt,shirtColour,skinColour])=>({id:'india-'+id,name,category,changes:{hair,shirt,shirtColour,skinColour,hairColour:'#26201d',headwear:'none',head:'balanced',headSize:category==='kids'?92:98,mouth:'smile',eyeStyle:'round',backgroundColour:'#edf1e9'}})));
-const libraryCategories={all:'All',mine:'My Characters',kids:'Kids',adults:'Adults',elders:'Elders',custom:'Custom'};
+const worldCharacters=[["Avery","Canada","adults","shoulderLayers","cardigan","#9670ac","#e1ae89","soft","wideOval","#704d36"],["Jordan","United States","adults","tightCurls","hoodie","#ca7558","#8b5b43","balanced","toon","#201b1b"],["Valeria","Mexico","adults","longSoftWaves","vneck","#d99442","#c48d68","oval","almond","#30231f"],["Rafael","Brazil","adults","curlyFringe","polo","#4c9b80","#aa7354","broad","bold","#251f1e"],["Lucia","Colombia","adults","indianWaves","tee","#bd6893","#cd9a78","soft","round","#3c2820"],["Amelia","United Kingdom","adults","bobSide","blazer","#65768f","#ebbd9e","slender","oval","#8c4a32"],["Camille","France","adults","chinBob","stripeTank","#568c98","#ddb08d","petite","wideOval","#473027"],["Diego","Spain","adults","sideFringe","button","#9c7a59","#d49c71","balanced","tapered","#302620"],["Lukas","Germany","adults","quiff","crew","#6b876c","#efc6a5","broad","toon","#9f763e"],["Freja","Sweden","adults","indianSilky","cardigan","#7a84b2","#f0c9ad","oval","ring","#b28a50"],["Giulia","Italy","adults","wavyLob","dress","#af5e64","#d5a180","soft","almond","#3c2924"],["Eleni","Greece","adults","longLooseCurls","vneck","#4c879f","#d09c78","balanced","round","#28201f"],["Amara","Nigeria","adults","volumeCurls","blazer","#c68b3b","#70452f","round","wideOval","#1c181c"],["Kwame","Ghana","adults","crop","button","#5d9183","#6e4937","broad","bold","#201c1c"],["Wanjiku","Kenya","adults","bun","dress","#b66784","#85543d","oval","round","#201a1b"],["Hana","Ethiopia","adults","shoulderCurls","cardigan","#6d87a5","#9a654b","slender","almond","#25201d"],["Omar","Egypt","adults","crop","polo","#c08a58","#b98059","broad","hooded","#24201f"],["Salma","Morocco","adults","longSideSweep","kurti","#648f96","#c18a69","soft","wideOval","#2b2320"],["Yara","Lebanon","adults","softLongLayers","blazer","#a17aab","#d5aa87","petite","round","#362622"],["Deniz","Turkey","adults","sweptWave","hoodie","#ba7757","#d3a27f","balanced","toon","#3b2923"],["Haruka","Japan","adults","longBluntBangs","cardigan","#779886","#e8b996","oval","tapered","#211d21"],["Min-jun","South Korea","adults","centerPart","crew","#7c89aa","#e3b18c","slender","lowAlmond","#252028"],["Mei","China","adults","sleekLob","blazer","#b46d6b","#dfae86","soft","almond","#242024"],["Mika","Philippines","adults","indianPonytail","tee","#b5964c","#bd875e","round","toon","#2c221f"],["Putri","Indonesia","adults","longStraight","dress","#668ca0","#bd8b69","oval","round","#262020"],["Isla","Australia","kids","shoulderWave","hoodie","#b97495","#eabd99","soft","button","#98623e"],["Aria","New Zealand","kids","bobBangs","tee","#65938b","#b88361","round","wideOval","#33241f"],["Santiago","Argentina","elders","receding","cardigan","#7b899a","#dab08e","broad","hooded","#9b9590"]].map(([name,country,category,hair,shirt,shirtColour,skinColour,head,eyeStyle,hairColour],i)=>({id:'world-'+i,name,country,category,changes:{hair,shirt,shirtColour,skinColour,head,eyeStyle,hairColour,headSize:category==='kids'?91:97,mouth:'smile',backgroundColour:['#eaf1ec','#f3eee5','#eaf0f7','#f5eaf0'][i%4]}}));
+premadeCharacters.push(...worldCharacters);
+const libraryCategories={all:'All',world:'World',mine:'My Characters',kids:'Kids',adults:'Adults',elders:'Elders',custom:'Custom'};
 const libraryStorageKey='anitoons-library-v1';
 let libraryCategory='all',libraryMode='characters',selectedCharacterId='';
 function readCharacterLibrary(){
@@ -1504,7 +1540,7 @@ function switchStudioMode(mode){
  if(animationPanel)animationPanel.hidden=libraryMode!=='animations';
  const nextButton=document.getElementById('nextAnimations');if(nextButton)nextButton.hidden=libraryMode==='animations';
  const animationsTab=document.getElementById('animationsMode');if(animationsTab)animationsTab.setAttribute('aria-selected',String(libraryMode==='animations'));
- document.querySelector('.app').classList.toggle('animating-screen',libraryMode==='animations');
+ document.querySelector('.app').classList.toggle('animating-screen',libraryMode==='animations');svg.dataset.animationBust=String(libraryMode==='animations');
  if(libraryMode==='animations')document.getElementById('saveStatus').textContent='Your character · choose an animation to preview';
  if(libraryMode==='animations'){state.framing='head';render();}
  document.getElementById('characterLibrary').hidden=libraryMode!=='characters';
@@ -1557,7 +1593,7 @@ function drawLibrary(){
  const mine=readCharacterLibrary();
  const current={id:'current',name:'Current character',category:'custom',saved:true,changes:JSON.parse(JSON.stringify(state))};
  const items=libraryCategory==='all'?[...premadeCharacters,...mine]:
-  libraryCategory==='mine'?mine:libraryCategory==='custom'?[current]:
+  libraryCategory==='world'?premadeCharacters.filter(p=>p.country):libraryCategory==='mine'?mine:libraryCategory==='custom'?[current]:
   premadeCharacters.filter(p=>p.category===libraryCategory);
  const fragment=document.createDocumentFragment();
  const queuedThumbnails=[];
@@ -1571,7 +1607,7 @@ function drawLibrary(){
   art.setAttribute('aria-label',preset.name+' portrait');
   queuedThumbnails.push({art,preset,index:i});
   const label=document.createElement('span');label.className='preset-name';label.textContent=preset.name;
-  card.append(art,label);card.onclick=()=>chooseLibraryCharacter(preset);wrap.append(card);
+  card.append(art,label);if(preset.country){const country=document.createElement('small');country.className='preset-country';country.textContent=preset.country;card.append(country);card.title=preset.name+' · '+preset.country;}card.onclick=()=>chooseLibraryCharacter(preset);wrap.append(card);
   if(preset.saved&&preset.id!=='current'){
    const del=document.createElement('button');del.className='preset-delete';del.textContent='×';del.type='button';del.title='Delete saved character';del.setAttribute('aria-label','Delete '+preset.name);
    del.onclick=()=>{if(writeCharacterLibrary(readCharacterLibrary().filter(item=>item.id!==preset.id)))drawLibrary();};
@@ -1636,6 +1672,7 @@ function animationCardIcon(key){
  const mouths={sad:'M11 23 Q16 18 21 23',angry:'M11 23 Q16 19 21 23',shake:'M12 23 L20 21',surprise:'M14 21 a2 3 0 1 0 4 0 a2 3 0 1 0 -4 0',laugh:'M10 19 Q16 30 22 19 Z',smile:'M10 20 Q16 27 22 20',sleepy:'M14 23 h4'};
  const eyes=key==='eyeRoll'?'<circle cx="12" cy="14" r="2.8"/><circle cx="20" cy="14" r="2.8"/><path d="M12 11.5 v2 M20 11.5 v2"/>':key==='wink'?'<path d="M9 15 q3 -3 6 0 M20 13 v2"/>':['laugh','smile','celebrate'].includes(key)?'<path d="M9 15 q3 -4 6 0 M18 15 q3 -4 6 0"/>':key==='sleepy'?'<path d="M9 15 h5 M18 15 h5"/>':'<path d="M12 13 v2 M20 13 v2"/>';
  const details={nod:'M28 10 v12 m-3 -3 3 3 3 -3',shake:'M2 6 h8 m-3 -3 3 3 -3 3',think:'M24 3 l4 -2 M27 7 h4',sleepy:'M24 2 h5 l-5 5 h5',angry:'M9 9 l5 2 M18 11 l5 -2'};
+ if(['point','victory','thumbsUp','stop','fistPump','welcome','okay','pinch','countOne'].includes(key)){const shapeKey={stop:'open',fistPump:'fist',welcome:'palmUp',countOne:'point'}[key]||key;return `<svg width="32" height="32" viewBox="-90 -145 180 180" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round" transform="rotate(180)"><path d="${HAND_POSES[shapeKey].d}" fill-rule="evenodd"/></svg>`;}
  if(key==='walk')return '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="18" cy="5" r="3"/><path d="M17 10 L14 19 L21 24 L23 29 M14 19 L9 29 M16 12 L23 17 L28 17 M16 11 L9 14 L6 20"/></svg>';
  if(['wave','explain','shrug','celebrate'].includes(key)){
  const hand='<path d="M10 25 V12 q0 -3 2 -2 v8 V5 q2 -3 3 0 v12 V3 q2 -3 3 0 v14 V6 q2 -3 3 0 v14 l3 -6 q3 -1 3 2 l-4 11 q-1 4 -7 4 q-6 0 -6 -6Z"/>';
@@ -1652,9 +1689,16 @@ const headshotAnimations=[
  ['nod','Yes / nod','🙂','An approving nod'],['shake','No / head shake','😕','Side-to-side motion'],
  ['wave','Hello / wave','👋','Raised hand & wrist wave'],['explain','Explaining','💬','Open-palm arm gesture'],
  ['shrug','Shrugging','🤷','Both palms up'],['celebrate','Celebrating','🙌','Both arms lifted'],
- ['sleepy','Sleepy','😴','Slow blink & head dip']
+ ['sleepy','Sleepy','😴','Slow blink & head dip'],
+ ['point','Pointing','☝','One finger · presenter'],['victory','Victory','✌','Two fingers · palm forward'],
+ ['thumbsUp','Thumbs up','👍','Approval · turned wrist'],['stop','Stop / hello','✋','All fingers · palm forward'],
+ ['fistPump','Fist pump','✊','Closed fist · celebration'],['welcome','Welcome','🤲','Both palms offered'],
+ ['okay','OK sign','👌','Finger-and-thumb circle'],['pinch','Small detail','🤏','Precision pinch'],
+ ['countOne','One idea','☝','Index finger raised'],['bow','Thank-you bow','🙇','Full body · gentle bow'],
+ ['dance','Happy dance','💃','Full body · step and sway'],['breathe','Calm breathing','🌿','Bust · soft breathing']
 ];
-let chosenAnimation='smile';
+let chosenAnimation='smile',animationFraming='auto';
+function syncAnimationFraming(){document.querySelectorAll('[data-animation-framing]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.animationFraming===state.framing)));}
 function extendAnimationPose(key,t,w,p){
  Object.assign(p,{gazeX:state.gazeX||0,gazeY:state.gazeY||0,wink:false,arms:null,hands:null});
  const beat=Math.sin(t*3.4),pulse=(1-Math.cos(t*4))/2;
@@ -1667,6 +1711,22 @@ function extendAnimationPose(key,t,w,p){
  if(key==='explain')Object.assign(p,{mouth:['closed','EE','A','O'][Math.floor(t*6)%4],brows:'raised',angle:beat*w,arms:{left:[-8*w,(-128+5*beat)*w,(35+4*beat)*w],right:[-8*w,(-130+6*beat)*w,0]},hands:w>.35?{left:'open',right:'point'}:null});
  if(key==='shrug')Object.assign(p,{mouth:'U',eyes:'open',brows:'raised',y:-5*w,angle:3*w,arms:{left:[-15*w,-120*w,-27*w],right:[-15*w,-120*w,-27*w]}});
  if(key==='celebrate')Object.assign(p,{mouth:'laugh',eyes:'happy',brows:'raised',y:-8*pulse*w,arms:{left:[-22*w,-140*w,8*beat*w],right:[-22*w,-140*w,-8*beat*w]}});
+ const hand=(pose,view='palm',roll=0)=>({pose,view,roll});
+ if(key==='wave')p.hands={left:hand('open','palm'),right:hand('relaxed','back')};
+ if(key==='shrug')p.hands={left:hand('palmUp','palm',-12),right:hand('palmUp','palm',-12)};
+ if(key==='celebrate')p.hands={left:hand('open','palm'),right:hand('open','palm')};
+ if(key==='point')Object.assign(p,{mouth:'smile',arms:{left:[-12*w,-95*w,-5*w],right:[-3,0,0]},hands:{left:hand('point','back',-15*w)}});
+ if(key==='victory')Object.assign(p,{mouth:'smile',eyes:'happy',arms:{left:[-12*w,-145*w,8*beat*w],right:[-3,0,0]},hands:{left:hand('victory','palm')}});
+ if(key==='thumbsUp')Object.assign(p,{mouth:'smile',arms:{left:[-9*w,-105*w,-12*w],right:[-3,0,0]},hands:{left:hand('thumbsUp','palm',-95*w)}});
+ if(key==='stop')Object.assign(p,{mouth:'closed',brows:'raised',arms:{left:[-9*w,-145*w,0],right:[-3,0,0]},hands:{left:hand('open','palm')}});
+ if(key==='fistPump')Object.assign(p,{mouth:'smile',eyes:'happy',arms:{left:[-18*w,(-138+12*beat)*w,0],right:[-3,0,0]},hands:{left:hand('fist','back')}});
+ if(key==='welcome')Object.assign(p,{mouth:'smile',arms:{left:[-18*w,-100*w,-15*w],right:[-18*w,-100*w,-15*w]},hands:{left:hand('palmUp','palm'),right:hand('palmUp','palm')}});
+ if(key==='okay')Object.assign(p,{mouth:'smile',arms:{left:[-10*w,-145*w,0],right:[-3,0,0]},hands:{left:hand('okay','palm')}});
+ if(key==='pinch')Object.assign(p,{mouth:'EE',brows:'raised',arms:{left:[-8*w,-128*w,6*beat*w],right:[-3,0,0]},hands:{left:hand('pinch','palm')}});
+ if(key==='countOne')Object.assign(p,{mouth:['closed','EE','A'][Math.floor(t*5)%3],arms:{left:[-10*w,-150*w,0],right:[-3,0,0]},hands:{left:hand('point','palm')}});
+ if(key==='bow')Object.assign(p,{mouth:'smile',eyes:'closed',y:35*w,angle:5*w,body:0,arms:{left:[5*w,-25*w,0],right:[5*w,-25*w,0]},hands:{left:hand('relaxed','edge'),right:hand('relaxed','edge')}});
+ if(key==='dance')Object.assign(p,{mouth:'laugh',eyes:'happy',x:12*beat*w,angle:5*beat*w,y:-8*pulse*w,body:0,arms:{left:[(-15+8*beat)*w,(-110+20*beat)*w,10*beat*w],right:[(-15-8*beat)*w,(-110-20*beat)*w,-10*beat*w]},hands:{left:hand('open','palm'),right:hand('victory','palm')}});
+ if(key==='breathe')Object.assign(p,{mouth:'closed',eyes:'sleepy',y:-4*Math.sin(t*1.75)*w,body:-3*Math.sin(t*1.75)*w,arms:{left:[-3,0,0],right:[-3,0,0]},hands:{left:hand('relaxed','palm'),right:hand('relaxed','palm')}});
  if(key==='sleepy')Object.assign(p,{mouth:t>1.4&&t<2.3?'O':'closed',eyes:t>1?'closed':'sleepy',brows:'sad',y:8*w,angle:5*w});
  return p;
 }
@@ -1747,14 +1807,14 @@ function poseWalking(seconds){
  // Opposite arm / leg swing in the same projected direction; relaxed elbows.
  for(const arm of document.querySelectorAll('#torso [data-rig-arm]')){
   const side=+arm.dataset.rigArm,g=walkingStep(seconds,side),swing=-g.forward/170;
-  arm.querySelector('[data-hand-open]').setAttribute('display','none');arm.querySelector('[data-hand-point]').setAttribute('display','none');arm.querySelector('[data-hand-palm]').setAttribute('display',turn?'none':'inline');arm.querySelector('[data-hand-relaxed]').setAttribute('display',turn?'inline':'none');
+  arm.querySelector('[data-hand-action]').setAttribute('display','none');arm.querySelector('[data-hand-open]').setAttribute('display','none');arm.querySelector('[data-hand-point]').setAttribute('display','none');arm.querySelector('[data-hand-palm]').setAttribute('display',turn?'none':'inline');arm.querySelector('[data-hand-relaxed]').setAttribute('display',turn?'inline':'none');
   arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${-3-turn*side*15*swing} 0 48) translate(0 48) scale(1 ${1-.06*(1-swing)}) translate(0 -48)`);
   arm.querySelector('[data-rig-elbow]').setAttribute('transform',`rotate(${-8-turn*side*6*Math.max(0,swing)})`);
   arm.querySelector('[data-rig-wrist]').setAttribute('transform','rotate(0)');
  }
 }
 
-function poseHeadshotArms(p){if(reaction.key==='walk'&&reaction.playing&&state.framing==='full')poseWalking((performance.now()-reaction.started)/1000);else setBodyArmPose(p.arms||restingBodyPose(),p.hands||{});}
+function poseHeadshotArms(p){if(reaction.key==='dance'&&reaction.playing&&state.framing==='full'){poseWalking((performance.now()-reaction.started)/1000*.7);setBodyArmPose(p.arms||restingBodyPose(),p.hands||{});return;}if(reaction.key==='walk'&&reaction.playing&&state.framing==='full')poseWalking((performance.now()-reaction.started)/1000);else setBodyArmPose(p.arms||restingBodyPose(),p.hands||{});}
 function syncAnimationPlayback(playing){
  const button=document.getElementById('animationPlay');if(button)button.textContent=playing?'Ⅱ Pause':'▶ Replay';
 }
@@ -1763,13 +1823,14 @@ function playHeadshotAnimation(key){
  stopDemo();chosenAnimation=key;
  document.querySelectorAll('[data-animation]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.animation===key)));
  document.getElementById('animationStatus').textContent=headshotAnimations.find(a=>a[0]===key)[1]+' · playing'+(document.getElementById('animationLoop').checked?' in a loop':' once');
- state.framing=key==='walk'?'full':'head';render();startReaction(key,true);syncAnimationPlayback(true);
+ state.framing=animationFraming==='auto'?(['walk','dance','bow'].includes(key)?'full':'head'):animationFraming;svg.dataset.animationBust=String(state.framing==='head');syncAnimationFraming();render();startReaction(key,true);syncAnimationPlayback(true);
 }
 const animationTab=document.createElement('button');animationTab.id='animationsMode';animationTab.type='button';animationTab.setAttribute('role','tab');animationTab.setAttribute('aria-selected','false');animationTab.textContent='Animations';
 animationTab.onclick=()=>switchStudioMode('animations');document.querySelector('.studio-switch').append(animationTab);
 const animationPanel=document.createElement('section');animationPanel.id='animationPanel';animationPanel.hidden=true;animationPanel.setAttribute('aria-label','Character animations');
-animationPanel.innerHTML='<h2 class="animation-heading">Bring your character to life</h2><p class="animation-subtitle">Choose Walking for a full-body walk in place, or one of 15 expressions and gestures. Use the camera buttons for front and ¾ views.</p><div class="animation-grid" role="group" aria-label="Choose animation"></div><div class="animation-transport"><button id="animationPlay" type="button">▶ Play</button><button id="animationStop" type="button">■ Reset</button><label><input type="checkbox" id="animationLoop" checked> Loop</label></div><p class="animation-status" id="animationStatus" role="status">Select an animation to preview it.</p><div class="animation-navigation"><button id="animationBack" type="button">← Back to character</button></div>';
+animationPanel.innerHTML='<h2 class="animation-heading">Bring your character to life</h2><p class="animation-subtitle">Choose an action, then switch between bust and full body. Hands and palm direction follow the action in front and ¾ views.</p><div class="animation-framing" role="group" aria-label="Animation framing"><button type="button" data-animation-framing="head" aria-pressed="true">Bust & hands</button><button type="button" data-animation-framing="full" aria-pressed="false">Full body</button></div><div class="animation-grid" role="group" aria-label="Choose animation"></div><div class="animation-transport"><button id="animationPlay" type="button">▶ Play</button><button id="animationStop" type="button">■ Reset</button><label><input type="checkbox" id="animationLoop" checked> Loop</label></div><p class="animation-status" id="animationStatus" role="status">Select an animation to preview it.</p><div class="animation-navigation"><button id="animationBack" type="button">← Back to character</button></div>';
 document.querySelector('.customizer').append(animationPanel);
+for(const b of document.querySelectorAll('[data-animation-framing]'))b.onclick=()=>{animationFraming=b.dataset.animationFraming;state.framing=animationFraming;svg.dataset.animationBust=String(animationFraming==='head');syncAnimationFraming();render();};
 for(const [key,label,icon,detail] of headshotAnimations){
  const b=document.createElement('button');b.type='button';b.className='animation-card';b.dataset.animation=key;b.setAttribute('aria-pressed','false');
  b.innerHTML=`<span class="animation-icon" aria-hidden="true">${animationCardIcon(key)}</span><strong>${label}</strong><small>${detail}</small>`;b.onclick=()=>playHeadshotAnimation(key);animationPanel.querySelector('.animation-grid').append(b);

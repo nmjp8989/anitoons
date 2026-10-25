@@ -4,3 +4,10 @@
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
 
 @media(min-width:761px){.topbar{height:70px}main{max-width:1150px;padding:24px 32px 18px}.heading{margin-bottom:20px}h1{font-size:36px;margin:9px 0 6px}.heading p{font-size:12px}.scene-top{height:37px}.stage{aspect-ratio:1280/600;max-height:max(300px,calc(100svh - 435px))}.dialogue{min-height:100px;padding:17px 22px}.bottom{padding:14px 0}.footnote{padding-top:12px}}
+
+/* Mission 002 kite lift: key poses, not full character animation. */
+.kite-flutter{transform-box:fill-box;transform-origin:center;animation:kiteFlutter .24s ease-in-out infinite alternate}
+@keyframes kiteFlutter{from{transform:rotate(-4deg)}to{transform:rotate(5deg)}}
+.kite-fly{transform-box:view-box;transform-origin:center;animation:kiteFly 3.4s cubic-bezier(.23,.59,.38,1) forwards}
+@keyframes kiteFly{0%{transform:translate(0,0) rotate(0deg) scale(1)}28%{transform:translate(-115px,-75px) rotate(-9deg) scale(.96)}65%{transform:translate(60px,-220px) rotate(7deg) scale(.8)}100%{transform:translate(220px,-525px) rotate(-12deg) scale(.57)}}
+@media(max-width:760px){.topbar nav{gap:8px}.topbar nav a:not(#studioLink){font-size:10px;white-space:nowrap}}

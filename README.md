@@ -27,6 +27,6 @@ Apktool decodes Android resources and Dalvik bytecode into smali; it **does not 
 
 ## Current direction: Missions
 
-Anitoons now includes an initial playable point-and-click mission, **The Missing Key**, alongside its character studio. Open [Missions](missions/) to play the home/courtyard puzzle with branching choices, object interactions, pose cuts, synthesized music and sound effects.
+Anitoons now includes an initial playable point-and-click mission, **The Missing Key**, alongside its character studio. Open [Mission 001: The Missing Key](missions/) for the home/courtyard puzzle, or [Mission 002: The Rooftop Kite](missions/?mission=rooftop-kite) to mend a kite in a workshop, choose the right wind on the rooftop, and launch it.
 
 See [the mission implementation notes](missions/README.md) for the flow, code structure and checks. The first draft prioritizes a complete playable mission; a visual mission editor and mobile packaging are future work.

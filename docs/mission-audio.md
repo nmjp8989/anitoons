@@ -15,7 +15,8 @@ by default. Actions → Generate mission dialogue → Run workflow also lets you
 Mission 001, Mission 002 or all missions. Updating a secret alone does not start a
 workflow. The workflow commits the generated MP3s and requests a GitHub Pages build.
 The repository must permit Actions writes and have branch-based Pages configured.
-No force pushes are used; a concurrent change to main may require a rerun.
+Generated-only commits rebase onto main without force pushes. A conflicting concurrent
+change can still require a rerun.
 
 ## Local commands
 
@@ -31,8 +32,8 @@ Use `--force` only for overwriting a single-file output. WAV output requires ffm
 The batch builder hashes text, speaker, model and reference contents/type; unchanged
 lines make zero API calls. Old files stay available for old mission versions.
 All definitions and references are validated before generation. No automatic paid
-API retries occur. A failed run preserves completed clips as a workflow artifact;
-copy those into missions/audio before retrying to avoid paying for them again.
+API retries occur. A failed generation saves completed clips back to the repository when possible,
+so reruns reuse them. An artifact is also kept for recovery if the commit fails.
 
 Per-dialogue `speaker` selects a key in voices.json; `voiceSpeaker` sets a mission
 default. Subtitles always remain available. Choice labels/UI hints are not voiced.

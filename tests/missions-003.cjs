@@ -17,7 +17,7 @@ for(const steps of Object.values(def.sequences))for(const cue of steps){if(cue.l
 function harness(){
  const engine=new Engine(def);
  const apply=async event=>{const out=engine.trigger(event);for(const a of out.actions){const k=a.indexOf(':'),type=a.slice(0,k),value=a.slice(k+1);if(type==='sequence')await runner.run(def.sequences[value]);if(type==='ending')engine.finish();}return out;};
- const runner=new Runner({walk:async()=>{},pose:()=>{},line:async()=>{},sound:()=>{},wait:async()=>{},effect:async()=>{},event:apply,message:()=>{},scene:()=>{},camera:()=>{},ending:()=>{engine.finish();}});
+ const runner=new Runner({prop:()=>{},walk:async()=>{},pose:()=>{},line:async()=>{},sound:()=>{},wait:async()=>{},effect:async()=>{},event:apply,message:()=>{},scene:()=>{},camera:()=>{},ending:()=>{engine.finish();}});
  return {engine,apply};
 }
 (async()=>{

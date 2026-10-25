@@ -32,7 +32,9 @@ concurrency:
 jobs:
   dialogue:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
+    env:
+      PYTHONUNBUFFERED: "1"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -57,6 +59,7 @@ jobs:
             *) echo 'Unknown mission'; exit 1 ;;
           esac
       - name: Generate only missing or changed lines
+        id: generate
         env:
           MIMO_API_KEY: ${{ secrets.MIMO_API_KEY }}
         run: |
@@ -74,13 +77,16 @@ jobs:
           name: mission-dialogue
           path: missions/audio/
           if-no-files-found: ignore
-      - name: Commit generated dialogue
+      - name: Commit generated dialogue (including completed clips after failure)
+        if: ${{ always() && steps.generate.outcome != 'skipped' }}
         run: |
+          if [ ! -d missions/audio ]; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add missions/audio/
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Generate mission voice clips'
+          git pull --rebase origin main
           git push origin HEAD:main
       - name: Request GitHub Pages rebuild with stored audio
         env:

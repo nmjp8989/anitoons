@@ -1,7 +1,7 @@
 'use strict';
 const $=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg';
 const voice=new MissionVoicePlayer(),saveKey='anitoons-last-delivery-v3';
-let mission,engine,S,bank={},actors={},selected=null,busy=false,paused=false,started=false,epoch=0,sceneName='home',drag=null,ignoreClick=0,skipLine=null,speakerId=null,voiceAnalyzer=null,walkSerial=0,frameTime=0,firstCourtyard=true;
+let mission,engine,S,bank={},actors={},selected=null,busy=false,paused=false,started=false,epoch=0,sceneName='home',heldProps={},drag=null,ignoreClick=0,skipLine=null,speakerId=null,voiceAnalyzer=null,walkSerial=0,frameTime=0,firstCourtyard=true;
 const sound={ctx:null,gain:null,timer:null,beat:0,level:.45,
  async start(){try{this.ctx||=new(window.AudioContext||window.webkitAudioContext)();if(!this.gain){this.gain=this.ctx.createGain();this.gain.gain.value=this.level;this.gain.connect(this.ctx.destination);}await this.ctx.resume();this.timer||=setInterval(()=>this.tick(),420);}catch{/* Silent play still works. */}},
  tone(f,d=.25,vol=.09,type='sine',delay=0){if(!this.ctx||this.ctx.state!=='running')return;const t=this.ctx.currentTime+delay,o=this.ctx.createOscillator(),g=this.ctx.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol,t+.02);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(this.gain);o.start(t);o.stop(t+d+.05);},
@@ -17,13 +17,13 @@ function save(){if(!S?.started)return;try{localStorage.setItem(saveKey,JSON.stri
 function saved(){try{const data=JSON.parse(localStorage.getItem(saveKey));if(data?.version!==3||!data.state||!mission.scenes[data.state.scene])return null;return data.state;}catch{return null;}}
 function restore(){const data=saved();if(!data)return false;Object.assign(S,{scene:data.scene,flags:data.flags||{},inventory:(data.inventory||[]).filter(id=>mission.inventoryItems[id]),complete:!!data.complete,started:true,ending:false,pose:'stand'});firstCourtyard=false;return true;}
 function setBusy(value){busy=value;$('game').classList.toggle('busy',busy);}
-function clearSelection(){selected=null;document.querySelectorAll('.selected').forEach(n=>n.classList.remove('selected'));$('selection').textContent='Explore the neighbourhood';}
+function clearSelection(){$('tooltip').style.opacity='0';selected=null;document.querySelectorAll('.selected').forEach(n=>n.classList.remove('selected'));$('selection').textContent='Explore the neighbourhood';}
 function select(id){clearSelection();selected=id;document.querySelector(`[data-item="${id}"]`)?.classList.add('selected');$('selection').textContent=mission.inventoryItems[id]?.label+' → choose a target';}
 function goal(){if(S.complete)return 'Delivered. Just in time.';if(!S.flags.labelRead)return 'Find out where this parcel belongs.';return 'Reach the Old Picture House before the lights go out.';}
 function renderInventory(){const list=$('inventory');list.replaceChildren();for(const id of S.inventory){const item=mission.inventoryItems[id];if(!item)continue;const button=document.createElement('button');button.className='inventory-item'+(selected===id?' selected':'');button.dataset.item=id;button.setAttribute('aria-label',item.label+' — select or drag');button.innerHTML=`<svg viewBox="0 0 90 90" aria-hidden="true">${DeliveryArt.icons[item.icon]}</svg><span>${item.label}</span>`;list.append(button);}if(!S.inventory.length)list.innerHTML='<span class="inventory-empty">A little room for possibilities.</span>';}
 function makeActor(id,x,y,height){return {id,x,y,height,action:'idle',frame:'',walkTime:0,walkFrom:0,walkTo:0,direction:id==='harpreet'?1:-1};}
 function render(scene=S.scene){
- sceneName=scene;
+ sceneName=scene;heldProps={};$('tooltip').style.opacity='0';
  const scenic=DeliveryArt[scene];$('scenery').innerHTML=typeof scenic==='function'?scenic.call(DeliveryArt):'';
  $('props').replaceChildren();$('cast').replaceChildren();$('foreground').replaceChildren();$('effects').replaceChildren();
  const def=mission.scenes[scene];
@@ -42,7 +42,7 @@ function render(scene=S.scene){
   $('chapter').textContent='04 / JUST IN TIME';$('location').textContent='The Old Picture House';
  }else{actors={};$('chapter').textContent='THE HIGH ROAD';$('location').textContent='Clocktower Hill';}
  for(const actor of Object.values(actors)){
-  const group=document.createElementNS(NS,'g');group.id='actor-'+actor.id;group.classList.add('actor');group.innerHTML='<ellipse class="actor-shadow" cx="0" cy="-2" rx="47" ry="9"/><g class="actor-sprite"></g>';$('cast').append(group);
+  const group=document.createElementNS(NS,'g');group.id='actor-'+actor.id;group.classList.add('actor');group.innerHTML='<ellipse class="actor-shadow" cx="0" cy="-2" rx="47" ry="9"/><g class="actor-sprite"></g><g class="held-prop" pointer-events="none"></g>';$('cast').append(group);
  }
  if(scene==='stall')$('foreground').innerHTML='<path d="M632 479H1232V568H632Z" fill="#894c43" stroke="#1a2a39" stroke-width="6"/><path d="M643 494H1222M643 520H1222M643 546H1222" stroke="#b77755" stroke-width="3"/>';
  $('objective').textContent=goal();renderInventory();paintActors(performance.now());
@@ -50,11 +50,14 @@ function render(scene=S.scene){
 function paintActors(now){for(const actor of Object.values(actors)){
  const node=$('actor-'+actor.id);if(!node)continue;
  let frame='idle';
- if(actor.action==='walk')frame='walk'+Math.floor(now/150)%4;
+ if(actor.action==='ride'){const mouth=speakerId===actor.id?(sound.mouth()||['talkA','talkEE','idle','talkO'][Math.floor((voice.clip?.currentTime||now/1000)*7)%4]):'idle';frame=mouth==='idle'?'ride':'ride'+mouth.slice(4);}
+ else if(actor.action==='walk')frame='walk'+Math.floor(now/150)%4;
  else if(actor.action==='talk')frame=voice.clip?.paused?'idle':sound.mouth()||['talkA','talkEE','idle','talkO','talkEE'][Math.floor((voice.clip?.currentTime||now/1000)*7)%5];
  else if(['reach','gesture','ride'].includes(actor.action))frame=actor.action;
  else if(Math.floor(now/160)%29===0)frame='blink';
- if(actor.frame!==frame){actor.frame=frame;node.querySelector('.actor-sprite').innerHTML=`<svg x="${-actor.height*.245}" y="${-actor.height}" width="${actor.height*.49}" height="${actor.height}" overflow="visible">${bank[actor.id]?.[frame]||bank[actor.id]?.idle||DeliveryArt.fallback(actor.id)}</svg>`;}
+ if(actor.frame!==frame){actor.frame=frame;node.querySelector('.actor-sprite').innerHTML=`<svg x="${-actor.height*(actor.action==='ride'?.34:.245)}" y="${-actor.height}" width="${actor.height*(actor.action==='ride'?.68:.49)}" height="${actor.height}" overflow="visible">${bank[actor.id]?.[frame]||bank[actor.id]?.idle||DeliveryArt.fallback(actor.id)}</svg>`;}
+ const hand=node.querySelector('.held-prop'),item=heldProps[actor.id]||'';
+ if(hand.dataset.item!==item){hand.dataset.item=item;hand.innerHTML=item?`<svg x="${actor.direction>0?8:-72}" y="${-actor.height*.47}" width="68" height="68" viewBox="0 0 90 90">${DeliveryArt.icons[item]||''}</svg>`:'';}
  node.setAttribute('transform',`translate(${actor.x} ${actor.y})`);
  node.classList.toggle('walking',actor.action==='walk');node.classList.toggle('talking',actor.action==='talk');node.classList.toggle('riding',actor.action==='ride');
  // The ¾ rig faces right for Harpreet and left for both neighbours.
@@ -68,7 +71,7 @@ function showDialogue(id,waitForEnd=false){
  stopLine();const d=mission.dialogues[id];if(!d)throw Error('Unknown dialogue '+id);
  const who=mission.cast[d.speaker]||mission.cast.harpreet;speakerId=d.speaker;
  $('dialogue').hidden=false;$('dialogue').style.setProperty('--speaker-colour',who.colour);$('speaker').textContent=who.name;$('speakerRole').textContent=who.role;$('subtitle').textContent=d.text;$('choices').replaceChildren();
- if(actors[d.speaker])actors[d.speaker].action='talk';
+ if(actors[d.speaker]&&actors[d.speaker].action!=='ride')actors[d.speaker].action='talk';
  for(const c of d.choices||[]){const b=document.createElement('button');b.textContent=c.label;b.onclick=()=>{if(!busy&&!paused)dispatch(c.event);};$('choices').append(b);}
  voice.play(id,d.text);const clip=voice.clip;if(clip)sound.watch(clip);
  $('skip').textContent=waitForEnd?'Continue ↵':d.choices?.length?'Skip voice ↵':'Close ↵';
@@ -82,16 +85,18 @@ function showDialogue(id,waitForEnd=false){
  });
 }
 async function changeScene(scene){stopLine();clearSelection();$('dialogue').hidden=true;$('transition').classList.add('dark');await sleep(240);render(scene);$('transition').classList.remove('dark');sound.beat=0;}
-function pose({actor,action}){if(actors[actor]){actors[actor].action=action;if(action==='ride'){actors[actor].x=795;actors[actor].y=520;actors[actor].height=330;}paintActors(performance.now());}}
+function pose({actor,action,facing}){if(actors[actor]){actors[actor].action=action;if(facing)actors[actor].direction=facing;if(action==='ride'){actors[actor].x=775;actors[actor].y=555;actors[actor].height=330;}paintActors(performance.now());}}
 async function effect(kind){
  if(kind==='dry'){$('effects').innerHTML='<g class="dry-effect" fill="none" stroke="#ffe1a3" stroke-width="3"><path d="M365 403Q345 380 363 360M390 406Q410 380 390 359M414 410Q400 390 417 373"/></g>';await sleep(1200);$('effects').replaceChildren();}
- if(kind==='headlight'){$('effects').innerHTML='<circle cx="925" cy="423" r="65" fill="url(#d-glow)"/>';await sleep(500);}
+ if(kind==='headlight'&&S.flags.cableFixed){$('effects').innerHTML='<circle cx="925" cy="423" r="65" fill="url(#d-glow)"/>';await sleep(500);}
+ if(kind==='loadParcel'){$('delivery-scooter')?.insertAdjacentHTML('beforeend',`<svg x="30" y="20" width="85" height="85" viewBox="0 0 90 90">${DeliveryArt.icons.parcel}</svg>`);}
  if(kind==='depart')$('game').classList.add('departing');
  if(kind==='flood'){$('effects').innerHTML='<path d="M240 447Q315 420 390 451T550 448" fill="none" stroke="#77aeb8" stroke-width="6" opacity=".65"/>';await sleep(500);}
  if(kind==='door')$('game').classList.add('door-open');
  if(kind==='projector'){$('game').classList.add('projector-on');sound.fx('complete');}
 }
 const sequence=new MissionSequenceRunner({
+ prop:({actor,item})=>{heldProps[actor]=item;paintActors(performance.now());},
  walk:walkTo,pose,line:id=>showDialogue(id,true),sound:id=>sound.fx(id),wait:sleep,effect,
  event:event=>applyRule(event),message:id=>{showDialogue(id);},scene:scene=>changeScene(scene),camera:value=>$('game').classList.toggle('intro-camera',value==='intro'),ending:()=>finish()
 });
@@ -152,8 +157,10 @@ document.addEventListener('pointermove',e=>{
 },{passive:false});
 document.addEventListener('pointerup',async e=>{if(!drag||e.pointerId!==drag.pointer)return;const current=drag;drag=null;$('dragGhost').hidden=true;document.querySelectorAll('.drop-target').forEach(n=>n.classList.remove('drop-target'));if(!current.moved)return;ignoreClick=performance.now()+400;const node=document.elementFromPoint(e.clientX,e.clientY)?.closest('[data-target],[data-item]'),target=node?.dataset.target||node?.dataset.item;if(!target||current.id===target)return;if(!S.inventory.includes(current.id))await dispatch('click:'+current.id);await dispatch('drop:'+current.id+':'+target);});
 document.addEventListener('pointercancel',()=>{drag=null;$('dragGhost').hidden=true;document.querySelectorAll('.drop-target').forEach(n=>n.classList.remove('drop-target'));});
-document.addEventListener('keydown',e=>{if(e.target.matches('input,button,a'))return;if(e.key==='Escape'){e.preventDefault();if(selected)clearSelection();else if(started&&!$('ending').open)setPaused(!paused);}if(e.key==='Enter'&&e.target.closest('[data-target]')){e.preventDefault();interact(e.target.closest('[data-target]').dataset.target);}else if(e.key==='Enter'||e.key===' '){if(skipLine){e.preventDefault();stopLine();}}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if($('ending').open)return;e.preventDefault();if(selected)clearSelection();else if(started)setPaused(!paused);return;}if(e.target.matches('input,button,a,select,textarea'))return;if((e.key==='Enter'||e.key===' ')&&skipLine){e.preventDefault();stopLine();return;}if(e.key==='Enter'&&e.target.closest('[data-target]')){e.preventDefault();interact(e.target.closest('[data-target]').dataset.target);}});
 document.addEventListener('visibilitychange',()=>{voice.setHidden(document.hidden||paused);if(document.hidden)save();});
 window.addEventListener('message',e=>{if(e.source!==$('rigBridge').contentWindow||e.origin!==location.origin)return;if(e.data?.type==='anitoons-delivery-cast'){bank=e.data.bank;for(const actor of Object.values(actors))actor.frame='';paintActors(performance.now());}});
+window.addEventListener('mission-voice-start',e=>{$('dialogue').dataset.voiceState='playing';$('dialogue').dataset.voiceSpeaker=e.detail?.speaker||'';});
+window.addEventListener('mission-voice-end',()=>{$('dialogue').dataset.voiceState='idle';});
 $('artDefs').innerHTML=DeliveryArt.defs;
-fetch('adventures/last-delivery.json').then(r=>{if(!r.ok)throw Error('Mission missing');return r.json();}).then(async def=>{mission=def;engine=new MissionEngine(mission);S=engine.state;render();await voice.load(def.id);const hasSave=!!saved();$('start').disabled=false;$('start').textContent=hasSave?'Continue delivery →':'Begin the delivery →';$('newGame').hidden=!hasSave;$('voiceStatus').textContent=Object.keys(voice.lines).length?'Three voices. One neighbourhood.':'Voice clips are being prepared. Subtitles are ready to play.';requestAnimationFrame(animate);}).catch(e=>{console.error(e);announceError('The mission could not load. Please refresh or return to the mission list.');$('start').textContent='Could not load mission';});
+fetch('adventures/last-delivery.json').then(r=>{if(!r.ok)throw Error('Mission missing');return r.json();}).then(async def=>{mission=def;engine=new MissionEngine(mission);S=engine.state;render();await voice.load(def.id);const hasSave=!!saved();$('start').disabled=false;$('start').textContent=hasSave?'Continue delivery →':'Begin the delivery →';$('newGame').hidden=!hasSave;$('voiceStatus').textContent=Object.keys(voice.lines).length?'Three voices. One neighbourhood.':'Three neighbours. One last delivery.';requestAnimationFrame(animate);}).catch(e=>{console.error(e);announceError('The mission could not load. Please refresh or return to the mission list.');$('start').textContent='Could not load mission';});

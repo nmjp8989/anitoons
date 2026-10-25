@@ -348,7 +348,7 @@
       "speaker": "kabir"
     },
     "fuseFit": {
-      "text": "A perfect fit. And there is the headlight. We are back in business.",
+      "text": "The fuse clicks into place. That should take care of the headlight.",
       "speaker": "harpreet"
     },
     "meenaHello": {
@@ -445,6 +445,15 @@
     }
   },
   "rules": [
+    {
+      "when": "click:scooter",
+      "in": "courtyard",
+      "if": "!scooterInspected",
+      "actions": [
+        "flag:scooterInspected",
+        "message:scooterBroken"
+      ]
+    },
     {
       "when": "click:parcel",
       "actions": [
@@ -845,7 +854,14 @@
       {
         "pose": {
           "actor": "harpreet",
-          "action": "reach"
+          "action": "reach",
+          "facing": 1
+        }
+      },
+      {
+        "prop": {
+          "actor": "harpreet",
+          "item": "parcel"
         }
       },
       {
@@ -862,6 +878,12 @@
           "actor": "harpreet",
           "action": "idle"
         }
+      },
+      {
+        "prop": {
+          "actor": "harpreet",
+          "item": null
+        }
       }
     ],
     "dryLabel": [
@@ -871,7 +893,14 @@
       {
         "pose": {
           "actor": "harpreet",
-          "action": "reach"
+          "action": "reach",
+          "facing": -1
+        }
+      },
+      {
+        "prop": {
+          "actor": "harpreet",
+          "item": "parcel"
         }
       },
       {
@@ -891,13 +920,20 @@
           "actor": "harpreet",
           "action": "idle"
         }
+      },
+      {
+        "prop": {
+          "actor": "harpreet",
+          "item": null
+        }
       }
     ],
     "makePinwheel": [
       {
         "pose": {
           "actor": "harpreet",
-          "action": "reach"
+          "action": "reach",
+          "facing": 1
         }
       },
       {
@@ -910,12 +946,24 @@
         "event": "pinwheel:done"
       },
       {
+        "prop": {
+          "actor": "harpreet",
+          "item": "pinwheel"
+        }
+      },
+      {
         "line": "pinwheelMade"
       },
       {
         "pose": {
           "actor": "harpreet",
           "action": "idle"
+        }
+      },
+      {
+        "prop": {
+          "actor": "harpreet",
+          "item": null
         }
       }
     ],
@@ -926,7 +974,8 @@
       {
         "pose": {
           "actor": "harpreet",
-          "action": "reach"
+          "action": "reach",
+          "facing": 1
         }
       },
       {
@@ -955,7 +1004,14 @@
       {
         "pose": {
           "actor": "harpreet",
-          "action": "reach"
+          "action": "reach",
+          "facing": 1
+        }
+      },
+      {
+        "prop": {
+          "actor": "harpreet",
+          "item": "fuse"
         }
       },
       {
@@ -975,6 +1031,12 @@
           "actor": "harpreet",
           "action": "idle"
         }
+      },
+      {
+        "prop": {
+          "actor": "harpreet",
+          "item": null
+        }
       }
     ],
     "tradePinwheel": [
@@ -984,13 +1046,21 @@
       {
         "pose": {
           "actor": "harpreet",
-          "action": "reach"
+          "action": "reach",
+          "facing": 1
+        }
+      },
+      {
+        "prop": {
+          "actor": "harpreet",
+          "item": "pinwheel"
         }
       },
       {
         "pose": {
           "actor": "kabir",
-          "action": "reach"
+          "action": "reach",
+          "facing": -1
         }
       },
       {
@@ -1001,6 +1071,18 @@
       },
       {
         "event": "trade:pinwheel"
+      },
+      {
+        "prop": {
+          "actor": "harpreet",
+          "item": null
+        }
+      },
+      {
+        "prop": {
+          "actor": "kabir",
+          "item": "pinwheel"
+        }
       },
       {
         "pose": {
@@ -1016,6 +1098,12 @@
           "actor": "kabir",
           "action": "idle"
         }
+      },
+      {
+        "prop": {
+          "actor": "kabir",
+          "item": null
+        }
       }
     ],
     "tradeChai": [
@@ -1025,13 +1113,21 @@
       {
         "pose": {
           "actor": "harpreet",
-          "action": "reach"
+          "action": "reach",
+          "facing": 1
+        }
+      },
+      {
+        "prop": {
+          "actor": "harpreet",
+          "item": "chai"
         }
       },
       {
         "pose": {
           "actor": "kabir",
-          "action": "reach"
+          "action": "reach",
+          "facing": -1
         }
       },
       {
@@ -1042,6 +1138,18 @@
       },
       {
         "event": "trade:chai"
+      },
+      {
+        "prop": {
+          "actor": "harpreet",
+          "item": null
+        }
+      },
+      {
+        "prop": {
+          "actor": "kabir",
+          "item": "chai"
+        }
       },
       {
         "pose": {
@@ -1056,6 +1164,12 @@
         "pose": {
           "actor": "kabir",
           "action": "idle"
+        }
+      },
+      {
+        "prop": {
+          "actor": "kabir",
+          "item": null
         }
       }
     ],
@@ -1085,6 +1199,9 @@
       },
       {
         "line": "road"
+      },
+      {
+        "effect": "loadParcel"
       },
       {
         "effect": "depart"

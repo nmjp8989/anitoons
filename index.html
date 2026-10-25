@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v79</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v80</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -74,7 +74,7 @@
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
 </style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v79</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v80</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -208,22 +208,23 @@ function baseEyesSvg(key){
    }else{
      const wide=key==='surprised',half=key==='sleepy';
      const w=wide?57:58,h=wide?62:51;
-     const p=`M${cx-w} ${cy-9} Q${cx-w+11} ${cy-h-14} ${cx} ${cy-h-14} Q${cx+w-13} ${cy-h-12} ${cx+w} ${cy-9} Q${cx+w-10} ${cy+h-8} ${cx} ${cy+h-6} Q${cx-w+8} ${cy+h-7} ${cx-w} ${cy-9}Z`;
+     const upper=`M${cx-w} ${cy-9} Q${cx-w+11} ${cy-h-14} ${cx} ${cy-h-14} Q${cx+w-13} ${cy-h-12} ${cx+w} ${cy-9}`;
+     const p=`${upper} Q${cx+w-10} ${cy+h-8} ${cx} ${cy+h-6} Q${cx-w+8} ${cy+h-7} ${cx-w} ${cy-9}Z`;
      out+=shape(p,'#fffefa',9.2);
      // Pupil and catchlight move together, with consistent registration across visemes.
      out+=`<circle cx="${cx+looking}" cy="${cy+2+lookY}" r="13" fill="#241916"/><circle cx="${cx+looking-4}" cy="${cy-2+lookY}" r="3.5" fill="#fff"/>`;
      if(half){
-       out+=shape(`M${cx-w} ${cy-8} Q${cx} ${cy-h-23} ${cx+w} ${cy-8} Q${cx+24} ${cy+7} ${cx} ${cy+4} Q${cx-24} ${cy+7} ${cx-w} ${cy-8}Z`,'url(#skinFill)',5.3);
+       out+=shape(`${upper} Q${cx+24} ${cy+7} ${cx} ${cy+4} Q${cx-24} ${cy+7} ${cx-w} ${cy-9}Z`,'url(#skinFill)',5.3);
      }else{
-       out+=line(`M${cx-w+1} ${cy-13} Q${cx} ${cy-h-18} ${cx+w-1} ${cy-13}`,6);
+       out+=line(upper,6);
      }
      out+=`<path d="M${cx-34} ${cy+h-2} Q${cx} ${cy+h+5} ${cx+34} ${cy+h-2}" stroke="#b97954" stroke-width="2.5" opacity=".32" fill="none"/>`;
    }
-   if(!closed){
-     const x=cx+side*54;
-     out+=line(`M${x} ${cy-23} Q${x+side*13} ${cy-20} ${x+side*19} ${cy-34}`,6.2);
-     out+=line(`M${x+side*2} ${cy-13} Q${x+side*15} ${cy-7} ${x+side*20} ${cy-19}`,4.8);
-   }
+   // Both lashes start at the actual outer corner of the current eyelid.
+   const x=cx+side*(closed||happy?60:key==='surprised'?57:58);
+   const y=cy+(closed||happy?1:-9);
+   out+=line(`M${x} ${y} Q${x+side*12} ${y-1} ${x+side*18} ${y-17}`,6.2);
+   out+=line(`M${x} ${y} Q${x+side*13} ${y+5} ${x+side*21} ${y-5}`,4.8);
  }
  return out;
 }

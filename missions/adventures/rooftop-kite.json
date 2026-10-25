@@ -1,0 +1,764 @@
+{
+  "id": "rooftop-kite",
+  "version": 2,
+  "number": "002",
+  "category": "A SKY-HIGH ADVENTURE",
+  "title": "The Rooftop Kite",
+  "subtitle": "One torn kite. Two winds. A sky full of possibility.",
+  "intro": "The kite festival begins at sunset. Help Harpreet mend his favourite kite, find the gentle breeze, and make it fly above the old rooftops.",
+  "character": "Harpreet",
+  "startScene": "workshop",
+  "startMessage": "welcome",
+  "hero": {
+    "id": "character",
+    "name": "Harpreet",
+    "subtitle": "YOUR KITE MAKER",
+    "layout": {
+      "workshop": [
+        170,
+        175,
+        190,
+        347
+      ],
+      "rooftop": [
+        210,
+        200,
+        186,
+        338
+      ]
+    },
+    "label": {
+      "workshop": [
+        266,
+        136,
+        145
+      ],
+      "rooftop": [
+        304,
+        161,
+        145
+      ]
+    },
+    "shadow": {
+      "workshop": [
+        255,
+        530
+      ],
+      "rooftop": [
+        306,
+        541
+      ]
+    }
+  },
+  "scenes": {
+    "workshop": {
+      "name": "The kite workshop",
+      "icon": "✂",
+      "art": "kiteWorkshop",
+      "music": "workshop",
+      "objects": [
+        {
+          "id": "kite",
+          "type": "kiteBench",
+          "name": "Torn kite — repair",
+          "hitbox": [
+            535,
+            233,
+            255,
+            271
+          ],
+          "badge": [
+            "Torn kite",
+            662,
+            184,
+            140
+          ]
+        },
+        {
+          "id": "paper",
+          "type": "kitePaper",
+          "name": "Coloured repair paper",
+          "if": "!patched+!inventory.paper",
+          "hitbox": [
+            398,
+            473,
+            107,
+            68
+          ],
+          "badge": [
+            "Patch paper",
+            467,
+            430,
+            133
+          ]
+        },
+        {
+          "id": "spool",
+          "type": "kiteSpool",
+          "name": "Spool of cotton thread",
+          "if": "!tied+!inventory.spool",
+          "hitbox": [
+            878,
+            447,
+            120,
+            110
+          ],
+          "badge": [
+            "Thread spool",
+            931,
+            413,
+            142
+          ]
+        },
+        {
+          "id": "roofDoor",
+          "type": "kiteStairs",
+          "name": "Stairs to the rooftop",
+          "hitbox": [
+            1092,
+            200,
+            170,
+            348
+          ],
+          "badge": [
+            "To the roof →",
+            1173,
+            180,
+            140
+          ]
+        },
+        {
+          "id": "bell",
+          "type": "kiteBell",
+          "name": "Little shop bell — ring it",
+          "badge": [
+            "Ring the bell",
+            1009,
+            180,
+            145
+          ]
+        }
+      ]
+    },
+    "rooftop": {
+      "name": "The old rooftops",
+      "icon": "☀",
+      "art": "kiteRooftop",
+      "music": "rooftop",
+      "objects": [
+        {
+          "id": "stairs",
+          "type": "kiteReturn",
+          "name": "Back to the workshop",
+          "hitbox": [
+            25,
+            300,
+            170,
+            300
+          ],
+          "badge": [
+            "Workshop ←",
+            102,
+            275,
+            152
+          ]
+        },
+        {
+          "id": "kite",
+          "type": "kiteRoof",
+          "name": "Festival kite — carry to the chalk circle",
+          "badge": [
+            "Your kite",
+            703,
+            286,
+            126
+          ]
+        },
+        {
+          "id": "launchPad",
+          "type": "kiteLaunchPad",
+          "name": "Chalk launch circle — place the kite",
+          "badge": [
+            "Launch spot",
+            964,
+            434,
+            153
+          ]
+        },
+        {
+          "id": "weatherVane",
+          "type": "kiteWeatherVane",
+          "name": "Weather vane — choose the breeze",
+          "badge": [
+            "Feel the wind",
+            1067,
+            151,
+            162
+          ]
+        },
+        {
+          "id": "launch",
+          "type": "kiteLaunchButton",
+          "name": "Release the kite!",
+          "if": "positioned+steady",
+          "badge": [
+            "Ready!",
+            1092,
+            320,
+            110
+          ]
+        }
+      ]
+    }
+  },
+  "inventoryItems": {
+    "paper": {
+      "label": "Repair paper",
+      "sprite": "kitePaper",
+      "usedIf": "patched",
+      "usedLabel": "Patch used"
+    },
+    "spool": {
+      "label": "Cotton thread",
+      "sprite": "kiteSpool",
+      "usedIf": "tied",
+      "usedLabel": "Thread tied"
+    }
+  },
+  "draggable": [
+    "paper",
+    "spool",
+    "kite",
+    "character"
+  ],
+  "dialogues": {
+    "welcome": {
+      "text": "The festival starts soon! My kite has a torn wing and no string. Could you help me make it fly?",
+      "choices": [
+        {
+          "label": "Show me what to fix",
+          "message": "firstHint"
+        },
+        {
+          "label": "Inspect the kite",
+          "event": "click:kite"
+        }
+      ]
+    },
+    "firstHint": {
+      "text": "See the coloured patch paper and the spool on the bench? Use the paper on the kite first, then add thread. Drag or tap-to-combine both ways."
+    },
+    "kiteTorn": {
+      "text": "Oh no, there’s a rip along the left wing. A little coloured paper should patch it."
+    },
+    "kitePatched": {
+      "text": "That patch looks splendid! But we still need a tail of cotton thread before the kite can fly."
+    },
+    "kiteTied": {
+      "text": "Look at that! Good as new. Now let’s get some wind on the rooftop.",
+      "choices": [
+        {
+          "label": "Climb to the roof →",
+          "scene": "rooftop"
+        }
+      ]
+    },
+    "kiteReadyInShop": {
+      "text": "Perfect! Patch and string are ready. The roof is through the door on the right.",
+      "choices": [
+        {
+          "label": "Take the stairs",
+          "scene": "rooftop"
+        }
+      ]
+    },
+    "paperTaken": {
+      "text": "Bright orange repair paper! Tap the kite to attach it, or drag the paper from your pocket onto it."
+    },
+    "threadTaken": {
+      "text": "A strong cotton thread. We’ll tie it onto the kite after we patch the tear."
+    },
+    "needPatch": {
+      "text": "The thread will pull through that tear. Use the coloured patch paper first."
+    },
+    "paperAlready": {
+      "text": "This kite is already patched. Now it needs thread."
+    },
+    "needString": {
+      "text": "Almost! The kite needs thread. There’s a spool on the bench."
+    },
+    "stillBroken": {
+      "text": "Let’s fix the kite before heading up. The paper is on the left of the bench, and the spool is on the right."
+    },
+    "roofEarly": {
+      "text": "It’s breezy out here, but the kite still needs repairs. Go back down and finish it.",
+      "choices": [
+        {
+          "label": "Back to the workshop",
+          "scene": "workshop"
+        }
+      ]
+    },
+    "roofWelcome": {
+      "text": "What a beautiful sky! Put the kite on the chalk circle, then check which way the wind is blowing."
+    },
+    "roofKite": {
+      "text": "The kite feels lighter already. Tap the chalk circle to place it, or drag it there."
+    },
+    "launchPadEmpty": {
+      "text": "The chalk circle marks the safest place to launch. Carry the repaired kite onto it."
+    },
+    "launchPadReady": {
+      "text": "The kite is set! Now touch the weather vane and choose the gentler breeze.",
+      "choices": [
+        {
+          "label": "Check the weather vane",
+          "event": "click:weatherVane"
+        }
+      ]
+    },
+    "windBefore": {
+      "text": "The vane is spinning. Place the repaired kite on the chalk circle first so we can test the wind."
+    },
+    "windQuestion": {
+      "text": "The wind is changing. Which breeze should we use?",
+      "choices": [
+        {
+          "label": "The roaring WEST gust ↙",
+          "event": "choose:west"
+        },
+        {
+          "label": "The gentle EAST breeze ↗",
+          "event": "choose:east"
+        }
+      ]
+    },
+    "badWind": {
+      "text": "WHOOSH! That gust nearly took my turban! Too strong for a little kite. Shall we try the gentle breeze?",
+      "choices": [
+        {
+          "label": "Try the gentle east breeze",
+          "event": "choose:east"
+        },
+        {
+          "label": "Check the weather vane again",
+          "event": "click:weatherVane"
+        }
+      ]
+    },
+    "goodWind": {
+      "text": "That’s it. A soft, steady breeze! The kite is ready. Press LAUNCH!",
+      "choices": [
+        {
+          "label": "Launch the kite ✦",
+          "event": "click:launch"
+        }
+      ]
+    },
+    "launchBlocked": {
+      "text": "We need a mended, tied kite in the chalk circle and a gentle breeze before we launch."
+    },
+    "skyIntro": {
+      "text": "Ready, Harpreet? One… two… three… LET GO!"
+    },
+    "skyDone": {
+      "text": "Look at those colours! We did it. The whole neighbourhood can see our kite now!"
+    },
+    "character": {
+      "text": "Come on, partner! Let’s get this kite in the air together."
+    },
+    "bell": {
+      "text": "Ting! The little shop bell sounds just like the start of festival day."
+    },
+    "cantCombine": {
+      "text": "Those don’t fit together just yet. Try the patch on the kite, then the cotton thread."
+    },
+    "badDrop": {
+      "text": "Try dropping the item on its destination — or select it and tap the target."
+    }
+  },
+  "rules": [
+    {
+      "when": "click:character",
+      "actions": [
+        "message:character"
+      ]
+    },
+    {
+      "when": "click:bell",
+      "in": "workshop",
+      "actions": [
+        "sound:discover",
+        "message:bell"
+      ]
+    },
+    {
+      "when": "click:kite",
+      "in": "workshop",
+      "if": "tied",
+      "actions": [
+        "message:kiteReadyInShop"
+      ]
+    },
+    {
+      "when": "click:kite",
+      "in": "workshop",
+      "if": "patched",
+      "actions": [
+        "message:kitePatched"
+      ]
+    },
+    {
+      "when": "click:kite",
+      "in": "workshop",
+      "actions": [
+        "message:kiteTorn"
+      ]
+    },
+    {
+      "when": "click:paper",
+      "in": "workshop",
+      "if": "!patched+!inventory.paper",
+      "actions": [
+        "inventory:paper",
+        "sound:paper",
+        "message:paperTaken"
+      ]
+    },
+    {
+      "when": "click:paper",
+      "in": "workshop",
+      "if": "inventory.paper",
+      "actions": [
+        "select:paper",
+        "message:paperTaken"
+      ]
+    },
+    {
+      "when": "click:spool",
+      "in": "workshop",
+      "if": "!tied+!inventory.spool",
+      "actions": [
+        "inventory:spool",
+        "sound:paper",
+        "message:threadTaken"
+      ]
+    },
+    {
+      "when": "click:spool",
+      "in": "workshop",
+      "if": "inventory.spool",
+      "actions": [
+        "select:spool",
+        "message:threadTaken"
+      ]
+    },
+    {
+      "when": "drop:paper:kite",
+      "in": "workshop",
+      "if": "!patched",
+      "actions": [
+        "flag:patched",
+        "hide:paper",
+        "remove:paper",
+        "sound:paper",
+        "message:kitePatched"
+      ]
+    },
+    {
+      "when": "drop:spool:kite",
+      "in": "workshop",
+      "if": "!patched",
+      "actions": [
+        "message:needPatch"
+      ]
+    },
+    {
+      "when": "drop:spool:kite",
+      "in": "workshop",
+      "if": "patched+!tied",
+      "actions": [
+        "flag:tied",
+        "hide:spool",
+        "remove:spool",
+        "sound:tie",
+        "message:kiteTied"
+      ]
+    },
+    {
+      "when": "click:roofDoor",
+      "in": "workshop",
+      "actions": [
+        "scene:rooftop"
+      ]
+    },
+    {
+      "when": "click:stairs",
+      "in": "rooftop",
+      "actions": [
+        "scene:workshop"
+      ]
+    },
+    {
+      "when": "click:kite",
+      "in": "rooftop",
+      "if": "tied",
+      "actions": [
+        "select:kite",
+        "message:roofKite"
+      ]
+    },
+    {
+      "when": "click:kite",
+      "in": "rooftop",
+      "actions": [
+        "message:stillBroken"
+      ]
+    },
+    {
+      "when": "drop:kite:launchPad",
+      "in": "rooftop",
+      "if": "!tied",
+      "actions": [
+        "message:needString"
+      ]
+    },
+    {
+      "when": "drop:kite:launchPad",
+      "in": "rooftop",
+      "if": "tied+!positioned",
+      "actions": [
+        "flag:positioned",
+        "sound:tie",
+        "message:launchPadReady"
+      ]
+    },
+    {
+      "when": "drop:kite:launchPad",
+      "in": "rooftop",
+      "if": "positioned",
+      "actions": [
+        "message:launchPadReady"
+      ]
+    },
+    {
+      "when": "click:launchPad",
+      "in": "rooftop",
+      "if": "positioned",
+      "actions": [
+        "message:launchPadReady"
+      ]
+    },
+    {
+      "when": "click:launchPad",
+      "in": "rooftop",
+      "actions": [
+        "message:launchPadEmpty"
+      ]
+    },
+    {
+      "when": "click:weatherVane",
+      "in": "rooftop",
+      "if": "positioned",
+      "actions": [
+        "message:windQuestion"
+      ]
+    },
+    {
+      "when": "click:weatherVane",
+      "in": "rooftop",
+      "actions": [
+        "message:windBefore"
+      ]
+    },
+    {
+      "when": "choose:west",
+      "in": "rooftop",
+      "if": "positioned",
+      "actions": [
+        "sound:gust",
+        "message:badWind"
+      ]
+    },
+    {
+      "when": "choose:east",
+      "in": "rooftop",
+      "if": "positioned",
+      "actions": [
+        "flag:steady",
+        "sound:gentle",
+        "message:goodWind"
+      ]
+    },
+    {
+      "when": "click:launch",
+      "in": "rooftop",
+      "if": "tied+positioned+steady",
+      "actions": [
+        "sound:launch",
+        "cutscene:kiteFlight",
+        "ending:complete"
+      ]
+    },
+    {
+      "when": "navigate:workshop",
+      "in": "rooftop",
+      "actions": [
+        "scene:workshop"
+      ]
+    },
+    {
+      "when": "navigate:rooftop",
+      "in": "workshop",
+      "actions": [
+        "scene:rooftop"
+      ]
+    },
+    {
+      "when": "enter:rooftop",
+      "if": "!tied",
+      "actions": [
+        "message:roofEarly"
+      ]
+    },
+    {
+      "when": "enter:rooftop",
+      "actions": [
+        "message:roofWelcome"
+      ]
+    },
+    {
+      "when": "enter:workshop",
+      "if": "tied",
+      "actions": [
+        "message:kiteReadyInShop"
+      ]
+    },
+    {
+      "when": "enter:workshop",
+      "actions": [
+        "message:firstHint"
+      ]
+    }
+  ],
+  "objectives": [
+    {
+      "if": "!patched",
+      "text": "Patch the kite's torn wing"
+    },
+    {
+      "if": "!tied",
+      "text": "Tie the cotton thread"
+    },
+    {
+      "if": "!positioned",
+      "text": "Put the kite in the launch circle"
+    },
+    {
+      "if": "!steady",
+      "text": "Choose a gentle wind"
+    },
+    {
+      "if": "complete",
+      "text": "Your kite is flying!"
+    },
+    {
+      "text": "Release the kite!"
+    }
+  ],
+  "progress": [
+    {
+      "if": "patched"
+    },
+    {
+      "if": "tied"
+    },
+    {
+      "if": "positioned"
+    },
+    {
+      "if": "complete"
+    }
+  ],
+  "progressLabels": [
+    {
+      "if": "complete",
+      "text": "MISSION COMPLETE"
+    },
+    {
+      "if": "positioned",
+      "text": "CATCH THE WIND"
+    },
+    {
+      "text": "FIX THE KITE"
+    }
+  ],
+  "hints": [
+    {
+      "if": "!patched+scene.workshop",
+      "text": "Tap the orange paper patch on the bench, then tap the torn kite. Or drag the paper onto it."
+    },
+    {
+      "if": "!patched+scene.rooftop",
+      "text": "The kite needs a coloured paper patch. Go back down the stairs."
+    },
+    {
+      "if": "!tied+scene.workshop",
+      "text": "Tap the spool at the right end of the bench, then tap the kite to attach the string."
+    },
+    {
+      "if": "!tied+scene.rooftop",
+      "text": "Go down to the workshop and tie thread from the spool onto the patched kite."
+    },
+    {
+      "if": "!positioned",
+      "text": "On the roof, select the kite then select the chalk launch circle. You can also drag the kite onto it."
+    },
+    {
+      "if": "!steady",
+      "text": "Tap the weather vane at the right of the roof, then choose the gentle east breeze."
+    },
+    {
+      "text": "Tap the green LAUNCH button near the chalk circle."
+    }
+  ],
+  "cutscenes": {
+    "kiteFlight": {
+      "music": "flight",
+      "message": "skyIntro",
+      "frames": [
+        {
+          "caption": "Harpreet holds the kite up to the sunlight…",
+          "duration": 1100,
+          "style": "flutter",
+          "sound": "gentle"
+        },
+        {
+          "caption": "The breeze catches the colourful wings!",
+          "duration": 1100,
+          "style": "flutter",
+          "sound": "flutter"
+        },
+        {
+          "caption": "UP! Up above the rooftops!",
+          "duration": 3400,
+          "style": "fly",
+          "moveObjects": [
+            "kite"
+          ],
+          "sound": "launch"
+        }
+      ],
+      "after": "skyDone"
+    }
+  },
+  "completion": {
+    "title": "Up, up and away!",
+    "text": "You repaired the kite, trusted the gentle wind, and sent a little colour soaring over the whole neighbourhood.",
+    "stats": [
+      "Kite repaired",
+      "Wind chosen",
+      "Sky conquered"
+    ]
+  }
+}

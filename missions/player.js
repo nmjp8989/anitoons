@@ -237,7 +237,7 @@ function hydrate(){
  document.querySelector('meta[name="description"]').content=mission.intro||mission.title;
  document.querySelector('section.game').setAttribute('aria-label',mission.title+' game');
  $('speaker').querySelector('span').textContent=mission.hero?.subtitle||'CHARACTER';
- document.querySelector('.heading h1').textContent=mission.title+'.';
+ const heading=document.querySelector('.heading h1');heading.textContent=mission.title;const dot=document.createElement('span');dot.textContent='.';heading.append(dot);
  document.querySelector('.heading p').textContent=mission.subtitle||mission.intro||'';
  document.querySelector('.start-card h2').textContent=mission.title;
  document.querySelector('.start-card p').textContent=mission.intro;

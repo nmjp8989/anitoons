@@ -38,7 +38,7 @@ Start with [mission.json](mission.json), which is the complete working example.
 }
 ```
 
-To try a replacement adventure in the current standalone player, save a valid mission as `missions/mission.json`. New missions should normally be created as their own JSON files and registered in a future mission picker; there is no visual authoring UI yet.
+To play a separate adventure without changing the first one, save it as `missions/adventures/my-adventure.json` and open `/missions/?mission=my-adventure`. The player only accepts short lowercase filename slugs from the local `adventures/` folder (not arbitrary paths or remote URLs). The default `/missions/` loads `mission.json`. There is no visual mission picker or authoring UI yet.
 
 ### Scenes and props
 

@@ -73,7 +73,8 @@
         491
       ]
     },
-    "ridingLabel": "Ready, neighbour!"
+    "ridingLabel": "Ready, neighbour!",
+    "subtitle": "YOUR NEIGHBOUR"
   },
   "scenes": {
     "home": {
@@ -809,5 +810,7 @@
       "duration": 1100,
       "thenPose": "stand"
     }
-  }
+  },
+  "number": "001",
+  "category": "A NEIGHBOURHOOD ADVENTURE"
 }

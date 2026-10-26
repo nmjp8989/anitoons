@@ -293,6 +293,28 @@
    for(const [k,v] of Object.entries({cx:m[4],cy:m[5],r:anchor==='seat'?27:17,fill:'#e9fff2',stroke:'#349b6a','stroke-width':3,opacity:.85}))circle.setAttribute(k,v);guides.append(circle);
   }
  }
+ // Give a handheld prop to someone by dropping anywhere over their upper body.
+ // Exact wrist snapping still takes priority; this handles the intuitive "give cup" gesture.
+ function characterDropTarget(id,release){
+  const o=objects[id];if(!o||!assets[o.asset].tags.includes('handheld'))return null;
+  let best=null;
+  scene.cast.forEach((actor,i)=>{
+   const actorID=actorId(actor),node=scene.nodes[i];if(!node)return;
+   const points=[[627,750],[627,1120],[627,1440]].map(([x,y])=>point(node.svg,x,y));
+   const bodyDistance=Math.min(...points.map(p=>Math.hypot(release.x-p.x,release.y-p.y)));
+   if(bodyDistance>145)return;
+   const anchors=assets[o.asset].tags.includes('wearable')?['shoulder','rightHand','leftHand']:['rightHand','leftHand'];
+   for(const anchor of anchors){
+    if(!compatible(id,actorID,anchor))continue;
+    const wrist=actors[actorID]?.anchors?.[anchor];
+    if(!wrist)continue;
+    const distance=Math.hypot(release.x-wrist[4],release.y-wrist[5]);
+    const score=bodyDistance+distance*.15+(anchor==='shoulder'?0:2);
+    if(!best||score<best.score)best={parent:actorID,anchor,score};
+   }
+  });
+  return best;
+ }
  function canvasPoint(e){return new DOMPoint(e.clientX,e.clientY).matrixTransform(sceneCanvas.getScreenCTM().inverse());}
  sceneCanvas.addEventListener('pointerdown',e=>{
   const el=e.target.closest('[data-entity]');if(!el)return;pauseScene();selected=el.dataset.entity;inspect();selection();const p=canvasPoint(e);const o=objects[selected];
@@ -318,8 +340,9 @@
      const m=world(d.id),entities=all();let best=null;
      for(const [parent,en] of Object.entries(entities))for(const [anchor,local] of Object.entries(en.anchors||{}))if(compatible(d.id,parent,anchor)){
       const target=A.multiply(A.world(entities,parent),local),distance=Math.hypot(m[4]-target[4],m[5]-target[5]);
-      if(distance<70&&(!best||distance<best.distance))best={parent,anchor,distance};
+      if(distance<100&&(!best||distance<best.distance))best={parent,anchor,distance};
      }
+     if(!best)best=characterDropTarget(d.id,canvasPoint(e));
      if(best)attach(d.id,best.parent,best.anchor);
     }
    }else{

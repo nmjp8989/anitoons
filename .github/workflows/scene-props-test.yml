@@ -1,0 +1,29 @@
+name: Scene props regression tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'props/**'
+      - 'tests/scene-props.cjs'
+      - '.github/workflows/scene-props-test.yml'
+  workflow_dispatch:
+
+jobs:
+  scene-props:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install headless browser
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Test nested attachments
+        run: node tests/attachments.cjs
+      - name: Test scene interactions
+        run: node tests/scene-props.cjs

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v91</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#161b23"><title>Anitoons · Character Studio v90</title>
 <style>
 :root{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--line:#394454;--card:#1d2632;--text:#eef2fa;--muted:#acbad0;--accent:#168eea}*{box-sizing:border-box}body{margin:0;background:#10151e;color:var(--text)}header{padding:19px clamp(16px,4vw,30px);border-bottom:1px solid var(--line)}h1{font-size:clamp(21px,4vw,27px);letter-spacing:-.045em;margin:0 0 5px}header p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}.pill{font-size:11px;display:inline-flex;padding:5px 9px;color:#f9cd91;border:1px solid #6d5632;border-radius:30px;margin-top:9px}.layout{max-width:1210px;margin:auto;padding:14px;display:grid;grid-template-columns:minmax(0,1.07fr) minmax(335px,.93fr);gap:15px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;min-width:0}.stage{width:100%;aspect-ratio:1;overflow:hidden;border-radius:15px;position:relative;background:#229af0}.stage svg{width:100%;height:100%;display:block}.toolbar,.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.btn,.tab,.choice{font:inherit;color:#f1f5fb;background:#293646;border:1px solid #47566b;border-radius:11px;padding:10px 12px;cursor:pointer;touch-action:manipulation}.btn.primary,.tab[aria-selected=true]{background:#126eb9;border-color:#66b9f9}.choice[aria-pressed=true]{background:#164b77;border-color:#5cbaff;box-shadow:inset 0 0 0 1px #2f8ec9}.btn:focus-visible,.tab:focus-visible,.choice:focus-visible{outline:3px solid #ffba63;outline-offset:2px}.toolbar{margin-bottom:12px}.tab{font-size:13px;padding:9px 10px}.status{color:var(--muted);font-size:12px;line-height:1.5}.status b{color:white}h2{font-size:19px;margin:0 0 8px}h3{font-size:15px;margin:15px 0 10px}.choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}.choice{min-width:0;display:flex;min-height:86px;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:7px 4px;font-size:12px}.choice svg{height:47px;width:100%;max-width:112px}.choice b{line-height:1.2}.hint{color:var(--muted);font-size:12px;line-height:1.6;margin:12px 0}.fourup{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{background:#1895f0;border-radius:9px;overflow:hidden;aspect-ratio:1}.mini svg{width:100%;height:100%}.miniLabel{text-align:center;color:var(--muted);font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{font-size:11px;color:#f6cd91}.sliders{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:13px 0}.sliders label{font-size:12px;color:var(--muted)}.sliders input{width:100%;accent-color:#3aa2fd;margin:11px 0 3px}.notes{border-top:1px solid #394454;padding-top:12px;margin-top:16px;font-size:12px;color:var(--muted);line-height:1.6} .swatch{height:15px;width:15px;border:2px solid #fff;border-radius:50%;display:inline-block;vertical-align:middle;margin:0 2px}.compact{font-size:12px;color:var(--muted)}.footer{padding:0 18px 20px;text-align:center;color:#718198;font-size:11px}@media(max-width:800px){.layout{grid-template-columns:1fr;padding:10px}.card{padding:11px}.stage{max-width:590px;margin:auto}.btn{padding:10px}.fourup{gap:6px}.choices{grid-template-columns:repeat(3,1fr)}}
 
@@ -74,7 +74,7 @@
 .animation-navigation{display:flex;justify-content:flex-end;margin-top:18px;gap:8px}.animation-navigation button,.animation-transport button{border:1px solid #dce1e8;background:white;padding:12px 18px;border-radius:12px;font-size:12px}.animation-navigation .next-animation{background:#2476de;color:white;border:0;font-weight:650}.animation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0;max-height:480px;overflow-y:auto;overscroll-behavior:contain;padding:2px;scrollbar-width:thin}.animation-card{border:1px solid #e2e7ee;border-radius:14px;background:#f7f9fc;min-height:102px;padding:14px 7px;display:flex;flex-direction:column;align-items:center;gap:7px}.animation-card[aria-pressed=true]{background:#eaf2ff;border-color:#2476de;box-shadow:0 0 0 1px #2476de}.animation-card .animation-icon{font-size:27px}.animation-card strong{font-size:12px}.animation-card small{font-size:10px;color:#68717d}.animation-transport{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid #e4e8ef;padding-top:16px}.animation-transport label{font-size:12px}.animation-status{font-size:12px;color:#68717d;line-height:1.5;min-height:36px}.animating-screen .expressions,.animating-screen .reactionControl,.animating-screen .camera-row:has([data-framing]),.animating-screen #blinkPreview,.animating-screen #talkPreview{display:none}.studio-switch{flex-wrap:wrap}.animation-heading{font-size:21px;margin:16px 0 7px}.animation-subtitle{font-size:12px;line-height:1.5;color:#68717d;margin:0}
 @media(max-width:700px){.animation-grid{gap:7px;margin:14px 0}.animation-card{min-height:90px;padding:10px 4px}.animation-card small{font-size:9px}.animation-navigation{position:sticky;bottom:0;background:white;padding:12px 0 4px;z-index:2}.animation-grid{max-height:390px;overflow:auto}}
 .preset-country{display:block;font-size:9px;color:#68717d;padding:0 3px 8px}.preset-card:has(.preset-country) .preset-name{padding-bottom:2px}.animation-framing{display:flex;align-items:center;gap:6px;margin:14px 0}.animation-framing button{border:1px solid #dce1e8;background:#fff;border-radius:9px;padding:8px 12px;font-size:11px}.animation-framing button[aria-pressed=true]{background:#2476de;color:white}.animation-card .animation-poster{display:block;width:100%;height:115px;border-radius:10px;overflow:hidden;background:#edf2ef}.animation-card .animation-poster svg{display:block;width:100%;height:100%;max-height:none}.animation-card{padding:7px 7px 11px;gap:5px;min-height:166px}.animation-card strong{font-size:11px}.animation-card small{font-size:9px}.animation-framing{flex-wrap:wrap}@media(max-width:480px){.animation-card .animation-poster{height:92px}.animation-card{min-height:142px}}.designs[data-feature="dress"] .design,.designs[data-feature="bottom"] .design{aspect-ratio:.76;border-radius:14px;padding:5px}.designs[data-feature="dress"] .design svg,.designs[data-feature="bottom"] .design svg{height:82%}</style></head><body>
-<header><h1>🎬 Anitoons · Character Studio v91</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
+<header><h1>🎬 Anitoons · Character Studio v90</h1><p>v20 · simplified talking visemes + expression mouths</p><span class="pill">Single HTML · Offline · Editable SVG parts</span></header>
 <main class="layout">
 <section class="card"><div class="stage" id="stage">
 <svg xmlns="http://www.w3.org/2000/svg" id="character" viewBox="0 0 1254 1254" role="img" aria-label="Anitoons layered character preview">
@@ -1056,22 +1056,17 @@ function rigArmSvg(side,view=cameraView){
  const t=garmentTemplate(),skin='url(#skinFill)',cloth=t.sleeveColour||rigCloth();
  const upper='M-61 44 C-60 13 -30 -6 0 -6 C30 -6 60 13 61 44 C65 87 57 158 49 230 Q0 274 -49 230 C-57 158 -65 87 -61 44Z';
  const fore='M-49 -18 Q0 -42 49 -18 C53 47 47 117 38 181 Q36 200 35 218 H-35 Q-36 200 -38 181 C-47 117 -53 47 -49 -18Z';
- let a=`<g data-rig-arm="${side}" transform="translate(${armX} ${BODY_RIG.shoulderY+(turn&&side===turn?-9:0)}) scale(${side*depth*bodyShapeProfile().arm} 1)">`+`<g filter="url(#sharedBodyInk)"><ellipse data-shoulder-socket cx="0" cy="48" rx="62" ry="55" fill="${t.sleeve>0?cloth:skin}"/><g data-rig-shoulder>`+rigFill(upper,t.sleeve===1?cloth:skin);
+ let a=`<g data-rig-arm="${side}" transform="translate(${armX} ${BODY_RIG.shoulderY+(turn&&side===turn?-9:0)}) scale(${side*depth*bodyShapeProfile().arm} 1)">`+`<ellipse data-shoulder-socket cx="0" cy="48" rx="62" ry="55" fill="${t.sleeve>0?cloth:skin}"/><g data-rig-shoulder>`+rigFill(upper,t.sleeve===1?cloth:skin);
  if(t.sleeve>0&&t.sleeve<1){const end=t.sleeve*230,w=61-end*.027;a+=`<defs><clipPath id="sleeveCloth-${side}"><path d="M-90 -30 H90 V${end} Q0 ${end+18} -90 ${end}Z"/></clipPath></defs><g clip-path="url(#sleeveCloth-${side})">${rigFill(upper,cloth)}</g>`+rigDetail(`M${-w} ${end+3} Q0 ${end+15} ${w} ${end+3}`,3);}
 
  if(t.rolled){const end=t.sleeve*230;a+=rigFill(`M-56 ${end-17} Q0 ${end-7} 56 ${end-17} L55 ${end+5} Q0 ${end+17} -55 ${end+5}Z`,bodyShade(cloth,.12))+rigDetail(`M-55 ${end+5} Q0 ${end+17} 55 ${end+5}`,3);}
 
- // Sleeve geometry keeps its continuous outline. Hands have their own light ink.
- a+=`<g transform="translate(0 ${BODY_RIG.upperArm})"><ellipse data-elbow-bridge cx="0" cy="0" rx="49" ry="47" fill="${t.sleeve===1?cloth:skin}"/><g data-rig-elbow>${rigFill(fore,t.sleeve===1?cloth:skin)}</g></g></g></g>`;
- // A parallel joint chain lets hands bypass the clothing outline filter while
- // following precisely the same shoulder, elbow and wrist animation.
- a+=`<g data-rig-shoulder><g transform="translate(0 ${BODY_RIG.upperArm})"><g data-rig-elbow><g transform="translate(0 ${BODY_RIG.forearm})"><g data-rig-wrist>`+
- `<g data-hand-open display="none">${actionHandSvg('open','palm')}</g><g data-hand-point display="none">${actionHandSvg('point','palm')}</g><g data-hand-palm display="none">${actionHandSvg('relaxed','palm')}</g><g data-hand-relaxed>${actionHandSvg('relaxed',turn?'edge':'back')}</g><g data-hand-action display="none"></g>`+
+ a+=`<g transform="translate(0 ${BODY_RIG.upperArm})"><ellipse data-elbow-bridge cx="0" cy="0" rx="49" ry="47" fill="${t.sleeve===1?cloth:skin}"/><g data-rig-elbow>`+rigFill(fore,t.sleeve===1?cloth:skin)+`<g transform="translate(0 ${BODY_RIG.forearm})"><g data-rig-wrist>`+`<g data-hand-open display="none">${actionHandSvg('open','palm')}</g><g data-hand-point display="none">${actionHandSvg('point','palm')}</g><g data-hand-palm display="none">${actionHandSvg('relaxed','palm')}</g><g data-hand-relaxed>${actionHandSvg('relaxed',turn?'edge':'back')}</g><g data-hand-action display="none"></g>`+
+ // Cuff is drawn on top of the hand to hide the wrist/sleeve seam.
  (t.sleeve===1?`<g data-hand-cuff>${rigFill('M-36 -15 Q0 -11 36 -15 L35 11 Q0 18 -35 11Z',bodyShade(cloth,.09))}${rigDetail('M-35 11 Q0 18 35 11',3)}</g>`:'')+
- '</g></g></g></g></g></g>';
+ ' </g></g></g></g></g></g>';
  return a;
 }
-
 function bodyCameraX(x,turn){
  const u=x-627;return turn?627+turn*52+.84*u-turn*.20*(Math.sqrt(u*u+6400)-80):x;
 }
@@ -1117,7 +1112,7 @@ function bodyRigSvg(pose=state.pose,view=cameraView,full=state.framing==='full')
  // Follow the curved garment edge and keep a generous hidden underlap.
  const lower='translate(0 1450) scale(1 .92) translate(0 -1450)';
  const filter='<defs><filter id="sharedBodyInk" x="-30%" y="-30%" width="160%" height="160%"><feMorphology in="SourceAlpha" operator="dilate" radius="4.4" result="edge"/><feFlood flood-color="#161011"/><feComposite in2="edge" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>';
- return filter+`<g data-body-rig="1" data-garment="${Object.hasOwn(WARDROBE,state.shirt)?state.shirt:'crew'}" transform="matrix(${sx} 0 0 1 ${shift} 0)">`+(full?'<ellipse cx="627" cy="2239.36" rx="300" ry="24" fill="#102b42" opacity=".14"/>':'')+`<g data-body-shape="${state.bodyType||'classic'}" transform="translate(0 2239.36) scale(1 ${bodyHeight(full)}) translate(0 -2239.36)"><g>`+(full?`<defs><clipPath id="garmentLegClip"><path data-leg-occlusion d="${garmentLegClipPath(0,view)}"/></clipPath></defs><g filter="url(#sharedBodyInk)" clip-path="url(#garmentLegClip)"><g data-lower-body transform="${lower}">${rigLegSvg(far,pose,view)+rigLegSvg(near,pose,view)}</g></g>`:'')+(full?`<g filter="url(#sharedBodyInk)" data-rig-pelvis transform="${lower}">`+bodySurfaceSvg(rigFill(pelvis,state.trouserColour)+rigDetail('M627 1450 V1515',3),turn)+'</g>':'')+(full&&bottomProfile().skirt?`<g filter="url(#sharedBodyInk)" data-moving-garment data-cloth-hem="${bottomProfile().hem}">${bodySurfaceSvg(bottomSkirtSvg(),turn)}</g>`:'')+rigArmSvg(far,view)+`<g filter="url(#sharedBodyInk)" data-moving-garment data-cloth-hem="${garmentTemplate().hem}">${bodySurfaceSvg(garmentBodiceSvg(),turn)}</g>`+rigArmSvg(near,view)+'</g></g></g>';
+ return filter+`<g data-body-rig="1" data-garment="${Object.hasOwn(WARDROBE,state.shirt)?state.shirt:'crew'}" transform="matrix(${sx} 0 0 1 ${shift} 0)">`+(full?'<ellipse cx="627" cy="2239.36" rx="300" ry="24" fill="#102b42" opacity=".14"/>':'')+`<g data-body-shape="${state.bodyType||'classic'}" transform="translate(0 2239.36) scale(1 ${bodyHeight(full)}) translate(0 -2239.36)"><g filter="url(#sharedBodyInk)">`+(full?`<defs><clipPath id="garmentLegClip"><path data-leg-occlusion d="${garmentLegClipPath(0,view)}"/></clipPath></defs><g clip-path="url(#garmentLegClip)"><g data-lower-body transform="${lower}">${rigLegSvg(far,pose,view)+rigLegSvg(near,pose,view)}</g></g>`:'')+(full?`<g data-rig-pelvis transform="${lower}">`+bodySurfaceSvg(rigFill(pelvis,state.trouserColour)+rigDetail('M627 1450 V1515',3),turn)+'</g>':'')+(full&&bottomProfile().skirt?`<g data-moving-garment data-cloth-hem="${bottomProfile().hem}">${bodySurfaceSvg(bottomSkirtSvg(),turn)}</g>`:'')+rigArmSvg(far,view)+`<g data-moving-garment data-cloth-hem="${garmentTemplate().hem}">${bodySurfaceSvg(garmentBodiceSvg(),turn)}</g>`+rigArmSvg(near,view)+'</g></g></g>';
 }
 function torsoSvg(){return bodyRigSvg(state.pose,'front',false);}
 function standingBodyCompositeSvg(pose=state.pose,view=cameraView){return bodyRigSvg(pose,view,true);}
@@ -1153,16 +1148,9 @@ function setBodyArmPose(poses,hands={},root=document){
   target.setAttribute('display','inline');
   if(target.dataset.signature!==signature){target.innerHTML=actionHandSvg(pose,spec.view||'palm');target.dataset.signature=signature;}
   const turn=cameraDirections[cameraView]||0,depth=turn&&spec.view!=='edge'?(side===turn?.84:.96):1;
-  const facing=handFacingScale(angles,spec.roll||0);
-  target.setAttribute('transform',`rotate(${spec.roll||0}) scale(${depth*facing} 1)`);
-  for(const [i,j] of ['shoulder','elbow','wrist'].entries())arm.querySelectorAll('[data-rig-'+j+']').forEach(joint=>joint.setAttribute('transform',`rotate(${angles[i]} ${j==='shoulder'?'0 48':'0 0'})`));
+  target.setAttribute('transform',`rotate(${spec.roll||0}) scale(${depth} 1)`);
+  for(const [i,j] of ['shoulder','elbow','wrist'].entries())arm.querySelector('[data-rig-'+j+']').setAttribute('transform',`rotate(${angles[i]} ${j==='shoulder'?'0 48':'0 0'})`);
  }
-}
-// Follow palm orientation continuously through a side-on turn at horizontal.
-// The arm supplies left/right mirroring; this turn keeps raised thumbs inward.
-function handFacingScale(angles,roll=0){
- const angle=(angles.reduce((sum,v)=>sum+v,0)+roll)*Math.PI/180;
- return Math.tanh(8*Math.cos(angle))/Math.tanh(8);
 }
 function restingBodyPose(){
  const poses={left:[-3,0,0],right:[-3,0,0]};
@@ -1202,13 +1190,14 @@ state.handPose='auto';state.handSurface='auto';
 catalogs.handPose={auto:'Automatic',...Object.fromEntries(Object.entries(HAND_POSES).map(([k,v])=>[k,v.label]))};catalogs.handSurface={auto:'Automatic',palm:'Palm',back:'Back',edge:'Side',up:'Palm up'};
 function actionHandSvg(pose='relaxed',view='palm'){
  const h=HAND_POSES[pose]||HAND_POSES.relaxed,back=view==='back';
- const ink='#45352e',skin='url(#skinFill)';
- const fill=d=>`<path d="${d}" fill="${skin}" stroke="${ink}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>`;
- // Separate digit groups retain local knuckle pivots for finger animation.
+ const ink='#161011',skin='url(#skinFill)';
+ const fill=d=>`<path d="${d}" fill="${skin}" stroke="${ink}" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>`;
+ // Narrow finger silhouettes and splayed tips leave actual background between
+ // fingers, including under the body's shared 4.4-unit ink outline filter.
  let art='';
  h.fingers.forEach(([x,y],i)=>{
   const root=-24+i*17,w=i===3?6:7,bend=y<95?5:0;
-  art+=`<g data-hand-finger="${['index','middle','ring','pinky'][i]}" data-pivot="${root} 60" transform="rotate(0 ${root} 60)">`+fill(`M${root-w} 60 C${root-w-1} 82 ${x-w-bend} ${y-25} ${x-w} ${y-7} C${x-w} ${y+3} ${x+w} ${y+3} ${x+w} ${y-7} C${x+w+bend} ${y-25} ${root+w} 81 ${root+w} 60 Z`)+'</g>';
+  art+=fill(`M${root-w} 60 C${root-w-1} 82 ${x-w-bend} ${y-25} ${x-w} ${y-7} C${x-w} ${y+3} ${x+w} ${y+3} ${x+w} ${y-7} C${x+w+bend} ${y-25} ${root+w} 81 ${root+w} 60 Z`);
  });
  const thumb={
   spread:'M-26 23 C-37 28 -43 41 -53 49 L-66 60 C-76 69 -66 79 -57 73 L-35 58 L-20 51 Z',
@@ -1217,16 +1206,16 @@ function actionHandSvg(pose='relaxed',view='palm'){
   ring:'M-27 31 C-48 34 -63 49 -61 65 C-59 82 -38 91 -28 81 C-22 74 -27 67 -34 70 C-44 75 -53 67 -47 58 L-22 47 Z',
   pinch:'M-29 30 C-45 35 -56 51 -56 67 L-54 86 C-53 96 -40 97 -39 86 L-38 66 L-21 49 Z'
  };
- if(thumb[h.thumb])art+=`<g data-hand-finger="thumb" data-pivot="-26 33" transform="rotate(0 -26 33)">${fill(thumb[h.thumb])}</g>`;
+ if(thumb[h.thumb])art+=fill(thumb[h.thumb]);
  // Cover finger roots with the palm, then draw only its side contour. No
  // transverse seam across the knuckles and no doubled lines at the wrist.
  art+=`<path d="${HAND_REAL_PATH}" fill="${skin}" stroke="none"/>`;
- art+=rigDetail('M-25 -12 C-26 10 -32 28 -32 47 L-30 65 M25 -12 C26 12 31 31 33 52 L32 67',2.2);
- if(h.thumb==='folded')art+=`<g data-hand-finger="thumb" data-pivot="-26 33" transform="rotate(0 -26 33)">${fill(HAND_FOLDED_THUMB)}</g>`;
- const detail=back?'M-17 61 L-18 68 M12 60 L13 67':
-  'M-26 40 Q-13 46 -14 60 M-10 68 Q6 61 21 65';
- art+=`<g stroke-opacity=".55">${rigDetail(detail,1.25)}</g>`;
- if(['folded','raised','pinch'].includes(h.thumb))art+=rigDetail('M-21 59 Q-16 53 -11 59 L-10 73 M-5 57 Q1 51 6 58 L7 73 M12 58 Q19 53 23 60 L24 71',1.25);
+ art+=rigDetail('M-25 -12 C-26 10 -32 28 -32 47 L-30 65 M25 -12 C26 12 31 31 33 52 L32 67',3.2);
+ if(h.thumb==='folded')art+=fill(HAND_FOLDED_THUMB);
+ const detail=back?'M-18 57 L-20 70 M-3 57 L-3 71 M13 56 L15 69':
+  'M-26 39 C-16 42 -12 53 -14 65 M-17 70 Q1 57 23 65 M-11 47 Q5 42 22 49';
+ art+=rigDetail(detail,2.3);
+ if(['folded','raised','pinch'].includes(h.thumb))art+=rigDetail('M-21 59 Q-16 53 -11 59 L-10 73 M-5 57 Q1 51 6 58 L7 73 M12 58 Q19 53 23 60 L24 71',2.3);
  // Perspective compresses width only; never stretch fingers between poses.
  return `<g data-action-hand="${pose}" data-hand-surface="${view}" transform="scale(${view==='edge'?.78:1} 1)">${art}</g>`;
 }
@@ -2115,9 +2104,9 @@ function poseWalking(seconds,root=document){
  for(const arm of root.querySelectorAll('#torso [data-rig-arm]')){
   const side=+arm.dataset.rigArm,g=walkingStep(seconds,side),swing=-g.forward/105;
   arm.querySelector('[data-hand-action]').setAttribute('display','none');arm.querySelector('[data-hand-open]').setAttribute('display','none');arm.querySelector('[data-hand-point]').setAttribute('display','none');arm.querySelector('[data-hand-palm]').setAttribute('display',turn?'none':'inline');arm.querySelector('[data-hand-relaxed]').setAttribute('display',turn?'inline':'none');
-  arm.querySelectorAll('[data-rig-shoulder]').forEach(joint=>joint.setAttribute('transform',`rotate(${-3-turn*side*11*swing} 0 48) translate(0 48) scale(1 ${1-.06*(1-swing)}) translate(0 -48)`));
-  arm.querySelectorAll('[data-rig-elbow]').forEach(joint=>joint.setAttribute('transform',`rotate(${-8-turn*side*6*Math.max(0,swing)})`));
-  arm.querySelectorAll('[data-rig-wrist]').forEach(joint=>joint.setAttribute('transform','rotate(0)'));
+  arm.querySelector('[data-rig-shoulder]').setAttribute('transform',`rotate(${-3-turn*side*11*swing} 0 48) translate(0 48) scale(1 ${1-.06*(1-swing)}) translate(0 -48)`);
+  arm.querySelector('[data-rig-elbow]').setAttribute('transform',`rotate(${-8-turn*side*6*Math.max(0,swing)})`);
+  arm.querySelector('[data-rig-wrist]').setAttribute('transform','rotate(0)');
  }
 }
 

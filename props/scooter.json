@@ -1,0 +1,48 @@
+{
+  "label": "Scooter",
+  "viewBox": "-210 -275 420 285",
+  "tags": [
+    "vehicle",
+    "seat"
+  ],
+  "anchors": {
+    "seat": {
+      "matrix": [
+        1,
+        0,
+        0,
+        1,
+        -75,
+        -160
+      ],
+      "accepts": [
+        "character"
+      ],
+      "capacity": 1
+    },
+    "handlebar": {
+      "matrix": [
+        1,
+        0,
+        0,
+        1,
+        48,
+        -254
+      ],
+      "accepts": [],
+      "capacity": 2
+    },
+    "footrest": {
+      "matrix": [
+        1,
+        0,
+        0,
+        1,
+        36,
+        -68
+      ],
+      "accepts": [],
+      "capacity": 2
+    }
+  }
+}

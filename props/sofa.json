@@ -1,0 +1,24 @@
+{
+  "label": "Sofa",
+  "viewBox": "-230 -245 460 255",
+  "tags": [
+    "furniture",
+    "seat"
+  ],
+  "anchors": {
+    "seat": {
+      "matrix": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        -118
+      ],
+      "accepts": [
+        "character"
+      ],
+      "capacity": 1
+    }
+  }
+}

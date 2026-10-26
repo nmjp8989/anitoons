@@ -1,0 +1,23 @@
+{
+  "label": "Low table",
+  "viewBox": "-175 -145 350 155",
+  "tags": [
+    "furniture"
+  ],
+  "anchors": {
+    "surface": {
+      "matrix": [
+        1,
+        0,
+        0,
+        1,
+        0,
+        -125
+      ],
+      "accepts": [
+        "handheld"
+      ],
+      "capacity": 4
+    }
+  }
+}

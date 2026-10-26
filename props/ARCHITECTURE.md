@@ -20,6 +20,5 @@ Anchor metadata specifies accepted tags, capacity, facing and depth. Resolve lay
 ## Persistence
 Save versioned entity records and attachment references with the scene. Validate unique IDs, missing assets, missing parents, cycles and numeric transforms on load. Store each scene's placements separately; changing backgrounds must not move props into another location accidentally. Include foreground and prop layers in image/SVG exports.
 
-## Delivery stages
-Implemented now: SVG background catalogue and the pure attachment-transform module with tests.
-Next: prop catalogue with cup, book, bag, table and sofa; pick/drag UI; live wrist anchor adapter; attach/detach controls and persistence. Then add sit/drink/ride rules and mission integration. The current scene UI does not yet provide prop dragging or attachments.
+## Implemented scene builder
+The SVG catalogue, attachment-transform module, prop catalogue, drag UI, live wrist anchors, attach/detach controls and per-setting persistence are implemented. Cup holding/drinking, bag carrying, sofa sitting and scooter riding are connected to the character rig. See README.md for use, supported poses and tests. Mission-level puzzle rules remain a future integration.

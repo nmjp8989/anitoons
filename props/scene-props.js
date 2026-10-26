@@ -39,7 +39,7 @@
   if(w){
    if(Array.isArray(w.cast)&&w.cast.length&&w.cast.length<=4){const cast=w.cast.filter(a=>a&&a.appearance&&sceneActions[a.action]&&Object.hasOwn(cameraDirections,a.view)).map((a,i)=>{const fresh=newSceneActor(a.id,i);for(const [k,v] of Object.entries(a.appearance))if(Object.hasOwn(freshCharacterDefaults,k)&&typeof v===typeof freshCharacterDefaults[k])fresh.appearance[k]=v;return {...fresh,entityId:typeof a.entityId==='string'?a.entityId:uid(),view:a.view,action:a.action,position:Math.max(0,Math.min(100,Number(a.position)||50))};});if(cast.length)scene.cast=cast;}
    for(const [id,o] of Object.entries(w.objects||{}))if(assets[o.asset]&&validMatrix(o.transform))objects[id]={id,asset:o.asset,transform:o.transform,parent:o.parent&&typeof o.parent.entity==='string'?o.parent:null,anchors:metadata(o.asset)};
-   for(const a of scene.cast){const old=w.actors?.[actorId(a)]||{};actors[a.entityId]={x:Number.isFinite(old.x)?old.x:null,y:Number.isFinite(old.y)?old.y:null};}
+   for(const a of scene.cast){const old=w.actors?.[actorId(a)]||{};actors[a.entityId]={x:Number.isFinite(old.x)?old.x:null,y:Number.isFinite(old.y)?old.y:null,standing:old.standing&&typeof old.standing.view==='string'&&typeof old.standing.action==='string'?old.standing:null};}
    seats=w.seats&&typeof w.seats==='object'?w.seats:{};
   }else{scene.cast=scene.cast.map(a=>({...a,entityId:uid()}));}
   normalize();loading=false;drawObjects();inspect();
@@ -48,7 +48,7 @@
   const group=document.createElementNS(NS,'g');group.dataset.entity=o.id;group.setAttribute('tabindex','0');group.setAttribute('role','button');group.setAttribute('aria-label',assets[o.asset].label+'; select to move or attach');
   const parsed=new DOMParser().parseFromString(assets[o.asset].svg,'image/svg+xml').documentElement;
   for(const child of [...parsed.children])if(child.tagName!=='title')group.append(document.importNode(child,true));
-  (assets[o.asset].tags.includes('furniture')?back:front).append(group);
+  (assets[o.asset].tags.some(tag=>['furniture','vehicle'].includes(tag))?back:front).append(group);
  }renderObjects();}
  function renderObjects(seconds=scene.elapsed){for(const o of Object.values(objects)){
   const g=sceneCanvas.querySelector('[data-entity="'+o.id+'"]');if(!g)continue;g.setAttribute('transform',transform(world(o.id)));
@@ -69,13 +69,32 @@
    const siblings=Object.values(objects).filter(o=>o.id!==id&&o.parent?.entity===parent);objects[id].transform[4]=[-90,-30,30,90][siblings.length%4];
   }paintScene(scene.elapsed);drawObjects();save();inspect();status('Attached. The object follows its attachment point.');return true;}catch(e){status(e.message);return false;}
  }
- function sit(actor,prop){
-  if(!objects[prop]?.anchors.seat||Object.entries(seats).some(([id,p])=>id!==actor&&p===prop)){status('That seat is occupied.');return;}
-  for(const o of Object.values(objects))if(o.parent?.entity===actor)detach(o.id);
-  seats[actor]=prop;const a=scene.cast.find(a=>actorId(a)===actor);if(a){a.action='smile';a.view=objects[prop].asset==='scooter'?'right':'front';}
-  rebuildSceneCast();drawSceneCastControls();save();inspect();status(objects[prop].asset==='scooter'?'Riding pose: hands on handlebars, feet on footrest. Drag the scooter to move both.':'Seated. Move the sofa to carry its sitter.');
+ function seatAvailable(actor,prop){
+  return scene.cast.some(a=>actorId(a)===actor)&&!!objects[prop]?.anchors.seat
+   &&!Object.entries(seats).some(([other,p])=>other!==actor&&p===prop);
  }
- function stand(id){const node=scene.nodes[scene.cast.findIndex(a=>actorId(a)===id)];if(node){actors[id]||={};actors[id].x=Number(node.svg.getAttribute('x'));actors[id].y=Number(node.svg.getAttribute('y'));}delete seats[id];rebuildSceneCast();drawSceneCastControls();save();inspect();}
+ function sit(actor,prop){
+  if(!seatAvailable(actor,prop)){status('Choose an unoccupied sofa or scooter for this character.');return false;}
+  if(seats[actor]===prop)return true;
+  const a=scene.cast.find(a=>actorId(a)===actor);
+  if(!a)return false;
+  for(const o of Object.values(objects))if(o.parent?.entity===actor)detach(o.id);
+  actors[actor]||={};
+  if(!seats[actor]&&!actors[actor].standing)actors[actor].standing={view:a.view,action:a.action};
+  seats[actor]=prop;
+  a.action='smile';a.view=objects[prop].asset==='scooter'?'right':'front';
+  rebuildSceneCast();drawSceneCastControls();save();inspect();
+  status(objects[prop].asset==='scooter'?'Riding: character snapped to the seat, hands on the handlebars and feet on the footrest.':'Sitting: character snapped to the sofa. Drag the furniture to move them together.');
+  return true;
+ }
+ function stand(id){
+  const node=scene.nodes[scene.cast.findIndex(a=>actorId(a)===id)];
+  if(node){actors[id]||={};actors[id].x=Number(node.svg.getAttribute('x'));actors[id].y=Number(node.svg.getAttribute('y'));}
+  const a=scene.cast.find(a=>actorId(a)===id),original=actors[id]?.standing;
+  if(a&&original&&Object.hasOwn(cameraDirections,original.view)&&sceneActions[original.action]){a.view=original.view;a.action=original.action;}
+  if(actors[id])delete actors[id].standing;
+  delete seats[id];rebuildSceneCast();drawSceneCastControls();save();inspect();status('Character is standing again.');
+ }
  function remove(id){
   if(!objects[id])return;for(const o of Object.values(objects))if(o.parent?.entity===id)detach(o.id);
   for(const [actor,p] of Object.entries(seats))if(p===id)delete seats[actor];delete objects[id];selected=null;rebuildSceneCast();drawSceneCastControls();drawObjects();save();inspect();
@@ -94,13 +113,13 @@
    for(const p of Object.values(objects))for(const anchor of Object.keys(p.anchors))if(compatible(o.id,p.id,anchor))entries.push([p.id+'|'+anchor,assets[p.asset].label+' · '+anchor]);
    if(entries.length)chooser('Attach to',entries,v=>attach(o.id,...v.split('|')));
    if(o.parent){const p=document.createElement('small');p.textContent='Attached to '+o.parent.anchor;card.append(p);button('Detach',()=>detach(o.id));}
-   if(o.anchors.seat)chooser(o.asset==='scooter'?'Rider':'Sitter',scene.cast.map((a,i)=>[actorId(a),'Character '+(i+1)]),id=>sit(id,o.id));
+   if(o.anchors.seat){for(const [i,a] of scene.cast.entries())if(seatAvailable(actorId(a),o.id))button((o.asset==='scooter'?'Ride with':'Seat')+' character '+(i+1),()=>sit(actorId(a),o.id));}
    if(o.asset==='cup'&&o.parent&&!objects[o.parent.entity])button('Drink',()=>drink(o.parent.entity,o.id));
    if(o.asset==='scooter'&&Object.values(seats).includes(o.id))button('Ride across scene',()=>ride(o.id));
    button('Remove',()=>remove(o.id));
   }else{
    if(seats[selected])button('Stand up',()=>stand(selected));
-   chooser('Sit or ride',Object.values(objects).filter(o=>o.anchors.seat).map(o=>[o.id,assets[o.asset].label]),id=>sit(selected,id));
+   for(const o of Object.values(objects))if(seatAvailable(selected,o.id))button((o.asset==='scooter'?'Ride ':'Sit on ')+assets[o.asset].label,()=>sit(selected,o.id));
   }
   card.append(buttons);root.append(card);
  }
@@ -173,12 +192,56 @@
   const a=scene.cast[i];actorId(a);const facing=card.querySelector('select[aria-label^="Facing"]');if(facing)facing.disabled=!!seats[a.entityId];const remove=card.querySelector('.scene-cast-top button'),old=remove.onclick;remove.onclick=()=>{for(const o of Object.values(objects))if(o.parent?.entity===a.entityId)detach(o.id);old();};
   const slider=card.querySelector('input[type="range"]'),oldSlide=slider.oninput;slider.oninput=()=>{actors[a.entityId]||={};actors[a.entityId].x=null;actors[a.entityId].y=null;oldSlide();};
  }};
+ // Resolve the live pelvis in canvas coordinates, not the character SVG's top-left corner.
+ function actorHip(id){
+  const index=scene.cast.findIndex(a=>actorId(a)===id),node=scene.nodes[index];
+  if(!node)return null;
+  const actor=scene.cast[index],shape=node.svg.querySelector('[data-body-shape]');
+  return point(shape||node.svg,bodyCameraX(627,cameraDirections[actor.view]||0),1450);
+ }
+ function seatPoint(prop){
+  const o=objects[prop];if(!o?.anchors.seat)return null;
+  const matrix=A.multiply(world(prop),o.anchors.seat);
+  return {x:matrix[4],y:matrix[5]};
+ }
+ // A seat is an area, not a tiny point. Dropping either the actor or the furniture works.
+ function seatScore(actor,prop,release,draggingActor){
+  if(!seatAvailable(actor,prop))return Infinity;
+  const hip=actorHip(actor),seat=seatPoint(prop);
+  if(!hip||!seat)return Infinity;
+  const halfWidth=objects[prop].asset==='sofa'?225:185,halfHeight=190;
+  const score=(p,xPad=0,yPad=0)=>Math.hypot((p.x-seat.x)/(halfWidth+xPad),(p.y-seat.y)/(halfHeight+yPad));
+  // Dragging a person by their head must still count if the pointer lands on the seat.
+  return draggingActor&&release?Math.min(score(hip),score(release,0,35)):score(hip);
+ }
+ function nearestSeat(actor,release){
+  let best=null;
+  for(const o of Object.values(objects)){
+   const score=seatScore(actor,o.id,release,true);
+   if(score<1.15&&(!best||score<best.score))best={actor,prop:o.id,score};
+  }
+  return best;
+ }
+ function nearestActor(prop){
+  let best=null;
+  for(const actor of scene.cast){
+   const id=actorId(actor),score=seatScore(id,prop,null,false);
+   if(score<1.15&&(!best||score<best.score))best={actor:id,prop,score};
+  }
+  return best;
+ }
  function showTargets(id){
   const entities=all(),isProp=!!objects[id];
+  if(isProp&&objects[id].anchors.seat){
+   for(const actor of scene.cast){const actorID=actorId(actor);if(!seatAvailable(actorID,id))continue;const hip=actorHip(actorID);if(!hip)continue;
+    const ring=document.createElementNS(NS,'circle');
+    for(const [k,v] of Object.entries({cx:hip.x,cy:hip.y,r:28,fill:'#e9fff2',stroke:'#349b6a','stroke-width':3,opacity:.85}))ring.setAttribute(k,v);guides.append(ring);
+   }
+  }
   for(const [parent,en] of Object.entries(entities))for(const [anchor,local] of Object.entries(en.anchors||{})){
-   const valid=isProp?compatible(id,parent,anchor):anchor==='seat'&&!Object.values(seats).includes(parent);if(!valid)continue;
+   const valid=isProp?compatible(id,parent,anchor):anchor==='seat'&&seatAvailable(id,parent);if(!valid)continue;
    const m=A.multiply(A.world(entities,parent),local),circle=document.createElementNS(NS,'circle');
-   for(const [k,v] of Object.entries({cx:m[4],cy:m[5],r:17,fill:'#e9fff2',stroke:'#349b6a','stroke-width':3,opacity:.85}))circle.setAttribute(k,v);guides.append(circle);
+   for(const [k,v] of Object.entries({cx:m[4],cy:m[5],r:anchor==='seat'?27:17,fill:'#e9fff2',stroke:'#349b6a','stroke-width':3,opacity:.85}))circle.setAttribute(k,v);guides.append(circle);
   }
  }
  function canvasPoint(e){return new DOMPoint(e.clientX,e.clientY).matrixTransform(sceneCanvas.getScreenCTM().inverse());}
@@ -192,10 +255,31 @@
   else{actors[drag.id]||={};actors[drag.id].x=drag.start[4]+dx;actors[drag.id].y=drag.start[5]+dy;}
   paintScene(scene.elapsed);showTargets(drag.id);
  });
- function drop(e){if(!drag)return;const d=drag;drag=null;if(sceneCanvas.hasPointerCapture(e.pointerId))sceneCanvas.releasePointerCapture(e.pointerId);if(d.moved){
-  if(objects[d.id]){const m=world(d.id);let best=null;for(const [parent,en] of Object.entries(all()))for(const [anchor,local] of Object.entries(en.anchors||{}))if(compatible(d.id,parent,anchor)){const target=A.multiply(A.world(all(),parent),local),distance=Math.hypot(m[4]-target[4],m[5]-target[5]);if(distance<70&&(!best||distance<best.distance))best={parent,anchor,distance};}if(best)attach(d.id,best.parent,best.anchor);}
-  else{const node=scene.nodes[scene.cast.findIndex(a=>actorId(a)===d.id)];if(node){const hip=point(node.svg,627,1450);let best=null;for(const o of Object.values(objects))if(o.anchors.seat){const t=A.multiply(world(o.id),o.anchors.seat),distance=Math.hypot(hip.x-t[4],hip.y-t[5]);if(distance<150&&(!best||distance<best.distance))best={id:o.id,distance};}if(best)sit(d.id,best.id);}}
- }save();inspect();selection();}
+ function drop(e){
+  if(!drag)return;
+  const d=drag;drag=null;
+  if(sceneCanvas.hasPointerCapture(e.pointerId))sceneCanvas.releasePointerCapture(e.pointerId);
+  if(d.moved){
+   if(objects[d.id]){
+    const o=objects[d.id];
+    if(o.anchors.seat){
+     // Furniture can be dragged to the character as well as the other way around.
+     if(!Object.values(seats).includes(d.id)){const target=nearestActor(d.id);if(target)sit(target.actor,target.prop);}
+    }else{
+     const m=world(d.id),entities=all();let best=null;
+     for(const [parent,en] of Object.entries(entities))for(const [anchor,local] of Object.entries(en.anchors||{}))if(compatible(d.id,parent,anchor)){
+      const target=A.multiply(A.world(entities,parent),local),distance=Math.hypot(m[4]-target[4],m[5]-target[5]);
+      if(distance<70&&(!best||distance<best.distance))best={parent,anchor,distance};
+     }
+     if(best)attach(d.id,best.parent,best.anchor);
+    }
+   }else{
+    const target=nearestSeat(d.id,canvasPoint(e));
+    if(target)sit(target.actor,target.prop);
+   }
+  }
+  save();inspect();selection();
+ }
  sceneCanvas.addEventListener('pointerup',drop);sceneCanvas.addEventListener('pointercancel',()=>{drag=null;save();});
  sceneCanvas.addEventListener('keydown',e=>{const el=e.target.closest('[data-entity]');if(!el)return;selected=el.dataset.entity;if(e.key==='Enter'||e.key===' '){e.preventDefault();inspect();selection();}if(e.key==='Escape'){selected=null;inspect();selection();}if(e.key==='Delete'&&objects[selected])remove(selected);if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();pauseScene();const dx=e.key==='ArrowLeft'?-10:e.key==='ArrowRight'?10:0,dy=e.key==='ArrowUp'?-10:e.key==='ArrowDown'?10:0;if(objects[selected]){if(objects[selected].parent)detach(selected);objects[selected].transform[4]+=dx;objects[selected].transform[5]+=dy;}else{if(seats[selected])stand(selected);actors[selected]||={};actors[selected].x=Number(el.getAttribute('x'))+dx;actors[selected].y=Number(el.getAttribute('y'))+dy;}paintScene(scene.elapsed);save();}});
  // Selection guides are editor-only and never appear in picture/SVG exports.

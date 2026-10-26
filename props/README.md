@@ -14,7 +14,7 @@ Place `name.svg` and `name.json` here. Use self-contained SVG paths/shapes and m
 
 ## Current scope
 
-Assets: cup, book, bag, low table, sofa, scooter. Interactions: hold, carry, drink, sit and ride. Live anchors: both hands, shoulder, furniture surface, seat, handlebar and footrest. Seated characters release held items to free their hands. The scooter riding pose faces right; the sofa pose faces front. The facing selector is locked while seated; standing restores it.
+Assets: cup, book, bag, low table, sofa, scooter. Interactions: hold, carry, drink, sit and ride. Live anchors: both hands, shoulder, furniture surface, seat, handlebar and footrest. Characters keep held cups, books and bags when sitting. A seated character can accept additional handheld props: drag an item to either hand or drop it over the upper body to give it to a free hand. On the scooter, the free arm reaches the handlebar while the occupied arm holds the item. On the sofa, empty arms rest on the lap and the occupied arm lifts the item naturally. A seated character can use the **Drink** action without standing. The scooter pose faces right; the sofa pose faces front. The facing selector is locked while seated; standing restores the earlier view and action.
 
 Mission puzzle rules and inventory integration are a separate layer; this update operates in the Scenes builder. Persistent SVG/JSON scene interchange and arbitrary user-defined interaction rules are not yet exposed in the UI.
 

@@ -36,9 +36,9 @@ const {chromium}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES?process.
  assert.notEqual(await page.evaluate(id=>UmtoSceneProps.world(id)[4],ids.cup),hit.before,'Dragging moves prop');
  const serialized=await page.evaluate(()=>toSVGString(sceneCanvas));assert(serialized.includes('scenePropsFront')&&serialized.includes('data-entity'),'Export contains scene objects');
  await page.clock.install();await page.clock.pauseAt(new Date());
- await page.evaluate(ids=>{UmtoSceneProps.attach(ids.cup,ids.actor,'rightHand');UmtoSceneProps.drink(ids.actor,ids.cup);},ids);
+ await page.evaluate(ids=>{const a=UmtoSceneProps;a.stand(scene.cast[1].entityId);if(!a.sit(ids.actor,ids.sofa))throw Error('Failed to sit down for coffee');if(!a.attach(ids.cup,ids.actor,'rightHand'))throw Error('Could not give coffee to seated actor');a.drink(ids.actor,ids.cup);},ids);
  await page.clock.runFor(1200);
- assert(await page.evaluate(ids=>{const m=UmtoSceneProps.world(ids.cup),r=scene.nodes[0].layers.mouthGroup.getBoundingClientRect(),p=new DOMPoint(r.x+r.width/2,r.y+r.height/2).matrixTransform(sceneCanvas.getScreenCTM().inverse());return Math.hypot(m[4]-28-p.x,m[5]-43-p.y)<35;},ids),'Cup reaches mouth during drink');
+ assert(await page.evaluate(ids=>{const m=UmtoSceneProps.world(ids.cup),r=scene.nodes[0].layers.mouthGroup.getBoundingClientRect(),p=new DOMPoint(r.x+r.width/2,r.y+r.height/2).matrixTransform(sceneCanvas.getScreenCTM().inverse());return Math.hypot(m[4]-28-p.x,m[5]-43-p.y)<35;},ids),'Seated character raises cup to mouth during drink');
  await page.clock.runFor(1500);
  const ride=await page.evaluate(ids=>{const a=UmtoSceneProps,s=a.add('scooter');a.sit(ids.actor,s);const x=a.world(s)[4];a.ride(s);return {id:s,x};},ids);
  await page.clock.runFor(2800);assert(await page.evaluate(r=>UmtoSceneProps.world(r.id)[4]>r.x,ride),'Ride action moves vehicle');

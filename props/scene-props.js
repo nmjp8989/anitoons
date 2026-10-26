@@ -9,7 +9,7 @@
  const back=document.createElementNS(NS,'g'),front=document.createElementNS(NS,'g'),guides=document.createElementNS(NS,'g');
  back.id='scenePropsBack';front.id='scenePropsFront';guides.id='scenePropGuides';guides.setAttribute('pointer-events','none');
  sceneCanvas.insertBefore(back,document.getElementById('sceneActors'));sceneCanvas.append(front,guides);
- const panel=document.createElement('section');panel.className='prop-panel';panel.innerHTML='<h3>Props & furniture</h3><p class="scene-note">Add an object, then drag it. Drop small objects near a hand or tabletop; drop a character onto a seat.</p><div id="propPicker" class="prop-picker"></div><div id="propInspector"></div><p id="propStatus" class="scene-note" role="status">Choose a prop to get started.</p>';
+ const panel=document.createElement('section');panel.className='prop-panel';panel.innerHTML='<h3>Props & furniture</h3><p class="scene-note">Add an object, then drag it. Drop a cup onto any free hand—even when sitting—or drop a character onto a seat.</p><div id="propPicker" class="prop-picker"></div><div id="propInspector"></div><p id="propStatus" class="scene-note" role="status">Choose a prop to get started.</p>';
  scenePanel.insertBefore(panel,scenePanel.querySelector('.scene-controls'));
  const css=document.createElement('style');css.textContent='.prop-panel{margin:18px 0;padding-top:10px;border-top:1px solid #ddd}.prop-picker{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.prop-picker button,.prop-panel button,.prop-panel select{background:#fff;border:1px solid #ccd5da;border-radius:9px;padding:8px;font-size:12px}.prop-picker svg{width:100%;height:55px;display:block}.prop-inspector{background:#f1f5f4;border-radius:12px;padding:12px;margin-top:12px;display:grid;gap:8px}.prop-inspector label{font-size:12px;display:grid;gap:5px}.prop-inspector select{width:100%}.prop-actions{display:flex;gap:6px;flex-wrap:wrap}#sceneCanvas{touch-action:none}#sceneCanvas [data-entity]{cursor:grab}#sceneCanvas [data-entity]:active{cursor:grabbing}.prop-panel button:focus-visible{outline:3px solid #2476de}';document.head.append(css);
  const status=t=>document.getElementById('propStatus').textContent=t;
@@ -61,7 +61,7 @@
  function compatible(id,parent,anchor){
   const o=objects[id];if(!o||id===parent)return false;
   if(objects[parent]){const rule=assets[objects[parent].asset].anchors[anchor];return !!rule&&assets[o.asset].tags.some(t=>rule.accepts.includes(t))&&Object.values(objects).filter(p=>p.id!==id&&p.parent?.entity===parent&&p.parent.anchor===anchor).length<rule.capacity;}
-  return assets[o.asset].tags.includes('handheld')&&['leftHand','rightHand',...(assets[o.asset].tags.includes('wearable')?['shoulder']:[])].includes(anchor)&&!Object.values(objects).some(p=>p.id!==id&&p.parent?.entity===parent&&p.parent.anchor===anchor)&&!seats[parent];
+  return assets[o.asset].tags.includes('handheld')&&['leftHand','rightHand',...(assets[o.asset].tags.includes('wearable')?['shoulder']:[])].includes(anchor)&&!Object.values(objects).some(p=>p.id!==id&&p.parent?.entity===parent&&p.parent.anchor===anchor);
  }
  function attach(id,parent,anchor){
   updateAnchors();if(!compatible(id,parent,anchor)){status('That attachment point is unavailable.');return false;}
@@ -78,7 +78,7 @@
   if(seats[actor]===prop)return true;
   const a=scene.cast.find(a=>actorId(a)===actor);
   if(!a)return false;
-  for(const o of Object.values(objects))if(o.parent?.entity===actor)detach(o.id);
+  // A seated person keeps their bag, cup and other held objects. Wrist anchors remain live.
   actors[actor]||={};
   if(!seats[actor]&&!actors[actor].standing)actors[actor].standing={view:a.view,action:a.action};
   seats[actor]=prop;
@@ -97,7 +97,8 @@
  }
  function remove(id){
   if(!objects[id])return;for(const o of Object.values(objects))if(o.parent?.entity===id)detach(o.id);
-  for(const [actor,p] of Object.entries(seats))if(p===id)delete seats[actor];delete objects[id];selected=null;rebuildSceneCast();drawSceneCastControls();drawObjects();save();inspect();
+  for(const [actor,p] of Object.entries({...seats}))if(p===id)stand(actor);
+  delete objects[id];selected=null;rebuildSceneCast();drawSceneCastControls();drawObjects();save();inspect();
  }
  function add(asset){pauseScene();const id=uid();objects[id]={id,asset,transform:[1,0,0,1,520+(Object.keys(objects).length%4)*80,assets[asset].tags.includes('handheld')?570:700],parent:null,anchors:metadata(asset)};selected=id;drawObjects();save();inspect();status('Drag '+assets[asset].label.toLowerCase()+' or choose an attachment below.');return id;}
  for(const [id,asset] of Object.entries(assets)){const b=document.createElement('button');b.type='button';b.innerHTML=asset.svg+'<span></span>';b.querySelector('span').textContent=asset.label;b.onclick=()=>add(id);document.getElementById('propPicker').append(b);}
@@ -149,38 +150,86 @@
   const shape=node.svg.querySelector('[data-body-shape] > g');if(!shape)return;
   const group=document.createElementNS(NS,'g');group.dataset.seatedLegs='';
   const riding=prop.asset==='scooter',c=actor.appearance.trouserColour||'#52645b',shoe=actor.appearance.shoeColour||'#e6dfce';
-  const art=riding?`<path d="M450 1390H760L990 1510Q1040 1530 1040 1600L1045 1810H925L900 1625L560 1585Q450 1550 450 1390Z" fill="${c}"/><path d="M925 1790H1045L1145 1840Q1160 1875 1120 1880H915Z" fill="${shoe}"/>`:`<path d="M430 1390H824L910 1530Q940 1595 880 1625L840 1860H725L740 1575L660 1510H594L514 1575L529 1860H414L374 1625Q314 1595 344 1530Z" fill="${c}"/><path d="M404 1840H532V1910H365Q345 1880 404 1840Z M722 1840H850L900 1880Q910 1910 880 1910H722Z" fill="${shoe}"/>`;
+  const art=riding
+   ?`<path d="M470 1390Q625 1365 770 1410Q870 1450 928 1575L1015 1745L925 1795L836 1645Q795 1580 680 1550L495 1500Z" fill="${c}"/><path d="M930 1765L1018 1744L1100 1805Q1120 1837 1080 1847H920Z" fill="${shoe}"/>`
+   :`<path d="M490 1395Q575 1380 635 1430L626 1490Q570 1530 525 1610L508 1835H403L405 1630Q407 1532 438 1480Z" fill="${c}"/><path d="M630 1430Q715 1380 793 1400L837 1490Q878 1545 865 1640L857 1835H745L735 1625Q733 1555 675 1525Z" fill="${c}"/><path d="M412 1822H514L544 1873Q547 1903 518 1908H365Q343 1886 371 1861Z M748 1822H853L895 1863Q922 1899 882 1908H727Z" fill="${shoe}"/><path d="M518 1565Q506 1588 506 1612M775 1565Q796 1580 799 1610" stroke="#43505b" stroke-opacity=".35" stroke-width="5" fill="none" stroke-linecap="round"/>`;
   // Use the same shared body outline: no per-limb filter changes.
   group.innerHTML=bodySurfaceSvg(art,cameraDirections[actor.view]||0);shape.insertBefore(group,shape.firstChild);
+ }
+ // Hands can perform actions in all poses. A held item wins over the seat's default hand gesture.
+ function poseHeldHands(node,id,prop,poses,hands){
+  const held=Object.values(objects).filter(o=>o.parent?.entity===id&&['leftHand','rightHand'].includes(o.parent.anchor));
+  for(const o of held){
+   const side=o.parent.anchor==='leftHand'?-1:1,which=side===-1?'left':'right';
+   const carrying=point(node.svg,side===-1?510:780,prop?.asset==='scooter'?1125:1245);
+   if(prop)poses[which]=reach(node,side,carrying);
+   else poses[which]=[-10,-95,0];
+   hands[which]={pose:'fist',view:prop?.asset==='scooter'?'edge':'palm'};
+   if(drinking?.actor===id&&drinking.prop===o.id){
+    const t=Math.min(1,(performance.now()-drinking.start)/2400),lift=Math.sin(t*Math.PI);
+    const rect=node.layers.mouthGroup.getBoundingClientRect();
+    const mouth=new DOMPoint(rect.x+rect.width/2,rect.y+rect.height/2).matrixTransform(sceneCanvas.getScreenCTM().inverse());
+    const wrist=node.svg.querySelector(`[data-rig-arm="${side}"] [data-rig-wrist]`);
+    const rest=prop?carrying:point(wrist,0,0);
+    poses[which]=reach(node,side,{x:rest.x*(1-lift)+(mouth.x+28)*lift,y:rest.y*(1-lift)+(mouth.y+32)*lift});
+    if(t>=1)drinking=null;
+   }
+  }
+ }
+ function poseScooterLegs(node,actor,prop){
+  const foot=A.multiply(world(prop.id),prop.anchors.footrest),g=node.svg.querySelector('[data-seated-legs]');
+  if(!g)return;
+  const local=new DOMPoint(foot[4],foot[5]).matrixTransform(relative(g).inverse());
+  if(!Number.isFinite(local.x)||!Number.isFinite(local.y))return;
+  const x=local.x,y=local.y,kx=750+(x-750)*.36,ky=1570+(y-1570)*.23;
+  const cloth=actor.appearance.trouserColour||'#52645b',shoe=actor.appearance.shoeColour||'#e6dfce';
+  // Two overlapping bent legs: hips -> knees -> the vehicle's moving footrest.
+  g.innerHTML=`<path d="M500 1395Q615 1370 745 1420Q820 1455 ${kx} ${ky-22}Q${kx+40} ${ky+22} ${x-58} ${y-45}L${x-102} ${y-3}Q${kx-12} ${ky+80} 605 1547L477 1480Z" fill="${cloth}"/><path d="M586 1415Q685 1388 787 1452Q835 1472 ${kx+24} ${ky-8}Q${kx+72} ${ky+35} ${x+4} ${y-31}L${x-53} ${y+10}Q${kx+12} ${ky+91} 637 1552L578 1483Z" fill="${cloth}"/><path d="M${x-100} ${y-31}Q${x-45} ${y-63} ${x+10} ${y-34}L${x+65} ${y+1}Q${x+78} ${y+22} ${x+40} ${y+25}H${x-100}Z" fill="${shoe}"/>`;
  }
  function poseAttachments(seconds){
   if(drinking&&(!objects[drinking.prop]||objects[drinking.prop].parent?.entity!==drinking.actor||performance.now()-drinking.start>2500))drinking=null;
   if(moving){const t=Math.min(1,(performance.now()-moving.start)/2600),o=objects[moving.prop];if(!o)moving=null;else{o.transform[4]=moving.x+Math.min(260,1040-moving.x)*(t*t*(3-2*t));o.transform[5]=moving.y-Math.sin(t*Math.PI)*3;if(t>=1)moving=null;}}
-  scene.nodes.forEach((node,i)=>{const actor=scene.cast[i],id=actorId(actor),meta=actors[id]||{},prop=objects[seats[id]];
-   if(Number.isFinite(meta.x))node.svg.setAttribute('x',meta.x);if(Number.isFinite(meta.y))node.svg.setAttribute('y',meta.y);
+  scene.nodes.forEach((node,i)=>{
+   const actor=scene.cast[i],id=actorId(actor),meta=actors[id]||{},prop=objects[seats[id]];
+   if(Number.isFinite(meta.x))node.svg.setAttribute('x',meta.x);
+   if(Number.isFinite(meta.y))node.svg.setAttribute('y',meta.y);
    sceneWithState(actor,()=>{
     if(prop){
      if(!node.svg.querySelector('[data-seated-legs]'))seatedLegs(node,actor,prop);
      const seat=A.multiply(world(prop.id),prop.anchors.seat),shape=node.svg.querySelector('[data-body-shape]');
-     const p=point(shape||node.svg,bodyCameraX(627,cameraDirections[actor.view]||0),1450);
-     node.svg.setAttribute('x',Number(node.svg.getAttribute('x'))+seat[4]-p.x);node.svg.setAttribute('y',Number(node.svg.getAttribute('y'))+seat[5]-p.y);
+     const pelvis=point(shape||node.svg,bodyCameraX(627,cameraDirections[actor.view]||0),1450);
+     node.svg.setAttribute('x',Number(node.svg.getAttribute('x'))+seat[4]-pelvis.x);
+     node.svg.setAttribute('y',Number(node.svg.getAttribute('y'))+seat[5]-pelvis.y);
+     const poses={},hands={};
      if(prop.asset==='scooter'){
-      // Side-view shoulders converge toward the steering side in this fixed riding pose.
-      const near=node.svg.querySelector('[data-rig-arm="1"]'),far=node.svg.querySelector('[data-rig-arm="-1"]');
-      if(near&&far){const match=near.getAttribute('transform').match(/translate\(([^ ]+) ([^)]+)\)/);if(match)far.setAttribute('transform',far.getAttribute('transform').replace(/translate\([^)]+\)/,`translate(${Number(match[1])-35} ${match[2]})`));}
+      // Independently pose the arms: no artificial merging of shoulder sockets.
       const m=A.multiply(world(prop.id),prop.anchors.handlebar),target={x:m[4],y:m[5]-14};
-      setBodyArmPose({left:reach(node,-1,target),right:reach(node,1,{x:target.x+6,y:target.y+3})},{left:{pose:'fist',view:'edge'},right:{pose:'fist',view:'edge'}},node.scope);
-      // Match the footrest with a simple seated leg drawing in the existing body space.
-      const foot=A.multiply(world(prop.id),prop.anchors.footrest),g=node.svg.querySelector('[data-seated-legs]');if(g){const local=new DOMPoint(foot[4],foot[5]).matrixTransform(relative(g).inverse());const trouser=actor.appearance.trouserColour,shoe=actor.appearance.shoeColour;g.innerHTML=`<path d="M450 1390H760L${local.x-65} 1510Q${local.x+10} 1530 ${local.x} 1600L${local.x+5} ${local.y-40}H${local.x-100}L${local.x-125} 1625L560 1585Q450 1550 450 1390Z" fill="${trouser}"/><path d="M${local.x-105} ${local.y-55}H${local.x+5}L${local.x+70} ${local.y-12}Q${local.x+85} ${local.y+8} ${local.x+40} ${local.y+10}H${local.x-110}Z" fill="${shoe}"/>`;}
-     }else {const left=point(node.svg,480,1410),right=point(node.svg,774,1410);setBodyArmPose({left:reach(node,-1,left),right:reach(node,1,right)},{left:{pose:'relaxed',view:'back'},right:{pose:'relaxed',view:'back'}},node.scope);}
+      poses.left=reach(node,-1,{x:target.x-14,y:target.y+9});
+      poses.right=reach(node,1,{x:target.x+6,y:target.y+3});
+      hands.left={pose:'fist',view:'edge'};
+      hands.right={pose:'fist',view:'edge'};
+      poseScooterLegs(node,actor,prop);
+     }else{
+      // Rest the forearms over the seated thighs, rather than leaving the arms upright.
+      poses.left=reach(node,-1,point(node.svg,498,1470));
+      poses.right=reach(node,1,point(node.svg,755,1470));
+      hands.left={pose:'relaxed',view:'back'};
+      hands.right={pose:'relaxed',view:'back'};
+     }
+     poseHeldHands(node,id,prop,poses,hands);
+     setBodyArmPose(poses,hands,node.scope);
     }else{
-     const held=Object.values(objects).filter(o=>o.parent?.entity===id);if(held.length){const poses={left:[-3,0,0],right:[-3,0,0]},hands={};for(const o of held){const which=o.parent.anchor==='leftHand'?'left':'right';if(o.parent.anchor==='shoulder')continue;poses[which]=[-10,-95,0];hands[which]={pose:'fist',view:'palm'};
-      if(drinking?.actor===id&&drinking.prop===o.id){const t=(performance.now()-drinking.start)/2400,u=Math.sin(Math.min(1,t)*Math.PI);const rect=node.layers.mouthGroup.getBoundingClientRect(),mouth=new DOMPoint(rect.x+rect.width/2,rect.y+rect.height/2).matrixTransform(sceneCanvas.getScreenCTM().inverse());const wrist=node.svg.querySelector(`[data-rig-arm="${which==='left'?-1:1}"] [data-rig-wrist]`),base=point(wrist,0,0);poses[which]=reach(node,which==='left'?-1:1,{x:base.x*(1-u)+(mouth.x+28)*u,y:base.y*(1-u)+(mouth.y+32)*u});if(t>=1)drinking=null;}
-     }setBodyArmPose(poses,hands,node.scope);}
+     const held=Object.values(objects).some(o=>o.parent?.entity===id&&['leftHand','rightHand'].includes(o.parent.anchor));
+     if(held){
+      const poses={left:[-3,0,0],right:[-3,0,0]},hands={};
+      poseHeldHands(node,id,null,poses,hands);
+      setBodyArmPose(poses,hands,node.scope);
+     }
     }
     for(const el of node.svg.querySelectorAll('[data-hand-action]'))remapSceneRefs(el,node.prefix);
    });
-  });updateAnchors();renderObjects(seconds);
+  });
+  updateAnchors();renderObjects(seconds);
  }
  const basePaint=paintScene;paintScene=function(seconds){basePaint(seconds);if(active)poseAttachments(seconds);};
  const baseLayout=layoutSceneActors;layoutSceneActors=function(){baseLayout();if(active)poseAttachments(scene.elapsed);};

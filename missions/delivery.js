@@ -1,6 +1,8 @@
 'use strict';
 const $=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg';
-const voice=new MissionVoicePlayer(),saveKey='anitoons-last-delivery-v3',camera=new DeliveryCamera($('world'));
+const missionId=document.body.dataset.mission||'last-delivery';
+const isMystery=missionId==='moon-lantern';
+const voice=new MissionVoicePlayer(),saveKey=isMystery?'umto-moon-lantern-v4':'anitoons-last-delivery-v3',camera=new DeliveryCamera($('world'));
 let animationTime=0,lastAnimationTime=0;
 let resolveRig;const rigReady=new Promise(resolve=>{resolveRig=resolve;});
 let mission,engine,S,bank={},actors={},selected=null,busy=false,paused=false,started=false,epoch=0,sceneName='home',heldProps={},drag=null,ignoreClick=0,skipLine=null,speakerId=null,voiceAnalyzer=null,walkSerial=0,frameTime=0,firstCourtyard=true;
@@ -28,7 +30,7 @@ function restore(){const data=saved();if(!data)return false;Object.assign(S,{sce
 function setBusy(value){busy=value;$('game').classList.toggle('busy',busy);}
 function clearSelection(){$('tooltip').style.opacity='0';selected=null;document.querySelectorAll('.selected').forEach(n=>n.classList.remove('selected'));$('selection').textContent='Explore the neighbourhood';}
 function select(id){clearSelection();selected=id;document.querySelector(`[data-item="${id}"]`)?.classList.add('selected');$('selection').textContent=mission.inventoryItems[id]?.label+' → choose a target';}
-function goal(){if(S.complete)return 'Delivered. Just in time.';if(!S.flags.labelRead)return 'Find out where this parcel belongs.';return 'Reach the Old Picture House before the lights go out.';}
+function goal(){if(isMystery)return S.complete?'The lantern is safe. Everyone belongs.':mission.objectives.find(o=>engine.has(o.if))?.text||'Follow the clues.';if(S.complete)return 'Delivered. Just in time.';if(!S.flags.labelRead)return 'Find out where this parcel belongs.';return 'Reach the Old Picture House before the lights go out.';}
 function renderInventory(){const list=$('inventory');list.replaceChildren();for(const id of S.inventory){const item=mission.inventoryItems[id];if(!item)continue;const button=document.createElement('button');button.className='inventory-item'+(selected===id?' selected':'');button.dataset.item=id;button.setAttribute('aria-label',item.label+' — select or drag');button.innerHTML=`<svg viewBox="0 0 90 90" aria-hidden="true">${DeliveryArt.icons[item.icon]}</svg><span>${item.label}</span>`;list.append(button);}if(!S.inventory.length)list.innerHTML='<span class="inventory-empty">A little room for possibilities.</span>';}
 function makeActor(id,x,y,height){return {id,x,y,height,action:'idle',frame:'',walkTime:0,walkFrom:0,walkTo:0,direction:id==='harpreet'?1:-1,walkDistance:0,seed:id==='harpreet'?0:id==='meena'?1700:4100};}
 function render(scene=S.scene){
@@ -43,8 +45,9 @@ function render(scene=S.scene){
    $('props').append(g);
   }
   actors={harpreet:makeActor('harpreet',def.heroX,610,332)};
-  if(scene==='courtyard')actors.kabir=makeActor('kabir',1094,588,255);
-  if(scene==='stall')actors.meena=makeActor('meena',951,553,320);
+  for(const a of def.actors||[])actors[a.id]=makeActor(a.id,a.x,a.y,a.height);
+  if(!isMystery&&scene==='courtyard')actors.kabir=makeActor('kabir',1094,588,255);
+  if(!isMystery&&scene==='stall')actors.meena=makeActor('meena',951,553,320);
   $('chapter').textContent=def.chapter;$('location').textContent=def.name;
  }else if(scene==='cinema'){
   actors={harpreet:makeActor('harpreet',515,635,302),kabir:makeActor('kabir',845,625,235)};
@@ -53,7 +56,7 @@ function render(scene=S.scene){
  for(const actor of Object.values(actors)){
   const group=document.createElementNS(NS,'g');group.id='actor-'+actor.id;group.classList.add('actor');group.innerHTML='<ellipse class="actor-shadow" cx="0" cy="-2" rx="47" ry="9"/><g class="actor-sprite"></g><g class="held-prop" pointer-events="none"></g>';$('cast').append(group);
  }
- if(scene==='stall')$('foreground').innerHTML='<path d="M632 479H1232V568H632Z" fill="#894c43" stroke="#1a2a39" stroke-width="6"/><path d="M643 494H1222M643 520H1222M643 546H1222" stroke="#b77755" stroke-width="3"/>';
+ if(scene==='stall'&&def?.foreground!==false)$('foreground').innerHTML='<path d="M632 479H1232V568H632Z" fill="#894c43" stroke="#1a2a39" stroke-width="6"/><path d="M643 494H1222M643 520H1222M643 546H1222" stroke="#b77755" stroke-width="3"/>';
  $('objective').textContent=goal();renderInventory();paintActors(animationTime);
 }
 function paintActors(now){for(const actor of Object.values(actors)){
@@ -106,6 +109,7 @@ function showDialogue(id,waitForEnd=false){
  $('dialogue').style.setProperty('--speaker-colour',who.colour);$('speaker').textContent=who.name;$('speakerRole').textContent=who.role;$('subtitle').textContent=d.text;$('choices').replaceChildren();
  if(actors[d.speaker]&&actors[d.speaker].action!=='ride')actors[d.speaker].action='talk';
  for(const [i,c] of (d.choices||[]).entries()){const b=document.createElement('button');b.setAttribute('aria-label',c.label);b.setAttribute('aria-keyshortcuts',String.fromCharCode(65+i));const key=document.createElement('span');key.className='choice-key';key.textContent=String.fromCharCode(65+i)+':';const text=document.createElement('span');text.className='choice-text';text.textContent=c.label;b.append(key,text);b.onclick=()=>{if(!busy&&!paused)dispatch(c.event);};$('choices').append(b);}
+ window.MysteryUI?.dialogue(d,mission,engine);
  voice.play(id,d.text);const clip=voice.clip;if(clip)sound.watch(clip);
  $('skip').textContent=waitForEnd?'Continue ↵':d.choices?.length?'Skip voice ↵':'Close ↵';
  const token=epoch;
@@ -120,6 +124,7 @@ function showDialogue(id,waitForEnd=false){
 async function changeScene(scene){stopLine();clearSelection();$('dialogue').hidden=true;$('transition').classList.add('dark');await sleep(240);render(scene);$('transition').classList.remove('dark');sound.beat=0;}
 function pose({actor,action,facing}){if(actors[actor]){actors[actor].action=action;if(facing)actors[actor].direction=facing;if(action==='ride'){actors[actor].direction=1;actors[actor].x=775;actors[actor].y=533;actors[actor].height=270;}paintActors(animationTime);}}
 async function effect(kind){
+ if(kind==='lanternGlow'){ $('game').classList.add('lantern-found');sound.fx('complete');await sleep(900); }
  if(kind==='dry'){$('effects').innerHTML='<g class="dry-effect" fill="none" stroke="#ffe1a3" stroke-width="3"><path d="M365 403Q345 380 363 360M390 406Q410 380 390 359M414 410Q400 390 417 373"/></g>';await sleep(1200);$('effects').replaceChildren();}
  if(kind==='headlight'&&S.flags.cableFixed){$('effects').innerHTML='<circle cx="925" cy="423" r="65" fill="url(#d-glow)"/>';await sleep(500);}
  if(kind==='loadParcel'){$('delivery-scooter')?.insertAdjacentHTML('beforeend',`<svg x="30" y="20" width="85" height="85" viewBox="0 0 90 90">${DeliveryArt.icons.parcel}</svg>`);}
@@ -137,7 +142,8 @@ async function applyRule(event){
  const result=engine.trigger(event);if(!result.ok){if(event.startsWith('drop:'))showDialogue('cantCombine');return false;}
  for(const action of result.actions){const colon=action.indexOf(':'),kind=action.slice(0,colon),value=action.slice(colon+1);
   if(kind==='sequence'){const cues=mission.sequences[value];if(!cues)throw Error('Unknown sequence '+value);await sequence.run(cues);}
-  else if(kind==='scene'){await changeScene(value);if(value==='courtyard'&&firstCourtyard){firstCourtyard=false;showDialogue('courtyardFirst');}}
+  else if(kind==='notebook')window.MysteryUI?.notebook(mission,engine);
+  else if(kind==='scene'){await changeScene(value);if(!isMystery&&value==='courtyard'&&firstCourtyard){firstCourtyard=false;showDialogue('courtyardFirst');}}
   else if(kind==='message')showDialogue(value);
   else if(kind==='sound')sound.fx(value);
   else if(kind==='event')await applyRule(value);
@@ -145,44 +151,46 @@ async function applyRule(event){
  }
  // Keep actor positions during state-only updates.
  if(mission.scenes[sceneName]){for(const o of mission.scenes[sceneName].objects){const node=$('props').querySelector(`[data-target="${o.id}"]`);if(node&&!engine.has(o.if))node.remove();}
- if(sceneName==='courtyard'){
+ if(!isMystery&&sceneName==='courtyard'){
   const node=$('props').querySelector('[data-target="scooter"]');
   if(node){node.querySelector('#delivery-scooter')?.remove();node.insertAdjacentHTML('afterbegin',DeliveryArt.scooter(S.flags));}
   const depart=mission.scenes.courtyard.objects.find(o=>o.id==='depart');if(engine.has(depart.if)&&!$('props').querySelector('[data-target="depart"]')){const group=document.createElementNS(NS,'g');group.dataset.target='depart';group.setAttribute('role','button');group.setAttribute('tabindex','0');group.setAttribute('aria-label',depart.name);group.innerHTML=DeliveryArt.prop(depart,S);$('props').append(group);}
  }}
+ if(isMystery){refreshMysteryProps();window.MysteryUI?.progress(mission,engine);}
  $('objective').textContent=goal();renderInventory();return true;
 }
 async function dispatch(event){if(!started||busy||paused||S.complete)return;const token=epoch;setBusy(true);camera.to('wide');clearSelection();stopLine();try{await applyRule(event);if(token===epoch)save();}catch(error){console.error(error);announceError('That action could not finish. Your last saved progress is available after a refresh.');}finally{if(token===epoch)setBusy(false);}}
 async function interact(id){if(!started||busy||paused||S.complete)return;if(selected&&selected!==id){const item=selected;await dispatch('drop:'+item+':'+id);return;}
  const o=mission.scenes[S.scene]?.objects.find(o=>o.id===id);if(!o)return;
- if(!['door','homeDoor','stallDoor','back','depart'].includes(id)&&id!=='scooter'){setBusy(true);await walkTo(Math.max(200,Math.min(1000,o.x-55)));setBusy(false);}
+ if(!['door','homeDoor','stallDoor','back','depart','gardenGate'].includes(id)&&id!=='scooter'){setBusy(true);await walkTo(Math.max(200,Math.min(1000,o.x-55)));setBusy(false);}
  await dispatch('click:'+id);
 }
 function worldPoint(e){const matrix=$('world').getScreenCTM();return matrix?new DOMPoint(e.clientX,e.clientY).matrixTransform(matrix.inverse()):{x:0,y:0};}
-function finish(){stopLine();S.complete=true;engine.finish();save();$('dialogue').hidden=true;$('tradeStat').textContent=S.flags.pinwheelTraded?'A wind-powered trade':'Warm chai, warm hearts';$('ending').showModal();}
+function refreshMysteryProps(){const def=mission.scenes[sceneName];if(!def)return;$('props').replaceChildren();for(const o of def.objects){if(!engine.has(o.if))continue;const g=document.createElementNS(NS,'g');g.dataset.target=o.id;g.setAttribute('role','button');g.setAttribute('tabindex','0');g.setAttribute('aria-label',o.name);g.innerHTML=`<rect x="${o.x}" y="${o.y}" width="${o.w}" height="${o.h}" fill="transparent" pointer-events="all"/>${DeliveryArt.prop(o,S)}<rect class="focus-ring" x="${o.x-4}" y="${o.y-4}" width="${o.w+8}" height="${o.h+8}" rx="12" pointer-events="none"/>`;$('props').append(g);}}
+function finish(){stopLine();S.complete=true;engine.finish();save();$('dialogue').hidden=true;if(isMystery)window.MysteryUI?.progress(mission,engine);$('tradeStat').textContent=isMystery?'Everyone included':S.flags.pinwheelTraded?'A wind-powered trade':'Warm chai, warm hearts';$('ending').showModal();}
 function setPaused(value){paused=value;$('game').classList.toggle('paused',value);voice.setHidden(value||document.hidden);if(value){$('pauseMenu').showModal();}else if($('pauseMenu').open)$('pauseMenu').close();}
 async function toggleFullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await $('game').requestFullscreen();}catch{$('fullscreen').title='Fullscreen is unavailable; the game still fills this window.';}}
 async function begin(fresh=false){
  epoch++;sequence.cancel();walkSerial++;stopLine();setBusy(true);started=true;S.started=true;
  if(fresh){engine.reset();S=engine.state;S.started=true;firstCourtyard=true;try{localStorage.removeItem(saveKey);}catch{}}
  else restore();
- $('opening').hidden=true;$('game').classList.remove('departing','door-open','projector-on');$('error').hidden=true;render();await sound.start();
- if(S.complete){await changeScene('cinema');$('game').classList.add('projector-on');finish();setBusy(false);return;}
+ $('opening').hidden=true;$('game').classList.remove('departing','door-open','projector-on','lantern-found');$('error').hidden=true;render();await sound.start();
+ if(S.complete){await changeScene(mission.finalScene||'cinema');$('game').classList.add('projector-on');finish();setBusy(false);return;}
  if(fresh||!saved()){await sequence.run(mission.sequences.opening);}else showDialogue('saveResume');
- setBusy(false);save();
+ setBusy(false);save();window.MysteryUI?.progress(mission,engine);
 }
 $('start').onclick=()=>{if(!document.fullscreenElement)$('game').requestFullscreen?.().catch(()=>{});begin(false);};
 $('newGame').onclick=()=>begin(true);
 $('fullscreen').onclick=toggleFullscreen;$('pause').onclick=()=>setPaused(true);$('resume').onclick=()=>setPaused(false);
 $('pauseMenu').addEventListener('cancel',e=>{e.preventDefault();setPaused(false);});
 $('restart').onclick=()=>{setPaused(false);begin(true);};$('playAgain').onclick=()=>{$('ending').close();begin(true);};$('stay').onclick=()=>$('ending').close();
-$('replayFinale').onclick=async()=>{const token=++epoch;sequence.cancel();stopLine();$('ending').close();$('game').classList.remove('departing','door-open','projector-on');setBusy(true);try{await changeScene('courtyard');await sequence.run(mission.sequences.departure);}finally{if(token===epoch)setBusy(false);}};
+$('replayFinale').onclick=async()=>{const token=++epoch;sequence.cancel();stopLine();$('ending').close();$('game').classList.remove('departing','door-open','projector-on','lantern-found');setBusy(true);try{await changeScene(mission.finalScene||'courtyard');await sequence.run(mission.sequences[mission.finalSequence||'departure']);}finally{if(token===epoch)setBusy(false);}};
 $('skip').onclick=()=>{stopLine();if(!busy&&!$('choices').children.length){$('dialogue').hidden=true;camera.to('wide');}};
 $('musicVolume').oninput=e=>{sound.level=e.target.value/100;if(sound.gain&&sound.ctx)sound.gain.gain.setTargetAtTime(sound.level,sound.ctx.currentTime,.05);};
 $('voiceVolume').oninput=e=>{voice.volume=e.target.value/100;if(voice.clip)voice.clip.volume=voice.volume;};
 $('reduceMotion').onchange=e=>{$('game').classList.toggle('reduced-motion',e.target.checked);camera.reduceMotion=e.target.checked;};
 $('pocketToggle').onclick=()=>{const hidden=!$('inventory').hidden;$('inventory').hidden=hidden;$('pocketToggle').setAttribute('aria-expanded',String(!hidden));};
-$('hint').onclick=()=>{if(!started||busy||paused||S.complete)return;clearSelection();stopLine();const hint=mission.hints.find(h=>engine.has(h.if));$('dialogue').hidden=false;$('dialogue').classList.remove('has-choices');camera.to('wide');$('speaker').textContent='A LITTLE NUDGE';$('speakerRole').textContent='TAKE YOUR TIME';$('subtitle').textContent=hint.text;$('choices').replaceChildren();$('skip').textContent='Close ↵';};
+$('hint').onclick=()=>{if(!started||busy||paused||S.complete)return;clearSelection();stopLine();const hint=mission.hints.find(h=>engine.has(h.if));window.MysteryUI?.clear();$('dialogue').hidden=false;$('dialogue').classList.remove('has-choices');camera.to('wide');$('speaker').textContent='A LITTLE NUDGE';$('speakerRole').textContent='TAKE YOUR TIME';$('subtitle').textContent=hint.text;$('choices').replaceChildren();$('skip').textContent='Close ↵';};
 document.addEventListener('click',e=>{if(performance.now()<ignoreClick)return;const item=e.target.closest('[data-item]');if(item){if(busy||paused)return;if(selected&&selected!==item.dataset.item)dispatch('drop:'+selected+':'+item.dataset.item);else if(selected===item.dataset.item)clearSelection();else select(item.dataset.item);return;}const target=e.target.closest('[data-target]');if(target){interact(target.dataset.target);return;}if(e.target.closest('#world')&&started&&!busy&&!paused&&!S.complete){const p=worldPoint(e);if(p.y>520){clearSelection();setBusy(true);walkTo(p.x).finally(()=>setBusy(false));}}});
 document.addEventListener('pointerdown',e=>{if(busy||paused||!started||e.button!==0)return;const node=e.target.closest('[data-item],[data-target]');if(!node)return;const id=node.dataset.item||node.dataset.target;if(!mission.inventoryItems[id])return;drag={id,x:e.clientX,y:e.clientY,moved:false,pointer:e.pointerId};});
 document.addEventListener('pointermove',e=>{
@@ -202,4 +210,4 @@ const cameraNames={auto:'Cinematic',follow:'Follow',wide:'Wide'};
 function chooseCamera(mode){camera.mode=mode;$('cameraMode').value=mode;$('camera').setAttribute('aria-label','Camera: '+cameraNames[mode]);$('camera').title='Camera: '+cameraNames[mode];camera.to('wide');}
 $('camera').onclick=()=>chooseCamera(['auto','follow','wide'][(['auto','follow','wide'].indexOf(camera.mode)+1)%3]);$('cameraMode').onchange=e=>chooseCamera(e.target.value);
 $('artDefs').innerHTML=DeliveryArt.defs;
-fetch('adventures/last-delivery.json?v=004.0',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Mission missing');return r.json();}).then(async def=>{mission=def;engine=new MissionEngine(mission);S=engine.state;render();await voice.load(def.id);await Promise.race([rigReady,new Promise((_,reject)=>setTimeout(()=>reject(Error('Character rig did not load')),20000))]);const hasSave=!!saved();$('start').disabled=false;$('start').textContent=hasSave?'Continue delivery →':'Begin the delivery →';$('newGame').hidden=!hasSave;$('voiceStatus').textContent=Object.keys(voice.lines).length?'Three voices. One neighbourhood.':'Three neighbours. One last delivery.';requestAnimationFrame(animate);}).catch(e=>{console.error(e);announceError('The mission could not load. Please refresh or return to the mission list.');$('start').textContent='Could not load mission';});
+fetch('adventures/'+missionId+'.json?v=004.0',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Mission missing');return r.json();}).then(async def=>{mission=def;engine=new MissionEngine(mission);S=engine.state;render();await voice.load(def.id);await Promise.race([rigReady,new Promise((_,reject)=>setTimeout(()=>reject(Error('Character rig did not load')),20000))]);const hasSave=!!saved();$('start').disabled=false;$('start').textContent=hasSave?(isMystery?'Continue the mystery →':'Continue delivery →'):(isMystery?'Begin the mystery →':'Begin the delivery →');$('newGame').hidden=!hasSave;$('voiceStatus').textContent=Object.keys(voice.lines).length?'Three voices. One neighbourhood.':isMystery?'Read along · Music & sound on · Take your time':'Three neighbours. One last delivery.';requestAnimationFrame(animate);}).catch(e=>{console.error(e);announceError('The mission could not load. Please refresh or return to the mission list.');$('start').textContent='Could not load mission';});

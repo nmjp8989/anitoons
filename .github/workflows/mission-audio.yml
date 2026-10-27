@@ -6,7 +6,7 @@ on:
       mission:
         description: Mission to voice
         type: choice
-        options: [last-delivery, rooftop-kite, missing-key, all]
+        options: [moon-lantern, last-delivery, rooftop-kite, missing-key, all]
         default: last-delivery
   push:
     branches: [main]
@@ -50,12 +50,12 @@ jobs:
         run: test -n "$MIMO_API_KEY" || { echo 'Add repository secret MIMO_API_KEY'; exit 1; }
       - name: Select mission and validate references
         env:
-          SELECTED_MISSION: ${{ inputs.mission || 'last-delivery' }}
+          SELECTED_MISSION: ${{ inputs.mission || 'all' }}
         run: |
           case "$SELECTED_MISSION" in
             all) echo 'MISSION_FILE=' >> "$GITHUB_ENV" ;;
             missing-key) echo 'MISSION_FILE=missions/mission.json' >> "$GITHUB_ENV" ;;
-            last-delivery|rooftop-kite) echo "MISSION_FILE=missions/adventures/$SELECTED_MISSION.json" >> "$GITHUB_ENV" ;;
+            moon-lantern|last-delivery|rooftop-kite) echo "MISSION_FILE=missions/adventures/$SELECTED_MISSION.json" >> "$GITHUB_ENV" ;;
             *) echo 'Unknown mission'; exit 1 ;;
           esac
       - name: Generate only missing or changed lines

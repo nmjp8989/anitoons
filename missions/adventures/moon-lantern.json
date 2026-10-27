@@ -1,0 +1,1319 @@
+{
+  "id": "moon-lantern",
+  "version": 4,
+  "number": "004",
+  "title": "The Missing Moon Lantern",
+  "subtitle": "A tiny trail. A big-hearted mystery.",
+  "startScene": "home",
+  "startMessage": "intro",
+  "hero": {
+    "id": "harpreet",
+    "name": "Harpreet"
+  },
+  "finalScene": "garden",
+  "finalSequence": "reunion",
+  "cast": {
+    "harpreet": {
+      "name": "Harpreet",
+      "role": "YOUR DETECTIVE FRIEND",
+      "colour": "#f1c477"
+    },
+    "kabir": {
+      "name": "Kabir",
+      "role": "JUNIOR CLUE FINDER",
+      "colour": "#efabb0"
+    },
+    "meena": {
+      "name": "Meena",
+      "role": "THE GARDEN KEEPER",
+      "colour": "#9dd9ba"
+    }
+  },
+  "inventoryItems": {
+    "ribbon": {
+      "label": "Blue ribbon clue",
+      "icon": "ribbon"
+    },
+    "petal": {
+      "label": "Moonflower petal",
+      "icon": "petal"
+    },
+    "tag": {
+      "label": "Plant number 13",
+      "icon": "tag"
+    },
+    "snacks": {
+      "label": "Twelve picnic snacks",
+      "icon": "snacks"
+    }
+  },
+  "scenes": {
+    "home": {
+      "name": "The reading room",
+      "chapter": "01 / SOMETHING IS MISSING",
+      "heroX": 490,
+      "objects": [
+        {
+          "id": "lanterns",
+          "name": "Count the lantern hooks",
+          "x": 230,
+          "y": 205,
+          "w": 575,
+          "h": 125,
+          "icon": "lanterns"
+        },
+        {
+          "id": "snackTray",
+          "name": "Count the picnic snacks",
+          "x": 265,
+          "y": 410,
+          "w": 225,
+          "h": 85,
+          "icon": "snackTray"
+        },
+        {
+          "id": "clueboard",
+          "name": "Open the clue notebook",
+          "x": 904,
+          "y": 245,
+          "w": 165,
+          "h": 155,
+          "icon": "clueboard"
+        },
+        {
+          "id": "door",
+          "name": "Explore the courtyard →",
+          "x": 1125,
+          "y": 240,
+          "w": 130,
+          "h": 300,
+          "icon": "exit"
+        }
+      ],
+      "actors": [],
+      "foreground": false
+    },
+    "courtyard": {
+      "name": "The little courtyard",
+      "chapter": "02 / FOLLOW THE CLUES",
+      "heroX": 490,
+      "objects": [
+        {
+          "id": "homeDoor",
+          "name": "← Back to the reading room",
+          "x": 25,
+          "y": 250,
+          "w": 130,
+          "h": 285,
+          "icon": "exit"
+        },
+        {
+          "id": "kabir",
+          "name": "Talk to Kabir",
+          "x": 1000,
+          "y": 322,
+          "w": 150,
+          "h": 275,
+          "icon": "actor"
+        },
+        {
+          "id": "footprints",
+          "name": "Compare the footprint trails",
+          "x": 300,
+          "y": 420,
+          "w": 380,
+          "h": 100,
+          "icon": "footprints"
+        },
+        {
+          "id": "bunting",
+          "name": "Finish the ribbon pattern",
+          "x": 290,
+          "y": 195,
+          "w": 590,
+          "h": 100,
+          "icon": "bunting"
+        },
+        {
+          "id": "stallDoor",
+          "name": "Visit Meena’s potting shed →",
+          "x": 1125,
+          "y": 190,
+          "w": 130,
+          "h": 110,
+          "icon": "exit"
+        },
+        {
+          "id": "gardenGate",
+          "name": "Open the greenhouse gate",
+          "x": 720,
+          "y": 300,
+          "w": 195,
+          "h": 230,
+          "icon": "gardenGate"
+        }
+      ],
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 1060,
+          "y": 590,
+          "height": 255
+        }
+      ],
+      "foreground": false
+    },
+    "stall": {
+      "name": "Meena’s potting shed",
+      "chapter": "03 / A HELPFUL MIX-UP",
+      "heroX": 490,
+      "objects": [
+        {
+          "id": "back",
+          "name": "← Back to the courtyard",
+          "x": 25,
+          "y": 250,
+          "w": 130,
+          "h": 285,
+          "icon": "exit"
+        },
+        {
+          "id": "meena",
+          "name": "Talk to Meena",
+          "x": 965,
+          "y": 280,
+          "w": 165,
+          "h": 300,
+          "icon": "actor"
+        },
+        {
+          "id": "plantLabels",
+          "name": "Find the missing plant number",
+          "x": 260,
+          "y": 350,
+          "w": 390,
+          "h": 130,
+          "icon": "plantLabels"
+        },
+        {
+          "id": "flowerCrate",
+          "name": "Sort the flower baskets",
+          "x": 720,
+          "y": 390,
+          "w": 210,
+          "h": 115,
+          "icon": "flowerCrate"
+        }
+      ],
+      "actors": [
+        {
+          "id": "meena",
+          "x": 1045,
+          "y": 580,
+          "height": 315
+        }
+      ],
+      "foreground": false
+    },
+    "garden": {
+      "name": "The moonflower greenhouse",
+      "chapter": "04 / EVERYONE BELONGS",
+      "heroX": 490,
+      "objects": [
+        {
+          "id": "back",
+          "name": "← Back to the courtyard",
+          "x": 25,
+          "y": 250,
+          "w": 130,
+          "h": 285,
+          "icon": "exit"
+        },
+        {
+          "id": "moonLantern",
+          "name": "Look at the moon lantern",
+          "x": 725,
+          "y": 190,
+          "w": 185,
+          "h": 205,
+          "icon": "moonLantern"
+        },
+        {
+          "id": "picnic",
+          "name": "Share the picnic snacks",
+          "x": 570,
+          "y": 420,
+          "w": 350,
+          "h": 100,
+          "icon": "picnic"
+        },
+        {
+          "id": "meena",
+          "name": "Talk to Meena",
+          "x": 1000,
+          "y": 280,
+          "w": 165,
+          "h": 300,
+          "icon": "actor"
+        }
+      ],
+      "actors": [
+        {
+          "id": "kabir",
+          "x": 320,
+          "y": 590,
+          "height": 255
+        },
+        {
+          "id": "meena",
+          "x": 1060,
+          "y": 590,
+          "height": 315
+        }
+      ],
+      "foreground": false
+    }
+  },
+  "dialogues": {
+    "intro": {
+      "text": "Our reading picnic is nearly ready. But the big moon lantern is missing! Let’s follow the clues. No need to hurry.",
+      "speaker": "harpreet"
+    },
+    "kabirHello": {
+      "text": "I saw something blue flutter past the gate. Was it a tiny dragon? We should check the clues before we guess!",
+      "speaker": "kabir",
+      "choices": [
+        {
+          "label": "Look at the footprint trails",
+          "event": "click:footprints"
+        },
+        {
+          "label": "Check the ribbon pattern",
+          "event": "click:bunting"
+        }
+      ]
+    },
+    "meenaHello": {
+      "text": "I moved a lantern out of the breeze so it would stay safe. Then I forgot to leave a note! The plant labels will show you where.",
+      "speaker": "meena"
+    },
+    "cantCombine": {
+      "text": "That is a useful clue. Keep it in your pocket and look around. Use the notebook to see how the clues fit together.",
+      "speaker": "harpreet"
+    },
+    "saveResume": {
+      "text": "Welcome back, detective. Your clues are safe. Open the notebook if you want to remember what we found.",
+      "speaker": "harpreet"
+    },
+    "gateBlocked": {
+      "text": "We need three clues: the ribbon colour, the kind of flower, and the plant number. The notebook will help.",
+      "speaker": "harpreet"
+    },
+    "needSnacks": {
+      "text": "We found the lantern! Let’s collect twelve snacks from the reading room before we start the picnic.",
+      "speaker": "harpreet"
+    },
+    "needLantern": {
+      "text": "First, take a look at the moon lantern. How did it get here?",
+      "speaker": "harpreet"
+    },
+    "lanternFound": {
+      "text": "There it is, safe beside the moonflowers! A blue ribbon, a moonflower petal, and plant number 13. All our clues fit.",
+      "speaker": "harpreet"
+    },
+    "meenaSorry": {
+      "text": "The breeze tugged at its ribbon. I brought it here to keep it safe. I’m sorry I forgot the note.",
+      "speaker": "meena"
+    },
+    "kabirEnd": {
+      "text": "So nobody took it! And the greenhouse is a lovely place for a reading picnic. Can I sit by the moonflowers?",
+      "speaker": "kabir"
+    },
+    "picnicEnd": {
+      "text": "Twelve snacks for all of us, one rescued lantern, and a story to share. Good detectives count carefully and ask kindly.",
+      "speaker": "harpreet"
+    },
+    "alreadyShared": {
+      "text": "Our picnic is ready. Everyone has a place beside the lantern.",
+      "speaker": "harpreet"
+    },
+    "deduction": {
+      "text": "The blue ribbon, moonflower petal and number 13 all match. Where should we look?",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "The greenhouse, beside plant 13",
+          "event": "solve:deduction"
+        },
+        {
+          "label": "The street outside",
+          "event": "guess:street"
+        },
+        {
+          "label": "The reading-room cupboard",
+          "event": "guess:cupboard"
+        }
+      ]
+    },
+    "deductionRetry": {
+      "text": "Let’s use all three clues together: blue ribbon, moonflowers, and plant 13. Where can we find all three?",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "The greenhouse, beside plant 13",
+          "event": "solve:deduction"
+        },
+        {
+          "label": "The street outside",
+          "event": "guess:street"
+        },
+        {
+          "label": "The reading-room cupboard",
+          "event": "guess:cupboard"
+        }
+      ]
+    },
+    "gateOpen": {
+      "text": "The gate opens onto a warm little greenhouse. Let’s see if our idea was right.",
+      "speaker": "harpreet"
+    },
+    "flowersDone": {
+      "text": "Six plus six is twelve. Meena smiles: “Just right for our picnic!”",
+      "speaker": "harpreet"
+    },
+    "hooks": {
+      "text": "Ten hooks, six little lanterns. How many hooks are empty?",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "3 empty hooks",
+          "event": "answer:hooks:0"
+        },
+        {
+          "label": "4 empty hooks",
+          "event": "answer:hooks:1"
+        },
+        {
+          "label": "6 empty hooks",
+          "event": "answer:hooks:2"
+        }
+      ],
+      "puzzle": "hooks"
+    },
+    "hooksHelp": {
+      "text": "Let’s look together. Count each empty hook once. Or start at six and count on to ten: seven, eight, nine, ten.",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "3 empty hooks",
+          "event": "answer:hooks:0"
+        },
+        {
+          "label": "4 empty hooks",
+          "event": "answer:hooks:1"
+        },
+        {
+          "label": "6 empty hooks",
+          "event": "answer:hooks:2"
+        }
+      ],
+      "puzzle": "hooks"
+    },
+    "hooksDone": {
+      "text": "Six lanterns and four empty hooks make ten. A blue ribbon is caught on the last hook. A clue!",
+      "speaker": "harpreet"
+    },
+    "snacks": {
+      "text": "There are seven apple slices and five crackers. How many snacks altogether?",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "11 snacks",
+          "event": "answer:snacks:0"
+        },
+        {
+          "label": "13 snacks",
+          "event": "answer:snacks:1"
+        },
+        {
+          "label": "12 snacks",
+          "event": "answer:snacks:2"
+        }
+      ],
+      "puzzle": "snacks"
+    },
+    "snacksHelp": {
+      "text": "Let’s look together. Touch each snack to count it. Start at seven and count five more: eight, nine, ten, eleven, twelve.",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "11 snacks",
+          "event": "answer:snacks:0"
+        },
+        {
+          "label": "13 snacks",
+          "event": "answer:snacks:1"
+        },
+        {
+          "label": "12 snacks",
+          "event": "answer:snacks:2"
+        }
+      ],
+      "puzzle": "snacks"
+    },
+    "snacksDone": {
+      "text": "Seven plus five is twelve. The picnic snacks are packed. Let’s take them along!",
+      "speaker": "harpreet"
+    },
+    "trails": {
+      "text": "The long trail has fourteen prints. The short trail has twelve. Which trail has more?",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "14 — toward the moonflowers",
+          "event": "answer:trails:0"
+        },
+        {
+          "label": "12 — toward the street",
+          "event": "answer:trails:1"
+        },
+        {
+          "label": "They have the same number",
+          "event": "answer:trails:2"
+        }
+      ],
+      "puzzle": "trails"
+    },
+    "trailsHelp": {
+      "text": "Let’s look together. Compare the matching pairs of prints. The trail with fourteen has two left over.",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "14 — toward the moonflowers",
+          "event": "answer:trails:0"
+        },
+        {
+          "label": "12 — toward the street",
+          "event": "answer:trails:1"
+        },
+        {
+          "label": "They have the same number",
+          "event": "answer:trails:2"
+        }
+      ],
+      "puzzle": "trails"
+    },
+    "trailsDone": {
+      "text": "Fourteen is more than twelve. The longer trail leads to the moonflowers. Here is a fallen moonflower petal!",
+      "speaker": "harpreet"
+    },
+    "ribbons": {
+      "text": "Blue, gold, blue, gold, blue… Which ribbon colour comes next?",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "Blue ribbon",
+          "event": "answer:ribbons:0"
+        },
+        {
+          "label": "Gold ribbon",
+          "event": "answer:ribbons:1"
+        },
+        {
+          "label": "Green ribbon",
+          "event": "answer:ribbons:2"
+        }
+      ],
+      "puzzle": "ribbons"
+    },
+    "ribbonsHelp": {
+      "text": "Let’s look together. Say the repeating part: blue, gold. After blue comes gold.",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "Blue ribbon",
+          "event": "answer:ribbons:0"
+        },
+        {
+          "label": "Gold ribbon",
+          "event": "answer:ribbons:1"
+        },
+        {
+          "label": "Green ribbon",
+          "event": "answer:ribbons:2"
+        }
+      ],
+      "puzzle": "ribbons"
+    },
+    "ribbonsDone": {
+      "text": "Gold comes next. This ribbon line repeats blue, gold. Our loose blue ribbon matches the greenhouse decorations!",
+      "speaker": "harpreet"
+    },
+    "labels": {
+      "text": "The plant labels read eleven, twelve, a missing number, fourteen. Which number is missing?",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "15",
+          "event": "answer:labels:0"
+        },
+        {
+          "label": "10",
+          "event": "answer:labels:1"
+        },
+        {
+          "label": "13",
+          "event": "answer:labels:2"
+        }
+      ],
+      "puzzle": "labels"
+    },
+    "labelsHelp": {
+      "text": "Let’s look together. Count forward one at a time: eleven, twelve, thirteen, fourteen.",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "15",
+          "event": "answer:labels:0"
+        },
+        {
+          "label": "10",
+          "event": "answer:labels:1"
+        },
+        {
+          "label": "13",
+          "event": "answer:labels:2"
+        }
+      ],
+      "puzzle": "labels"
+    },
+    "labelsDone": {
+      "text": "Thirteen! This tag belongs beside the moonflowers in the greenhouse. Keep it as our last clue.",
+      "speaker": "harpreet"
+    },
+    "flowers": {
+      "text": "Six flowers in this basket and six in that one. How many flowers altogether?",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "10 flowers",
+          "event": "answer:flowers:0"
+        },
+        {
+          "label": "12 flowers",
+          "event": "answer:flowers:1"
+        },
+        {
+          "label": "14 flowers",
+          "event": "answer:flowers:2"
+        }
+      ],
+      "puzzle": "flowers"
+    },
+    "flowersHelp": {
+      "text": "Let’s look together. Count six flowers, then six more. Or make ten first: six and four make ten, then add two.",
+      "speaker": "harpreet",
+      "choices": [
+        {
+          "label": "10 flowers",
+          "event": "answer:flowers:0"
+        },
+        {
+          "label": "12 flowers",
+          "event": "answer:flowers:1"
+        },
+        {
+          "label": "14 flowers",
+          "event": "answer:flowers:2"
+        }
+      ],
+      "puzzle": "flowers"
+    }
+  },
+  "rules": [
+    {
+      "when": "click:lanterns",
+      "actions": [
+        "message:hooksDone"
+      ],
+      "in": "home",
+      "if": "missingCount"
+    },
+    {
+      "when": "click:lanterns",
+      "actions": [
+        "message:hooks"
+      ],
+      "in": "home",
+      "if": "!missingCount"
+    },
+    {
+      "when": "answer:hooks:0",
+      "actions": [
+        "message:hooksHelp"
+      ],
+      "in": "home",
+      "if": "!missingCount"
+    },
+    {
+      "when": "answer:hooks:1",
+      "actions": [
+        "flag:missingCount",
+        "inventory:ribbon",
+        "sound:complete",
+        "message:hooksDone"
+      ],
+      "in": "home",
+      "if": "!missingCount"
+    },
+    {
+      "when": "answer:hooks:2",
+      "actions": [
+        "message:hooksHelp"
+      ],
+      "in": "home",
+      "if": "!missingCount"
+    },
+    {
+      "when": "drop:ribbon:clueboard",
+      "actions": [
+        "message:hooksDone"
+      ],
+      "in": "home",
+      "if": "missingCount"
+    },
+    {
+      "when": "click:snackTray",
+      "actions": [
+        "message:snacksDone"
+      ],
+      "in": "home",
+      "if": "snacksPacked"
+    },
+    {
+      "when": "click:snackTray",
+      "actions": [
+        "message:snacks"
+      ],
+      "in": "home",
+      "if": "!snacksPacked"
+    },
+    {
+      "when": "answer:snacks:0",
+      "actions": [
+        "message:snacksHelp"
+      ],
+      "in": "home",
+      "if": "!snacksPacked"
+    },
+    {
+      "when": "answer:snacks:1",
+      "actions": [
+        "message:snacksHelp"
+      ],
+      "in": "home",
+      "if": "!snacksPacked"
+    },
+    {
+      "when": "answer:snacks:2",
+      "actions": [
+        "flag:snacksPacked",
+        "inventory:snacks",
+        "sound:complete",
+        "message:snacksDone"
+      ],
+      "in": "home",
+      "if": "!snacksPacked"
+    },
+    {
+      "when": "drop:snacks:clueboard",
+      "actions": [
+        "message:snacksDone"
+      ],
+      "in": "home",
+      "if": "snacksPacked"
+    },
+    {
+      "when": "click:footprints",
+      "actions": [
+        "message:trailsDone"
+      ],
+      "in": "courtyard",
+      "if": "trailRead"
+    },
+    {
+      "when": "click:footprints",
+      "actions": [
+        "message:trails"
+      ],
+      "in": "courtyard",
+      "if": "!trailRead"
+    },
+    {
+      "when": "answer:trails:0",
+      "actions": [
+        "flag:trailRead",
+        "inventory:petal",
+        "sound:complete",
+        "message:trailsDone"
+      ],
+      "in": "courtyard",
+      "if": "!trailRead"
+    },
+    {
+      "when": "answer:trails:1",
+      "actions": [
+        "message:trailsHelp"
+      ],
+      "in": "courtyard",
+      "if": "!trailRead"
+    },
+    {
+      "when": "answer:trails:2",
+      "actions": [
+        "message:trailsHelp"
+      ],
+      "in": "courtyard",
+      "if": "!trailRead"
+    },
+    {
+      "when": "drop:petal:clueboard",
+      "actions": [
+        "message:trailsDone"
+      ],
+      "in": "home",
+      "if": "trailRead"
+    },
+    {
+      "when": "click:bunting",
+      "actions": [
+        "message:ribbonsDone"
+      ],
+      "in": "courtyard",
+      "if": "patternRead"
+    },
+    {
+      "when": "click:bunting",
+      "actions": [
+        "message:ribbons"
+      ],
+      "in": "courtyard",
+      "if": "!patternRead"
+    },
+    {
+      "when": "answer:ribbons:0",
+      "actions": [
+        "message:ribbonsHelp"
+      ],
+      "in": "courtyard",
+      "if": "!patternRead"
+    },
+    {
+      "when": "answer:ribbons:1",
+      "actions": [
+        "flag:patternRead",
+        "sound:complete",
+        "message:ribbonsDone"
+      ],
+      "in": "courtyard",
+      "if": "!patternRead"
+    },
+    {
+      "when": "answer:ribbons:2",
+      "actions": [
+        "message:ribbonsHelp"
+      ],
+      "in": "courtyard",
+      "if": "!patternRead"
+    },
+    {
+      "when": "click:plantLabels",
+      "actions": [
+        "message:labelsDone"
+      ],
+      "in": "stall",
+      "if": "numberRead"
+    },
+    {
+      "when": "click:plantLabels",
+      "actions": [
+        "message:labels"
+      ],
+      "in": "stall",
+      "if": "!numberRead"
+    },
+    {
+      "when": "answer:labels:0",
+      "actions": [
+        "message:labelsHelp"
+      ],
+      "in": "stall",
+      "if": "!numberRead"
+    },
+    {
+      "when": "answer:labels:1",
+      "actions": [
+        "message:labelsHelp"
+      ],
+      "in": "stall",
+      "if": "!numberRead"
+    },
+    {
+      "when": "answer:labels:2",
+      "actions": [
+        "flag:numberRead",
+        "inventory:tag",
+        "sound:complete",
+        "message:labelsDone"
+      ],
+      "in": "stall",
+      "if": "!numberRead"
+    },
+    {
+      "when": "drop:tag:clueboard",
+      "actions": [
+        "message:labelsDone"
+      ],
+      "in": "home",
+      "if": "numberRead"
+    },
+    {
+      "when": "click:flowerCrate",
+      "actions": [
+        "message:flowersDone"
+      ],
+      "in": "stall",
+      "if": "flowersCounted"
+    },
+    {
+      "when": "click:flowerCrate",
+      "actions": [
+        "message:flowers"
+      ],
+      "in": "stall",
+      "if": "!flowersCounted"
+    },
+    {
+      "when": "answer:flowers:0",
+      "actions": [
+        "message:flowersHelp"
+      ],
+      "in": "stall",
+      "if": "!flowersCounted"
+    },
+    {
+      "when": "answer:flowers:1",
+      "actions": [
+        "flag:flowersCounted",
+        "sound:complete",
+        "message:flowersDone"
+      ],
+      "in": "stall",
+      "if": "!flowersCounted"
+    },
+    {
+      "when": "answer:flowers:2",
+      "actions": [
+        "message:flowersHelp"
+      ],
+      "in": "stall",
+      "if": "!flowersCounted"
+    },
+    {
+      "when": "click:door",
+      "actions": [
+        "scene:courtyard"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:homeDoor",
+      "actions": [
+        "scene:home"
+      ],
+      "in": "courtyard"
+    },
+    {
+      "when": "click:stallDoor",
+      "actions": [
+        "scene:stall"
+      ],
+      "in": "courtyard"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:courtyard"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:back",
+      "actions": [
+        "scene:courtyard"
+      ],
+      "in": "garden"
+    },
+    {
+      "when": "click:kabir",
+      "actions": [
+        "message:kabirHello"
+      ],
+      "in": "courtyard"
+    },
+    {
+      "when": "click:meena",
+      "actions": [
+        "message:meenaHello"
+      ],
+      "in": "stall"
+    },
+    {
+      "when": "click:meena",
+      "actions": [
+        "message:meenaSorry"
+      ],
+      "in": "garden"
+    },
+    {
+      "when": "click:clueboard",
+      "actions": [
+        "notebook:open"
+      ],
+      "in": "home"
+    },
+    {
+      "when": "click:gardenGate",
+      "actions": [
+        "scene:garden"
+      ],
+      "in": "courtyard",
+      "if": "gateOpened"
+    },
+    {
+      "when": "click:gardenGate",
+      "actions": [
+        "message:deduction"
+      ],
+      "in": "courtyard",
+      "if": "missingCount+trailRead+patternRead+numberRead"
+    },
+    {
+      "when": "click:gardenGate",
+      "actions": [
+        "message:gateBlocked"
+      ],
+      "in": "courtyard"
+    },
+    {
+      "when": "solve:deduction",
+      "actions": [
+        "flag:gateOpened",
+        "scene:garden",
+        "message:gateOpen"
+      ],
+      "in": "courtyard",
+      "if": "missingCount+trailRead+patternRead+numberRead"
+    },
+    {
+      "when": "guess:street",
+      "actions": [
+        "message:deductionRetry"
+      ],
+      "in": "courtyard",
+      "if": "missingCount+trailRead+patternRead+numberRead"
+    },
+    {
+      "when": "guess:cupboard",
+      "actions": [
+        "message:deductionRetry"
+      ],
+      "in": "courtyard",
+      "if": "missingCount+trailRead+patternRead+numberRead"
+    },
+    {
+      "when": "click:moonLantern",
+      "actions": [
+        "flag:lanternFound",
+        "sound:complete",
+        "message:lanternFound"
+      ],
+      "in": "garden",
+      "if": "gateOpened"
+    },
+    {
+      "when": "click:picnic",
+      "actions": [
+        "message:needLantern"
+      ],
+      "in": "garden",
+      "if": "!lanternFound"
+    },
+    {
+      "when": "click:picnic",
+      "actions": [
+        "message:needSnacks"
+      ],
+      "in": "garden",
+      "if": "!snacksPacked"
+    },
+    {
+      "when": "click:picnic",
+      "actions": [
+        "sequence:reunion"
+      ],
+      "in": "garden",
+      "if": "lanternFound+snacksPacked+!complete"
+    },
+    {
+      "when": "drop:snacks:picnic",
+      "actions": [
+        "sequence:reunion"
+      ],
+      "in": "garden",
+      "if": "inventory.snacks+lanternFound+snacksPacked+!complete"
+    },
+    {
+      "when": "drop:snacks:picnic",
+      "actions": [
+        "message:needLantern"
+      ],
+      "in": "garden",
+      "if": "!lanternFound"
+    },
+    {
+      "when": "picnic:done",
+      "actions": [
+        "flag:picnicShared",
+        "remove:snacks",
+        "ending:complete"
+      ],
+      "in": "garden",
+      "if": "lanternFound+snacksPacked"
+    }
+  ],
+  "sequences": {
+    "opening": [
+      {
+        "camera": "intro"
+      },
+      {
+        "line": "intro"
+      },
+      {
+        "camera": "wide"
+      }
+    ],
+    "reunion": [
+      {
+        "walk": 640
+      },
+      {
+        "camera": "conversation"
+      },
+      {
+        "pose": {
+          "actor": "meena",
+          "action": "gesture"
+        }
+      },
+      {
+        "line": "meenaSorry"
+      },
+      {
+        "pose": {
+          "actor": "meena",
+          "action": "idle"
+        }
+      },
+      {
+        "line": "kabirEnd"
+      },
+      {
+        "sound": "complete"
+      },
+      {
+        "effect": "lanternGlow"
+      },
+      {
+        "line": "picnicEnd"
+      },
+      {
+        "event": "picnic:done"
+      },
+      {
+        "ending": true
+      }
+    ]
+  },
+  "hints": [
+    {
+      "if": "!missingCount",
+      "text": "Count each empty hook once. Or start at six and count on to ten: seven, eight, nine, ten. Look for count the lantern hooks in the reading room."
+    },
+    {
+      "if": "!snacksPacked",
+      "text": "Touch each snack to count it. Start at seven and count five more: eight, nine, ten, eleven, twelve. Look for count the picnic snacks in the reading room."
+    },
+    {
+      "if": "!trailRead",
+      "text": "Compare the matching pairs of prints. The trail with fourteen has two left over. Look for compare the footprint trails in the little courtyard."
+    },
+    {
+      "if": "!patternRead",
+      "text": "Say the repeating part: blue, gold. After blue comes gold. Look for finish the ribbon pattern in the little courtyard."
+    },
+    {
+      "if": "!numberRead",
+      "text": "Count forward one at a time: eleven, twelve, thirteen, fourteen. Look for find the missing plant number in meena’s potting shed."
+    },
+    {
+      "text": "With your ribbon, petal and plant tag, open the courtyard greenhouse gate. Look at the lantern, then share your snacks at the picnic blanket."
+    }
+  ],
+  "objectives": [
+    {
+      "if": "!missingCount",
+      "text": "Start at the empty lantern hooks in the reading room."
+    },
+    {
+      "if": "!trailRead",
+      "text": "Follow the footprint clues in the courtyard."
+    },
+    {
+      "if": "!patternRead",
+      "text": "Look at the courtyard ribbon pattern."
+    },
+    {
+      "if": "!numberRead",
+      "text": "Ask Meena and find the missing plant number."
+    },
+    {
+      "if": "!gateOpened",
+      "text": "Bring your three clues to the greenhouse gate."
+    },
+    {
+      "if": "!lanternFound",
+      "text": "Look beside plant 13 in the greenhouse."
+    },
+    {
+      "if": "!snacksPacked",
+      "text": "Pack twelve snacks from the reading room."
+    },
+    {
+      "text": "Share the snacks at the greenhouse picnic blanket."
+    }
+  ],
+  "clues": [
+    {
+      "if": "missingCount",
+      "title": "A blue ribbon",
+      "text": "Caught on an empty lantern hook. It matches the greenhouse bunting."
+    },
+    {
+      "if": "trailRead",
+      "title": "A moonflower petal",
+      "text": "Fourteen prints lead toward the moonflowers; twelve lead to the street."
+    },
+    {
+      "if": "numberRead",
+      "title": "Plant number 13",
+      "text": "The missing tag: 11, 12, 13, 14. Moonflowers grow beside plant 13."
+    },
+    {
+      "if": "patternRead",
+      "title": "The ribbon pattern",
+      "text": "Blue, gold, blue, gold. A match for the greenhouse decorations."
+    }
+  ],
+  "puzzles": {
+    "hooks": {
+      "skill": "counting and subtraction within 10",
+      "visual": {
+        "type": "hooks",
+        "total": 10,
+        "filled": 6
+      },
+      "solvedIf": "missingCount",
+      "optional": false
+    },
+    "snacks": {
+      "skill": "addition within 20",
+      "visual": {
+        "type": "addition",
+        "groups": [
+          7,
+          5
+        ],
+        "labels": [
+          "Apple slices",
+          "Crackers"
+        ]
+      },
+      "solvedIf": "snacksPacked",
+      "optional": false
+    },
+    "trails": {
+      "skill": "comparing numbers within 20",
+      "visual": {
+        "type": "compare",
+        "groups": [
+          14,
+          12
+        ],
+        "labels": [
+          "Trail to moonflowers",
+          "Trail to the street"
+        ]
+      },
+      "solvedIf": "trailRead",
+      "optional": false
+    },
+    "ribbons": {
+      "skill": "repeating AB patterns",
+      "visual": {
+        "type": "pattern",
+        "sequence": [
+          "blue",
+          "gold",
+          "blue",
+          "gold",
+          "blue",
+          "?"
+        ]
+      },
+      "solvedIf": "patternRead",
+      "optional": false
+    },
+    "labels": {
+      "skill": "number order within 20",
+      "visual": {
+        "type": "order",
+        "sequence": [
+          11,
+          12,
+          "?",
+          14
+        ]
+      },
+      "solvedIf": "numberRead",
+      "optional": false
+    },
+    "flowers": {
+      "skill": "adding equal groups within 20",
+      "visual": {
+        "type": "addition",
+        "groups": [
+          6,
+          6
+        ],
+        "labels": [
+          "First basket",
+          "Second basket"
+        ]
+      },
+      "solvedIf": "flowersCounted",
+      "optional": true
+    }
+  }
+}

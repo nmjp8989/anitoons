@@ -84,3 +84,30 @@ and neighbour gestures. Dialogue uses large A/B/C/D buttons (keyboard letters or
 1–4), plus Cinematic/Follow/Wide camera modes, action close-ups, extra ambient
 props and a quiet original procedural score that ducks under speech. Stored
 voice clips are reused. Check `node tests/delivery-presentation.cjs` as well.
+
+## Mission 004 — The Missing Moon Lantern
+
+Open `/missions/moon-lantern.html` or `/missions/?mission=moon-lantern`.
+A cozy mystery in four original SVG locations: the reading room, courtyard,
+potting shed and moonflower greenhouse. Harpreet and Kabir follow a blue ribbon,
+a moonflower petal and plant tag 13; Meena has kept the lantern safe from the breeze.
+
+Grade 1 investigations use touchable visual counters: 10 − 6 empty hooks, 7 + 5
+picnic snacks, comparing 14 and 12 footprints, repeating blue/gold patterns,
+and ordering 11, 12, 13, 14. An optional 6 + 6 flower puzzle offers extra practice.
+Answers give explanatory retries; no timer, score or lives. A final deduction uses
+the collected evidence. The child can pack snacks early or return for them later.
+
+This mission reuses the Mission 003 walking/idle rig, camera, original procedural
+score, inventory controls, subtitles, autosave and sequence runner. The new
+`moon-lantern-art.js` supplies original vector scenery; `moon-lantern.js` adds
+the visual math table and clue notebook. Mission JSON owns all story state and
+correct answers. Saved progress is separate from Mission 003.
+
+Voice generation uses the existing GitHub workflow and reference voices; choose
+`moon-lantern` to regenerate just this mission. Until its audio manifest is available,
+all dialogue remains readable and the procedural music and sounds still play.
+
+Validation: `node tests/missions-004.cjs`, Mission 003 regression and shared
+camera/score checks. Browser/device layout should also be checked at landscape
+phone and desktop sizes.

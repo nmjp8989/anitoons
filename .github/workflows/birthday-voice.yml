@@ -1,0 +1,41 @@
+name: Generate temporary Jagnoor birthday greeting
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'birthday/line.txt'
+      - '.github/workflows/birthday-voice.yml'
+permissions:
+  contents: write
+jobs:
+  voice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install requests
+      - name: Generate MiMo birthday voice
+        env:
+          MIMO_API_KEY: ${{ secrets.MIMO_API_KEY }}
+        run: |
+          test -n "$MIMO_API_KEY" || { echo 'MIMO_API_KEY is missing'; exit 1; }
+          python tools/genaudio.py -i birthday/line.txt --voice male_sample.wav -o birthday/voice.mp3 --force
+          ffmpeg -y -hide_banner -loglevel error -i birthday/voice.mp3 -ar 22050 -ac 1 -b:a 32k birthday/voice-small.mp3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jagnoor-mimo-voice
+          path: birthday/voice-small.mp3
+      - name: Commit temporary birthday greeting voice
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add birthday/voice.mp3 birthday/voice-small.mp3
+          git diff --cached --quiet && exit 0
+          git commit -m 'Generate temporary Jagnoor voice with MiMo'
+          git pull --rebase origin main
+          git push origin HEAD:main

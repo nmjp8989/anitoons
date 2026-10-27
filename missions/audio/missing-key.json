@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "mission": "missing-key",
+  "lines": {
+    "welcome": {
+      "text": "Ah, you’re here! Before we head to the market, could you pass me that cup of chai?",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/welcome-f28c4dccac7a2d86adfd.mp3"
+    },
+    "cupHint": {
+      "text": "A warm cup of chai. Tap Harpreet to give it to him, or drag the cup onto him.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/cupHint-3725be2fa1e0f8ffa0e0.mp3"
+    },
+    "cupSpill": {
+      "text": "Tea belongs in a cup, not on my sofa! Try giving it to me.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/cupSpill-9450663592473e5f62bd.mp3"
+    },
+    "cantCombine": {
+      "text": "Those don’t go together. Try another object.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/cantCombine-b05c96020bb8f1117a49.mp3"
+    },
+    "badDrop": {
+      "text": "Drop it onto something that can use it. Or tap the item, then its target.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/badDrop-3fc5f100de3ff1c15af4.mp3"
+    },
+    "ask": {
+      "text": "Before we rush off… could you pass me that chai?",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/ask-5de36235150da66b7564.mp3"
+    },
+    "teaHow": {
+      "text": "Drag the cup on the table onto me. Or tap the cup, then tap me.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/teaHow-da511b8cdf19e5344d65.mp3"
+    },
+    "teaDone": {
+      "text": "Now that’s a proper cup of chai. One sip and I can think again…",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/teaDone-7a58ff6fdfac15390410.mp3"
+    },
+    "question": {
+      "text": "Where should we look for my scooter key?",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/question-6f570a63baf2ae812798.mp3"
+    },
+    "characterHome": {
+      "text": "That’s me! Tap the sofa to sit down, or choose what to ask.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/characterHome-11d8a993ac4a86798a3f.mp3"
+    },
+    "characterYard": {
+      "text": "Ready for a ride. Tap the scooter to help me onto it.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/characterYard-867c134f0fdfd5c50760.mp3"
+    },
+    "sofaSit": {
+      "text": "Ahh. This sofa is dangerously comfortable. But the market won’t wait!",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/sofaSit-dc2d53cbc7c8374a01a0.mp3"
+    },
+    "stand": {
+      "text": "Right. Back to our little adventure.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/stand-3f24ebca6b1077f4b367.mp3"
+    },
+    "cupboardBlocked": {
+      "text": "That’s my cupboard. Pass me the chai first — I’ll remember what I was doing.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/cupboardBlocked-9b1c54290ba8467ac74e.mp3"
+    },
+    "cupboardEmpty": {
+      "text": "Just the usual odds and ends now. The key is safely in your pocket.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/cupboardEmpty-6cde71c05f6462889d54.mp3"
+    },
+    "cupboardVisible": {
+      "text": "There it is, on the middle shelf. Tap the little golden key.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/cupboardVisible-8ccf81083e68f14896d7.mp3"
+    },
+    "cupboardFound": {
+      "text": "Of course! I put it away while tidying up. There’s the key, on the shelf.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/cupboardFound-de9e9507950161009e8a.mp3"
+    },
+    "keyFound": {
+      "text": "Found it! Keep the key in your pocket. Let’s see if the scooter is ready.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/keyFound-983ab9790b746c7469a2.mp3"
+    },
+    "keySelected": {
+      "text": "Key selected. Tap the scooter outside, or drag this key onto it.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/keySelected-9dfcbdeb35c49764a07b.mp3"
+    },
+    "keyUsed": {
+      "text": "The key has already unlocked the scooter.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/keyUsed-241c733ed6b4bcabaa3a.mp3"
+    },
+    "yardLocked": {
+      "text": "My trusty old scooter. Now, if only I could find the key…",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/yardLocked-d7a5e7469cacd9ed2ee2.mp3"
+    },
+    "yardUnlocked": {
+      "text": "There she is. Drag me onto the scooter, or tap me and then the scooter.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/yardUnlocked-23195847c29d4ac79bcf.mp3"
+    },
+    "homeTea": {
+      "text": "Back home. Let’s try that cupboard by the door.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/homeTea-dabe3a115c8c48aa7358.mp3"
+    },
+    "homeFresh": {
+      "text": "A little chai before we head out? The cup is on the table.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/homeFresh-df47b9a3a0d0969de2e1.mp3"
+    },
+    "homeKey": {
+      "text": "Key in your pocket. The scooter is waiting outside.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/homeKey-ca957e4b745909142faf.mp3"
+    },
+    "scooterLocked": {
+      "text": "Locked! No amount of hopeful staring will start this scooter.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/scooterLocked-f1bed9bf6b3db413200d.mp3"
+    },
+    "scooterUnlocked": {
+      "text": "Unlocked! Drag Harpreet onto the seat. Or tap Harpreet, then the scooter.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/scooterUnlocked-aa70512aab51991a9821.mp3"
+    },
+    "scooterReady": {
+      "text": "Ready when you are. Let’s go!",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/scooterReady-76aa46c9f1215872473f.mp3"
+    },
+    "keyUnlocked": {
+      "text": "That’s the one! A satisfying click. Now help me onto the scooter.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/keyUnlocked-06f5ec0224e9898dd7b0.mp3"
+    },
+    "mounted": {
+      "text": "Perfect! Key in. Shall we head to the market?",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/mounted-039ceac63d5e0aaf15fa.mp3"
+    },
+    "keyHint": {
+      "text": "Tap the key in your pocket, then tap the scooter. You can drag it there too.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/keyHint-30f1436076583f5b6912.mp3"
+    },
+    "needKey": {
+      "text": "The key is still inside the house. Tap the home doorway to return.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/needKey-3e9ac9faaa4b1e2b7f4a.mp3"
+    },
+    "departure": {
+      "text": "Next stop: the market. Hold on to your shopping list!",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/departure-d4c92af2ed6542c85b52.mp3"
+    },
+    "finished": {
+      "text": "Mission complete. One small errand, one very good cup of chai.",
+      "speaker": "harpreet",
+      "src": "audio/missing-key/finished-267e1b45fc975d5a79db.mp3"
+    }
+  }
+}

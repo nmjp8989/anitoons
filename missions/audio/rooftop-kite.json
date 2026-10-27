@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "mission": "rooftop-kite",
+  "lines": {
+    "welcome": {
+      "text": "The festival starts soon! My kite has a torn wing and no string. Could you help me make it fly?",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/welcome-153f825ae063bd26a31d.mp3"
+    },
+    "firstHint": {
+      "text": "See the coloured patch paper and the spool on the bench? Use the paper on the kite first, then add thread. Drag or tap-to-combine both ways.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/firstHint-902bfbdec725f338b20e.mp3"
+    },
+    "kiteTorn": {
+      "text": "Oh no, there’s a rip along the left wing. A little coloured paper should patch it.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/kiteTorn-deff482075e34e08b9e9.mp3"
+    },
+    "kitePatched": {
+      "text": "That patch looks splendid! But we still need a tail of cotton thread before the kite can fly.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/kitePatched-ebef2afc60d857d09806.mp3"
+    },
+    "kiteTied": {
+      "text": "Look at that! Good as new. Now let’s get some wind on the rooftop.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/kiteTied-0a6c28636a11c93e11f7.mp3"
+    },
+    "kiteReadyInShop": {
+      "text": "Perfect! Patch and string are ready. The roof is through the door on the right.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/kiteReadyInShop-5d330c752cd580df74ea.mp3"
+    },
+    "paperTaken": {
+      "text": "Bright orange repair paper! Tap the kite to attach it, or drag the paper from your pocket onto it.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/paperTaken-a334c224e5368a9495fd.mp3"
+    },
+    "threadTaken": {
+      "text": "A strong cotton thread. We’ll tie it onto the kite after we patch the tear.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/threadTaken-3542a4b7d3b344eacab8.mp3"
+    },
+    "needPatch": {
+      "text": "The thread will pull through that tear. Use the coloured patch paper first.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/needPatch-9c6622d4ea39a33e001c.mp3"
+    },
+    "paperAlready": {
+      "text": "This kite is already patched. Now it needs thread.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/paperAlready-83622e48ae5b98c42965.mp3"
+    },
+    "needString": {
+      "text": "Almost! The kite needs thread. There’s a spool on the bench.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/needString-bf73f23dcf55736442fe.mp3"
+    },
+    "stillBroken": {
+      "text": "Let’s fix the kite before heading up. The paper is on the left of the bench, and the spool is on the right.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/stillBroken-6d7ed9b893cdd1eb41da.mp3"
+    },
+    "roofEarly": {
+      "text": "It’s breezy out here, but the kite still needs repairs. Go back down and finish it.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/roofEarly-9a7c23b0a74cd62045ba.mp3"
+    },
+    "roofWelcome": {
+      "text": "What a beautiful sky! Put the kite on the chalk circle, then check which way the wind is blowing.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/roofWelcome-70b73b52aca0550d9973.mp3"
+    },
+    "roofKite": {
+      "text": "The kite feels lighter already. Tap the chalk circle to place it, or drag it there.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/roofKite-c64038c263e7c3451141.mp3"
+    },
+    "launchPadEmpty": {
+      "text": "The chalk circle marks the safest place to launch. Carry the repaired kite onto it.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/launchPadEmpty-e08e7e79ae16ab873d5b.mp3"
+    },
+    "launchPadReady": {
+      "text": "The kite is set! Now touch the weather vane and choose the gentler breeze.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/launchPadReady-edb87d51e69e75b4849b.mp3"
+    },
+    "windBefore": {
+      "text": "The vane is spinning. Place the repaired kite on the chalk circle first so we can test the wind.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/windBefore-9ee303290fab55feea90.mp3"
+    },
+    "windQuestion": {
+      "text": "The wind is changing. Which breeze should we use?",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/windQuestion-a479a889a4bc57f91ce7.mp3"
+    },
+    "badWind": {
+      "text": "WHOOSH! That gust nearly took my turban! Too strong for a little kite. Shall we try the gentle breeze?",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/badWind-64ec7bc9ff16918b10fa.mp3"
+    },
+    "goodWind": {
+      "text": "That’s it. A soft, steady breeze! The kite is ready. Press LAUNCH!",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/goodWind-886784aa9f897cdb1b3a.mp3"
+    },
+    "launchBlocked": {
+      "text": "We need a mended, tied kite in the chalk circle and a gentle breeze before we launch.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/launchBlocked-c483ecc7ffb65c57db3d.mp3"
+    },
+    "skyIntro": {
+      "text": "Ready, Harpreet? One… two… three… LET GO!",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/skyIntro-ca6aa017f307d71106e9.mp3"
+    },
+    "skyDone": {
+      "text": "Look at those colours! We did it. The whole neighbourhood can see our kite now!",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/skyDone-f43dd409886c3b855bf6.mp3"
+    },
+    "character": {
+      "text": "Come on, partner! Let’s get this kite in the air together.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/character-d4dec3d8a04a8ee4c63d.mp3"
+    },
+    "bell": {
+      "text": "Ting! The little shop bell sounds just like the start of festival day.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/bell-2addfb722331cdc76095.mp3"
+    },
+    "cantCombine": {
+      "text": "Those don’t fit together just yet. Try the patch on the kite, then the cotton thread.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/cantCombine-054a1c3ea8210b410f5a.mp3"
+    },
+    "badDrop": {
+      "text": "Try dropping the item on its destination — or select it and tap the target.",
+      "speaker": "harpreet",
+      "src": "audio/rooftop-kite/badDrop-e10944190c33ac8a95e5.mp3"
+    }
+  }
+}

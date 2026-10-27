@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "mission": "moon-lantern",
+  "lines": {
+    "intro": {
+      "text": "Our reading picnic is nearly ready. But the big moon lantern is missing! Let’s follow the clues. No need to hurry.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/intro-e199cb21f779714f9b18.mp3"
+    },
+    "kabirHello": {
+      "text": "I saw something blue flutter past the gate. Was it a tiny dragon? We should check the clues before we guess!",
+      "speaker": "kabir",
+      "src": "audio/moon-lantern/kabirHello-87af86051f5ee3b7d6cf.mp3"
+    },
+    "meenaHello": {
+      "text": "I moved a lantern out of the breeze so it would stay safe. Then I forgot to leave a note! The plant labels will show you where.",
+      "speaker": "meena",
+      "src": "audio/moon-lantern/meenaHello-31968e504458ad68fb3f.mp3"
+    },
+    "cantCombine": {
+      "text": "That is a useful clue. Keep it in your pocket and look around. Use the notebook to see how the clues fit together.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/cantCombine-3a18f435624586e446e9.mp3"
+    },
+    "saveResume": {
+      "text": "Welcome back, detective. Your clues are safe. Open the notebook if you want to remember what we found.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/saveResume-b7d0ed1b6dccf8449f61.mp3"
+    },
+    "gateBlocked": {
+      "text": "We need three clues: the ribbon colour, the kind of flower, and the plant number. The notebook will help.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/gateBlocked-1481eb6bce76f3a4ffe8.mp3"
+    },
+    "needSnacks": {
+      "text": "We found the lantern! Let’s collect twelve snacks from the reading room before we start the picnic.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/needSnacks-d580f77af367afd92ed2.mp3"
+    },
+    "needLantern": {
+      "text": "First, take a look at the moon lantern. How did it get here?",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/needLantern-b06bd5319e2146a99579.mp3"
+    },
+    "lanternFound": {
+      "text": "There it is, safe beside the moonflowers! A blue ribbon, a moonflower petal, and plant number 13. All our clues fit.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/lanternFound-0a4bc5c5493f680602fc.mp3"
+    },
+    "meenaSorry": {
+      "text": "The breeze tugged at its ribbon. I brought it here to keep it safe. I’m sorry I forgot the note.",
+      "speaker": "meena",
+      "src": "audio/moon-lantern/meenaSorry-affc591ebbfb32e782b6.mp3"
+    },
+    "kabirEnd": {
+      "text": "So nobody took it! And the greenhouse is a lovely place for a reading picnic. Can I sit by the moonflowers?",
+      "speaker": "kabir",
+      "src": "audio/moon-lantern/kabirEnd-f7efeb9a4c44b3b1f903.mp3"
+    },
+    "picnicEnd": {
+      "text": "Twelve snacks for all of us, one rescued lantern, and a story to share. Good detectives count carefully and ask kindly.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/picnicEnd-9b59c68f84104198c5df.mp3"
+    },
+    "alreadyShared": {
+      "text": "Our picnic is ready. Everyone has a place beside the lantern.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/alreadyShared-d9ea9859949b7875bb08.mp3"
+    },
+    "deduction": {
+      "text": "The blue ribbon, moonflower petal and number 13 all match. Where should we look?",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/deduction-15e3150a2565dd7f4d35.mp3"
+    },
+    "deductionRetry": {
+      "text": "Let’s use all three clues together: blue ribbon, moonflowers, and plant 13. Where can we find all three?",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/deductionRetry-02506e78273fc0957382.mp3"
+    },
+    "gateOpen": {
+      "text": "The gate opens onto a warm little greenhouse. Let’s see if our idea was right.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/gateOpen-e4480f89f1658fef70a7.mp3"
+    },
+    "flowersDone": {
+      "text": "Six plus six is twelve. Meena smiles: “Just right for our picnic!”",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/flowersDone-0b4f8e123d26c713e949.mp3"
+    },
+    "hooks": {
+      "text": "Ten hooks, six little lanterns. How many hooks are empty?",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/hooks-9ef4bea68e06ff55c9af.mp3"
+    },
+    "hooksHelp": {
+      "text": "Let’s look together. Count each empty hook once. Or start at six and count on to ten: seven, eight, nine, ten.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/hooksHelp-a60900298543591e66c9.mp3"
+    },
+    "hooksDone": {
+      "text": "Six lanterns and four empty hooks make ten. A blue ribbon is caught on the last hook. A clue!",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/hooksDone-88c8010306f29bb9979a.mp3"
+    },
+    "snacks": {
+      "text": "There are seven apple slices and five crackers. How many snacks altogether?",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/snacks-fc37afa96456a5afe8e2.mp3"
+    },
+    "snacksHelp": {
+      "text": "Let’s look together. Touch each snack to count it. Start at seven and count five more: eight, nine, ten, eleven, twelve.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/snacksHelp-3afc242eaf4664db06fb.mp3"
+    },
+    "snacksDone": {
+      "text": "Seven plus five is twelve. The picnic snacks are packed. Let’s take them along!",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/snacksDone-aa06686f9376bf9c0b90.mp3"
+    },
+    "trails": {
+      "text": "The long trail has fourteen prints. The short trail has twelve. Which trail has more?",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/trails-aa7d6889e58129a39aad.mp3"
+    },
+    "trailsHelp": {
+      "text": "Let’s look together. Compare the matching pairs of prints. The trail with fourteen has two left over.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/trailsHelp-8e1118d7b7f8d56d7e9d.mp3"
+    },
+    "trailsDone": {
+      "text": "Fourteen is more than twelve. The longer trail leads to the moonflowers. Here is a fallen moonflower petal!",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/trailsDone-53691e80e66b59efb161.mp3"
+    },
+    "ribbons": {
+      "text": "Blue, gold, blue, gold, blue… Which ribbon colour comes next?",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/ribbons-24ef26fcfd916f9a1be8.mp3"
+    },
+    "ribbonsHelp": {
+      "text": "Let’s look together. Say the repeating part: blue, gold. After blue comes gold.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/ribbonsHelp-df123e5f86d1da59bbbf.mp3"
+    },
+    "ribbonsDone": {
+      "text": "Gold comes next. This ribbon line repeats blue, gold. Our loose blue ribbon matches the greenhouse decorations!",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/ribbonsDone-852eb2aeefa4e838d3b7.mp3"
+    },
+    "labels": {
+      "text": "The plant labels read eleven, twelve, a missing number, fourteen. Which number is missing?",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/labels-04a2be62d642d5730e81.mp3"
+    },
+    "labelsHelp": {
+      "text": "Let’s look together. Count forward one at a time: eleven, twelve, thirteen, fourteen.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/labelsHelp-89be3df37054dbf1e0c6.mp3"
+    },
+    "labelsDone": {
+      "text": "Thirteen! This tag belongs beside the moonflowers in the greenhouse. Keep it as our last clue.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/labelsDone-7e310cfa3330fb78071f.mp3"
+    },
+    "flowers": {
+      "text": "Six flowers in this basket and six in that one. How many flowers altogether?",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/flowers-43ed96492f97904a2e00.mp3"
+    },
+    "flowersHelp": {
+      "text": "Let’s look together. Count six flowers, then six more. Or make ten first: six and four make ten, then add two.",
+      "speaker": "harpreet",
+      "src": "audio/moon-lantern/flowersHelp-52cf02408a09ca2215f3.mp3"
+    }
+  }
+}
